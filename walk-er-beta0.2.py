@@ -16,7 +16,6 @@ TODO:
 - Multivalued vs. binary Attributes:
   --> multivalued: departmenta(+professorid,#departmenta).
   --> binary:      male(#nameid).
-- Debug Mode (print all the things)
 '''
 
 class InputException(Exception):
@@ -27,13 +26,86 @@ import json
 import sys, os
 import pygame
 
+class setup:
+    
+    def __init__(self):
+        self.debugmode = False
+
+    def read_user_input(self):
+        '''Read the user-specified input for the file to parse
+        Succeeds if the file is valid.'''
+        args = sys.argv
+        if '-d' in args:
+            self.debugmode = True
+            args.remove('-d')
+        if len(args) != 2:
+            raise InputException(
+                '\nArgument error, exactly one file should be specified.'
+                '\nUsage: $ python walk-er.py [-d] [file]'
+            )
+        if not os.path.isfile(args[1]):
+            raise InputException(
+                '\nFile error, file not found.'
+                '\nUsage: $ python walk-er.py [-d] [file]'
+            )
+        return args[1]
+
+    def import_data(self, file_to_read):
+        '''Reads the contents of 'file_to_read', raises an exception if it cannot be read.'''
+        try:
+            doc = open(file_to_read).read()
+        except:
+            raise InputException(
+                '\nFile error, could not read file.'
+                '\nUsage: $ python walk-er.py [-d] [file]'
+            )
+        return doc
+
+class walker:
+
+    def __init__(self, debugmode=False):
+        self.debugmode = debugmode
+
+    def debug(self):
+        if self.debugmode:
+            print "\n'Debug Mode' is activated, intermediate steps will be printed to terminal.\n"
+
+    def extractVariables(self, json_dict):
+        '''
+        Input: a json dictionary
+        Returns of dictionary of entities, attributes, and relationships
+        '''
+        pass
+        
+    def extractRelationshipCardinality(self, json_dict):
+        '''
+        "Determine if a relationship is one-many, many-one, many-many, or unspecified in either direction."
+        Input: a json dictionary
+        Returns: each relationship in the json_dict bound to its cardinality
+        i.e. {'SiblingOf': ['one', 'many'], 'ParentOf': ['one', 'many'], 'Father': ['one', 'many']}
+        '''
+        pass
+
+    def walkFeatures(self, target, list_of_features):
+        '''
+        "Use user-selected features to construct background/modes."
+        Input: [target feature], [a list of features selected by the user].
+        Output: (for now, print modes to terminal, in the future write them to a file)
+        '''
+        pass
+
 def main():
+    Setup = setup()
     # specify file to read
-    json_file = read_user_input()
+    json_file = Setup.read_user_input()
     # import the file
-    json_data = import_data(json_file)
+    json_data = Setup.import_data(json_file)
     # convert from json format to something more python-friendly
     json_dict = json.loads(json_data)
+    
+    #Check if the user set the "debug mode" flag (-d)
+    Walker = walker(Setup.debugmode)
+    Walker.debug()
 
     variables = {}
     relationships = {}
@@ -216,61 +288,5 @@ def main():
                 print "mode: %s(%s)." % (feature.lower(), ','.join(output))
         '''
 
-    
-
-def read_user_input():
-    '''
-    Read the user-specified input for the file to parse
-    Succeeds if the file is valid.
-    '''
-    args = sys.argv
-    if len(args) != 2:
-        raise InputException(
-            '\nArgument error, exactly one file should be specified.'
-            '\nUsage: $ python walk-er.py [file]'
-        )
-    if not os.path.isfile(args[1]):
-        raise InputException(
-            '\nFile error, file not found.'
-            '\nUsage: $ python walk-er.py [file]'
-        )
-    return args[1]
-
-def import_data(file_to_read):
-    '''
-    Reads the contents of 'file_to_read', raises an exception if it cannot be read.
-    '''
-    try:
-        doc = open(file_to_read).read()
-    except:
-        raise InputException(
-            '\nFile error, could not read file.'
-            '\nUsage: $ python walk-er.py [file]'
-        )
-    return doc
-        
-def extractVariables(json_dict):
-    '''
-    Input: a json dictionary
-    Returns of dictionary of entities, attributes, and relationships
-    '''
-    pass
-
-def extractRelationshipCardinality(json_dict):
-    '''
-    "Determine if a relationship is one-many, many-one, many-many, or unspecified in either direction."
-    Input: a json dictionary
-    Returns: each relationship in the json_dict bound to its cardinality
-    i.e. {'SiblingOf': ['one', 'many'], 'ParentOf': ['one', 'many'], 'Father': ['one', 'many']}
-    '''
-    pass
-
-def walkFeatures(target, list_of_features):
-    '''
-    "Use user-selected features to construct background/modes."
-    Input: [target feature], [a list of features selected by the user].
-    Output: (for now, print modes to terminal, in the future write them to a file)
-    '''
-    pass
 
 if __name__ == '__main__': main()
