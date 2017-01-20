@@ -73,10 +73,90 @@ class walker:
     def extractVariables(self, json_dict):
         '''
         Input: a json dictionary
-        Returns of dictionary of entities, attributes, and relationships
+        Returns of dictionary of variables bound to their entity-id from ERDPlus
+        i.e. {'1': 'professorid', '10': 'courseid', '6': 'studentid'}
         '''
-        pass
+        ER_dictionary = {}
+        variable_dictionary = {}
         
+        if 'shapes' in json_dict:
+            for i in range(len(json_dict['shapes'])):
+                current = json_dict['shapes'][i]
+                if ('type' in current) and ('details' in current):
+                    number = str(current['details'].get('id'))
+                    name = str(current['details'].get('name'))
+                    ER_dictionary[number] = name
+                    if current['type'] == 'Entity':
+                        variable_dictionary[number] = name.lower() + 'id'
+        if self.debugmode:
+            print 'Variables:\n', str(variable_dictionary)
+            print 'All Shapes:\n', str(ER_dictionary)
+        return ER_dictionary, variable_dictionary
+        
+    def extractAttributes(self, json_dict, ER_dictionary, variable_dictionary):
+        '''
+        Input: a json dictionary, ER_dictionary, variable_dictionary
+        Returns a dictionary of [entity-id, isMultivalued] bound to their name:
+        i.e. {'Salary': ['True', '1'], 'Tenure': ['False', '1'], 'Rating': ['True', '10'], ...}
+        '''
+        attribute_dictionary = {}
+
+        if 'shapes' in json_dict:
+            for i in range(len(json_dict['shapes'])):
+                current = json_dict['shapes'][i]
+                if ('type' in current) and ('details' in current):
+                    if current['type'] == 'Attribute':
+                        #print current
+                        name = str(current['details'].get('name'))
+                        multi = str(current['details'].get('isMultivalued'))
+                        attribute_dictionary[name] = [multi]
+
+        if 'connectors' in json_dict:
+            for i in range(len(json_dict['connectors'])):
+                current = json_dict['connectors'][i]
+                if 'type' in current:
+                    if (current['type'] == 'Connector'):
+                        name = str(ER_dictionary.get(str(current['source'])))
+                        if name in attribute_dictionary:
+                            dest = str(current['destination'])
+                            attribute_dictionary[name].append(dest)
+        if self.debugmode:
+            print 'Attributes:\n', str(attribute_dictionary)
+        return attribute_dictionary
+
+    def extractRelationships(self, json_dict, variable_dictionary):
+        '''
+        "Determine if if a relationship is one-many, many-one, many-many, or unspecified."
+        Input: a json dictionary
+        i.e. {'Advises': ['6', '1', 'unspecified', 'unspecified'], ...}
+        '''
+        relationship_dictionary = {}
+        
+        if 'shapes' in json_dict:
+            for i in range(len(json_dict['shapes'])):
+                current = json_dict['shapes'][i]
+                if ('type' in current) and ('details' in current):
+                    name = str(current['details'].get('name'))
+                    if current['type'] == 'Relationship':
+                        temp = current['details'].get('slots')
+                        var1 = variable_dictionary.get(str(temp[0]['entityId']))
+                        var2 = variable_dictionary.get(str(temp[1]['entityId']))
+                        relationship_dictionary[name] = [str(temp[1]['entityId']), str(temp[0]['entityId'])]
+
+        for x in json_dict['shapes']:
+            shapes_dict = x['details'].get('slots')
+            if shapes_dict:
+                name = str(x['details'].get('name'))
+                dir1 = str(shapes_dict[0].get('cardinality'))
+                dir2 = str(shapes_dict[1].get('cardinality'))
+                relationship_dictionary[name].append(dir1)
+                relationship_dictionary[name].append(dir2)
+
+        if self.debugmode:
+            print 'Relationships:\n', str(relationship_dictionary)
+        return relationship_dictionary
+                
+
     def extractRelationshipCardinality(self, json_dict):
         '''
         "Determine if a relationship is one-many, many-one, many-many, or unspecified in either direction."
@@ -106,12 +186,20 @@ def main():
     #Check if the user set the "debug mode" flag (-d)
     Walker = walker(Setup.debugmode)
     Walker.debug()
+    
+    # find the variables (based on entities in the graph)
+    ER_dictionary, variable_dictionary = Walker.extractVariables(json_dict)
 
+    attribute_dictionary = Walker.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
+    
+    relationship_dictionary = Walker.extractRelationships(json_dict, variable_dictionary)
+    exit()
+    
     variables = {}
     relationships = {}
     relationships_cardinality = {}
     ER_dictionary = {}
-    
+
     if 'shapes' in json_dict:
         for i in range(len(json_dict['shapes'])):
             current = json_dict['shapes'][i]
@@ -168,7 +256,8 @@ def main():
                 #    print current['source'], '--->', current['destination']
                 #    continue
 
-    #print '\n\n' + str(variables) + '\n\n' + str(relationships) + '\n\n' + str(ER_dictionary) + '\n'
+    if Setup.debugmode:            
+        print '\n\n' + str(variables) + '\n\n' + 'relationships: ' + str(relationships) + '\n\n' + str(ER_dictionary) + '\n'
     
     '''
     DETERMINE CARDINALITY OF THE RELATIONSHIPS
@@ -184,7 +273,8 @@ def main():
             #print x['details'].get('name'), temp[0].get('cardinality'), temp[1].get('cardinality')
             relationships_cardinality[name] = [dir1, dir2]
 
-    #print str(relationships_cardinality) + '\n\n'
+    if Setup.debugmode:
+        print str(relationships_cardinality) + '\n\n'
 
     print "Please type a target from the list:"
     print relationships.keys()
