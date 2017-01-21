@@ -24,6 +24,7 @@ class InputException(Exception):
 
 import json
 import sys, os
+from collections import OrderedDict
 import pygame
 
 class setup:
@@ -61,7 +62,7 @@ class setup:
             )
         return doc
 
-class walker:
+class buildDictionaries:
 
     def __init__(self, debugmode=False):
         self.debugmode = debugmode
@@ -106,7 +107,6 @@ class walker:
                 current = json_dict['shapes'][i]
                 if ('type' in current) and ('details' in current):
                     if current['type'] == 'Attribute':
-                        #print current
                         name = str(current['details'].get('name'))
                         multi = str(current['details'].get('isMultivalued'))
                         attribute_dictionary[name] = [multi]
@@ -185,7 +185,11 @@ class walker:
                     print '\tError, "' + feature + '" not in list.'
             if (len(final_features) == len(features)):
                 break
-        return [target, final_features]
+        
+        targetAndFeatures = [target, list(OrderedDict.fromkeys(final_features))]
+        if self.debugmode:
+            print targetAndFeatures
+        return targetAndFeatures
         
     def walkFeatures(self, target, list_of_features):
         '''
@@ -205,22 +209,21 @@ def main():
     json_dict = json.loads(json_data)
     
     #Check if the user set the "debug mode" flag (-d)
-    Walker = walker(Setup.debugmode)
-    Walker.debug()
+    BuildDictionaries = buildDictionaries(Setup.debugmode)
+    BuildDictionaries.debug()
     
     # find the variables (based on entities in the graph), also create a dictionary of all shapes
-    ER_dictionary, variable_dictionary = Walker.extractVariables(json_dict)
+    ER_dictionary, variable_dictionary = BuildDictionaries.extractVariables(json_dict)
 
     # find the attributes
-    attribute_dictionary = Walker.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
+    attribute_dictionary = BuildDictionaries.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
     
     # find the relationships and their cardinality # {'Friends', ['1','1','many','many']}
-    relationship_dictionary = Walker.extractRelationships(json_dict, variable_dictionary)
+    relationship_dictionary = BuildDictionaries.extractRelationships(json_dict, variable_dictionary)
     
     # ask the user to choose some a target and relavent features:
-    targetAndFeatures = Walker.userOptions(attribute_dictionary, relationship_dictionary)
+    targetAndFeatures = BuildDictionaries.userOptions(attribute_dictionary, relationship_dictionary)
 
-    print targetAndFeatures
     exit()
     
     """
