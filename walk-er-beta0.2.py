@@ -126,9 +126,11 @@ class walker:
 
     def extractRelationships(self, json_dict, variable_dictionary):
         '''
+        TODO: ensure that directions are correct 1-->one, 1-->many
         "Determine if if a relationship is one-many, many-one, many-many, or unspecified."
-        Input: a json dictionary
-        i.e. {'Advises': ['6', '1', 'unspecified', 'unspecified'], ...}
+        Input: a json dictionary and a variable dictionary
+        Returns a dictionary of [to, from, toCardinality, fromCardinality]
+        i.e. {'Father': ['1', '1', 'one', 'many'], ...}
         '''
         relationship_dictionary = {}
         
@@ -155,17 +157,36 @@ class walker:
         if self.debugmode:
             print 'Relationships:\n', str(relationship_dictionary)
         return relationship_dictionary
-                
 
-    def extractRelationshipCardinality(self, json_dict):
-        '''
-        "Determine if a relationship is one-many, many-one, many-many, or unspecified in either direction."
-        Input: a json dictionary
-        Returns: each relationship in the json_dict bound to its cardinality
-        i.e. {'SiblingOf': ['one', 'many'], 'ParentOf': ['one', 'many'], 'Father': ['one', 'many']}
-        '''
-        pass
+    def userOptions(self, attribute_dictionary, relationship_dictionary):
+        '''Ask the user for ['target', ['feature1', 'feature2', ...]]'''
+        possible_targets = attribute_dictionary.keys() + relationship_dictionary.keys()
+        
+        while 1:
+            print "\nPlease select your target from this list:\n\t" + '    '.join(possible_targets)
+            sys.stdout.flush()
+            target = raw_input()
+            if target in possible_targets:
+                possible_targets.remove(target)
+                break
+            else:
+                print '\tError, target not in list.'
 
+        while 1:
+            print "\nPlease select features you want to learn over (separated by spaces):\n\t" + '    '.join(possible_targets)
+            sys.stdout.flush()
+            features = raw_input()
+            features = features.split()
+            final_features = []
+            for feature in features:
+                if feature in possible_targets:
+                    final_features.append(feature)
+                else:
+                    print '\tError, "' + feature + '" not in list.'
+            if (len(final_features) == len(features)):
+                break
+        return [target, final_features]
+        
     def walkFeatures(self, target, list_of_features):
         '''
         "Use user-selected features to construct background/modes."
@@ -187,14 +208,23 @@ def main():
     Walker = walker(Setup.debugmode)
     Walker.debug()
     
-    # find the variables (based on entities in the graph)
+    # find the variables (based on entities in the graph), also create a dictionary of all shapes
     ER_dictionary, variable_dictionary = Walker.extractVariables(json_dict)
 
+    # find the attributes
     attribute_dictionary = Walker.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
     
+    # find the relationships and their cardinality # {'Friends', ['1','1','many','many']}
     relationship_dictionary = Walker.extractRelationships(json_dict, variable_dictionary)
+    
+    # ask the user to choose some a target and relavent features:
+    targetAndFeatures = Walker.userOptions(attribute_dictionary, relationship_dictionary)
+
+    print targetAndFeatures
     exit()
     
+    """
+    exit()
     variables = {}
     relationships = {}
     relationships_cardinality = {}
@@ -276,8 +306,10 @@ def main():
     if Setup.debugmode:
         print str(relationships_cardinality) + '\n\n'
 
-    print "Please type a target from the list:"
-    print relationships.keys()
+    possible_targets = relationship_dictionary.keys() + attribute_dictionary.keys()
+
+    print "\nPlease type a target from the list:"
+    print '\t' + '    '.join(possible_targets)
     sys.stdout.flush()
     try:
         target = raw_input()
@@ -285,13 +317,15 @@ def main():
         exit()
 
     #if target in ER_dictionary.values():
-    if target in relationships.keys():
+    if target in possible_targets:
         print 'Target: ', target
+        possible_targets.remove(target)
     else:
         print 'Error, target not in list.'
         exit()
 
-    print "Please select features you want to learn over (separated by spaces)"
+    print "\nPlease select features you want to learn over (separated by spaces):"
+    print '\t' + '    '.join(possible_targets)
     sys.stdout.flush()
     try:
         features = raw_input()
@@ -299,11 +333,13 @@ def main():
     except:
         exit()
     print 'Features: ', features
+
+    """
     
     print '\n\n' + 'Modes:'
 
     print '//target'
-    target_variables = relationships[target]    
+    target_variables = relationships[target]
     #print target_variables
     if len(target_variables) == 1:
         print "mode: %s(+%s,#%s)." % (target.lower(), variables.get(relationships[target][0]), target.lower())
