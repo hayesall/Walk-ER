@@ -1,15 +1,4 @@
 '''
-Walk-ER vBeta0.2
-"Walker" for Entity-Relational Diagrams from ERDPlus
-https://erdplus.com/#/
-
-Written by Alexander L. Hayes, Indiana University STARAI Lab
-Last Updated: January 20, 2017
-
-> Used for parsing the JSON file exports from ERDPlus.
-> Parses the document, rebuilds the relationships and assists the user in creating
-  a BoostSRL Background Modes file.
-
 TODO:
 - SQL Table Conversion (may or may not be possible)
 - pygame
@@ -22,6 +11,10 @@ class InputException(Exception):
     def handle(self):
         print self.message
 
+class InvalidArgumentException(Exception):
+    def handle(self):
+        print self.message
+
 import json
 import sys, os
 from collections import OrderedDict
@@ -31,25 +24,75 @@ class setup:
     
     def __init__(self):
         self.debugmode = False
+        self.cmdmode = True
+        self.helpmode = False
+        self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd']
 
     def read_user_input(self):
         '''Read the user-specified input for the file to parse
         Succeeds if the file is valid.'''
         args = sys.argv
-        if '-d' in args:
+        flags = args[1:-1]
+
+        for flag in flags:
+            if flag not in self.validargs:
+                raise InvalidArgumentException(
+                    '\nUnknown argument: %s' % flag
+                )
+
+        # Help: print help to out and terminate program.
+        if ('-h' in args) or ('--help' in args):
+            self.helpmode = True
+            print '''
+NAME
+    Walk-ER vBeta0.2
+
+SYNOPSIS
+    $ python walker.py [OPTIONS] [FILE]
+    
+    >>> import walker
+
+DESCRIPTION
+    "Walker" for Entity-Relational Diagrams from ERDPlus
+    https://erdplus.com/#/
+
+    Used for parsing the JSON file exports from ERDPlus.
+    Parses the document, rebuilds the relationships and assists the user in creating a BoostSRL Background File.
+
+OPTIONS
+    -h, --help: Print a message that briefly summarizes command-line options and help information, then exits.
+            
+    -v, --verbose:
+            "Debug Mode," where intermediate steps are printed to terminal.
+            Most applicable when Commandline mode is also activated.
+
+    -c, --cmd: "Commandline Mode", override the gui and interact through the shell.
+
+AUTHOR
+    Written by Alexander L. Hayes, Indiana University STARAI Lab
+    Bugs/Questions: hayesall@indiana.edu
+    Last Updated: January 23, 2017
+
+COPYRIGHT
+    Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+    This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+            '''
+            exit()
+
+        # Debug Mode:
+        if ('-v' in args) or ('--verbose' in args):
             self.debugmode = True
-            args.remove('-d')
-        if len(args) != 2:
-            raise InputException(
-                '\nArgument error, exactly one file should be specified.'
-                '\nUsage: $ python walk-er.py [-d] [file]'
-            )
-        if not os.path.isfile(args[1]):
+
+        # gui override: commandline mode
+        if ('-c' in args) or ('--cmd' in args):
+            self.cmdmode = True
+
+        if not os.path.isfile(args[-1]):
             raise InputException(
                 '\nFile error, file not found.'
-                '\nUsage: $ python walk-er.py [-d] [file]'
+                '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
-        return args[1]
+        return args[-1]
 
     def import_data(self, file_to_read):
         '''Reads the contents of 'file_to_read', raises an exception if it cannot be read.'''
@@ -58,7 +101,7 @@ class setup:
         except:
             raise InputException(
                 '\nFile error, could not read file.'
-                '\nUsage: $ python walk-er.py [-d] [file]'
+                '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
         return doc
 
@@ -79,6 +122,7 @@ class buildDictionaries:
         '''
         ER_dictionary = {}
         variable_dictionary = {}
+        coordinates = {}
         
         if 'shapes' in json_dict:
             for i in range(len(json_dict['shapes'])):
@@ -86,13 +130,18 @@ class buildDictionaries:
                 if ('type' in current) and ('details' in current):
                     number = str(current['details'].get('id'))
                     name = str(current['details'].get('name'))
+                    xcoord = str(current['details'].get('x'))
+                    ycoord = str(current['details'].get('y'))
+
+                    coordinates[number] = [xcoord, ycoord]
                     ER_dictionary[number] = name
                     if current['type'] == 'Entity':
                         variable_dictionary[number] = name.lower() + 'id'
         if self.debugmode:
             print 'Variables:\n', str(variable_dictionary)
             print 'All Shapes:\n', str(ER_dictionary)
-        return ER_dictionary, variable_dictionary
+            print 'Coordinates:\n', str(coordinates)
+        return ER_dictionary, variable_dictionary, coordinates
         
     def extractAttributes(self, json_dict, ER_dictionary, variable_dictionary):
         '''
@@ -126,11 +175,14 @@ class buildDictionaries:
 
     def extractRelationships(self, json_dict, variable_dictionary):
         '''
-        TODO: ensure that directions are correct 1-->one, 1-->many
         "Determine if if a relationship is one-many, many-one, many-many, or unspecified."
         Input: a json dictionary and a variable dictionary
         Returns a dictionary of [to, from, toCardinality, fromCardinality]
-        i.e. {'Father': ['1', '1', 'one', 'many'], ...}
+        i.e. {'Advises': ['6', '1', 'many', 'one']}
+          --> Many students are advised by a professor.
+        i.e. {'Takes': ['10', '6', 'many', 'many']}
+          --> Many courses are taken by many students.
+          --(or)-> students take multiple courses, and courses are taken by multiple students.
         '''
         relationship_dictionary = {}
         
@@ -151,14 +203,14 @@ class buildDictionaries:
                 name = str(x['details'].get('name'))
                 dir1 = str(shapes_dict[0].get('cardinality'))
                 dir2 = str(shapes_dict[1].get('cardinality'))
-                relationship_dictionary[name].append(dir1)
                 relationship_dictionary[name].append(dir2)
+                relationship_dictionary[name].append(dir1)
 
         if self.debugmode:
             print 'Relationships:\n', str(relationship_dictionary)
         return relationship_dictionary
 
-    def userOptions(self, attribute_dictionary, relationship_dictionary):
+    def targetFeatureSelection(self, attribute_dictionary, relationship_dictionary):
         '''Ask the user for ['target', ['feature1', 'feature2', ...]]'''
         possible_targets = attribute_dictionary.keys() + relationship_dictionary.keys()
         
@@ -190,7 +242,12 @@ class buildDictionaries:
         if self.debugmode:
             print targetAndFeatures
         return targetAndFeatures
-        
+
+class walkFeatures:
+
+    def __init__(self):
+        pass
+
     def walkFeatures(self, target, list_of_features):
         '''
         "Use user-selected features to construct background/modes."
@@ -198,6 +255,8 @@ class buildDictionaries:
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
         pass
+
+
 
 def main():
     Setup = setup()
@@ -208,12 +267,12 @@ def main():
     # convert from json format to something more python-friendly
     json_dict = json.loads(json_data)
     
-    #Check if the user set the "debug mode" flag (-d)
+    #Check if the user set the "debug mode" flag (-v, --verbose)
     BuildDictionaries = buildDictionaries(Setup.debugmode)
     BuildDictionaries.debug()
     
     # find the variables (based on entities in the graph), also create a dictionary of all shapes
-    ER_dictionary, variable_dictionary = BuildDictionaries.extractVariables(json_dict)
+    ER_dictionary, variable_dictionary, coordinates = BuildDictionaries.extractVariables(json_dict)
 
     # find the attributes
     attribute_dictionary = BuildDictionaries.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
@@ -222,7 +281,7 @@ def main():
     relationship_dictionary = BuildDictionaries.extractRelationships(json_dict, variable_dictionary)
     
     # ask the user to choose some a target and relavent features:
-    targetAndFeatures = BuildDictionaries.userOptions(attribute_dictionary, relationship_dictionary)
+    targetAndFeatures = BuildDictionaries.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
 
     exit()
     
