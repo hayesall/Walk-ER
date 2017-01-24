@@ -5,6 +5,8 @@ TODO:
 - Multivalued vs. binary Attributes:
   --> multivalued: departmenta(+professorid,#departmenta).
   --> binary:      male(#nameid).
+- Rebuild the graph (networkx can operate over dictionaries of lists, where the key is the node id
+  and the value is a list of nodes the id is directed to).
 '''
 
 class InputException(Exception):
@@ -19,6 +21,7 @@ import json
 import sys, os
 from collections import OrderedDict
 import pygame
+
 
 class setup:
     
@@ -122,7 +125,7 @@ class buildDictionaries:
         '''
         ER_dictionary = {}
         variable_dictionary = {}
-        coordinates = {}
+        coordinate_dictionary = {}
         
         if 'shapes' in json_dict:
             for i in range(len(json_dict['shapes'])):
@@ -133,15 +136,15 @@ class buildDictionaries:
                     xcoord = str(current['details'].get('x'))
                     ycoord = str(current['details'].get('y'))
 
-                    coordinates[number] = [xcoord, ycoord]
+                    coordinate_dictionary[number] = [xcoord, ycoord]
                     ER_dictionary[number] = name
                     if current['type'] == 'Entity':
                         variable_dictionary[number] = name.lower() + 'id'
         if self.debugmode:
             print 'Variables:\n', str(variable_dictionary)
             print 'All Shapes:\n', str(ER_dictionary)
-            print 'Coordinates:\n', str(coordinates)
-        return ER_dictionary, variable_dictionary, coordinates
+            print 'Coordinates:\n', str(coordinate_dictionary)
+        return ER_dictionary, variable_dictionary, coordinate_dictionary
         
     def extractAttributes(self, json_dict, ER_dictionary, variable_dictionary):
         '''
@@ -210,6 +213,11 @@ class buildDictionaries:
             print 'Relationships:\n', str(relationship_dictionary)
         return relationship_dictionary
 
+class cmdlineMode:
+
+    def __init__(self, debugmode=False):
+        self.debugmode = debugmode
+
     def targetFeatureSelection(self, attribute_dictionary, relationship_dictionary):
         '''Ask the user for ['target', ['feature1', 'feature2', ...]]'''
         possible_targets = attribute_dictionary.keys() + relationship_dictionary.keys()
@@ -243,10 +251,105 @@ class buildDictionaries:
             print targetAndFeatures
         return targetAndFeatures
 
-class walkFeatures:
+class constructModes:
 
+    def __init__(self, targetsAndFeatures):
+        print "\n\n//Modes:"
+        self.targetsAndFeatures = targetsAndFeatures
+        pass
+
+    def handleTargetVariables(self):
+        print "//target:"
+        target_variable = self.targetsAndFeatures[0]
+
+    def handleRelationVariables(self):
+        pass
+    
+    def handleAttributeVariables(self):
+        pass
+
+    """
+    target_variables = relationships[target]
+    #print target_variables
+    if len(target_variables) == 1:
+        print "mode: %s(+%s,#%s)." % (target.lower(), variables.get(relationships[target][0]), target.lower())
+    if len(target_variables) == 2:
+        print "mode: %s(+%s,+%s)." % (target.lower(), variables.get(relationships[target][0]), variables.get(relationships[target][1]))
+    
+    print '//features'
+    #for feature in features:
+    # attributes that are "multivalued" should only include the hash value
+    for feature in relationships:
+        if (len(relationships[feature]) == 2):
+            symbol = relationships[feature]
+            if (symbol[0] == symbol[1]):
+                # This section can be simplified, pay attention to where 'many' is.
+                if (relationships_cardinality.get(feature) == ['many', 'many']):
+                    #i.e. (friends relationship), print two lines
+                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
+                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
+                elif (relationships_cardinality.get(feature) == ['one', 'many']):
+                    #i.e. (siblingof), print one line
+                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
+                elif (relationships_cardinality.get(feature) == ['many', 'one']):
+                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
+        
+        if (feature not in features):
+            if (len(relationships[feature]) == 1):
+                # attributes
+                # check if the variable is multivalued
+                var = variables.get(relationships[feature][0])
+                print "mode: %s(%s,#%s)." % (feature.lower(), '+' + var, feature.lower())
+            else:
+                output = []
+                for var in relationships[feature]:
+                    output.append('+' + variables.get(var))
+                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
+        else:
+            # lists of length 1 are attributes
+            if (len(relationships[feature]) == 1):
+                if relationships[feature][0] in target_variables:
+                    # assign +
+                    symbol = '+'
+                else:
+                    # assign -
+                    symbol = '+'
+                var = variables.get(relationships[feature][0])
+                print "mode: %s(%s%s,#%s)." % (feature.lower(), symbol, var, feature.lower())
+            # lists of length 2 are relationships
+            else:
+                output = []
+                for var in relationships[feature]:
+                    if var in target_variables:
+                        # assign +
+                        symbol = '+'
+                    else:
+                        # assign -
+                        symbol = '-'
+                    var = variables.get(var)
+                    output.append(symbol+var)
+                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
+                    
+    """
+
+class unitTests:
+    
     def __init__(self):
         pass
+
+    def run_unit_tests(self):
+        pass
+
+class networks:
+    
+    def __init__(self):
+        import networkx as nx
+        pass
+
+    def find_pagerank(graph):
+        '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
+        G = nx.from_dict_of_lists(graph)
+        return nx.pagerank(G, alpha=0.85)
 
     def walkFeatures(self, target, list_of_features):
         '''
@@ -256,9 +359,8 @@ class walkFeatures:
         '''
         pass
 
-
-
 def main():
+    '''Setup'''
     Setup = setup()
     # specify file to read
     json_file = Setup.read_user_input()
@@ -267,12 +369,13 @@ def main():
     # convert from json format to something more python-friendly
     json_dict = json.loads(json_data)
     
+    '''Create dictionaries from the provided file'''
     #Check if the user set the "debug mode" flag (-v, --verbose)
     BuildDictionaries = buildDictionaries(Setup.debugmode)
     BuildDictionaries.debug()
     
     # find the variables (based on entities in the graph), also create a dictionary of all shapes
-    ER_dictionary, variable_dictionary, coordinates = BuildDictionaries.extractVariables(json_dict)
+    ER_dictionary, variable_dictionary, coordinate_dictionary = BuildDictionaries.extractVariables(json_dict)
 
     # find the attributes
     attribute_dictionary = BuildDictionaries.extractAttributes(json_dict, ER_dictionary, variable_dictionary)
@@ -280,8 +383,17 @@ def main():
     # find the relationships and their cardinality # {'Friends', ['1','1','many','many']}
     relationship_dictionary = BuildDictionaries.extractRelationships(json_dict, variable_dictionary)
     
-    # ask the user to choose some a target and relavent features:
-    targetAndFeatures = BuildDictionaries.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+    '''Different options depending on whether the user is in gui/cmdline mode'''
+    if Setup.cmdmode:
+        cmdlinemode = cmdlineMode(Setup.debugmode)
+        # Ask the user for the target and useful features.
+        targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+    else:
+        guimode = guiMode() #debugmode is irrelevant with the gui.
+        #targetAndFeatures = guimode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+        
+    ConstructModes = constructModes(targetAndFeatures)
+    ConstructModes.handleTargetVariables()        
 
     exit()
     
@@ -396,7 +508,7 @@ def main():
         exit()
     print 'Features: ', features
 
-    """
+
     
     print '\n\n' + 'Modes:'
 
@@ -462,7 +574,6 @@ def main():
                     output.append(symbol+var)
                 print "mode: %s(%s)." % (feature.lower(), ','.join(output))
                     
-        '''
         if (feature not in features):
             if (len(relationships[feature]) == 1):
                 # attributes
@@ -474,7 +585,8 @@ def main():
                 for var in relationships[feature]:
                     output.append('+' + variables.get(var))
                 print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-        '''
+
+    """
 
 
 if __name__ == '__main__': main()
