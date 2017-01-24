@@ -253,14 +253,20 @@ class cmdlineMode:
 
 class constructModes:
 
-    def __init__(self, targetsAndFeatures):
-        print "\n\n//Modes:"
-        self.targetsAndFeatures = targetsAndFeatures
-        pass
+    def __init__(self, targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, cmdlinemode=True):
+        self.cmdmode = cmdlinemode
+        self.target = targetAndFeatures[0]
+        self.features = targetAndFeatures[1]
+        self.ER_dictionary = ER_dictionary
+        self.variable_dictionary = variable_dictionary
+        self.attribute_dictionary = attribute_dictionary
+        if self.cmdmode:
+            print "\n\n//Modes:"
 
     def handleTargetVariables(self):
-        print "//target:"
-        target_variable = self.targetsAndFeatures[0]
+        if self.cmdmode:
+            print "//target:"
+        target_variable = self.target
 
     def handleRelationVariables(self):
         pass
@@ -344,7 +350,6 @@ class networks:
     
     def __init__(self):
         import networkx as nx
-        pass
 
     def find_pagerank(graph):
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
@@ -389,15 +394,37 @@ def main():
         # Ask the user for the target and useful features.
         targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
     else:
-        guimode = guiMode() #debugmode is irrelevant with the gui.
+        # guimode currently isn't implemented
+        guimode = guiMode(coordinate_dictionary) #debugmode is irrelevant with the gui.
         #targetAndFeatures = guimode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
-    ConstructModes = constructModes(targetAndFeatures)
+    #ConstructModes = constructModes(targetAndFeatures)
+    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary)
     ConstructModes.handleTargetVariables()        
 
     exit()
     
     """
+Target:  Advises
+Please select features you want to learn over (separated by spaces)
+DepartmentA DepartmentB TAs Teaches
+Features:  ['DepartmentA', 'DepartmentB', 'TAs', 'Teaches']
+
+Modes:
+//target
+mode: advises(+studentid,+professorid).
+//features
+mode: advises(+studentid,+professorid).
+mode: salary(+professorid,#salary).
+mode: takes(+courseid,+studentid).
+mode: tas(-courseid,+studentid).
+mode: departmenta(+professorid,#departmenta).
+mode: rating(+courseid,#rating).
+mode: gpa(+studentid,#gpa).
+mode: tenure(+professorid,#tenure).
+mode: teaches(-courseid,+professorid).
+mode: departmentb(+studentid,#departmentb).
+
     exit()
     variables = {}
     relationships = {}
