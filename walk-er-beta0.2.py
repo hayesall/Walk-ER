@@ -18,10 +18,9 @@ class InvalidArgumentException(Exception):
         print self.message
 
 import json
-import sys, os
+import sys
+import os
 from collections import OrderedDict
-import pygame
-
 
 class setup:
     
@@ -250,6 +249,12 @@ class cmdlineMode:
         if self.debugmode:
             print targetAndFeatures
         return targetAndFeatures
+
+class guiMode:
+
+    def __init__(self):
+        import pygame
+        pass
 
 class constructModes:
 
