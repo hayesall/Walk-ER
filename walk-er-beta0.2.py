@@ -73,7 +73,7 @@ OPTIONS
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: January 23, 2017
+    Last Updated: January 24, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -265,14 +265,34 @@ class constructModes:
         self.ER_dictionary = ER_dictionary
         self.variable_dictionary = variable_dictionary
         self.attribute_dictionary = attribute_dictionary
+        self.relationship_dictionary = relationship_dictionary
         if self.cmdmode:
             print "\n\n//Modes:"
 
     def handleTargetVariables(self):
         if self.cmdmode:
             print "//target:"
-        target_variable = self.target
+        #target_variables = self.relationship_dictionary.get(self.target)
 
+        # The target can be either a relation or an attribute
+        if self.target in self.relationship_dictionary:
+            # ['1', '1', 'many', 'one']
+            variable_type = 'relationship'
+            print self.relationship_dictionary.get(self.target)
+        elif self.target in self.attribute_dictionary:
+            # ['False', '1']
+            variable_type = 'attribute'
+            print self.attribute_dictionary.get(self.target)
+        else:
+            raise InvalidArgumentException(
+                '\nTarget variable is neither an attribute nor a relationship.'
+                '\nIf you experience this error, send the file and a description to Alexander.'
+                '\nUsage: $ python walker.py [OPTIONS] [FILE]'
+            )
+        
+        #if len(target)_variable == 
+        #print target_variables
+        
     def handleRelationVariables(self):
         pass
     
@@ -429,118 +449,6 @@ mode: gpa(+studentid,#gpa).
 mode: tenure(+professorid,#tenure).
 mode: teaches(-courseid,+professorid).
 mode: departmentb(+studentid,#departmentb).
-
-    exit()
-    variables = {}
-    relationships = {}
-    relationships_cardinality = {}
-    ER_dictionary = {}
-
-    if 'shapes' in json_dict:
-        for i in range(len(json_dict['shapes'])):
-            current = json_dict['shapes'][i]
-            if ('type' in current) and ('details' in current):
-                # Find all shapes in the er-diagram (map id# to the name)
-                number = str(current['details'].get('id'))
-                name = str(current['details'].get('name'))
-                ER_dictionary[number] = name
-
-                # create the variables from which we construct the predicates
-                if current['type'] == 'Entity':
-                    variables[number] = name.lower() + 'id'
-                    
-                # attributes must reference the entity they are associated with
-                # if name is 'Attribute':
-
-                # Find the direction of the relationships (prof advises student =/= student advises professor)
-                # TODO: Move this to a separate part of the function based on the possibility that variables haven't been
-                # added before they are referenced (small chance but still possible)
-                # append to the 'relationships' list
-                if current['type'] == 'Relationship':
-                    temp = current['details'].get('slots')
-                    var1 = variables.get(str(temp[0]['entityId']))
-                    var2 = variables.get(str(temp[1]['entityId']))
-                    #print current['details'].get('slots')[0]['entityId'], name, current['details'].get('slots')[1]['entityId']
-                    #print temp[0]['entityId'], name.lower(), temp[1]['entityId']
-                    #print "%s(%s,%s)." % (name.lower(), var1, var2)
-                    # Instead appends the relationship ('name', '1', '6') to the relationships list, these can be reconstructed at the end.
-                    # Remember that we're doing predicate-logic format, so we would expect relations of the form:
-                    # advises(+sid, +pid) --> pid advises sid
-                    #relationships.append([name, str(temp[1]['entityId']), str(temp[0]['entityId'])])
-                    relationships[name] = [str(temp[1]['entityId']), str(temp[0]['entityId'])]
-                
-                #print current['type'], current['details'].get('name'), current['details'].get('id'), '(', current['details'].get('x'), ',', current['details'].get('y'), ')'
-    
-    if 'connectors' in json_dict:
-        for i in range(len(json_dict['connectors'])):
-            current = json_dict['connectors'][i]
-            if 'type' in current:
-                if current['type'] == 'Connector':
-                    #print current['source'], '<-->', current['destination']
-                    #continue
-                    var1 = ER_dictionary.get(str(current['source']))
-                    var2 = variables.get(str(current['destination']))
-                    var3 = str(current['destination'])
-                    #relationships.append([var1, var2, var1])
-                    #print '   ', var1, var2, var3
-                    #relationships.append([str(current['source']), str(current['destination']), str(current['destination'])])
-                    #relationships.append([var1, var3])
-                    relationships[var1] = [var3]
-                    #print "%s(%s,#%s)" % (var1, var2, var1)
-                # relationships have already been constructed by looking at properties of the shapes.
-                #if current['type'] == 'RelationshipConnector':
-                #    print current['source'], '--->', current['destination']
-                #    continue
-
-    if Setup.debugmode:            
-        print '\n\n' + str(variables) + '\n\n' + 'relationships: ' + str(relationships) + '\n\n' + str(ER_dictionary) + '\n'
-    
-    '''
-    DETERMINE CARDINALITY OF THE RELATIONSHIPS
-    This is some basic code for determining whether a relationship is one-many, many-many, or unspecified.
-    TODO: Warn the user if relationship type is invalid (many-one?), but default to one-one
-    '''
-    for x in json_dict['shapes']:
-        shapes_dict = x['details'].get('slots')
-        if shapes_dict:
-            name = str(x['details'].get('name'))
-            dir1 = str(shapes_dict[0].get('cardinality'))
-            dir2 = str(shapes_dict[1].get('cardinality'))
-            #print x['details'].get('name'), temp[0].get('cardinality'), temp[1].get('cardinality')
-            relationships_cardinality[name] = [dir1, dir2]
-
-    if Setup.debugmode:
-        print str(relationships_cardinality) + '\n\n'
-
-    possible_targets = relationship_dictionary.keys() + attribute_dictionary.keys()
-
-    print "\nPlease type a target from the list:"
-    print '\t' + '    '.join(possible_targets)
-    sys.stdout.flush()
-    try:
-        target = raw_input()
-    except:
-        exit()
-
-    #if target in ER_dictionary.values():
-    if target in possible_targets:
-        print 'Target: ', target
-        possible_targets.remove(target)
-    else:
-        print 'Error, target not in list.'
-        exit()
-
-    print "\nPlease select features you want to learn over (separated by spaces):"
-    print '\t' + '    '.join(possible_targets)
-    sys.stdout.flush()
-    try:
-        features = raw_input()
-        features = features.split()
-    except:
-        exit()
-    print 'Features: ', features
-
-
     
     print '\n\n' + 'Modes:'
 
