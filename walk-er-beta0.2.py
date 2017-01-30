@@ -30,22 +30,8 @@ class setup:
         self.helpmode = False
         self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd']
 
-    def read_user_input(self):
-        '''Read the user-specified input for the file to parse
-        Succeeds if the file is valid.'''
-        args = sys.argv
-        flags = args[1:-1]
-
-        for flag in flags:
-            if flag not in self.validargs:
-                raise InvalidArgumentException(
-                    '\nUnknown argument: %s' % flag
-                )
-
-        # Help: print help to out and terminate program.
-        if ('-h' in args) or ('--help' in args):
-            self.helpmode = True
-            print '''
+    def print_help_menu(self):
+        print '''
 NAME
     Walk-ER vBeta0.2
 
@@ -79,9 +65,30 @@ COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
     This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
             '''
-            exit()
+        exit()
 
-        # Debug Mode:
+    def read_user_input(self):
+        '''Read the user-specified input for the file to parse
+        Succeeds if the file is valid.'''
+        args = sys.argv
+        flags = args[1:-1]
+        
+        #check if there are no arguments
+        if (len(args) == 1):
+            self.print_help_menu()
+
+        for flag in flags:
+            if flag not in self.validargs:
+                raise InvalidArgumentException(
+                    '\nUnknown argument: %s' % flag
+                )
+
+        # Help: print help to out and terminate program.
+        if ('-h' in args) or ('--help' in args):
+            self.helpmode = True
+            self.print_help_menu()
+
+        # Debug mode
         if ('-v' in args) or ('--verbose' in args):
             self.debugmode = True
 
@@ -89,6 +96,7 @@ COPYRIGHT
         if ('-c' in args) or ('--cmd' in args):
             self.cmdmode = True
 
+        # not file not found
         if not os.path.isfile(args[-1]):
             raise InputException(
                 '\nFile error, file not found.'
@@ -258,8 +266,12 @@ class guiMode:
 
 class constructModes:
 
-    def __init__(self, targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, cmdlinemode=True):
+    def __init__(
+            self, targetAndFeatures, ER_dictionary, 
+            variable_dictionary, attribute_dictionary, 
+            relationship_dictionary, cmdlinemode=True, debugmode=False):
         self.cmdmode = cmdlinemode
+        self.debugmode = debugmode
         self.target = targetAndFeatures[0]
         self.features = targetAndFeatures[1]
         self.ER_dictionary = ER_dictionary
@@ -272,29 +284,53 @@ class constructModes:
     def handleTargetVariables(self):
         if self.cmdmode:
             print "//target:"
-        #target_variables = self.relationship_dictionary.get(self.target)
 
         # The target can be either a relation or an attribute
         if self.target in self.relationship_dictionary:
             # ['1', '1', 'many', 'one']
-            variable_type = 'relationship'
-            print self.relationship_dictionary.get(self.target)
+            #target_type = 'relationship'
+            if self.debugmode:
+                print self.relationship_dictionary.get(self.target)
+            
+            target_variable = self.relationship_dictionary[self.target][0:2]
+
+            if self.cmdmode:
+                print "mode: %s(+%s,+%s)." % (self.target.lower(), \
+                                              self.variable_dictionary.get(target_variable[0]), \
+                                              self.variable_dictionary.get(target_variable[1]))
+
         elif self.target in self.attribute_dictionary:
             # ['False', '1']
-            variable_type = 'attribute'
-            print self.attribute_dictionary.get(self.target)
+            #target_type = 'attribute'
+            target_variable = self.attribute_dictionary.get(self.target)
+
+            if self.debugmode:
+                print "//Target Variable: ", target_variable
+            
+            isMultivalued = (target_variable[0] == 'True')
+
+            if isMultivalued:
+                if self.cmdmode:
+                    print "mode: %s(+%s,#%s)." % (self.target.lower(), \
+                                                  self.variable_dictionary.get(target_variable[1]), \
+                                                  self.target.lower())
+            else:
+                if self.cmdmode:
+                    print "mode: %s(+%s)." % (self.target.lower(), \
+                                              self.variable_dictionary.get(target_variable[1]))
+                
         else:
             raise InvalidArgumentException(
                 '\nTarget variable is neither an attribute nor a relationship.'
-                '\nIf you experience this error, send the file and a description to Alexander.'
+                '\nIf you experience this error, send the file and a brief description to Alexander.'
                 '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
-        
-        #if len(target)_variable == 
-        #print target_variables
-        
+
     def handleRelationVariables(self):
-        pass
+        for feature in self.features:
+            if feature in self.relationship_dictionary:
+                print self.relationship_dictionary[feature]
+            
     
     def handleAttributeVariables(self):
         pass
@@ -424,8 +460,12 @@ def main():
         #targetAndFeatures = guimode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
     #ConstructModes = constructModes(targetAndFeatures)
-    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary)
-    ConstructModes.handleTargetVariables()        
+    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
+    ConstructModes.handleTargetVariables()
+    
+    #ConstructModes.handleRelationVariables()
+
+    #ConstructModes.handleAttributeVariables()
 
     exit()
     
