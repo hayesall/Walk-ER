@@ -2,9 +2,6 @@
 TODO:
 - SQL Table Conversion (may or may not be possible)
 - pygame
-- Multivalued vs. binary Attributes:
-  --> multivalued: departmenta(+professorid,#departmenta).
-  --> binary:      male(#nameid).
 - Rebuild the graph (networkx can operate over dictionaries of lists, where the key is the node id
   and the value is a list of nodes the id is directed to).
 '''
@@ -278,6 +275,7 @@ class constructModes:
         self.variable_dictionary = variable_dictionary
         self.attribute_dictionary = attribute_dictionary
         self.relationship_dictionary = relationship_dictionary
+        self.target_variables = []
         if self.cmdmode:
             print "\n\n//Modes:"
 
@@ -293,11 +291,16 @@ class constructModes:
                 print self.relationship_dictionary.get(self.target)
             
             target_variable = self.relationship_dictionary[self.target][0:2]
+            self.target_variables = [self.variable_dictionary.get(target_variable[0]),
+                                     self.variable_dictionary.get(target_variable[1])]
 
             if self.cmdmode:
-                print "mode: %s(+%s,+%s)." % (self.target.lower(), \
-                                              self.variable_dictionary.get(target_variable[0]), \
-                                              self.variable_dictionary.get(target_variable[1]))
+                print "mode: %s(+%s,+%s)." % (self.target.lower(), 
+                                              self.target_variables[0], 
+                                              self.target_variables[1])
+            
+            #handle reflexive relationships by cutting extra variables
+            self.target_variables = list(set(self.target_variables))
 
         elif self.target in self.attribute_dictionary:
             # ['False', '1']
@@ -309,15 +312,19 @@ class constructModes:
             
             isMultivalued = (target_variable[0] == 'True')
 
+            self.target_variables = [self.variable_dictionary.get(target_variable[1])]
+
             if isMultivalued:
                 if self.cmdmode:
-                    print "mode: %s(+%s,#%s)." % (self.target.lower(), \
-                                                  self.variable_dictionary.get(target_variable[1]), \
+                    print "mode: %s(+%s,#%s)." % (self.target.lower(), 
+                                                  self.target_variables[0],
                                                   self.target.lower())
+                #else we're in gui mode and we should print directly to a file
             else:
                 if self.cmdmode:
-                    print "mode: %s(+%s)." % (self.target.lower(), \
-                                              self.variable_dictionary.get(target_variable[1]))
+                    print "mode: %s(+%s)." % (self.target.lower(), 
+                                              self.target_variables[0])
+                #else we're in gui mode and we should print directly to a file
                 
         else:
             raise InvalidArgumentException(
@@ -327,9 +334,19 @@ class constructModes:
             )
 
     def handleRelationVariables(self):
-        for feature in self.features:
-            if feature in self.relationship_dictionary:
-                print self.relationship_dictionary[feature]
+        print self.relationship_dictionary.keys()
+        
+        for rel in self.relationship_dictionary.keys():
+            if rel in self.target:
+                #do nothing
+                continue
+            elif rel in self.features:
+                #print self.relationship_dictionary[rel]
+                print rel, "-", self.relationship_dictionary[rel]
+                for cardinality in self.relationship_dictionary[rel][2:4]:
+                    print cardinality
+            else:
+                print rel, "+", self.relationship_dictionary[rel]
             
     
     def handleAttributeVariables(self):
@@ -463,7 +480,7 @@ def main():
     ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
     ConstructModes.handleTargetVariables()
     
-    #ConstructModes.handleRelationVariables()
+    ConstructModes.handleRelationVariables()
 
     #ConstructModes.handleAttributeVariables()
 
