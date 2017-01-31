@@ -332,25 +332,71 @@ class constructModes:
                 '\nIf you experience this error, send the file and a brief description to Alexander.'
                 '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
+        print "//all other variables:"
 
     def handleRelationVariables(self):
-        print self.relationship_dictionary.keys()
-        
+        #TODO: check if variables are the same: [1, 1, many, many]
+        #print self.relationship_dictionary.keys()
+
+        # iterate through all relationships
         for rel in self.relationship_dictionary.keys():
+            # we've already handled the target, skip it.
             if rel in self.target:
-                #do nothing
                 continue
+            # if the relation is important, 
             elif rel in self.features:
                 #print self.relationship_dictionary[rel]
-                print rel, "-", self.relationship_dictionary[rel]
+                #print rel, "-", self.relationship_dictionary[rel]
                 for cardinality in self.relationship_dictionary[rel][2:4]:
-                    print cardinality
+                    if (cardinality == 'one'):
+                        continue
+                    elif (cardinality == 'many'):
+                        continue
+                        print "mode: %s(+%s)"
+                    elif (cardinality == 'unspecified'):
+                        continue
+                    else:
+                        print "This is likely an error."
+                        exit()
+                    #print cardinality
+            # if the relation is "less important," fill with +
             else:
-                print rel, "+", self.relationship_dictionary[rel]
+                current = self.relationship_dictionary[rel]
+                print "mode: %s(+%s,+%s)." % (rel.lower(),
+                                                         self.variable_dictionary.get(current[0]),
+                                                         self.variable_dictionary.get(current[1]))
+                #print rel, "+", self.relationship_dictionary[rel]
             
     
     def handleAttributeVariables(self):
-        pass
+        for attr in self.attribute_dictionary.keys():
+            current_attribute = self.attribute_dictionary[attr]
+            isMultivalued = (current_attribute[0] == 'True')
+            #print "current_attribute: ", attr, current_attribute
+            
+            # check if variable is in self.target_variables --> important/less important
+            if ((self.variable_dictionary.get(current_attribute[1]) not in self.target_variables) 
+                and 
+                (attr in self.features)):
+                # "if the attribute variable is not a target variable, but is an important feature"
+                instantiation_symbol = '-'
+            else:
+                # "otherwise, the variable has either been instantiated or was deemed unimportant"
+                instantiation_symbol = '+'
+
+            if attr in self.target:
+                # variable has already been handled, do nothing.
+                continue
+            else:
+                if isMultivalued:
+                    if self.cmdmode:
+                        print "mode: %s(%s%s,#%s)." % (attr.lower(), instantiation_symbol,
+                                                       self.variable_dictionary.get(current_attribute[1]),
+                                                       attr.lower())
+                else:
+                    if self.cmdmode:
+                        print "mode: %s(%s%s)." % (attr.lower(), instantiation_symbol,
+                                                   self.variable_dictionary.get(current_attribute[1]))
 
     """
     target_variables = relationships[target]
@@ -482,7 +528,7 @@ def main():
     
     ConstructModes.handleRelationVariables()
 
-    #ConstructModes.handleAttributeVariables()
+    ConstructModes.handleAttributeVariables()
 
     exit()
     
