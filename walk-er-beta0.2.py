@@ -23,6 +23,7 @@ class setup:
     
     def __init__(self):
         self.debugmode = False
+        # I'm defaulting cmdmode to True since the GUI isn't implemented yet
         self.cmdmode = True
         self.helpmode = False
         self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd']
@@ -354,6 +355,7 @@ class constructModes:
                         continue
                         print "mode: %s(+%s)"
                     elif (cardinality == 'unspecified'):
+                        # default to [many, many] if the variables are the same
                         continue
                     else:
                         print "This is likely an error."
@@ -372,20 +374,18 @@ class constructModes:
         for attr in self.attribute_dictionary.keys():
             current_attribute = self.attribute_dictionary[attr]
             isMultivalued = (current_attribute[0] == 'True')
-            #print "current_attribute: ", attr, current_attribute
             
-            # check if variable is in self.target_variables --> important/less important
             if ((self.variable_dictionary.get(current_attribute[1]) not in self.target_variables) 
                 and 
                 (attr in self.features)):
-                # "if the attribute variable is not a target variable, but is an important feature"
+                # If the attribute variable is not a target variable, but is an important feature.
                 instantiation_symbol = '-'
             else:
-                # "otherwise, the variable has either been instantiated or was deemed unimportant"
+                # Otherwise, the variable has either been instantiated or was deemed unimportant.
                 instantiation_symbol = '+'
 
             if attr in self.target:
-                # variable has already been handled, do nothing.
+                # The variable has already been handled, do nothing.
                 continue
             else:
                 if isMultivalued:
