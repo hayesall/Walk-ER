@@ -57,7 +57,7 @@ OPTIONS
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: January 24, 2017
+    Last Updated: January 31, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -346,27 +346,35 @@ class constructModes:
                 continue
             # if the relation is important, 
             elif rel in self.features:
-                #print self.relationship_dictionary[rel]
-                #print rel, "-", self.relationship_dictionary[rel]
+                print self.relationship_dictionary[rel]
+                print rel, "-", self.relationship_dictionary[rel]
+                print self.relationship_dictionary[rel][2:4]
                 for cardinality in self.relationship_dictionary[rel][2:4]:
                     if (cardinality == 'one'):
-                        continue
-                    elif (cardinality == 'many'):
-                        continue
+                        #print rel[0]
+                        #print self.variable_dictionary.get(rel[0])
+                        #print self.relationship_dictionary.get(self.ER_dictionary[rel])
+                        print self.ER_dictionary
+                        print self.relationship_dictionary
+                        #print self.relationship_dictionary
+                        print "mode: %s(+%s)" % (rel, 'hello')
+                    elif ((cardinality == 'many') or (cardinality == 'unspecified')):
+                        #continue
+                        # many relationship is the default state
                         print "mode: %s(+%s)"
-                    elif (cardinality == 'unspecified'):
+                    #elif (cardinality == 'unspecified'): # default to many
                         # default to [many, many] if the variables are the same
-                        continue
+                        #continue
                     else:
                         print "This is likely an error."
                         exit()
-                    #print cardinality
+                    print cardinality
             # if the relation is "less important," fill with +
             else:
                 current = self.relationship_dictionary[rel]
                 print "mode: %s(+%s,+%s)." % (rel.lower(),
-                                                         self.variable_dictionary.get(current[0]),
-                                                         self.variable_dictionary.get(current[1]))
+                                              self.variable_dictionary.get(current[0]),
+                                              self.variable_dictionary.get(current[1]))
                 #print rel, "+", self.relationship_dictionary[rel]
             
     
