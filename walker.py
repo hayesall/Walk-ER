@@ -373,6 +373,7 @@ class constructModes:
         self.attribute_dictionary = attribute_dictionary
         self.relationship_dictionary = relationship_dictionary
         self.target_variables = []
+        self.all_modes = []
         if self.cmdmode:
             print "\n\n//Modes:"
 
@@ -391,10 +392,12 @@ class constructModes:
             self.target_variables = [self.variable_dictionary.get(target_variable[0]),
                                      self.variable_dictionary.get(target_variable[1])]
 
+            current_mode = "mode: %s(+%s,+%s)." % (self.target.lower(),
+                                                   self.target_variables[0],
+                                                   self.target_variables[1])
             if self.cmdmode:
-                print "mode: %s(+%s,+%s)." % (self.target.lower(), 
-                                              self.target_variables[0], 
-                                              self.target_variables[1])
+                print current_mode
+            self.all_modes.append(current_mode)
             
             #handle reflexive relationships by cutting extra variables
             self.target_variables = list(set(self.target_variables))
@@ -412,15 +415,19 @@ class constructModes:
             self.target_variables = [self.variable_dictionary.get(target_variable[1])]
 
             if isMultivalued:
+                current_mode = "mode: %s(+%s,#%s)." % (self.target.lower(), 
+                                                       self.target_variables[0],
+                                                       self.target.lower())
                 if self.cmdmode:
-                    print "mode: %s(+%s,#%s)." % (self.target.lower(), 
-                                                  self.target_variables[0],
-                                                  self.target.lower())
+                    print current_mode
+                self.all_modes.append(current_mode)
                 #else we're in gui mode and we should print directly to a file
             else:
+                current_mode = "mode: %s(+%s)." % (self.target.lower(), 
+                                                   self.target_variables[0])
                 if self.cmdmode:
-                    print "mode: %s(+%s)." % (self.target.lower(), 
-                                              self.target_variables[0])
+                    print current_mode
+                self.all_modes.append(current_mode)
                 #else we're in gui mode and we should print directly to a file
                 
         else:
@@ -444,9 +451,12 @@ class constructModes:
                     # check for reflexivity
                     a_mode = self.variable_dictionary.get(current_relation[0])
                     b_mode = self.variable_dictionary.get(current_relation[1])
+                    current_mode1 = "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
+                    current_mode2 = "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
                     if self.cmdmode:
-                        print "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
-                        print "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
+                        print current_mode1, '\n', current_mode2
+                    self.all_modes.append(current_mode1)
+                    self.all_modes.append(current_mode2)
                 else:
                     #relationship is not reflexive
                     inst_a = '+'
@@ -455,17 +465,22 @@ class constructModes:
                         inst_a = '-'
                     if (self.variable_dictionary.get(current_relation[1]) not in self.target_variables):
                         inst_b = '-'
+                    current_mode = "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
+                                                             self.variable_dictionary.get(current_relation[0]),
+                                                             inst_b,
+                                                             self.variable_dictionary.get(current_relation[1]))
                     if self.cmdmode:
-                        print "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
-                                                        self.variable_dictionary.get(current_relation[0]),
-                                                        inst_b,
-                                                        self.variable_dictionary.get(current_relation[1]))
+                        print current_mode
+                    self.all_modes.append(current_mode)
+
             else:
                 # if the relation is "less important," fill with +
+                current_mode = "mode: %s(+%s,+%s)." % (rel.lower(),
+                                                       self.variable_dictionary.get(current_relation[0]),
+                                                       self.variable_dictionary.get(current_relation[1]))
                 if self.cmdmode:
-                    print "mode: %s(+%s,+%s)." % (rel.lower(),
-                                                  self.variable_dictionary.get(current_relation[0]),
-                                                  self.variable_dictionary.get(current_relation[1]))
+                    print current_mode
+                self.all_modes.append(current_mode)
             
     
     def handleAttributeVariables(self):
@@ -487,14 +502,32 @@ class constructModes:
                 continue
             else:
                 if isMultivalued:
-                    if self.cmdmode:
-                        print "mode: %s(%s%s,#%s)." % (attr.lower(), instantiation_symbol,
-                                                       self.variable_dictionary.get(current_attribute[1]),
-                                                       attr.lower())
+                    current_mode = "mode: %s(%s%s,#%s)." % (attr.lower(), instantiation_symbol,
+                                                            self.variable_dictionary.get(current_attribute[1]),
+                                                            attr.lower())
                 else:
-                    if self.cmdmode:
-                        print "mode: %s(%s%s)." % (attr.lower(), instantiation_symbol,
-                                                   self.variable_dictionary.get(current_attribute[1]))
+                    current_mode = "mode: %s(%s%s)." % (attr.lower(), instantiation_symbol,
+                                                        self.variable_dictionary.get(current_attribute[1]))
+                if self.cmdmode:
+                    print current_mode
+                self.all_modes.append(current_mode)
+
+    def write_modes_to_file(self):
+        if self.cmdmode:
+            while 1:
+                print '\nWould you like to write these modes to a background.txt file? [y/n]'
+                sys.stdout.flush()
+                write_choice = raw_input()
+                if ((write_choice == 'y') or (write_choice == 'Y') or (write_choice == 'yes')):
+                    print '\nWriting modes to background.txt'
+                    print self.all_modes
+                    print len(self.all_modes)f
+                    break
+                elif ((write_choice == 'n') or (write_choice == 'N') or (write_choice == 'no')):
+                    print '\nNow exiting.'
+                    break
+                else:
+                    print '\nInvalid choice.'
 
 class unitTests:
     
@@ -587,4 +620,5 @@ if __name__ == '__main__':
     ConstructModes.handleRelationVariables()
     ConstructModes.handleAttributeVariables()
 
+    ConstructModes.write_modes_to_file()
     exit()
