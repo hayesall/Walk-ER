@@ -333,49 +333,40 @@ class constructModes:
                 '\nIf you experience this error, send the file and a brief description to Alexander.'
                 '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
-        print "//all other variables:"
+        print "//other features"
 
     def handleRelationVariables(self):
-        #TODO: check if variables are the same: [1, 1, many, many]
-        #print self.relationship_dictionary.keys()
-
         # iterate through all relationships
         for rel in self.relationship_dictionary.keys():
             # we've already handled the target, skip it.
+            current_relation = self.relationship_dictionary[rel]
             if rel in self.target:
                 continue
-            # if the relation is important, 
             elif rel in self.features:
-                print self.relationship_dictionary[rel]
-                print rel, "-", self.relationship_dictionary[rel]
-                print self.relationship_dictionary[rel][2:4]
-                for cardinality in self.relationship_dictionary[rel][2:4]:
-                    if (cardinality == 'one'):
-                        #print rel[0]
-                        #print self.variable_dictionary.get(rel[0])
-                        #print self.relationship_dictionary.get(self.ER_dictionary[rel])
-                        print self.ER_dictionary
-                        print self.relationship_dictionary
-                        #print self.relationship_dictionary
-                        print "mode: %s(+%s)" % (rel, 'hello')
-                    elif ((cardinality == 'many') or (cardinality == 'unspecified')):
-                        #continue
-                        # many relationship is the default state
-                        print "mode: %s(+%s)"
-                    #elif (cardinality == 'unspecified'): # default to many
-                        # default to [many, many] if the variables are the same
-                        #continue
-                    else:
-                        print "This is likely an error."
-                        exit()
-                    print cardinality
-            # if the relation is "less important," fill with +
+                #relationship is important
+                if (current_relation[0] == current_relation[1]):
+                    # check for reflexivity
+                    a_mode = self.variable_dictionary.get(current_relation[0])
+                    b_mode = self.variable_dictionary.get(current_relation[1])
+                    print "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
+                    print "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
+                else:
+                    #relationship is not reflexive
+                    inst_a = '+'
+                    inst_b = '+'
+                    if (self.variable_dictionary.get(current_relation[0]) not in self.target_variables):
+                        inst_a = '-'
+                    if (self.variable_dictionary.get(current_relation[1]) not in self.target_variables):
+                        inst_b = '-'
+                    print "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
+                                                    self.variable_dictionary.get(current_relation[0]),
+                                                    inst_b,
+                                                    self.variable_dictionary.get(current_relation[1]))
             else:
-                current = self.relationship_dictionary[rel]
+                # if the relation is "less important," fill with +
                 print "mode: %s(+%s,+%s)." % (rel.lower(),
-                                              self.variable_dictionary.get(current[0]),
-                                              self.variable_dictionary.get(current[1]))
-                #print rel, "+", self.relationship_dictionary[rel]
+                                              self.variable_dictionary.get(current_relation[0]),
+                                              self.variable_dictionary.get(current_relation[1]))
             
     
     def handleAttributeVariables(self):
@@ -406,70 +397,6 @@ class constructModes:
                         print "mode: %s(%s%s)." % (attr.lower(), instantiation_symbol,
                                                    self.variable_dictionary.get(current_attribute[1]))
 
-    """
-    target_variables = relationships[target]
-    #print target_variables
-    if len(target_variables) == 1:
-        print "mode: %s(+%s,#%s)." % (target.lower(), variables.get(relationships[target][0]), target.lower())
-    if len(target_variables) == 2:
-        print "mode: %s(+%s,+%s)." % (target.lower(), variables.get(relationships[target][0]), variables.get(relationships[target][1]))
-    
-    print '//features'
-    #for feature in features:
-    # attributes that are "multivalued" should only include the hash value
-    for feature in relationships:
-        if (len(relationships[feature]) == 2):
-            symbol = relationships[feature]
-            if (symbol[0] == symbol[1]):
-                # This section can be simplified, pay attention to where 'many' is.
-                if (relationships_cardinality.get(feature) == ['many', 'many']):
-                    #i.e. (friends relationship), print two lines
-                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
-                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
-                elif (relationships_cardinality.get(feature) == ['one', 'many']):
-                    #i.e. (siblingof), print one line
-                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
-                elif (relationships_cardinality.get(feature) == ['many', 'one']):
-                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
-        
-        if (feature not in features):
-            if (len(relationships[feature]) == 1):
-                # attributes
-                # check if the variable is multivalued
-                var = variables.get(relationships[feature][0])
-                print "mode: %s(%s,#%s)." % (feature.lower(), '+' + var, feature.lower())
-            else:
-                output = []
-                for var in relationships[feature]:
-                    output.append('+' + variables.get(var))
-                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-        else:
-            # lists of length 1 are attributes
-            if (len(relationships[feature]) == 1):
-                if relationships[feature][0] in target_variables:
-                    # assign +
-                    symbol = '+'
-                else:
-                    # assign -
-                    symbol = '+'
-                var = variables.get(relationships[feature][0])
-                print "mode: %s(%s%s,#%s)." % (feature.lower(), symbol, var, feature.lower())
-            # lists of length 2 are relationships
-            else:
-                output = []
-                for var in relationships[feature]:
-                    if var in target_variables:
-                        # assign +
-                        symbol = '+'
-                    else:
-                        # assign -
-                        symbol = '-'
-                    var = variables.get(var)
-                    output.append(symbol+var)
-                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-                    
-    """
-
 class unitTests:
     
     def __init__(self):
@@ -496,7 +423,7 @@ class networks:
         '''
         pass
 
-def main():
+if __name__ == '__main__':
     '''Setup'''
     Setup = setup()
     # specify file to read
@@ -532,6 +459,7 @@ def main():
         
     #ConstructModes = constructModes(targetAndFeatures)
     ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
+
     ConstructModes.handleTargetVariables()
     
     ConstructModes.handleRelationVariables()
@@ -539,105 +467,3 @@ def main():
     ConstructModes.handleAttributeVariables()
 
     exit()
-    
-    """
-Target:  Advises
-Please select features you want to learn over (separated by spaces)
-DepartmentA DepartmentB TAs Teaches
-Features:  ['DepartmentA', 'DepartmentB', 'TAs', 'Teaches']
-
-Modes:
-//target
-mode: advises(+studentid,+professorid).
-//features
-mode: advises(+studentid,+professorid).
-mode: salary(+professorid,#salary).
-mode: takes(+courseid,+studentid).
-mode: tas(-courseid,+studentid).
-mode: departmenta(+professorid,#departmenta).
-mode: rating(+courseid,#rating).
-mode: gpa(+studentid,#gpa).
-mode: tenure(+professorid,#tenure).
-mode: teaches(-courseid,+professorid).
-mode: departmentb(+studentid,#departmentb).
-    
-    print '\n\n' + 'Modes:'
-
-    print '//target'
-    target_variables = relationships[target]
-    #print target_variables
-    if len(target_variables) == 1:
-        print "mode: %s(+%s,#%s)." % (target.lower(), variables.get(relationships[target][0]), target.lower())
-    if len(target_variables) == 2:
-        print "mode: %s(+%s,+%s)." % (target.lower(), variables.get(relationships[target][0]), variables.get(relationships[target][1]))
-    
-    print '//features'
-    #for feature in features:
-    # attributes that are "multivalued" should only include the hash value
-    for feature in relationships:
-        if (len(relationships[feature]) == 2):
-            symbol = relationships[feature]
-            if (symbol[0] == symbol[1]):
-                # This section can be simplified, pay attention to where 'many' is.
-                if (relationships_cardinality.get(feature) == ['many', 'many']):
-                    #i.e. (friends relationship), print two lines
-                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
-                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
-                elif (relationships_cardinality.get(feature) == ['one', 'many']):
-                    #i.e. (siblingof), print one line
-                    print "mode: %s(%s,%s)." % (feature.lower(), '+' + variables[symbol[0]], '-' + variables[symbol[1]])
-                elif (relationships_cardinality.get(feature) == ['many', 'one']):
-                    print "mode: %s(%s,%s)." % (feature.lower(), '-' + variables[symbol[0]], '+' + variables[symbol[1]])
-        
-        if (feature not in features):
-            if (len(relationships[feature]) == 1):
-                # attributes
-                # check if the variable is multivalued
-                var = variables.get(relationships[feature][0])
-                print "mode: %s(%s,#%s)." % (feature.lower(), '+' + var, feature.lower())
-            else:
-                output = []
-                for var in relationships[feature]:
-                    output.append('+' + variables.get(var))
-                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-        else:
-            # lists of length 1 are attributes
-            if (len(relationships[feature]) == 1):
-                if relationships[feature][0] in target_variables:
-                    # assign +
-                    symbol = '+'
-                else:
-                    # assign -
-                    symbol = '+'
-                var = variables.get(relationships[feature][0])
-                print "mode: %s(%s%s,#%s)." % (feature.lower(), symbol, var, feature.lower())
-            # lists of length 2 are relationships
-            else:
-                output = []
-                for var in relationships[feature]:
-                    if var in target_variables:
-                        # assign +
-                        symbol = '+'
-                    else:
-                        # assign -
-                        symbol = '-'
-                    var = variables.get(var)
-                    output.append(symbol+var)
-                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-                    
-        if (feature not in features):
-            if (len(relationships[feature]) == 1):
-                # attributes
-                # check if the variable is multivalued
-                var = variables.get(relationships[feature][0])
-                print "mode: %s(%s,#%s)." % (feature.lower(), '+' + var, feature.lower())
-            else:
-                output = []
-                for var in relationships[feature]:
-                    output.append('+' + variables.get(var))
-                print "mode: %s(%s)." % (feature.lower(), ','.join(output))
-
-    """
-
-
-if __name__ == '__main__': main()
