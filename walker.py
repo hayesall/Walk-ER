@@ -149,7 +149,7 @@ class buildDictionaries:
                     ycoord = str(current['details'].get('y'))
 
                     coordinate_dictionary[number] = [xcoord, ycoord]
-                    ER_dictionary[number] = name
+                    ER_dictionary[number] = [name, str(current['type'])]
                     if current['type'] == 'Entity':
                         variable_dictionary[number] = name.lower() + 'id'
         if self.debugmode:
@@ -180,7 +180,8 @@ class buildDictionaries:
                 current = json_dict['connectors'][i]
                 if 'type' in current:
                     if (current['type'] == 'Connector'):
-                        name = str(ER_dictionary.get(str(current['source'])))
+                        name = str(ER_dictionary.get(str(current['source']))[0])
+                        #print name
                         if name in attribute_dictionary:
                             dest = str(current['destination'])
                             attribute_dictionary[name].append(dest)
@@ -278,11 +279,15 @@ class guiMode:
         self.diamonds = None
 
     def build_shapes(self):
+        '''
         print self.ER_dictionary
         print self.variable_dictionary
         print self.attribute_dictionary
         print self.relationship_dictionary
         print self.coordinate_dictionary
+        '''
+        for key in ER_dictionary:
+            print key, ER_dictionary[key]
 
     def run_gui(self):
         import pygame
