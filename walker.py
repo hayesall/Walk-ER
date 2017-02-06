@@ -18,13 +18,14 @@ import json
 import sys
 import os
 from collections import OrderedDict
+from pygame.locals import *
 
 class setup:
     
     def __init__(self):
         self.debugmode = False
         # I'm defaulting cmdmode to True since the GUI isn't implemented yet
-        self.cmdmode = True
+        self.cmdmode = False
         self.helpmode = False
         self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd']
 
@@ -264,10 +265,93 @@ class cmdlineMode:
 
 class guiMode:
 
-    def __init__(self, coordinate_dictionary):
-        import pygame
+    def __init__(self, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, coordinate_dictionary):
+        self.ER_dictionary = ER_dictionary
+        self.variable_dictionary = variable_dictionary
+        self.attribute_dictionary = attribute_dictionary
+        self.relationship_dictionary = relationship_dictionary
         self.coordinate_dictionary = coordinate_dictionary
-        pass
+        
+        # Shapes that need to be drawn
+        self.rectangles = None
+        self.ovals = None
+        self.diamonds = None
+
+    def build_shapes(self):
+        print self.ER_dictionary
+        print self.variable_dictionary
+        print self.attribute_dictionary
+        print self.relationship_dictionary
+        print self.coordinate_dictionary
+
+    def run_gui(self):
+        import pygame
+        pygame.init()
+        pygame.font.init()
+
+        myfont = pygame.font.SysFont('monospace', 12)
+        
+        # colors
+        BLACK = (0, 0, 0)
+        WHITE = (255, 255, 255)
+        DARKGRAY = (64, 64, 64)
+        GRAY = (128, 128, 128)
+        LIGHTGRAY = (212, 208, 200)
+        BLUE = (0, 0, 255)
+        RED = (255, 0, 0)
+
+        size = [900, 600]
+        screen = pygame.display.set_mode(size)
+
+        # loop until the user clicks the close button
+        done = False
+        clock = pygame.time.Clock()
+
+        # shapes to draw
+        #Entities are rectangles
+        rectangles = [(267, 126, 'Professor'), (571, 128, 'Student'), (426, 302, 'Course')]
+        #Attributes are ovals
+        ovals = [(131, 81, 'Salary'), (126, 142, 'Department'), (425, 398, 'Rating'), (675, 66, 'GPA')]
+        #Relationships are diamonds, there aren't built-in diamonds so we can do rectangles in the meantime
+        diamonds = [(414, 137, 'Advises'), (306, 226, 'Teaches'), (579, 243, 'Takes'), (487, 211, 'TAs')]
+
+        while not done:
+            clock.tick(10)
+
+            for event in pygame.event.get():
+                if event.type == KEYDOWN:
+                    if event.key == K_ESCAPE:
+                        done = True
+                elif event.type == pygame.QUIT:
+                    done = True
+
+            # Clear the screen and set background color to white
+            screen.fill(WHITE)
+
+            # Draw all of the rectangles
+            for tupl in rectangles:
+                #rectangles should be 110,55
+                pygame.draw.rect(screen, BLACK, (tupl[0], tupl[1], 110, 55), 1)
+                label = myfont.render(tupl[2], 1, BLACK)
+                screen.blit(label, (tupl[0]+5, tupl[1]+5))
+                
+            # Draw all of the ovals
+            for tupl in ovals:
+                # ovals should be about the same size 110,55
+                pygame.draw.ellipse(screen, BLACK, (tupl[0], tupl[1], 110, 55), 1)
+                label = myfont.render(tupl[2], 1, BLACK)
+                screen.blit(label, (tupl[0]+40, tupl[1]+20))
+                
+            for tupl in diamonds:
+                #!!! switch this to pygame.draw.polygon (specify an array of points to draw between)
+                pygame.draw.rect(screen, BLACK, (tupl[0], tupl[1], 50, 25), 1)
+                label = myfont.render(tupl[2], 1, BLACK)
+                screen.blit(label, (tupl[0]+5, tupl[1]+5))
+
+            pygame.display.flip()
+
+        pygame.font.quit()
+        pygame.quit()
 
 class constructModes:
 
@@ -419,6 +503,19 @@ class networks:
     
     def __init__(self):
         import networkx as nx
+    
+    #muttering_retreats = {}
+    #build_dictionary(input_something, output_is_muttering_retreats)
+    # ---> this step may be replaced with G = nx.from_dict_of_lists(graph)
+    def bfs(start, end):
+        queue = [(start, [start])]
+        while queue:
+            (node, route) = queue.pop(0)
+            for next_node in (muttering_retreats[node] - set(route)):
+                if next_node == end:
+                    return route + [next_city]
+                else:
+                    queue.append((next_city, route + [next_city]))
 
     def find_pagerank(graph):
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
@@ -463,13 +560,16 @@ if __name__ == '__main__':
         # Ask the user for the target and useful features.
         targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
     else:
-        # guimode currently isn't implemented
-        guimode = guiMode(coordinate_dictionary) #debugmode is irrelevant with the gui.
+        # debugmode is basically irrelevant within the gui
+        guimode = guiMode(ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, coordinate_dictionary)
+        #guimode = guiMode(coordinate_dictionary) #debugmode is irrelevant with the gui.
+        guimode.build_shapes()
+        guimode.run_gui()
         #targetAndFeatures = guimode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
 
         # doing some testing just in case
-        cmdlinemode = cmdlineMode(Setup.debugmode)
-        targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+        #cmdlinemode = cmdlineMode(Setup.debugmode)
+        #targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
     ConstructModes = constructModes(targetAndFeatures, 
                                     ER_dictionary, 
