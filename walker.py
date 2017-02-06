@@ -287,7 +287,14 @@ class guiMode:
         print self.coordinate_dictionary
         '''
         for key in ER_dictionary:
-            print key, ER_dictionary[key]
+            current_type = ER_dictionary[key][1]
+            if (current_type == 'Attribute'):
+                print ER_dictionary[key][1]
+            elif (current_type == 'Entity'):
+                print ER_dictionary[key][1]
+            elif (current_type == 'Relationship'):
+                print ER_dictionary[key][1]
+            #print key, ER_dictionary[key]
 
     def run_gui(self):
         import pygame
