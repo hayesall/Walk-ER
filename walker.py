@@ -274,27 +274,20 @@ class guiMode:
         self.coordinate_dictionary = coordinate_dictionary
         
         # Shapes that need to be drawn
-        self.rectangles = None
-        self.ovals = None
-        self.diamonds = None
+        self.rectangles = {}
+        self.ovals = {}
+        self.diamonds = {}
 
     def build_shapes(self):
-        '''
-        print self.ER_dictionary
-        print self.variable_dictionary
-        print self.attribute_dictionary
-        print self.relationship_dictionary
-        print self.coordinate_dictionary
-        '''
         for key in ER_dictionary:
             current_type = ER_dictionary[key][1]
+            coords = self.coordinate_dictionary.get(key)
             if (current_type == 'Attribute'):
-                print ER_dictionary[key][1]
+                self.ovals[key] = [coords[0], coords[1], ER_dictionary[key][0]]
             elif (current_type == 'Entity'):
-                print ER_dictionary[key][1]
+                self.rectangles[key] = [coords[0], coords[1], ER_dictionary[key][0]]
             elif (current_type == 'Relationship'):
-                print ER_dictionary[key][1]
-            #print key, ER_dictionary[key]
+                self.diamonds[key] = [coords[0], coords[1], ER_dictionary[key][0]]
 
     def run_gui(self):
         import pygame
