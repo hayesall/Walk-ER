@@ -31,7 +31,7 @@ class setup:
     def print_help_menu(self):
         print '''
 NAME
-    Walk-ER vBeta0.2
+    Walk-ER vBeta0.3
 
 SYNOPSIS
     $ python walker.py [OPTIONS] [FILE]
@@ -54,10 +54,16 @@ OPTIONS
 
     -c, --cmd: "Commandline Mode", override the gui and interact through the shell.
 
+FILE
+    Specify a relative or absolute path to the JSON (.erdplus) file.
+        diagrams/SmokesFriends.erdplus
+        diagrams/FatherOf.erdplus
+        /home/user/Desktop/Walk-ER/diagrams/SmokesFriends.erdplus
+
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: January 31, 2017
+    Last Updated: February 6, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -258,8 +264,9 @@ class cmdlineMode:
 
 class guiMode:
 
-    def __init__(self):
+    def __init__(self, coordinate_dictionary):
         import pygame
+        self.coordinate_dictionary = coordinate_dictionary
         pass
 
 class constructModes:
@@ -348,8 +355,9 @@ class constructModes:
                     # check for reflexivity
                     a_mode = self.variable_dictionary.get(current_relation[0])
                     b_mode = self.variable_dictionary.get(current_relation[1])
-                    print "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
-                    print "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
+                    if self.cmdmode:
+                        print "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
+                        print "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
                 else:
                     #relationship is not reflexive
                     inst_a = '+'
@@ -358,15 +366,17 @@ class constructModes:
                         inst_a = '-'
                     if (self.variable_dictionary.get(current_relation[1]) not in self.target_variables):
                         inst_b = '-'
-                    print "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
-                                                    self.variable_dictionary.get(current_relation[0]),
-                                                    inst_b,
-                                                    self.variable_dictionary.get(current_relation[1]))
+                    if self.cmdmode:
+                        print "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
+                                                        self.variable_dictionary.get(current_relation[0]),
+                                                        inst_b,
+                                                        self.variable_dictionary.get(current_relation[1]))
             else:
                 # if the relation is "less important," fill with +
-                print "mode: %s(+%s,+%s)." % (rel.lower(),
-                                              self.variable_dictionary.get(current_relation[0]),
-                                              self.variable_dictionary.get(current_relation[1]))
+                if self.cmdmode:
+                    print "mode: %s(+%s,+%s)." % (rel.lower(),
+                                                  self.variable_dictionary.get(current_relation[0]),
+                                                  self.variable_dictionary.get(current_relation[1]))
             
     
     def handleAttributeVariables(self):
@@ -456,14 +466,20 @@ if __name__ == '__main__':
         # guimode currently isn't implemented
         guimode = guiMode(coordinate_dictionary) #debugmode is irrelevant with the gui.
         #targetAndFeatures = guimode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+
+        # doing some testing just in case
+        cmdlinemode = cmdlineMode(Setup.debugmode)
+        targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
-    #ConstructModes = constructModes(targetAndFeatures)
-    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
+    ConstructModes = constructModes(targetAndFeatures, 
+                                    ER_dictionary, 
+                                    variable_dictionary, 
+                                    attribute_dictionary, 
+                                    relationship_dictionary, 
+                                    debugmode=Setup.debugmode)
 
     ConstructModes.handleTargetVariables()
-    
     ConstructModes.handleRelationVariables()
-
     ConstructModes.handleAttributeVariables()
 
     exit()
