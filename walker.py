@@ -64,7 +64,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 6, 2017
+    Last Updated: February 7, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -145,8 +145,8 @@ class buildDictionaries:
                 if ('type' in current) and ('details' in current):
                     number = str(current['details'].get('id'))
                     name = str(current['details'].get('name'))
-                    xcoord = str(current['details'].get('x'))
-                    ycoord = str(current['details'].get('y'))
+                    xcoord = int(current['details'].get('x'))
+                    ycoord = int(current['details'].get('y'))
 
                     coordinate_dictionary[number] = [xcoord, ycoord]
                     ER_dictionary[number] = [name, str(current['type'])]
@@ -266,7 +266,8 @@ class cmdlineMode:
 
 class guiMode:
 
-    def __init__(self, ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, coordinate_dictionary):
+    def __init__(self, ER_dictionary, variable_dictionary, 
+                 attribute_dictionary, relationship_dictionary, coordinate_dictionary):
         self.ER_dictionary = ER_dictionary
         self.variable_dictionary = variable_dictionary
         self.attribute_dictionary = attribute_dictionary
@@ -290,6 +291,7 @@ class guiMode:
                 self.diamonds[key] = [coords[0], coords[1], ER_dictionary[key][0]]
 
     def run_gui(self):
+        #needs to return a targetsAndFeatures: ['Salary', ['Teaches', 'Rating', 'Tenure']]
         import pygame
         pygame.init()
         pygame.font.init()
@@ -314,11 +316,11 @@ class guiMode:
 
         # shapes to draw
         #Entities are rectangles
-        rectangles = [(267, 126, 'Professor'), (571, 128, 'Student'), (426, 302, 'Course')]
+        rectangles = self.rectangles.values()
         #Attributes are ovals
-        ovals = [(131, 81, 'Salary'), (126, 142, 'Department'), (425, 398, 'Rating'), (675, 66, 'GPA')]
+        ovals = self.ovals.values()
         #Relationships are diamonds, there aren't built-in diamonds so we can do rectangles in the meantime
-        diamonds = [(414, 137, 'Advises'), (306, 226, 'Teaches'), (579, 243, 'Takes'), (487, 211, 'TAs')]
+        diamonds = self.diamonds.values()
 
         while not done:
             clock.tick(10)
@@ -352,6 +354,9 @@ class guiMode:
                 pygame.draw.rect(screen, BLACK, (tupl[0], tupl[1], 50, 25), 1)
                 label = myfont.render(tupl[2], 1, BLACK)
                 screen.blit(label, (tupl[0]+5, tupl[1]+5))
+              
+            #button = button.get_rect()
+            #b = screen.blit(button, (300, 200))
 
             pygame.display.flip()
 
@@ -373,7 +378,7 @@ class constructModes:
         self.attribute_dictionary = attribute_dictionary
         self.relationship_dictionary = relationship_dictionary
         self.target_variables = []
-        self.all_modes = []
+        self.all_modes = ['//Modes:', '//target:']
         if self.cmdmode:
             print "\n\n//Modes:"
 
@@ -437,6 +442,7 @@ class constructModes:
                 '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
         print "//other features"
+        self.all_modes.append('//other features')
 
     def handleRelationVariables(self):
         # iterate through all relationships
@@ -520,8 +526,9 @@ class constructModes:
                 write_choice = raw_input()
                 if ((write_choice == 'y') or (write_choice == 'Y') or (write_choice == 'yes')):
                     print '\nWriting modes to background.txt'
-                    print self.all_modes
-                    print len(self.all_modes)f
+                    write_to = open('background.txt', 'w')
+                    for mode in self.all_modes:
+                        write_to.write("%s\n" % mode)
                     break
                 elif ((write_choice == 'n') or (write_choice == 'N') or (write_choice == 'no')):
                     print '\nNow exiting.'
@@ -545,15 +552,21 @@ class networks:
     #muttering_retreats = {}
     #build_dictionary(input_something, output_is_muttering_retreats)
     # ---> this step may be replaced with G = nx.from_dict_of_lists(graph)
-    def bfs(start, end):
-        queue = [(start, [start])]
-        while queue:
-            (node, route) = queue.pop(0)
-            for next_node in (muttering_retreats[node] - set(route)):
-                if next_node == end:
-                    return route + [next_city]
-                else:
-                    queue.append((next_city, route + [next_city]))
+
+    def find_all_paths(graph, start, end, path=[]):
+        # https://www.python.org/doc/essays/graphs/
+        path = path + [start]
+        if start == end:
+            return [path]
+        if not graph.has_key(start):
+            return []
+        paths = []
+        for node in graph[start]:
+            if node not in path:
+                newpaths = find_all_paths(graph, node, end, path)
+                for newpath in newpaths:
+                    paths.append(newpath)
+        return paths
 
     def find_pagerank(graph):
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
