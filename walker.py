@@ -69,6 +69,16 @@ AUTHOR
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
     This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+
+PLANNED FEATURES
+
+    -t, --test: Run unit tests.
+
+    -w, --walk: walk graph from target to features, instantiating variables along the path.
+
+    -d, --depth: max search depth (default=None)
+
+    -r, --repeat: number of times a node can be revisited (default=0) 
             '''
         exit()
 
@@ -179,15 +189,44 @@ class buildDictionaries:
             for i in range(len(json_dict['connectors'])):
                 current = json_dict['connectors'][i]
                 if 'type' in current:
+                    # rebuild the graph as an undirected dictionary
+                    src = str(current['source'])
+                    dest = str(current['destination'])
                     if (current['type'] == 'Connector'):
+                        # attributes can be inferred if it's a regular connector
                         name = str(ER_dictionary.get(str(current['source']))[0])
-                        #print name
                         if name in attribute_dictionary:
-                            dest = str(current['destination'])
                             attribute_dictionary[name].append(dest)
+                        
         if self.debugmode:
             print 'Attributes:\n', str(attribute_dictionary)
         return attribute_dictionary
+
+    def rebuildGraph(self, json_dict):
+        '''
+        Input: a json dictionary
+        Returns a dictionary Graph of nodes and associated edges {'1': ['2', '3', '7', '11', '34'], ... }
+        '''
+        Graph = {}
+        
+        if 'connectors' in json_dict:
+            for i in range(len(json_dict['connectors'])):
+                current = json_dict['connectors'][i]
+                if 'type' in current:
+                    # rebuild an undirected graph from the connectors
+                    src = str(current['source'])
+                    dest = str(current['destination'])
+                    if src in Graph:
+                        Graph[src].append(dest)
+                    else:
+                        Graph[src] = [dest]
+                    if dest in Graph:
+                        Graph[dest].append(src)
+                    else:
+                        Graph[dest] = [src]
+        if self.debugmode:
+            print 'Graph:\n', str(Graph)
+        return Graph
 
     def extractRelationships(self, json_dict, variable_dictionary):
         '''
@@ -365,10 +404,9 @@ class guiMode:
 
 class constructModes:
 
-    def __init__(
-            self, targetAndFeatures, ER_dictionary, 
-            variable_dictionary, attribute_dictionary, 
-            relationship_dictionary, cmdlinemode=True, debugmode=False):
+    def __init__(self, targetAndFeatures, ER_dictionary, 
+                 variable_dictionary, attribute_dictionary, 
+                 relationship_dictionary, cmdlinemode=True, debugmode=False):
         self.cmdmode = cmdlinemode
         self.debugmode = debugmode
         self.target = targetAndFeatures[0]
@@ -536,34 +574,24 @@ class constructModes:
                 else:
                     print '\nInvalid choice.'
 
-class unitTests:
-    
-    def __init__(self):
-        pass
-
-    def run_unit_tests(self):
-        pass
-
 class networks:
     
-    def __init__(self):
-        import networkx as nx
+    def __init__(self, Graph):
+        #import networkx as nx
+        self.Graph = Graph
     
-    #muttering_retreats = {}
-    #build_dictionary(input_something, output_is_muttering_retreats)
-    # ---> this step may be replaced with G = nx.from_dict_of_lists(graph)
-
-    def find_all_paths(graph, start, end, path=[]):
+    def find_all_paths(self, graph, start, end, path=[]):
         # https://www.python.org/doc/essays/graphs/
         path = path + [start]
         if start == end:
             return [path]
-        if not graph.has_key(start):
+        if start not in graph:
+            #if not graph.has_key(start):
             return []
         paths = []
         for node in graph[start]:
             if node not in path:
-                newpaths = find_all_paths(graph, node, end, path)
+                newpaths = self.find_all_paths(graph, node, end, path)
                 for newpath in newpaths:
                     paths.append(newpath)
         return paths
@@ -579,6 +607,14 @@ class networks:
         Input: [target feature], [a list of features selected by the user].
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
+        pass
+
+class unitTests:
+    
+    def __init__(self):
+        pass
+
+    def run_unit_tests(self):
         pass
 
 if __name__ == '__main__':
@@ -604,6 +640,14 @@ if __name__ == '__main__':
     
     # find the relationships and their cardinality # {'Friends', ['1','1','many','many']}
     relationship_dictionary = BuildDictionaries.extractRelationships(json_dict, variable_dictionary)
+
+    # rebuild an undirected graph
+    Graph = BuildDictionaries.rebuildGraph(json_dict)
+
+    '''Optional / testing: with the rebuild graph, walk the graph'''
+    Networks = networks(Graph)
+    #print Networks.Graph
+    #print Networks.find_all_paths(Graph, '1', '6')
     
     '''Different options depending on whether the user is in gui/cmdline mode'''
     if Setup.cmdmode:
@@ -622,12 +666,8 @@ if __name__ == '__main__':
         #cmdlinemode = cmdlineMode(Setup.debugmode)
         #targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
-    ConstructModes = constructModes(targetAndFeatures, 
-                                    ER_dictionary, 
-                                    variable_dictionary, 
-                                    attribute_dictionary, 
-                                    relationship_dictionary, 
-                                    debugmode=Setup.debugmode)
+    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, 
+                                    attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
 
     ConstructModes.handleTargetVariables()
     ConstructModes.handleRelationVariables()
