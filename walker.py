@@ -673,24 +673,28 @@ class networks:
                 for predicate in lsb:
                     # Skip the first predicate since it's the target.
                     if predicate in self.attribute_dictionary:
+                        out = []
                         if attribute_dictionary[predicate][1] in instantiated_variables:
-                            print "+%s" % (variable_dictionary[attribute_dictionary[predicate][1]])
+                            out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
-                            print "-%s" % (variable_dictionary[attribute_dictionary[predicate][1]])
+                            out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
+                        print predicate, str(out)
                         instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
                         #print attribute_dictionary[predicate]
                     elif predicate in self.relationship_dictionary:
+                        out = []
                         for var in relationship_dictionary[predicate][0:2]:
                             if var in instantiated_variables:
-                                print "+%s" % (variable_dictionary[var])
+                                out.append("+%s" % (variable_dictionary[var]))
                             else:
-                                print "-%s" % (variable_dictionary[var])
+                                out.append("-%s" % (variable_dictionary[var]))
+                        print predicate, str(out)
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
                         #print relationship_dictionary[predicate]
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
-                    print predicate, instantiated_variables
+                    #print predicate, instantiated_variables
 
 class unitTests:
     
