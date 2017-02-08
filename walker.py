@@ -567,6 +567,7 @@ class constructModes:
                 self.all_modes.append(current_mode)
 
     def write_modes_to_file(self):
+
         if self.cmdmode:
             while 1:
                 print '\nWould you like to write these modes to a background.txt file? [y/n]'
@@ -645,17 +646,51 @@ class networks:
         Input: [target feature], [a list of features selected by the user].
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
+        
+        '''
+        I thought this might be possible, but they're doing different things so probably not.
+        ConstructModes = constructModes(self.targetAndFeatures, self.ER_dictionary, 
+                                        self.variable_dictionary, self.attribute_dictionary, 
+                                        self.relationship_dictionary, cmdlinemode=self.cmdmode, 
+                                        debugmode=self.debugmode)
+        ConstructModes.handleTargetVariables()
+        print '\n', str(ConstructModes.all_modes), '\n'
+        '''
+
+        # First, instantiate variables 
+        if self.target in self.attribute_dictionary:
+            target_variables = [(self.attribute_dictionary[self.target])[1]]
+        elif self.target in self.relationship_dictionary:
+            target_variables = (self.relationship_dictionary[self.target])[0:2]
+
+        print '\n', str(target_variables), '\n'
+
         for lsa in all_paths:
             print "a"
             for lsb in lsa:
                 print lsb
-                instantiated_variables = []
+                instantiated_variables = set(target_variables)
                 for predicate in lsb:
+                    # Skip the first predicate since it's the target.
                     if predicate in self.attribute_dictionary:
-                        print attribute_dictionary[predicate]
+                        if attribute_dictionary[predicate][1] in instantiated_variables:
+                            print "+%s" % (variable_dictionary[attribute_dictionary[predicate][1]])
+                        else:
+                            print "-%s" % (variable_dictionary[attribute_dictionary[predicate][1]])
+                        instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
+                        #print attribute_dictionary[predicate]
                     elif predicate in self.relationship_dictionary:
-                        print relationship_dictionary[predicate]
-                    #else: Predicate is an entity and we can skip it.
+                        for var in relationship_dictionary[predicate][0:2]:
+                            if var in instantiated_variables:
+                                print "+%s" % (variable_dictionary[var])
+                            else:
+                                print "-%s" % (variable_dictionary[var])
+                        instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
+                        #print relationship_dictionary[predicate]
+                    else:
+                        # Predicate is an entity and we can skip it.
+                        continue
+                    print predicate, instantiated_variables
 
 class unitTests:
     
