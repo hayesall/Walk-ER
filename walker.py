@@ -24,7 +24,8 @@ class setup:
         # I'm defaulting cmdmode to True since the GUI isn't implemented yet
         self.cmdmode = False
         self.helpmode = False
-        self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd']
+        self.walkmode = False
+        self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd', '-w', '--walk']
 
     def print_help_menu(self):
         print '''
@@ -52,6 +53,8 @@ OPTIONS
 
     -c, --cmd: "Commandline Mode", override the gui and interact through the shell.
 
+    -w, --walk: [EXPERIMENTAL] walk graph from target to features, instantiating variables along the path.
+
 FILE
     Specify a relative or absolute path to the JSON (.erdplus) file.
         diagrams/SmokesFriends.erdplus
@@ -70,8 +73,6 @@ COPYRIGHT
 PLANNED FEATURES
 
     -t, --test: Run unit tests.
-
-    -w, --walk: walk graph from target to features, instantiating variables along the path.
 
     -d, --depth: max search depth (default=None)
 
@@ -107,6 +108,10 @@ PLANNED FEATURES
         # gui override: commandline mode
         if ('-c' in args) or ('--cmd' in args):
             self.cmdmode = True
+        
+        # instantiate variables by walking the graph
+        if ('-w' in args) or ('--walk' in args):
+            self.walkmode = True
 
         # not file not found
         if not os.path.isfile(args[-1]):
@@ -581,11 +586,24 @@ class constructModes:
 
 class networks:
     
-    def __init__(self, cmdlinemode=True, debugmode=False):
-        #import networkx as nx
-        self.cmdlinemode = cmdlinemode
+
+    def __init__(self, targetAndFeatures, ER_dictionary, 
+                 variable_dictionary, attribute_dictionary, 
+                 relationship_dictionary, cmdlinemode=True, debugmode=False):
+        self.cmdmode = cmdlinemode
         self.debugmode = debugmode
-    
+        self.targetAndFeatures = targetAndFeatures
+        self.target = targetAndFeatures[0]
+        self.features = targetAndFeatures[1]
+        self.ER_dictionary = ER_dictionary
+        self.variable_dictionary = variable_dictionary
+        self.attribute_dictionary = attribute_dictionary
+        self.relationship_dictionary = relationship_dictionary
+        self.target_variables = []
+        self.all_modes = ['//Modes:', '//target:']
+        if self.cmdmode:
+            print "\n\n//Modes:"
+
     def find_all_paths(self, graph, start, end, path=[]):
         # https://www.python.org/doc/essays/graphs/
         path = path + [start]
@@ -602,26 +620,42 @@ class networks:
                     paths.append(newpath)
         return paths
 
-    def paths_from_target_to_features(self, graph, targetAndFeatures):
+    def paths_from_target_to_features(self, graph):
+        all_paths = []
         if self.debugmode:
             print '\nAll paths from target to features.'
-        for feature in targetAndFeatures[1]:
-            t = self.find_all_paths(graph, targetAndFeatures[0], feature)
-            if self.debugmode:
-                print t
+        for feature in self.targetAndFeatures[1]:
+            p = self.find_all_paths(graph, self.targetAndFeatures[0], feature)
+            all_paths.append(p)
+            #print p
+        return all_paths
 
-    def find_pagerank(graph):
+    def find_pagerank(self, graph):
+        import networkx as nx
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
         G = nx.from_dict_of_lists(graph)
-        return nx.pagerank(G, alpha=0.85)
+        P = nx.pagerank(G, alpha=0.85)
+        if self.debugmode:
+            print P
+        return P
 
-    def walkFeatures(self, target, list_of_features):
+    def walkFeatures(self, graph, targetAndFeatures, all_paths):
         '''
         "Use user-selected features to construct background/modes."
         Input: [target feature], [a list of features selected by the user].
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
-        pass
+        for lsa in all_paths:
+            print "a"
+            for lsb in lsa:
+                print lsb
+                instantiated_variables = []
+                for predicate in lsb:
+                    if predicate in self.attribute_dictionary:
+                        print attribute_dictionary[predicate]
+                    elif predicate in self.relationship_dictionary:
+                        print relationship_dictionary[predicate]
+                    #else: Predicate is an entity and we can skip it.
 
 class unitTests:
     
@@ -658,18 +692,12 @@ if __name__ == '__main__':
     # rebuild an undirected graph
     Graph = BuildDictionaries.rebuildGraph(json_dict, ER_dictionary)
 
-    '''Optional / testing: with the rebuild graph, walk the graph'''
-    Networks = networks(cmdlinemode=Setup.cmdmode, debugmode=Setup.debugmode)
-    #print Networks.Graph
-    #print Networks.find_all_paths(Graph, '1', '6')
-    
     '''Different options depending on whether the user is in gui/cmdline mode'''
     if Setup.cmdmode:
         cmdlinemode = cmdlineMode(Setup.debugmode)
+
         # Ask the user for the target and useful features.
         targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
-        
-        Networks.paths_from_target_to_features(Graph, targetAndFeatures)
 
     else:
         # debugmode is basically irrelevant within the gui
@@ -683,12 +711,28 @@ if __name__ == '__main__':
         #cmdlinemode = cmdlineMode(Setup.debugmode)
         #targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
-    ConstructModes = constructModes(targetAndFeatures, ER_dictionary, variable_dictionary, 
-                                    attribute_dictionary, relationship_dictionary, debugmode=Setup.debugmode)
 
-    ConstructModes.handleTargetVariables()
-    ConstructModes.handleRelationVariables()
-    ConstructModes.handleAttributeVariables()
+    if Setup.walkmode:
+        '''Optional / testing: with the rebuild graph, walk the graph'''
+        # Open an instance of the networks class.
 
-    ConstructModes.write_modes_to_file()
+        Networks = networks(targetAndFeatures, ER_dictionary,
+                            variable_dictionary, attribute_dictionary,
+                            relationship_dictionary, cmdlinemode=Setup.cmdmode, debugmode=Setup.debugmode)
+        
+        all_paths = Networks.paths_from_target_to_features(Graph)
+        #P = Networks.find_pagerank(Graph)
+        Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
+        
+    else:
+        ConstructModes = constructModes(targetAndFeatures, ER_dictionary, 
+                                        variable_dictionary, attribute_dictionary, 
+                                        relationship_dictionary, cmdlinemode=Setup.cmdmode, 
+                                        debugmode=Setup.debugmode)
+        
+        ConstructModes.handleTargetVariables()
+        ConstructModes.handleRelationVariables()
+        ConstructModes.handleAttributeVariables()
+        ConstructModes.write_modes_to_file()
+
     exit()
