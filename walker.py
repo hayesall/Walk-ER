@@ -1,9 +1,12 @@
+import json
+import sys
+import os
+from collections import OrderedDict
+from pygame.locals import *
+
 '''
 TODO:
 - SQL Table Conversion (may or may not be possible)
-- pygame
-- Rebuild the graph (networkx can operate over dictionaries of lists, where the key is the node id
-  and the value is a list of nodes the id is directed to).
 '''
 
 class InputException(Exception):
@@ -13,12 +16,6 @@ class InputException(Exception):
 class InvalidArgumentException(Exception):
     def handle(self):
         print self.message
-
-import json
-import sys
-import os
-from collections import OrderedDict
-from pygame.locals import *
 
 class setup:
     
@@ -64,7 +61,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 7, 2017
+    Last Updated: February 8, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -202,12 +199,15 @@ class buildDictionaries:
             print 'Attributes:\n', str(attribute_dictionary)
         return attribute_dictionary
 
-    def rebuildGraph(self, json_dict):
+    def rebuildGraph(self, json_dict, ER_dictionary):
         '''
         Input: a json dictionary
-        Returns a dictionary Graph of nodes and associated edges {'1': ['2', '3', '7', '11', '34'], ... }
+        Creates an intermediary dictionary of nodes and associated edges {'1': ['2', '3', '7', '11', '34'], }
+        Returns an updated dictionary where references are replaced with names
+        {}
         '''
         Graph = {}
+        ER_Graph = {}
         
         if 'connectors' in json_dict:
             for i in range(len(json_dict['connectors'])):
@@ -226,7 +226,12 @@ class buildDictionaries:
                         Graph[dest] = [src]
         if self.debugmode:
             print 'Graph:\n', str(Graph)
-        return Graph
+
+        # update the keys and values
+        ER_Graph = {}
+        for key in ER_dictionary:
+            ER_Graph[ER_dictionary.get(key)[0]] = [ER_dictionary[value][0] for value in Graph[key]]
+        return ER_Graph
 
     def extractRelationships(self, json_dict, variable_dictionary):
         '''
@@ -576,9 +581,10 @@ class constructModes:
 
 class networks:
     
-    def __init__(self, Graph):
+    def __init__(self, cmdlinemode=True, debugmode=False):
         #import networkx as nx
-        self.Graph = Graph
+        self.cmdlinemode = cmdlinemode
+        self.debugmode = debugmode
     
     def find_all_paths(self, graph, start, end, path=[]):
         # https://www.python.org/doc/essays/graphs/
@@ -595,6 +601,14 @@ class networks:
                 for newpath in newpaths:
                     paths.append(newpath)
         return paths
+
+    def paths_from_target_to_features(self, graph, targetAndFeatures):
+        if self.debugmode:
+            print '\nAll paths from target to features.'
+        for feature in targetAndFeatures[1]:
+            t = self.find_all_paths(graph, targetAndFeatures[0], feature)
+            if self.debugmode:
+                print t
 
     def find_pagerank(graph):
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
@@ -642,10 +656,10 @@ if __name__ == '__main__':
     relationship_dictionary = BuildDictionaries.extractRelationships(json_dict, variable_dictionary)
 
     # rebuild an undirected graph
-    Graph = BuildDictionaries.rebuildGraph(json_dict)
+    Graph = BuildDictionaries.rebuildGraph(json_dict, ER_dictionary)
 
     '''Optional / testing: with the rebuild graph, walk the graph'''
-    Networks = networks(Graph)
+    Networks = networks(cmdlinemode=Setup.cmdmode, debugmode=Setup.debugmode)
     #print Networks.Graph
     #print Networks.find_all_paths(Graph, '1', '6')
     
@@ -654,6 +668,9 @@ if __name__ == '__main__':
         cmdlinemode = cmdlineMode(Setup.debugmode)
         # Ask the user for the target and useful features.
         targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
+        
+        Networks.paths_from_target_to_features(Graph, targetAndFeatures)
+
     else:
         # debugmode is basically irrelevant within the gui
         guimode = guiMode(ER_dictionary, variable_dictionary, attribute_dictionary, relationship_dictionary, coordinate_dictionary)
