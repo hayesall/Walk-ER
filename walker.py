@@ -30,7 +30,7 @@ class setup:
     def print_help_menu(self):
         print '''
 NAME
-    Walk-ER vBeta0.3
+    Walk-ER vBeta0.4
 
 SYNOPSIS
     $ python walker.py [OPTIONS] [FILE]
@@ -64,7 +64,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 8, 2017
+    Last Updated: February 9, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -646,15 +646,7 @@ class networks:
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
         
-        '''
-        I thought this might be possible, but they're doing different things so probably not.
-        ConstructModes = constructModes(self.targetAndFeatures, self.ER_dictionary, 
-                                        self.variable_dictionary, self.attribute_dictionary, 
-                                        self.relationship_dictionary, cmdlinemode=self.cmdmode, 
-                                        debugmode=self.debugmode)
-        ConstructModes.handleTargetVariables()
-        print '\n', str(ConstructModes.all_modes), '\n'
-        '''
+        import itertools
 
         # First, instantiate variables.
         if self.target in self.attribute_dictionary:
@@ -662,28 +654,43 @@ class networks:
         elif self.target in self.relationship_dictionary:
             target_variables = (self.relationship_dictionary[self.target])[0:2]
 
-        #print '\n', str(target_variables), '\n'
-
         final_set = []
+
+        merged = list(itertools.chain(*all_paths))
+        merged = list(itertools.chain(*merged))
+
+        #print "Predicates that will not be explored:"
+        # Some predicates will not be explored, store them in a list
+        unexplored = list(set(self.relationship_dictionary.keys()).union(set(self.attribute_dictionary.keys())) - set(merged))
+        #print unexplored
+
+        #for predicate not in list(set(merged2)): handle the variables by filling with +
+        
+        # Probably needs a reflexive relationship check still (e.g. FatherOf Relationship)
 
         for lsa in all_paths:
             for lsb in lsa:
-                #print lsb
                 instantiated_variables = set(target_variables)
                 for predicate in lsb:
                     # Skip the first predicate since it's the target.
                     if predicate in self.attribute_dictionary:
                         out = []
+                        
+                        if (attribute_dictionary[predicate][0] == 'True'):
+                            # attribute is multivalued
+                            multi = ',#' + predicate.lower()
+                        else:
+                            multi = ''
+                        
                         if attribute_dictionary[predicate][1] in instantiated_variables:
                             out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
-                        #print predicate, str(out)
-                        #print predicate.lower() + '(' + ','.join(out) + ').'
-                        # check if predicate is multivalued.
-                        final_set.append(str(predicate.lower() + '(' + ','.join(out) + ',#' + predicate.lower() + ').'))
+
+                        final_set.append(str(predicate.lower() + 
+                                             '(' + ','.join(out) + 
+                                             multi + ').'))
                         instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
-                        #print attribute_dictionary[predicate]
                     elif predicate in self.relationship_dictionary:
                         out = []
                         for var in relationship_dictionary[predicate][0:2]:
@@ -691,14 +698,28 @@ class networks:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                        #print predicate.lower() + '(' + ','.join(out) + ').'
                         final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
-                        #print relationship_dictionary[predicate]
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
-                    #print predicate, instantiated_variables
+
+        for predicate in unexplored:
+            if predicate in self.attribute_dictionary:
+                if (attribute_dictionary[predicate][0] == 'True'):
+                    multi = ',#' + predicate.lower()
+                else:
+                    multi = ''
+                
+                final_set.append(str(predicate.lower() +
+                                     '(+' + variable_dictionary[attribute_dictionary[predicate][1]] +
+                                     multi + ').'))
+            elif predicate in self.relationship_dictionary:
+                out = []
+                for var in relationship_dictionary[predicate][0:2]:
+                    out.append("+%s" % (variable_dictionary[var]))
+                final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
+
         print '\nmode: ' + '\nmode: '.join(sorted(list(set(final_set))))
 
 class unitTests:
