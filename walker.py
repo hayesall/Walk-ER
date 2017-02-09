@@ -704,6 +704,20 @@ class networks:
                         # Predicate is an entity and we can skip it.
                         continue
 
+        # Prune double +
+        # When target is a relationship, this will also prune those out!
+        final_set_2 = []
+        for predicate in final_set:
+            if not (predicate.count('+') > 1):
+                final_set_2.append(predicate)
+            else:
+                # Testing because there are errors currently.
+                final_set_2.append(predicate)
+            #if (predicate == self.target):
+            #    final_set_2.append(predicate)
+        final_set = final_set_2
+        
+        # Handle unexplored
         for predicate in unexplored:
             if predicate in self.attribute_dictionary:
                 if (attribute_dictionary[predicate][0] == 'True'):
