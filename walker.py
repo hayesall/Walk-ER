@@ -587,7 +587,6 @@ class constructModes:
 
 class networks:
     
-
     def __init__(self, targetAndFeatures, ER_dictionary, 
                  variable_dictionary, attribute_dictionary, 
                  relationship_dictionary, cmdlinemode=True, debugmode=False):
@@ -657,18 +656,19 @@ class networks:
         print '\n', str(ConstructModes.all_modes), '\n'
         '''
 
-        # First, instantiate variables 
+        # First, instantiate variables.
         if self.target in self.attribute_dictionary:
             target_variables = [(self.attribute_dictionary[self.target])[1]]
         elif self.target in self.relationship_dictionary:
             target_variables = (self.relationship_dictionary[self.target])[0:2]
 
-        print '\n', str(target_variables), '\n'
+        #print '\n', str(target_variables), '\n'
+
+        final_set = []
 
         for lsa in all_paths:
-            print "a"
             for lsb in lsa:
-                print lsb
+                #print lsb
                 instantiated_variables = set(target_variables)
                 for predicate in lsb:
                     # Skip the first predicate since it's the target.
@@ -678,7 +678,10 @@ class networks:
                             out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
-                        print predicate, str(out)
+                        #print predicate, str(out)
+                        #print predicate.lower() + '(' + ','.join(out) + ').'
+                        # check if predicate is multivalued.
+                        final_set.append(str(predicate.lower() + '(' + ','.join(out) + ',#' + predicate.lower() + ').'))
                         instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
                         #print attribute_dictionary[predicate]
                     elif predicate in self.relationship_dictionary:
@@ -688,13 +691,15 @@ class networks:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                        print predicate, str(out)
+                        #print predicate.lower() + '(' + ','.join(out) + ').'
+                        final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
                         #print relationship_dictionary[predicate]
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
                     #print predicate, instantiated_variables
+        print '\nmode: ' + '\nmode: '.join(sorted(list(set(final_set))))
 
 class unitTests:
     
