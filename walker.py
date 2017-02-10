@@ -11,11 +11,11 @@ TODO:
 
 class InputException(Exception):
     def handle(self):
-        print self.message
+        print(self.message)
 
 class InvalidArgumentException(Exception):
     def handle(self):
-        print self.message
+        print(self.message)
 
 class setup:
     
@@ -28,7 +28,7 @@ class setup:
         self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd', '-w', '--walk']
 
     def print_help_menu(self):
-        print '''
+        print('''
 NAME
     Walk-ER vBeta0.4
 
@@ -77,7 +77,7 @@ PLANNED FEATURES
     -d, --depth: max search depth (default=None)
 
     -r, --repeat: number of times a node can be revisited (default=0) 
-            '''
+            ''')
         exit()
 
     def read_user_input(self):
@@ -139,7 +139,7 @@ class buildDictionaries:
 
     def debug(self):
         if self.debugmode:
-            print "\n'Debug Mode' is activated, intermediate steps will be printed to terminal.\n"
+            print("\n'Debug Mode' is activated, intermediate steps will be printed to terminal.\n")
 
     def extractVariables(self, json_dict):
         '''
@@ -165,9 +165,9 @@ class buildDictionaries:
                     if current['type'] == 'Entity':
                         variable_dictionary[number] = name.lower() + 'id'
         if self.debugmode:
-            print 'Variables:\n', str(variable_dictionary)
-            print 'All Shapes:\n', str(ER_dictionary)
-            print 'Coordinates:\n', str(coordinate_dictionary)
+            print('Variables:\n', str(variable_dictionary))
+            print('All Shapes:\n', str(ER_dictionary))
+            print('Coordinates:\n', str(coordinate_dictionary))
         return ER_dictionary, variable_dictionary, coordinate_dictionary
         
     def extractAttributes(self, json_dict, ER_dictionary, variable_dictionary):
@@ -201,7 +201,7 @@ class buildDictionaries:
                             attribute_dictionary[name].append(dest)
                         
         if self.debugmode:
-            print 'Attributes:\n', str(attribute_dictionary)
+            print('Attributes:\n', str(attribute_dictionary))
         return attribute_dictionary
 
     def rebuildGraph(self, json_dict, ER_dictionary):
@@ -230,7 +230,7 @@ class buildDictionaries:
                     else:
                         Graph[dest] = [src]
         if self.debugmode:
-            print 'Graph:\n', str(Graph)
+            print('Graph:\n', str(Graph))
 
         # update the keys and values
         ER_Graph = {}
@@ -272,7 +272,7 @@ class buildDictionaries:
                 relationship_dictionary[name].append(dir1)
 
         if self.debugmode:
-            print 'Relationships:\n', str(relationship_dictionary)
+            print('Relationships:\n', str(relationship_dictionary))
         return relationship_dictionary
 
 class cmdlineMode:
@@ -285,17 +285,17 @@ class cmdlineMode:
         possible_targets = attribute_dictionary.keys() + relationship_dictionary.keys()
         
         while 1:
-            print "\nPlease select your target from this list:\n\t" + '    '.join(possible_targets)
+            print('\nPlease select your target from this list:\n\t' + '    '.join(possible_targets))
             sys.stdout.flush()
             target = raw_input()
             if target in possible_targets:
                 possible_targets.remove(target)
                 break
             else:
-                print '\tError, target not in list.'
+                print('\tError, target not in list.')
 
         while 1:
-            print "\nPlease select features you want to learn over (separated by spaces):\n\t" + '    '.join(possible_targets)
+            print('\nPlease select features you want to learn over (separated by spaces):\n\t' + '    '.join(possible_targets))
             sys.stdout.flush()
             features = raw_input()
             features = features.split()
@@ -304,14 +304,49 @@ class cmdlineMode:
                 if feature in possible_targets:
                     final_features.append(feature)
                 else:
-                    print '\tError, "' + feature + '" not in list.'
+                    print('\tError, "' + feature + '" not in list.')
             if (len(final_features) == len(features)):
                 break
         
         targetAndFeatures = [target, list(OrderedDict.fromkeys(final_features))]
         if self.debugmode:
-            print targetAndFeatures
+            print(targetAndFeatures)
         return targetAndFeatures
+
+class FileWriter:
+    '''
+    Prompts the user on whether or not to write modes to a file.
+    Takes a list of modes (all_modes), and an optional file_name (default: background.txt)
+    '''
+    
+    def __init__(self, all_modes, cmdmode, file_name='background.txt'):
+        self.cmdmode = cmdmode
+        self.all_modes = all_modes
+        self.file_name = file_name
+
+    def write_modes_to_file(self):
+        if self.cmdmode:
+            while 1:
+                print('\nWould you like to write these modes to a background.txt file? [y/n]')
+                sys.stdout.flush()
+                write_choice = raw_input()
+                if ((write_choice == 'y') or (write_choice == 'Y') or (write_choice == 'yes')):
+                    print('\nWriting modes to background.txt')
+                    write_to = open(self.file_name, 'w')
+                    print self.all_modes
+                    for mode in self.all_modes:
+                        write_to.write("%s\n" % mode)
+                    break
+                elif ((write_choice == 'n') or (write_choice == 'N') or (write_choice == 'no')):
+                    print('\nNow exiting.')
+                    break
+                else:
+                    print('\nInvalid choice.')
+        else:
+            raise InvalidArgumentException(
+                'File can only be written to from commandline mode, use the -c flag.'
+            )
+
 
 class guiMode:
 
@@ -428,18 +463,18 @@ class constructModes:
         self.target_variables = []
         self.all_modes = ['//Modes:', '//target:']
         if self.cmdmode:
-            print "\n\n//Modes:"
+            print("\n\n//Modes:")
 
     def handleTargetVariables(self):
         if self.cmdmode:
-            print "//target:"
+            print("//target:")
 
         # The target can be either a relation or an attribute
         if self.target in self.relationship_dictionary:
             # ['1', '1', 'many', 'one']
             #target_type = 'relationship'
             if self.debugmode:
-                print self.relationship_dictionary.get(self.target)
+                print(self.relationship_dictionary.get(self.target))
             
             target_variable = self.relationship_dictionary[self.target][0:2]
             self.target_variables = [self.variable_dictionary.get(target_variable[0]),
@@ -449,7 +484,7 @@ class constructModes:
                                                    self.target_variables[0],
                                                    self.target_variables[1])
             if self.cmdmode:
-                print current_mode
+                print(current_mode)
             self.all_modes.append(current_mode)
             
             #handle reflexive relationships by cutting extra variables
@@ -461,7 +496,7 @@ class constructModes:
             target_variable = self.attribute_dictionary.get(self.target)
 
             if self.debugmode:
-                print "//Target Variable: ", target_variable
+                print("//Target Variable: ", target_variable)
             
             isMultivalued = (target_variable[0] == 'True')
 
@@ -472,14 +507,14 @@ class constructModes:
                                                        self.target_variables[0],
                                                        self.target.lower())
                 if self.cmdmode:
-                    print current_mode
+                    print(current_mode)
                 self.all_modes.append(current_mode)
                 #else we're in gui mode and we should print directly to a file
             else:
                 current_mode = "mode: %s(+%s)." % (self.target.lower(), 
                                                    self.target_variables[0])
                 if self.cmdmode:
-                    print current_mode
+                    print(current_mode)
                 self.all_modes.append(current_mode)
                 #else we're in gui mode and we should print directly to a file
                 
@@ -489,7 +524,7 @@ class constructModes:
                 '\nIf you experience this error, send the file and a brief description to Alexander.'
                 '\nUsage: $ python walker.py [OPTIONS] [FILE]'
             )
-        print "//other features"
+        print("//other features")
         self.all_modes.append('//other features')
 
     def handleRelationVariables(self):
@@ -508,7 +543,7 @@ class constructModes:
                     current_mode1 = "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
                     current_mode2 = "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
                     if self.cmdmode:
-                        print current_mode1, '\n', current_mode2
+                        print(current_mode1, '\n', current_mode2)
                     self.all_modes.append(current_mode1)
                     self.all_modes.append(current_mode2)
                 else:
@@ -524,7 +559,7 @@ class constructModes:
                                                              inst_b,
                                                              self.variable_dictionary.get(current_relation[1]))
                     if self.cmdmode:
-                        print current_mode
+                        print(current_mode)
                     self.all_modes.append(current_mode)
 
             else:
@@ -533,7 +568,7 @@ class constructModes:
                                                        self.variable_dictionary.get(current_relation[0]),
                                                        self.variable_dictionary.get(current_relation[1]))
                 if self.cmdmode:
-                    print current_mode
+                    print(current_mode)
                 self.all_modes.append(current_mode)
             
     
@@ -563,27 +598,8 @@ class constructModes:
                     current_mode = "mode: %s(%s%s)." % (attr.lower(), instantiation_symbol,
                                                         self.variable_dictionary.get(current_attribute[1]))
                 if self.cmdmode:
-                    print current_mode
+                    print(current_mode)
                 self.all_modes.append(current_mode)
-
-    def write_modes_to_file(self):
-
-        if self.cmdmode:
-            while 1:
-                print '\nWould you like to write these modes to a background.txt file? [y/n]'
-                sys.stdout.flush()
-                write_choice = raw_input()
-                if ((write_choice == 'y') or (write_choice == 'Y') or (write_choice == 'yes')):
-                    print '\nWriting modes to background.txt'
-                    write_to = open('background.txt', 'w')
-                    for mode in self.all_modes:
-                        write_to.write("%s\n" % mode)
-                    break
-                elif ((write_choice == 'n') or (write_choice == 'N') or (write_choice == 'no')):
-                    print '\nNow exiting.'
-                    break
-                else:
-                    print '\nInvalid choice.'
 
 class networks:
     
@@ -602,7 +618,7 @@ class networks:
         self.target_variables = []
         self.all_modes = ['//Modes:', '//target:']
         if self.cmdmode:
-            print "\n\n//Modes:"
+            print('\n\n//Modes:')
 
     def find_all_paths(self, graph, start, end, path=[]):
         # https://www.python.org/doc/essays/graphs/
@@ -623,11 +639,10 @@ class networks:
     def paths_from_target_to_features(self, graph):
         all_paths = []
         if self.debugmode:
-            print '\nAll paths from target to features.'
+            print('\nAll paths from target to features.')
         for feature in self.targetAndFeatures[1]:
             p = self.find_all_paths(graph, self.targetAndFeatures[0], feature)
             all_paths.append(p)
-            #print p
         return all_paths
 
     def find_pagerank(self, graph):
@@ -636,7 +651,7 @@ class networks:
         G = nx.from_dict_of_lists(graph)
         P = nx.pagerank(G, alpha=0.85)
         if self.debugmode:
-            print P
+            print(P)
         return P
 
     def walkFeatures(self, graph, targetAndFeatures, all_paths):
@@ -659,13 +674,12 @@ class networks:
         merged = list(itertools.chain(*all_paths))
         merged = list(itertools.chain(*merged))
 
-        #print "Predicates that will not be explored:"
         # Some predicates will not be explored, store them in a list
         unexplored = list(set(self.relationship_dictionary.keys()).union(set(self.attribute_dictionary.keys())) - set(merged))
-        #print unexplored
 
-        #for predicate not in list(set(merged2)): handle the variables by filling with +
-        
+        if self.debugmode:
+            print('Predicates not explored by walking: ', str(unexplored))
+
         # Probably needs a reflexive relationship check still (e.g. FatherOf Relationship)
 
         for lsa in all_paths:
@@ -685,7 +699,7 @@ class networks:
                             out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
                             if self.cmdmode:
-                                print "This should not happen, attribute should always be bound."
+                                print('WARNING! This should not happen, attribute should always be bound.')
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                             
                         final_set.append(str(predicate.lower() + 
@@ -700,8 +714,6 @@ class networks:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                        #print out
-                        #print ''.join(out).count('+'), ','.join(out)
                         if (((''.join(out)).count('+') < 2) or (predicate == self.target)):
                             final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
@@ -726,7 +738,10 @@ class networks:
                     out.append("+%s" % (variable_dictionary[var]))
                 final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
 
-        print '\nmode: ' + '\nmode: '.join(sorted(list(set(final_set))))
+        if self.cmdmode:
+            print('\nmode: ' + '\nmode: '.join(sorted(list(set(final_set)))))
+
+        self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
 
 class unitTests:
     
@@ -782,7 +797,7 @@ if __name__ == '__main__':
         #cmdlinemode = cmdlineMode(Setup.debugmode)
         #targetAndFeatures = cmdlinemode.targetFeatureSelection(attribute_dictionary, relationship_dictionary)
         
-
+    '''Either walk the graph or use Mayukh's heuristic.'''
     if Setup.walkmode:
         '''Optional / testing: with the rebuild graph, walk the graph'''
         # Open an instance of the networks class.
@@ -794,6 +809,8 @@ if __name__ == '__main__':
         all_paths = Networks.paths_from_target_to_features(Graph)
         #P = Networks.find_pagerank(Graph)
         Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
+
+        file_writer = FileWriter(Networks.all_modes, Setup.cmdmode)
         
     else:
         ConstructModes = constructModes(targetAndFeatures, ER_dictionary, 
@@ -804,6 +821,10 @@ if __name__ == '__main__':
         ConstructModes.handleTargetVariables()
         ConstructModes.handleRelationVariables()
         ConstructModes.handleAttributeVariables()
-        ConstructModes.write_modes_to_file()
+
+        file_writer = FileWriter(ConstructModes.all_modes, Setup.cmdmode)
+
+    # Prompt the user, then write modes to file or exit.
+    file_writer.write_modes_to_file()
 
     exit()
