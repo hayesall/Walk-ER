@@ -672,7 +672,6 @@ class networks:
             for lsb in lsa:
                 instantiated_variables = set(target_variables)
                 for predicate in lsb:
-                    # Skip the first predicate since it's the target.
                     if predicate in self.attribute_dictionary:
                         out = []
                         
@@ -685,38 +684,31 @@ class networks:
                         if attribute_dictionary[predicate][1] in instantiated_variables:
                             out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
+                            if self.cmdmode:
+                                print "This should not happen, attribute should always be bound."
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
-
+                            
                         final_set.append(str(predicate.lower() + 
                                              '(' + ','.join(out) + 
                                              multi + ').'))
                         instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
                     elif predicate in self.relationship_dictionary:
                         out = []
+                        variables = relationship_dictionary[predicate][0:2]
                         for var in relationship_dictionary[predicate][0:2]:
                             if var in instantiated_variables:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                        final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
+                        #print out
+                        #print ''.join(out).count('+'), ','.join(out)
+                        if (((''.join(out)).count('+') < 2) or (predicate == self.target)):
+                            final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
 
-        # Prune double +
-        # When target is a relationship, this will also prune those out!
-        final_set_2 = []
-        for predicate in final_set:
-            if not (predicate.count('+') > 1):
-                final_set_2.append(predicate)
-            else:
-                # Testing because there are errors currently.
-                final_set_2.append(predicate)
-            #if (predicate == self.target):
-            #    final_set_2.append(predicate)
-        final_set = final_set_2
-        
         # Handle unexplored
         for predicate in unexplored:
             if predicate in self.attribute_dictionary:
