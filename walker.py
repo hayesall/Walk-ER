@@ -22,10 +22,15 @@ class setup:
     def __init__(self):
         self.debugmode = False
         # I'm defaulting cmdmode to True since the GUI isn't implemented yet
-        self.cmdmode = False
+        self.cmdmode = True
         self.helpmode = False
         self.walkmode = False
-        self.validargs = ['-h', '--help', '-v', '--verbose', '-c', '--cmd', '-w', '--walk']
+        self.powersetmode = False
+        self.validargs = ['-h', '--help', 
+                          '-v', '--verbose', 
+                          '-c', '--cmd', 
+                          '-w', '--walk', 
+                          '-p', '--powerset']
 
     def print_help_menu(self):
         print('''
@@ -54,6 +59,8 @@ OPTIONS
     -c, --cmd: "Commandline Mode", override the gui and interact through the shell.
 
     -w, --walk: [EXPERIMENTAL] walk graph from target to features, instantiating variables along the path.
+    
+    -p, --powerset: [EXPERIMENTAL] walk graph from every feature to every feature.
 
 FILE
     Specify a relative or absolute path to the JSON (.erdplus) file.
@@ -77,7 +84,7 @@ PLANNED FEATURES
     -d, --depth: max search depth (default=None)
 
     -r, --repeat: number of times a node can be revisited (default=0) 
-            ''')
+        ''')
         exit()
 
     def read_user_input(self):
@@ -104,6 +111,8 @@ PLANNED FEATURES
         # Debug mode
         if ('-v' in args) or ('--verbose' in args):
             self.debugmode = True
+            # If debugmode is activated, default to cmdmode as well.
+            self.cmdmode = True
 
         # gui override: commandline mode
         if ('-c' in args) or ('--cmd' in args):
@@ -112,6 +121,12 @@ PLANNED FEATURES
         # instantiate variables by walking the graph
         if ('-w' in args) or ('--walk' in args):
             self.walkmode = True
+
+        # Powerset mode, walk every feature to every feature
+        if ('-p' in args) or ('--powerset' in args):
+            # powersetmode is only relevant when walkmode is also on
+            self.walkmode = True
+            self.powersetmode = True
 
         # not file not found
         if not os.path.isfile(args[-1]):
@@ -645,6 +660,18 @@ class networks:
             all_paths.append(p)
         return all_paths
 
+    def path_powerset(self, graph):
+        powerset = []
+        if self.debugmode:
+            print('\nPaths from every target to every feature (may take some time).')
+        for start in self.ER_dictionary.values():
+            start = start[0]
+            for end in self.ER_dictionary.values():
+                end = end[0]
+                p = self.find_all_paths(graph, start, end)
+                powerset.append(p)
+        return powerset
+
     def find_pagerank(self, graph):
         import networkx as nx
         '''Takes a graph in the form of a python dictionary, returns dictionary of pageranks for each node'''
@@ -806,7 +833,11 @@ if __name__ == '__main__':
                             variable_dictionary, attribute_dictionary,
                             relationship_dictionary, cmdlinemode=Setup.cmdmode, debugmode=Setup.debugmode)
         
-        all_paths = Networks.paths_from_target_to_features(Graph)
+        if Setup.powersetmode:
+            all_paths = Networks.path_powerset(Graph)
+        else:
+            all_paths = Networks.paths_from_target_to_features(Graph)
+        
         #P = Networks.find_pagerank(Graph)
         Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
 
