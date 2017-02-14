@@ -1,8 +1,9 @@
+from __future__ import print_function
+from collections import OrderedDict
+from pygame.locals import *
 import json
 import sys
 import os
-from collections import OrderedDict
-from pygame.locals import *
 
 '''
 TODO:
@@ -71,7 +72,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 9, 2017
+    Last Updated: February 13, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -348,7 +349,7 @@ class FileWriter:
                 if ((write_choice == 'y') or (write_choice == 'Y') or (write_choice == 'yes')):
                     print('\nWriting modes to background.txt')
                     write_to = open(self.file_name, 'w')
-                    print self.all_modes
+                    print(self.all_modes)
                     for mode in self.all_modes:
                         write_to.write("%s\n" % mode)
                     break
@@ -688,6 +689,8 @@ class networks:
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
         
+        #print('targetAndFeatures', targetAndFeatures)
+        #print('all paths', all_paths)
         import itertools
 
         # First, instantiate variables.
@@ -696,6 +699,7 @@ class networks:
         elif self.target in self.relationship_dictionary:
             target_variables = (self.relationship_dictionary[self.target])[0:2]
 
+        #print('target variables', target_variables)
         final_set = []
 
         merged = list(itertools.chain(*all_paths))
@@ -705,6 +709,7 @@ class networks:
         unexplored = list(set(self.relationship_dictionary.keys()).union(set(self.attribute_dictionary.keys())) - set(merged))
 
         if self.debugmode:
+            print('Predicates explored by walking: ', str(list(set(merged))))
             print('Predicates not explored by walking: ', str(unexplored))
 
         # Probably needs a reflexive relationship check still (e.g. FatherOf Relationship)
@@ -712,7 +717,10 @@ class networks:
         for lsa in all_paths:
             for lsb in lsa:
                 instantiated_variables = set(target_variables)
+                #print(instantiated_variables)
+                #print('lsb', lsb)
                 for predicate in lsb:
+                    #instantiated_variables = set(target_variables)
                     if predicate in self.attribute_dictionary:
                         out = []
                         
@@ -725,25 +733,42 @@ class networks:
                         if attribute_dictionary[predicate][1] in instantiated_variables:
                             out.append("+%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                         else:
-                            if self.cmdmode:
-                                print('WARNING! This should not happen, attribute should always be bound.')
+                            #if self.cmdmode:
+                            #    #print('WARNING! This should not happen, attribute should always be bound.')
+                            #    continue
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                             
                         final_set.append(str(predicate.lower() + 
                                              '(' + ','.join(out) + 
                                              multi + ').'))
-                        instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
+                        #print (set((attribute_dictionary[predicate])[1]))
+                        #print('BEFORE: ', instantiated_variables)
+                        #instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate][1])))
+                        #instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
+                        #print(set(list((attribute_dictionary[predicate])[1])))
+                        #print(set([attribute_dictionary[predicate][1]]))
+                        instantiated_variables = instantiated_variables.union(set([attribute_dictionary[predicate][1]]))
+                        #print('AFTER: ', instantiated_variables)
                     elif predicate in self.relationship_dictionary:
                         out = []
                         variables = relationship_dictionary[predicate][0:2]
-                        for var in relationship_dictionary[predicate][0:2]:
+                        #print(predicate, variables)
+                        #for var in relationship_dictionary[predicate][0:2]:
+                        for var in variables:
+                            #print('var', var, '; instantiated_variables', instantiated_variables)
                             if var in instantiated_variables:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                        if (((''.join(out)).count('+') < 2) or (predicate == self.target)):
-                            final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
+                            #print('out', out)
+                        #if (((''.join(out)).count('+') < 2) or (predicate == self.target)):
+                        #    final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
+                        final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
+                        #print(instantiated_variables)
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
+                        #instantiated_variables = instantiated_variables.union(set[relationship_dictionary[predicate][0:2]])
+                        #print(instantiated_variables)
+                        #print(predicate, variables, instantiated_variables, final_set, '\n')
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
