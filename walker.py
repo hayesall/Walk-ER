@@ -689,17 +689,21 @@ class networks:
         Output: (for now, print modes to terminal, in the future write them to a file)
         '''
         
-        #print('targetAndFeatures', targetAndFeatures)
-        #print('all paths', all_paths)
         import itertools
 
         # First, instantiate variables.
+        if targetAndFeatures[0] in self.attribute_dictionary:
+            target_variables = [(self.attribute_dictionary[targetAndFeatures[0]])[1]]
+        elif targetAndFeatures[0] in self.relationship_dictionary:
+            target_variables = (self.relationship_dictionary[targetAndFeatures[0]])[0:2]
+        '''
         if self.target in self.attribute_dictionary:
             target_variables = [(self.attribute_dictionary[self.target])[1]]
         elif self.target in self.relationship_dictionary:
             target_variables = (self.relationship_dictionary[self.target])[0:2]
+        '''
 
-        #print('target variables', target_variables)
+
         final_set = []
 
         merged = list(itertools.chain(*all_paths))
@@ -717,10 +721,7 @@ class networks:
         for lsa in all_paths:
             for lsb in lsa:
                 instantiated_variables = set(target_variables)
-                #print(instantiated_variables)
-                #print('lsb', lsb)
                 for predicate in lsb:
-                    #instantiated_variables = set(target_variables)
                     if predicate in self.attribute_dictionary:
                         out = []
                         
@@ -735,40 +736,25 @@ class networks:
                         else:
                             #if self.cmdmode:
                             #    #print('WARNING! This should not happen, attribute should always be bound.')
-                            #    continue
                             out.append("-%s" % (variable_dictionary[attribute_dictionary[predicate][1]]))
                             
                         final_set.append(str(predicate.lower() + 
                                              '(' + ','.join(out) + 
                                              multi + ').'))
-                        #print (set((attribute_dictionary[predicate])[1]))
-                        #print('BEFORE: ', instantiated_variables)
-                        #instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate][1])))
-                        #instantiated_variables = instantiated_variables.union(set((attribute_dictionary[predicate])[1]))
-                        #print(set(list((attribute_dictionary[predicate])[1])))
-                        #print(set([attribute_dictionary[predicate][1]]))
                         instantiated_variables = instantiated_variables.union(set([attribute_dictionary[predicate][1]]))
-                        #print('AFTER: ', instantiated_variables)
                     elif predicate in self.relationship_dictionary:
                         out = []
                         variables = relationship_dictionary[predicate][0:2]
-                        #print(predicate, variables)
-                        #for var in relationship_dictionary[predicate][0:2]:
                         for var in variables:
-                            #print('var', var, '; instantiated_variables', instantiated_variables)
                             if var in instantiated_variables:
                                 out.append("+%s" % (variable_dictionary[var]))
                             else:
                                 out.append("-%s" % (variable_dictionary[var]))
-                            #print('out', out)
                         #if (((''.join(out)).count('+') < 2) or (predicate == self.target)):
                         #    final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
                         final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
-                        #print(instantiated_variables)
+
                         instantiated_variables = instantiated_variables.union(set((relationship_dictionary[predicate])[0:2]))
-                        #instantiated_variables = instantiated_variables.union(set[relationship_dictionary[predicate][0:2]])
-                        #print(instantiated_variables)
-                        #print(predicate, variables, instantiated_variables, final_set, '\n')
                     else:
                         # Predicate is an entity and we can skip it.
                         continue
@@ -860,11 +846,26 @@ if __name__ == '__main__':
         
         if Setup.powersetmode:
             all_paths = Networks.path_powerset(Graph)
+            all_features = []
+            modes_powerset = []
+            for target in ER_dictionary.values():
+                if not (target[1] == 'Entity'):
+                    all_features.append(target[0])
+            for feature in all_features:
+                targetAndFeatures = [feature, list(set(all_features) - set([feature]))]
+                #print(targetAndFeatures)
+                Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
+                for mode in Networks.all_modes:
+                    modes_powerset.append(mode)
+            print('\n\nPowerset:')
+            for mode in sorted(list(set(modes_powerset))):
+                print(mode)
         else:
             all_paths = Networks.paths_from_target_to_features(Graph)
+            Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
         
         #P = Networks.find_pagerank(Graph)
-        Networks.walkFeatures(Graph, targetAndFeatures, all_paths)
+
 
         file_writer = FileWriter(Networks.all_modes, Setup.cmdmode)
         
