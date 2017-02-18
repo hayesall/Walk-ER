@@ -782,6 +782,9 @@ class networks:
         self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
 
 class unitTests:
+
+    # If an ER-diagram JSON file is specified, perform a test to make sure it is formatted properly,
+    # including all of the elements that are referenced when the diagrams are actually parsed. (i.e. 'shapes' in dict)
     
     def __init__(self):
         pass
