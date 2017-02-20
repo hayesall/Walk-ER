@@ -72,7 +72,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 13, 2017
+    Last Updated: February 20, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -663,14 +663,16 @@ class networks:
 
     def path_powerset(self, graph):
         powerset = []
-        if self.debugmode:
-            print('\nPaths from every target to every feature (may take some time).')
         for start in self.ER_dictionary.values():
             start = start[0]
             for end in self.ER_dictionary.values():
                 end = end[0]
                 p = self.find_all_paths(graph, start, end)
                 powerset.append(p)
+        if self.debugmode:
+            print('\nPaths from every target to every feature (may take some time).')
+            print('Length of powerset: ', len(powerset))
+            #print(powerset)
         return powerset
 
     def find_pagerank(self, graph):
@@ -713,6 +715,7 @@ class networks:
         unexplored = list(set(self.relationship_dictionary.keys()).union(set(self.attribute_dictionary.keys())) - set(merged))
 
         if self.debugmode:
+            print('\nTarget and Features: ', str(targetAndFeatures))
             print('Predicates explored by walking: ', str(list(set(merged))))
             print('Predicates not explored by walking: ', str(unexplored))
 
@@ -772,7 +775,7 @@ class networks:
                                      multi + ').'))
             elif predicate in self.relationship_dictionary:
                 out = []
-                for var in relationship_dictionary[predicate][0:2]:
+                for var in self.relationship_dictionary[predicate][0:2]:
                     out.append("+%s" % (variable_dictionary[var]))
                 final_set.append(str(predicate.lower() + '(' + ','.join(out) + ').'))
 
