@@ -23,7 +23,7 @@ class setup:
     def __init__(self):
         self.debugmode = False
         # I'm defaulting cmdmode to True since the GUI isn't implemented yet
-        self.cmdmode = True
+        self.cmdmode = False
         self.helpmode = False
         self.walkmode = False
         self.powersetmode = False
@@ -59,7 +59,7 @@ OPTIONS
 
     -c, --cmd: "Commandline Mode", override the gui and interact through the shell.
 
-    -w, --walk: [EXPERIMENTAL] walk graph from target to features, instantiating variables along the path.
+    -w, --walk: walk graph from target to features, instantiating variables along the path.
     
     -p, --powerset: [EXPERIMENTAL] walk graph from every feature to every feature.
 
@@ -72,7 +72,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 20, 2017
+    Last Updated: February 27, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
