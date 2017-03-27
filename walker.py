@@ -83,11 +83,11 @@ PLANNED FEATURES
     -t, --test: Run unit tests.
 
     -d, --depth: max search depth (default=None)
-
-    -r, --repeat: number of times a node can be revisited (default=0) 
+        
+    -r, --repeat: number of times a node can be revisited (default=0)
         ''')
         exit()
-
+        
     def read_user_input(self):
         '''Read the user-specified input for the file to parse
         Succeeds if the file is valid.'''
