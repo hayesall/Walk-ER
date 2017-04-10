@@ -72,7 +72,7 @@ FILE
 AUTHOR
     Written by Alexander L. Hayes, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: February 27, 2017
+    Last Updated: April 10, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -559,7 +559,7 @@ class constructModes:
                     current_mode1 = "mode: %s(+%s,-%s)." % (rel.lower(), a_mode, b_mode)
                     current_mode2 = "mode: %s(-%s,+%s)." % (rel.lower(), b_mode, a_mode)
                     if self.cmdmode:
-                        print(current_mode1, '\n', current_mode2)
+                        print(current_mode1 + '\n' + current_mode2)
                     self.all_modes.append(current_mode1)
                     self.all_modes.append(current_mode2)
                 else:
@@ -570,7 +570,7 @@ class constructModes:
                         inst_a = '-'
                     if (self.variable_dictionary.get(current_relation[1]) not in self.target_variables):
                         inst_b = '-'
-                    current_mode = "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
+                    current_mode = "cmode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
                                                              self.variable_dictionary.get(current_relation[0]),
                                                              inst_b,
                                                              self.variable_dictionary.get(current_relation[1]))
@@ -746,6 +746,7 @@ class networks:
                                              multi + ').'))
                         instantiated_variables = instantiated_variables.union(set([attribute_dictionary[predicate][1]]))
                     elif predicate in self.relationship_dictionary:
+                        # needs a check for whether the relationship is reflexive
                         out = []
                         variables = relationship_dictionary[predicate][0:2]
                         for var in variables:
