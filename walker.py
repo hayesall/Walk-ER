@@ -1,14 +1,17 @@
 from __future__ import print_function
 from collections import OrderedDict
 from pygame.locals import *
+import argparse
 import json
-import sys
 import os
+import sys
 
 '''
 TODO:
 - SQL Table Conversion (may or may not be possible)
 '''
+
+# Phase these input exceptions out, these exceptions should come from argparse
 
 class InputException(Exception):
     def handle(self):
@@ -23,7 +26,7 @@ class setup:
     def __init__(self):
         self.debugmode = False
         # I'm defaulting cmdmode to True since the GUI isn't implemented yet
-        self.cmdmode = False
+        self.cmdmode = True
         self.helpmode = False
         self.walkmode = False
         self.powersetmode = False
@@ -36,7 +39,7 @@ class setup:
     def print_help_menu(self):
         print('''
 NAME
-    Walk-ER vBeta0.4
+    Walk-ER
 
 SYNOPSIS
     $ python walker.py [OPTIONS] [FILE]
@@ -44,11 +47,9 @@ SYNOPSIS
     >>> import walker
 
 DESCRIPTION
-    "Walker" for Entity-Relational Diagrams from ERDPlus
-    https://erdplus.com/#/
+    "Walker" for Entity-Relational Diagrams
 
-    Used for parsing the JSON file exports from ERDPlus.
-    Parses the document, rebuilds the relationships and assists the user in creating a BoostSRL Background File.
+    Parses a document, rebuilds the relationships and assists the user in creating a BoostSRL Background File.
 
 OPTIONS
     -h, --help: Print a message that briefly summarizes command-line options and help information, then exits.
@@ -61,7 +62,7 @@ OPTIONS
 
     -w, --walk: walk graph from target to features, instantiating variables along the path.
     
-    -p, --powerset: [EXPERIMENTAL] walk graph from every feature to every feature.
+    -p, --powerset: walk graph from every feature to every feature.
 
 FILE
     Specify a relative or absolute path to the JSON (.erdplus) file.
@@ -70,9 +71,9 @@ FILE
         /home/user/Desktop/Walk-ER/diagrams/SmokesFriends.erdplus
 
 AUTHOR
-    Written by Alexander L. Hayes, Indiana University STARAI Lab
+    Written by Alexander L. Hayes, Mayukh Das, Indiana University STARAI Lab
     Bugs/Questions: hayesall@indiana.edu
-    Last Updated: April 10, 2017
+    Last Updated: April 13, 2017
 
 COPYRIGHT
     Copyright 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
