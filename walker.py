@@ -587,7 +587,6 @@ class constructModes:
                 if self.cmdmode:
                     print(current_mode)
                 self.all_modes.append(current_mode)
-            
     
     def handleAttributeVariables(self):
         for attr in self.attribute_dictionary.keys():

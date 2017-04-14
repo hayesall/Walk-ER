@@ -6,6 +6,9 @@ usage: walker.py [-h] [-v] [-n | -w | -p] diagram_file
 from __future__ import print_function
 from collections import OrderedDict
 import argparse
+#import itertools
+import json
+#import networkx (not currently implemented for pagerank, but could still be necessary elsewhere)
 import os
 
 # Define a short class for raising exceptions to help with debugging.
@@ -77,18 +80,134 @@ class Setup:
 
 class BuildDictionaries:
 
+    def __init__(self, json_dict):
+        self.verbose = setup.verbose
+        self.json_dict = json_dict
+        self.ER_dictionary = {}
+        self.attribute_dictionary = {}
+        self.relationship_dictionary = {}
+        self.variable_dictionary = {}
+
+    def extractVariables(self):
+        '''Returns a dictionary of variables bound to their entity id
+        e.g. {'1': 'professorid', '10': 'courseid', '6': 'studentid'}'''
+        
+        if 'shapes' in self.json_dict:
+            for i in range(len(self.json_dict['shapes'])):
+                current = self.json_dict['shapes'][i]
+                if ('type' in current) and ('details' in current):
+                    number = str(current['details'].get('id'))
+                    name = str(current['details'].get('name'))
+                    
+                    self.ER_dictionary[number] = [name, str(current['type'])]
+
+                    if current['type'] == 'Entity':
+                        self.variable_dictionary[number] = name.lower() + 'id'
+
+        if self.verbose:
+            print('Variables:\n', str(self.variable_dictionary))
+            print('All Shapes:\n', str(self.ER_dictionary))
+            
+    def extractAttributes(self):
+        '''Returns a dictionary of [entity-id, isMultivalued] bound to their name:
+        e.g. {'Salary': ['True', '1'], 'Tenure': ['False', '1'], 'Rating': ['True', '10'], ...}'''
+        
+        if 'shapes' in self.json_dict:
+            for i in range(len(self.json_dict['shapes'])):
+                current = self.json_dict['shapes'][i]
+                if ('type' in current) and ('details' in current):
+                    if current['type'] == 'Attribute':
+                        name = str(current['details'].get('name'))
+                        multi = str(current['details'].get('isMultivalued'))
+                        
+                        self.attribute_dictionary[name] = [multi]
+                        
+        if 'connectors' in json_dict:
+            for i in range(len(self.json_dict['connectors'])):
+                current = self.json_dict['connectors'][i]
+                if 'type' in current:
+                    # Rebuild the graph as an undirected dictionary which we can search.
+                    src = str(current['source'])
+                    dest = str(current['destination'])
+                    if (current['type'] == 'Connector'):
+                        # Attributes can be inferred if it's a regular connector.
+                        name = str(self.ER_dictionary.get(str(current['source']))[0])
+                        if name in self.attribute_dictionary:
+                            self.attribute_dictionary[name].append(dest)
+
+        if self.verbose:
+            print('Attributes:\n', str(self.attribute_dictionary))
+
+    def rebuildGraph(self):
+        pass
+
+    def extractRelationships(self):
+        pass
+
+class CmdInteraction:
+    
     def __init__(self):
         pass
         
-    def other(self):
+    def targetFeatureSelector(self):
         pass
 
+class FileWriter:
+    
+    def __init__(self):
+        pass
+
+    def write_modes_to_file(self):
+        pass
+
+class ConstructModes:
+    
+    def __init__(self):
+        pass
+
+    def handleTargetVariables(self):
+        pass
+
+    def handleRelationVariables(self):
+        pass
+
+    def handleAttributeVariables(self):
+        pass
+
+class Networks:
+    
+    def __init__(self):
+        pass
+        
+    def find_all_paths(self, graph, start, end, path=[]):
+        pass
+
+    def paths_from_target_to_features(self, graph):
+        pass
+
+    def path_powerset(self, graph):
+        pass
+
+    def walkFeatures(self):
+        import itertools
+        pass
+
+class UnitTests:
+
+    def __init__(self):
+        pass
+
+    def run_unit_tests(self):
+        pass
 
 if __name__ == '__main__':
 
     '''Parse the commandline input, import the file. Contents are stored in setup.diagram_file.'''
     setup = Setup()
+    json_dict = json.loads(setup.diagram_file)
+    #print(json_dict)
 
     '''Turn turn the file into dictionaries.'''
-    dictionaries = BuildDictionaries()
-
+    dictionaries = BuildDictionaries(json_dict)
+    dictionaries.extractVariables()
+    dictionaries.extractAttributes()
