@@ -6,10 +6,12 @@ usage: walker.py [-h] [-v] [-n | -w | -p] diagram_file
 from __future__ import print_function
 from collections import OrderedDict
 import argparse
-#import itertools
+import itertools
 import json
 #import networkx (not currently implemented for pagerank, but could still be necessary elsewhere)
 import os
+import random
+import re
 
 # Define a short class for raising exceptions to help with debugging.
 
@@ -27,7 +29,8 @@ class Setup:
         self.verbose = False     # -v, --verbose
         self.nowalk = False      # -n, --nowalk
         self.walk = True         # -w, --walk
-        self.powerset = False    # -p, --powerset
+        self.exhaustive = False  # -p, --exhaustive
+        self.random = False      # -r, --random
         
         # Start by creating an argument parser to help with user input.
         parser = argparse.ArgumentParser(description="Walk-ER: a system for walking the paths in an entity-relational diagram."\
@@ -43,15 +46,19 @@ class Setup:
         parser.add_argument("-v", "--verbose", 
                             help="Increase verbosity to help with debugging.", 
                             action="store_true")
-        walk.add_argument("-n", "--nowalk",
-                          help="Instantiate variables without walking (base case).", 
-                          action="store_true")
         walk.add_argument("-w", "--walk",
-                          help="Walk graph from target to features (efficient).", 
+                          help="[Default] Walk graph from target to features.", 
                           action="store_true")
-        walk.add_argument("-p", "--powerset",
-                          help="Walk graph from every feature to every feature (potentially infinite).",
+        walk.add_argument("-n", "--nowalk",
+                          help="[Not implemented] Instantiate variables without walking.", 
                           action="store_true")
+        walk.add_argument("-e", "--exhaustive",
+                          help="Walk graph from every feature to every feature.",
+                          action="store_true")
+        walk.add_argument("-r", "--random",
+                          help="Ignore features the user selected and walk from the target to random features.",
+                          action="store_true")
+
         # Get the args.
         args = parser.parse_args()
 
@@ -62,87 +69,128 @@ class Setup:
         # Import the file:
         '''Reads the contents of 'file_to_read', raises an exception if it cannot be read.'''
         try:
-            self.diagram_file = open(args.diagram_file).read()
+            diagram = open(args.diagram_file).read()
         except:
             raise ExceptionCase('Error [2]: Could not read the file: "' + args.diagram_file + '"')
+
+        if (len(diagram.splitlines()) == 6):
+            self.diagram_file = diagram
+        else:
+            raise ExceptionCase('Error [2]: File opened successfully, but has the wrong number of lines.')
             
         # Since the files exist, we can go ahead and set the rest of the parameters, starting with verbose
         self.verbose = args.verbose
-                    
+        
         # Check the rest of the parameters, update if necessary.
-        if not (args.walk or args.nowalk or args.powerset):
+        if not (args.walk or args.nowalk or args.exhaustive or args.random):
             # If this occurs, no flags were specified, so keep defaults (default: self.walk=True).
+            print('[Default] "Walk Mode": Walk graph from target to features.')
             pass
         else:
             self.nowalk = args.nowalk
             self.walk = args.walk
-            self.powerset = args.powerset
+            self.exhaustive = args.exhaustive
+            self.random = args.random
+
+        if self.verbose:
+            print('Imported Diagram File:\n')
+            print(diagram)
 
 class BuildDictionaries:
 
-    def __init__(self, json_dict):
+    def __init__(self, diagram):
         self.verbose = setup.verbose
-        self.json_dict = json_dict
-        self.ER_dictionary = {}
-        self.attribute_dictionary = {}
-        self.relationship_dictionary = {}
-        self.variable_dictionary = {}
-
-    def extractVariables(self):
-        '''Returns a dictionary of variables bound to their entity id
-        e.g. {'1': 'professorid', '10': 'courseid', '6': 'studentid'}'''
+        self.diagram = diagram
+        '''Takes the diagram file passed as an input and turns it into dictionaries that can be used over the next few sections:
+        Nodes: {Student=EntityNodeStyle, Professor=EntityNodeStyle, Rating=AttributeNodeStyle, Teach=RelationNodeStyle}
+        Edges : {publish|paper=RelationEdge, Course|Rating=AttributeEdge}
+        Important: [publish, Rating]
+        Target: Rating
+        RelatedEntities : {publish=[Student, Professor, paper], Teach=[Professor, Course]}
+        AttributeEntityMapping : {Rating=Course} <<-- not needed.
+        '''
+        self.entities = []
+        self.relations = []
+        self.attributes = []
+        #importants = []
+        #target = ''
+        self.Graph = {}
+        self.relations_dict = {}
+        self.attribute_dict = {}
         
-        if 'shapes' in self.json_dict:
-            for i in range(len(self.json_dict['shapes'])):
-                current = self.json_dict['shapes'][i]
-                if ('type' in current) and ('details' in current):
-                    number = str(current['details'].get('id'))
-                    name = str(current['details'].get('name'))
+        for line in self.diagram.splitlines():
+
+            # First line: all nodes in the graph: {Student=EntityNodeStyle, Rating=AttributeNodeStyle, Teach=RelationNodeStyle}
+            if line[:6] == 'Nodes:':
+                # Get the items between the { }
+                nodes = line[line.find('{')+1:line.find('}')].replace(',','').split()
+                for node in nodes:
+                    current = node.split('=')
                     
-                    self.ER_dictionary[number] = [name, str(current['type'])]
+                    if current[1] == 'EntityNodeStyle':
+                        self.entities.append(current[0])
+                    elif current[1] == 'AttributeNodeStyle':
+                        self.attributes.append(current[0])
+                    elif current[1] == 'RelationNodeStyle':
+                        self.relations.append(current[0])
+                    else:
+                        raise ExceptionCase('Error [2]: During BuildDictionaries/parse, found something that was not an entity, relation, or attribute.')
+                    
+            # Second: all edges between nodes: {publish|paper=RelationEdge, Course|Rating=AttributeEdge}
+            elif line[:7] == 'Edges :':
+                
+                # Get the items between the { }
+                edges = line[line.find('{')+1:line.find('}')].replace(',','').split()
+                 
+                for edge in edges:
+                    
+                    current = edge.split('=')
+                    if current[1] == 'AttributeEdge':
+                        current = current[0].split('|')
+                        if current[0] in self.attributes:
+                            self.attribute_dict[current[0]] = current[1]
+                        elif current[1] in self.attributes:
+                            self.attribute_dict[current[1]] = current[0]
+                        
+                    current = edge.split('=')[0].split('|') # 'publish|paper=RelationEdge'
 
-                    if current['type'] == 'Entity':
-                        self.variable_dictionary[number] = name.lower() + 'id'
+                    src = current[0]
+                    dest = current[1]
 
-        if self.verbose:
-            print('Variables:\n', str(self.variable_dictionary))
-            print('All Shapes:\n', str(self.ER_dictionary))
+                    if src in self.Graph:
+                        self.Graph[src].append(dest)
+                    else:
+                        self.Graph[src] = [dest]
+
+                    if dest in self.Graph:
+                        self.Graph[dest].append(src)
+                    else:
+                        self.Graph[dest] = [src]
+                    
+            elif line[:11] == 'Important :':
+
+                self.importants = line[line.find('[')+1:line.find(']')].replace(' ','').split(',')
+                
+            elif line[:6] == 'Target':
+                
+                self.target = line.replace(' ','').split(':')[1]
+
+            elif line[:17] == 'RelatedEntities :':
+
+                relations = line[line.find('{')+1:line.find('}')].replace(' ','')
+                relations = [item.replace('[','').replace(']','') for item in relations.split('],')]
+                
+                for relation in relations:
+                    current = relation.split('=')
+                    self.relations_dict[current[0]] = current[1].split(',')
             
-    def extractAttributes(self):
-        '''Returns a dictionary of [entity-id, isMultivalued] bound to their name:
-        e.g. {'Salary': ['True', '1'], 'Tenure': ['False', '1'], 'Rating': ['True', '10'], ...}'''
-        
-        if 'shapes' in self.json_dict:
-            for i in range(len(self.json_dict['shapes'])):
-                current = self.json_dict['shapes'][i]
-                if ('type' in current) and ('details' in current):
-                    if current['type'] == 'Attribute':
-                        name = str(current['details'].get('name'))
-                        multi = str(current['details'].get('isMultivalued'))
-                        
-                        self.attribute_dictionary[name] = [multi]
-                        
-        if 'connectors' in json_dict:
-            for i in range(len(self.json_dict['connectors'])):
-                current = self.json_dict['connectors'][i]
-                if 'type' in current:
-                    # Rebuild the graph as an undirected dictionary which we can search.
-                    src = str(current['source'])
-                    dest = str(current['destination'])
-                    if (current['type'] == 'Connector'):
-                        # Attributes can be inferred if it's a regular connector.
-                        name = str(self.ER_dictionary.get(str(current['source']))[0])
-                        if name in self.attribute_dictionary:
-                            self.attribute_dictionary[name].append(dest)
-
         if self.verbose:
-            print('Attributes:\n', str(self.attribute_dictionary))
-
-    def rebuildGraph(self):
-        pass
-
-    def extractRelationships(self):
-        pass
+            print('Entities:', self.entities)
+            print('Graph:', self.Graph)
+            print('Relations:', self.relations_dict)
+            print('Attributes:', self.attribute_dict)
+            print('Important:', self.importants)
+            print('Target:', self.target)
 
 class CmdInteraction:
     
@@ -176,21 +224,147 @@ class ConstructModes:
 
 class Networks:
     
-    def __init__(self):
-        pass
+    def __init__(self, target, features):
+        self.verbose = setup.verbose
+        self.entities = dictionaries.entities
+        self.relations = dictionaries.relations
+        self.attributes = dictionaries.attributes
+        self.importants = features
+        self.target = target
+        self.Graph = dictionaries.Graph
+        self.relations_dict = dictionaries.relations_dict
+        self.attribute_dict = dictionaries.attribute_dict
         
+        if self.verbose:
+            print('\nWalk Mode:')
+
     def find_all_paths(self, graph, start, end, path=[]):
+        # https://www.python.org/doc/essays/graphs/
+        path = path + [start]
+        if start == end:
+            return [path]
+        if start not in graph:
+            #if not graph.has_key(start):
+            return []
+        paths = []
+        for node in graph[start]:
+            if node not in path:
+                newpaths = self.find_all_paths(graph, node, end, path)
+                for newpath in newpaths:
+                    paths.append(newpath)
+        return paths
+
+    def paths_from_target_to_features(self):
+        graph = self.Graph
+        all_paths = []
+        if self.verbose:
+            print('\nAll paths from target to features:')
+        for feature in self.importants:
+            p = self.find_all_paths(graph, self.target, feature)
+            all_paths.append(p)
+        return all_paths
+
+    def path_exhaustive(self, graph):
         pass
 
-    def paths_from_target_to_features(self, graph):
-        pass
+    def walkFeatures(self, all_paths):
+        '''
+        Use user-selected features to construct background/modes.
+        Input: [target], [list of features]
+        Output: (print modes to terminal or write to a file)
+        '''
 
-    def path_powerset(self, graph):
-        pass
+        graph = self.Graph
+        target = self.target
+        features = self.importants
 
-    def walkFeatures(self):
-        import itertools
-        pass
+        # First, instantiate entity variables that appear in the target.
+        if target in self.attribute_dict:
+            target_variables = [self.attribute_dict[target]]
+        elif target in self.relations_dict:
+            target_variables = self.relations_dict[target]
+        #print(target_variables)
+
+        final_set = []
+
+        merged = list(itertools.chain(*all_paths))
+        merged = list(itertools.chain(*merged))
+
+        # Some predicates will not be explored, store them in a list.
+        unexplored = list(set(self.relations_dict.keys()).union(set(self.attribute_dict.keys())) - set(merged))
+        
+        if self.verbose:
+            print('\nTarget and Features:', str(target), str(features))
+            print('Predicates explored by walking:', str(list(set(merged))))
+            print('Predicates not explored by walking:', str(unexplored))
+
+        for lsa in all_paths:
+            for lsb in lsa:
+                instantiated_variables = set(target_variables)
+                for predicate in lsb:
+                    if predicate in self.attribute_dict:
+                        out = []
+
+                        # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
+                        multi = ',#' + predicate.lower()
+
+                        if self.attribute_dict[predicate] in instantiated_variables:
+                            out.append("+%s" % self.attribute_dict[predicate])
+                        else:
+                            out.append("-%s" % self.attribute_dict[predicate])
+                        final_set.append(str(predicate +
+                                             '(' + ','.join(out) +
+                                             multi + ').'))
+                        instantiated_variables = instantiated_variables.union(set(self.attribute_dict[predicate]))
+                        
+                    elif predicate in self.relations_dict:
+                        # Note: needs a check for whether the relationship is reflexive. (e.g. FatherOf Relationship)
+                        out = []
+
+                        variables = self.relations_dict[predicate]
+                        # reverse the order of the variables for correct predicate logic format:
+                        variables = list(reversed(variables))
+
+                        for var in variables:
+                            if var in instantiated_variables:
+                                out.append("+%s" % var)
+                            else:
+                                out.append("-%s" % var)
+                        final_set.append(str(predicate + '(' + ','.join(out) + ').'))
+
+                        instantiated_variables = instantiated_variables.union(set(self.relations_dict[predicate]))
+
+                    else:
+                        # Predicate is an entity and we can skip it.
+                        continue
+
+        # Handle "Unexplored" attributes, relations, and entities
+        for predicate in unexplored:
+            if predicate in self.attribute_dict:
+                
+                # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
+                multi = ',#' + predicate.lower()
+
+                final_set.append(str(predicate +
+                                     '(+' + attribute_dict[predicate] +
+                                     ').'))
+
+            elif predicate in self.relations_dict:
+                out = []
+
+                variables = self.relations_dict[predicate]
+                # reverse the order of the variables for correct predicate logic format:
+                variables = list(reversed(variables))
+
+                for var in variables:
+                    out.append("+%s" % var)
+                final_set.append(str(predicate + '(' + ','.join(out) + ').'))
+
+        self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
+        print('\n//background')
+        print('//target is', target)
+        for mode in self.all_modes:
+            print(mode)
 
 class UnitTests:
 
@@ -204,10 +378,40 @@ if __name__ == '__main__':
 
     '''Parse the commandline input, import the file. Contents are stored in setup.diagram_file.'''
     setup = Setup()
-    json_dict = json.loads(setup.diagram_file)
-    #print(json_dict)
+    diagram = setup.diagram_file
 
-    '''Turn turn the file into dictionaries.'''
-    dictionaries = BuildDictionaries(json_dict)
-    dictionaries.extractVariables()
-    dictionaries.extractAttributes()
+    '''Turn turn the file into dictionaries and lists.'''
+    dictionaries = BuildDictionaries(diagram)
+
+    if setup.walk:
+        target = dictionaries.target
+        features = dictionaries.importants
+        
+        networks = Networks(target, features)
+        
+        all_paths = networks.paths_from_target_to_features()
+        networks.walkFeatures(all_paths)
+        
+    elif (setup.random or setup.exhaustive):
+        # User-selected target
+        target = dictionaries.target
+        # Features not including the target
+        all_features = list(set(dictionaries.Graph.keys()) - set([target]))
+        # Select a random set of features from all_features
+
+        if setup.random:
+            print('"Random Mode": Ignore features the user selected and walk from the target to random features.')
+            features = random.sample(all_features, random.randint(1, len(all_features)))
+            print(features, '/', all_features)
+
+        elif setup.exhaustive:
+            print('"Exhaustive Mode": Walk the graph from the target to every feature.')
+            features = all_features
+
+        networks = Networks(target, features)
+        all_paths = networks.paths_from_target_to_features()
+        networks.walkFeatures(all_paths)
+
+    elif setup.nowalk:
+        print('"No-Walk Mode": Instantiate variables without walking.')
+        print('This is not currently implemented.')

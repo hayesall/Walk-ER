@@ -698,6 +698,8 @@ class networks:
             target_variables = [(self.attribute_dictionary[targetAndFeatures[0]])[1]]
         elif targetAndFeatures[0] in self.relationship_dictionary:
             target_variables = (self.relationship_dictionary[targetAndFeatures[0]])[0:2]
+            
+        #print('TARGET VARIABLES', target_variables)
         '''
         if self.target in self.attribute_dictionary:
             target_variables = [(self.attribute_dictionary[self.target])[1]]

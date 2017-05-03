@@ -1,0 +1,6 @@
+Nodes: {Student=EntityNodeStyle, Professor=EntityNodeStyle, Rating=AttributeNodeStyle, Teach=RelationNodeStyle, publish=RelationNodeStyle, Course=EntityNodeStyle, paper=EntityNodeStyle}
+Edges : {publish|paper=RelationEdge, publish|Professor=RelationEdge, Teach|Course=RelationEdge, Teach|Professor=RelationEdge, publish|Student=RelationEdge, Course|Rating=AttributeEdge}
+Important : [publish, Teach]
+Target : Rating
+RelatedEntities : {publish=[Student, Professor, paper], Teach=[Professor, Course]}
+AttributeEntityMapping : {Rating=Course}
