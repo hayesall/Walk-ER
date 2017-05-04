@@ -1,0 +1,6 @@
+Nodes: {Professor=EntityNodeStyle, Student=EntityNodeStyle, Course=EntityNodeStyle, Rating=AttributeNodeStyle, DepartmentA=AttributeNodeStyle, Tenure=AttributeNodeStyle, GPA=AttributeNodeStyle, DepartmentB=AttributeNodeStyle, Grade=EntityNodeStyle, Rating=AttributeNodeStyle, Advises=RelationNodeStyle, Teaches=RelationNodeStyle, TAs=RelationNodeStyle, Takes=RelationNodeStyle, StudentGrade=AttributeNodeStyle}
+Edges : {Salary|Professor=AttributeEdge, DepartmentA|Professor=AttributeEdge, Tenure|Professor=AttributeEdge, GPA|Student=AttributeEdge, DepartmentB|Student=AttributeEdge, Grade|Takes=AttributeEdge, Rating|Course=AttributeEdge, Professor|Advises=RelationEdge, Advises|Student=RelationEdge, Professor|Teaches=RelationEdge, Teaches|Course=RelationEdge, Student|TAs=RelationEdge, TAs|Course=RelationEdge, Student|Takes=RelationEdge, Takes|Course=RelationEdge, Grade|StudentGrade=AttributeEdge}
+Important : [StudentGrade]
+Target : Tenure
+RelatedEntities : {Advises=[Professor, Student], Teaches=[Professor, Course], TAs=[Student, Course], Takes=[Student, Course, Grade]}
+AttributeEntityMapping : {This block is not used, but is still used for verifying intergrity of these documents}

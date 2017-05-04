@@ -8,7 +8,7 @@ from collections import OrderedDict
 import argparse
 import itertools
 import json
-#import networkx (not currently implemented for pagerank, but could still be necessary elsewhere)
+#import networkx (if pagerank is implemented)
 import os
 import random
 import re
@@ -29,6 +29,7 @@ class Setup:
         self.verbose = False     # -v, --verbose
         self.nowalk = False      # -n, --nowalk
         self.walk = True         # -w, --walk
+        self.shortest = False    # -s, --shortest
         self.exhaustive = False  # -p, --exhaustive
         self.random = False      # -r, --random
         
@@ -48,6 +49,9 @@ class Setup:
                             action="store_true")
         walk.add_argument("-w", "--walk",
                           help="[Default] Walk graph from target to features.", 
+                          action="store_true")
+        walk.add_argument("-s", "--shortest",
+                          help="[Not implemented] Walk the graph from target to features. If there are multiple paths, take the shortest. If the shortest are equal lengths, walk both.",
                           action="store_true")
         walk.add_argument("-n", "--nowalk",
                           help="[Not implemented] Instantiate variables without walking.", 
@@ -82,13 +86,14 @@ class Setup:
         self.verbose = args.verbose
         
         # Check the rest of the parameters, update if necessary.
-        if not (args.walk or args.nowalk or args.exhaustive or args.random):
+        if not (args.walk or args.nowalk or args.exhaustive or args.random or args.shortest):
             # If this occurs, no flags were specified, so keep defaults (default: self.walk=True).
             print('[Default] "Walk Mode": Walk graph from target to features.')
             pass
         else:
             self.nowalk = args.nowalk
             self.walk = args.walk
+            self.shortest = args.shortest
             self.exhaustive = args.exhaustive
             self.random = args.random
 
@@ -134,6 +139,7 @@ class BuildDictionaries:
                     elif current[1] == 'RelationNodeStyle':
                         self.relations.append(current[0])
                     else:
+                        print(current)
                         raise ExceptionCase('Error [2]: During BuildDictionaries/parse, found something that was not an entity, relation, or attribute.')
                     
             # Second: all edges between nodes: {publish|paper=RelationEdge, Course|Rating=AttributeEdge}
@@ -264,16 +270,15 @@ class Networks:
             all_paths.append(p)
         return all_paths
 
-    def path_exhaustive(self, graph):
+    def path_powerset(self, graph):
         pass
 
-    def walkFeatures(self, all_paths):
+    def walkFeatures(self, all_paths, shortest=False):
         '''
         Use user-selected features to construct background/modes.
         Input: [target], [list of features]
         Output: (print modes to terminal or write to a file)
         '''
-
         graph = self.Graph
         target = self.target
         features = self.importants
@@ -287,9 +292,17 @@ class Networks:
 
         final_set = []
 
+        if shortest:
+            # Prefer the shortest paths between the target and features.
+            new_all_paths = []
+            for lsa in all_paths:
+                shortest_len = min([len(x) for x in lsa])
+                new_all_paths.append([y for y in lsa if len(y) == shortest_len])
+            all_paths = new_all_paths
+
         merged = list(itertools.chain(*all_paths))
         merged = list(itertools.chain(*merged))
-
+        
         # Some predicates will not be explored, store them in a list.
         unexplored = list(set(self.relations_dict.keys()).union(set(self.attribute_dict.keys())) - set(merged))
         
@@ -300,6 +313,7 @@ class Networks:
 
         for lsa in all_paths:
             for lsb in lsa:
+
                 instantiated_variables = set(target_variables)
                 for predicate in lsb:
                     if predicate in self.attribute_dict:
@@ -346,7 +360,7 @@ class Networks:
                 multi = ',#' + predicate.lower()
 
                 final_set.append(str(predicate +
-                                     '(+' + attribute_dict[predicate] +
+                                     '(+' + self.attribute_dict[predicate] + multi +
                                      ').'))
 
             elif predicate in self.relations_dict:
@@ -383,15 +397,19 @@ if __name__ == '__main__':
     '''Turn turn the file into dictionaries and lists.'''
     dictionaries = BuildDictionaries(diagram)
 
-    if setup.walk:
+    if (setup.walk or setup.shortest):
         target = dictionaries.target
         features = dictionaries.importants
-        
+
         networks = Networks(target, features)
         
         all_paths = networks.paths_from_target_to_features()
-        networks.walkFeatures(all_paths)
-        
+
+        if setup.shortest:
+            networks.walkFeatures(all_paths, shortest=True)
+        else:
+            networks.walkFeatures(all_paths)
+    
     elif (setup.random or setup.exhaustive):
         # User-selected target
         target = dictionaries.target
