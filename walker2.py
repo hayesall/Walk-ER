@@ -32,6 +32,7 @@ class Setup:
         self.shortest = False    # -s, --shortest
         self.exhaustive = False  # -p, --exhaustive
         self.random = False      # -r, --random
+        self.randomwalk = False  # -rw, --randomwalk
         self.Nfeatures = None    # -n, --number
         
         # Start by creating an argument parser to help with user input.
@@ -65,7 +66,10 @@ class Setup:
                           help="Walk graph from every feature to every feature.",
                           action="store_true")
         walk.add_argument("-r", "--random",
-                          help="Ignore features the user selected and walk from the target to random features.",
+                          help="Ignore features the user selected and walk (-w) from the target to random features.",
+                          action="store_true")
+        walk.add_argument("-rw", "--randomwalk",
+                          help="Walk a random path from the target until reaching a depth limit (specified with --number).",
                           action="store_true")
 
         # Get the args.
@@ -97,7 +101,7 @@ class Setup:
                 raise(ExceptionCase('Error [1]: Cannot have negative features.'))
 
         # Check the rest of the parameters, update if necessary.
-        if not (args.walk or args.nowalk or args.exhaustive or args.random or args.shortest):
+        if not (args.walk or args.nowalk or args.exhaustive or args.random or args.shortest or args.randomwalk):
             # If this occurs, no flags were specified, so keep defaults (default: self.walk=True).
             print('[Default] "Walk Mode": Walk graph from target to features.')
             pass
@@ -107,6 +111,7 @@ class Setup:
             self.shortest = args.shortest
             self.exhaustive = args.exhaustive
             self.random = args.random
+            self.randomwalk = args.randomwalk
 
         if self.verbose:
             print('Imported Diagram File:\n')
@@ -294,6 +299,92 @@ class Networks:
                     paths.append(newpath)
         return paths
 
+    def random_walk(self, graph, start, depth):
+        path = [start]
+
+        # Randomly walk to nodes in the graph while length is less than maximum depth.
+        while len(path) < depth:
+            current_node = graph[start]
+            next_node = random.choice(current_node)
+            
+            path.append(next_node)
+            start = next_node
+
+        # If we walk to an entity, pop items off the stack and put the entity on the stack.
+        # Instantiate -/+ based on what is currently on the stack.
+        stack = []
+        final_set = []
+
+        # Add the target to the final_set:
+        if self.target in self.attribute_dict:
+            final_set.append(self.target + '(+' + self.attribute_dict[self.target] + ').')
+        elif self.target in self.relations_dict:
+            if (len(self.relations_dict[self.target]) == 1):
+                # Reflexive
+                final_set.append(self.target + '(+' + self.relations_dict[self.target][0] + ',+' + self.relations_dict[self.target][0] + ').')
+            else:
+                final_set.append(self.target + '(+' + ',+'.join(self.relations_dict[self.target]) + ').')
+
+        # Handle everything that occurs after that target
+        path = path[1:]
+        for node in path:
+            if node in self.entities:
+                stack = [node]
+            elif node in self.relations:
+                out = []
+                if (len(self.relations_dict[node]) == 1):
+                    # Reflexive.
+                    out.append("+%s" % self.relations_dict[node][0])
+                    out.append("-%s" % self.relations_dict[node][0])
+                    final_set.append(node + '(' + ','.join(out) + ').')
+                    outrev = reversed(out)
+                    final_set.append(node + '(' + ','.join(outrev) + ').')
+                else:
+                    # Not reflexive.
+                    for var in self.relations_dict[node]:
+                        if var in stack:
+                            out.append("+%s" % var)
+                        else:
+                            out.append("-%s" % var)
+                    final_set.append(node + '(' + ','.join(out) + ').')
+            # I'm skipping attributes because they'll be instantiated with + regardless of whether they're explored or not.
+
+        # Instantiate '+' for nodes that were not explored when walking.
+        unexplored = list((set(self.relations_dict.keys()) - set(path)).union(set(self.attribute_dict.keys())))
+
+        for predicate in unexplored:
+            if predicate in self.attribute_dict:
+                
+                # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
+                multi = ',#' + predicate.lower()
+                multi = ''
+
+                final_set.append(str(predicate +
+                                     '(+' + self.attribute_dict[predicate] + multi +
+                                     ').'))
+
+            elif predicate in self.relations_dict:
+                out = []
+
+                variables = self.relations_dict[predicate]
+                # reverse the order of the variables for correct predicate logic format:
+                #variables = list(reversed(variables))
+                
+                for var in variables:
+                    out.append("+%s" % var)
+                    # A small fix for reflexive relationships:
+                    if len(variables) == 1:
+                        out.append("+%s" % var)
+                final_set.append(str(predicate + '(' + ','.join(out) + ').'))
+
+        self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
+        print('\n//background')
+        print('//target is', target)
+        for mode in self.all_modes:
+            print(mode)
+
+        return path
+            
     def paths_from_target_to_features(self):
         graph = self.Graph
         all_paths = []
@@ -305,9 +396,6 @@ class Networks:
         return all_paths
 
     def path_powerset(self, graph):
-        pass
-
-    def random_paths(self, graph):
         pass
 
     def walkFeatures(self, all_paths, shortest=False):
@@ -451,6 +539,8 @@ if __name__ == '__main__':
     '''Turn turn the file into dictionaries and lists.'''
     dictionaries = BuildDictionaries(diagram)
 
+    #print(dictionaries.Graph)
+
     if (setup.walk or setup.shortest):
         target = dictionaries.target
         all_features = list(set(dictionaries.relations).union(set(dictionaries.attributes)) - set([target]))
@@ -499,6 +589,24 @@ if __name__ == '__main__':
         networks = Networks(target, features)
         all_paths = networks.paths_from_target_to_features()
         networks.walkFeatures(all_paths)
+    
+    elif setup.randomwalk:
+        print('"Random Walk Mode": Randomly choose the next node to walk to.')
+
+        target = dictionaries.target
+        features = []
+        Graph = dictionaries.Graph
+
+        networks = Networks(target, features)
+
+        if (setup.Nfeatures == None):
+            print('Warning: depth limit was not specified (use --number), defaulting to 10,000 [Exhaustive Search].')
+            depth_limit = 10000
+        else:
+            depth_limit = setup.Nfeatures
+
+        path = networks.random_walk(Graph, target, depth_limit)
+        
 
     elif setup.nowalk:
         print('"No-Walk Mode": Instantiate variables without walking.')
