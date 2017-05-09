@@ -571,7 +571,7 @@ class constructModes:
                         inst_a = '-'
                     if (self.variable_dictionary.get(current_relation[1]) not in self.target_variables):
                         inst_b = '-'
-                    current_mode = "cmode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
+                    current_mode = "mode: %s(%s%s,%s%s)." % (rel.lower(), inst_a,
                                                              self.variable_dictionary.get(current_relation[0]),
                                                              inst_b,
                                                              self.variable_dictionary.get(current_relation[1]))

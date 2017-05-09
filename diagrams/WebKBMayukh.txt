@@ -1,0 +1,6 @@
+Nodes: {student=AttributeNodeStyle, Course=EntityNodeStyle, courseprof=RelationNodeStyle, Person=EntityNodeStyle, Proj=EntityNodeStyle, courseta=RelationNodeStyle, faculty=AttributeNodeStyle, project=RelationNodeStyle, sameperson=RelationNodeStyle}
+Edges: {Person|sameperson=RelationEdge, courseprof|Course=RelationEdge, Person|courseta=RelationEdge, courseta|Course=RelationEdge, Person|student=AttributeEdge, project|Proj=RelationEdge, Person|courseprof=RelationEdge, sameperson|Person=RelationEdge, Person|faculty=AttributeEdge, Person|project=RelationEdge}
+Important: [courseprof, courseta, project]
+Target: faculty
+RelatedEntities: {courseta=[Course, Person], courseprof=[Course, Person], project=[Person, Proj], sameperson=[Person]}
+AttributeEntityMapping: {faculty=Person, student=Person}

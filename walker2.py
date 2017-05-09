@@ -1,6 +1,6 @@
 '''
 Walk-ER : a system for walking paths in an entity-relational diagram.
-usage: walker.py [-h] [-v] [-n | -w | -p] diagram_file
+usage: walker.py [-h] [-n] Nfeatures [-v] [-n | -w | -p] diagram_file
 '''
 
 from __future__ import print_function
@@ -32,6 +32,7 @@ class Setup:
         self.shortest = False    # -s, --shortest
         self.exhaustive = False  # -p, --exhaustive
         self.random = False      # -r, --random
+        self.Nfeatures = None    # -n, --number
         
         # Start by creating an argument parser to help with user input.
         parser = argparse.ArgumentParser(description="Walk-ER: a system for walking the paths in an entity-relational diagram."\
@@ -44,14 +45,18 @@ class Setup:
         # Add the arguments.
         walk = parser.add_mutually_exclusive_group()
         parser.add_argument("diagram_file")
-        parser.add_argument("-v", "--verbose", 
+        parser.add_argument("-v", "--verbose",
                             help="Increase verbosity to help with debugging.", 
                             action="store_true")
+        parser.add_argument("--number",
+                            type=int,
+                            help="Select number of features to walk to (assumes that Important features are ordered from most important to least important). Defaults to number_attributes + number_relations if chosen number is greater than both.")
+        #parser.add_argument('Nfeatures')
         walk.add_argument("-w", "--walk",
                           help="[Default] Walk graph from target to features.", 
                           action="store_true")
         walk.add_argument("-s", "--shortest",
-                          help="[Not implemented] Walk the graph from target to features. If there are multiple paths, take the shortest. If the shortest are equal lengths, walk both.",
+                          help="Walk the graph from target to features. If there are multiple paths, take the shortest. If the shortest are equal lengths, walk both.",
                           action="store_true")
         walk.add_argument("-n", "--nowalk",
                           help="[Not implemented] Instantiate variables without walking.", 
@@ -68,23 +73,29 @@ class Setup:
 
         # Make sure the diagram_file is valid.
         if not os.path.isfile(args.diagram_file):
-            raise ExceptionCase('Error [2]: Could not find file: "' + args.diagram_file + '"')
+            raise ExceptionCase('Error [1]: Could not find file: "' + args.diagram_file + '"')
 
         # Import the file:
         '''Reads the contents of 'file_to_read', raises an exception if it cannot be read.'''
         try:
             diagram = open(args.diagram_file).read()
         except:
-            raise ExceptionCase('Error [2]: Could not read the file: "' + args.diagram_file + '"')
+            raise ExceptionCase('Error [1]: Could not read the file: "' + args.diagram_file + '"')
 
         if (len(diagram.splitlines()) == 6):
             self.diagram_file = diagram
         else:
-            raise ExceptionCase('Error [2]: File opened successfully, but has the wrong number of lines.')
+            raise ExceptionCase('Error [1]: File opened successfully, but has the wrong number of lines.')
             
         # Since the files exist, we can go ahead and set the rest of the parameters, starting with verbose
         self.verbose = args.verbose
         
+        if (args.number != None):
+            if (args.number >= 0):
+                self.Nfeatures = args.number
+            else:
+                raise(ExceptionCase('Error [1]: Cannot have negative features.'))
+
         # Check the rest of the parameters, update if necessary.
         if not (args.walk or args.nowalk or args.exhaustive or args.random or args.shortest):
             # If this occurs, no flags were specified, so keep defaults (default: self.walk=True).
@@ -100,6 +111,7 @@ class Setup:
         if self.verbose:
             print('Imported Diagram File:\n')
             print(diagram)
+
 
 class BuildDictionaries:
 
@@ -143,7 +155,7 @@ class BuildDictionaries:
                         raise ExceptionCase('Error [2]: During BuildDictionaries/parse, found something that was not an entity, relation, or attribute.')
                     
             # Second: all edges between nodes: {publish|paper=RelationEdge, Course|Rating=AttributeEdge}
-            elif line[:7] == 'Edges :':
+            elif line[:5] == 'Edges':
                 
                 # Get the items between the { }
                 edges = line[line.find('{')+1:line.find('}')].replace(',','').split()
@@ -157,8 +169,28 @@ class BuildDictionaries:
                             self.attribute_dict[current[0]] = current[1]
                         elif current[1] in self.attributes:
                             self.attribute_dict[current[1]] = current[0]
-                        
+
+                    '''
+                    if current[1] == 'RelationEdge':
+                        current = current[0].split('|')
+
+                        if current[0] in self.entities:
+                            # do stuff
+                            continue
+                        if current[1] in self.entities:
+                            # do stuff
+                            continue
+                        if current[0] in self.relations:
+                            # do stuff
+                            continue
+                        if current[1] in self.relations:
+                            # do stuf
+                            continue
+                    '''
+                    
                     current = edge.split('=')[0].split('|') # 'publish|paper=RelationEdge'
+
+                    # Rebuild the Graph
 
                     src = current[0]
                     dest = current[1]
@@ -173,7 +205,7 @@ class BuildDictionaries:
                     else:
                         self.Graph[dest] = [src]
                     
-            elif line[:11] == 'Important :':
+            elif line[:9] == 'Important':
 
                 self.importants = line[line.find('[')+1:line.find(']')].replace(' ','').split(',')
                 
@@ -181,7 +213,9 @@ class BuildDictionaries:
                 
                 self.target = line.replace(' ','').split(':')[1]
 
-            elif line[:17] == 'RelatedEntities :':
+            # There are some problems with this, the order they appear is not always
+            # consistent with how they need to be ordered. (Look at the order of edges instead)
+            elif line[:15] == 'RelatedEntities':
 
                 relations = line[line.find('{')+1:line.find('}')].replace(' ','')
                 relations = [item.replace('[','').replace(']','') for item in relations.split('],')]
@@ -273,6 +307,9 @@ class Networks:
     def path_powerset(self, graph):
         pass
 
+    def random_paths(self, graph):
+        pass
+
     def walkFeatures(self, all_paths, shortest=False):
         '''
         Use user-selected features to construct background/modes.
@@ -321,6 +358,7 @@ class Networks:
 
                         # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
                         multi = ',#' + predicate.lower()
+                        multi = ''
 
                         if self.attribute_dict[predicate] in instantiated_variables:
                             out.append("+%s" % self.attribute_dict[predicate])
@@ -333,18 +371,30 @@ class Networks:
                         
                     elif predicate in self.relations_dict:
                         # Note: needs a check for whether the relationship is reflexive. (e.g. FatherOf Relationship)
+                        REFLEXIVE = False
                         out = []
 
                         variables = self.relations_dict[predicate]
                         # reverse the order of the variables for correct predicate logic format:
-                        variables = list(reversed(variables))
+                        #variables = list(reversed(variables))
 
                         for var in variables:
                             if var in instantiated_variables:
                                 out.append("+%s" % var)
                             else:
                                 out.append("-%s" % var)
+
+                        if len(variables) == 1:
+                            REFLEXIVE = True
+                            if (predicate == target):
+                                out.append("+%s" % var)
+                            else:
+                                out.append("-%s" % var)
                         final_set.append(str(predicate + '(' + ','.join(out) + ').'))
+                        
+                        if REFLEXIVE:
+                            outrev = list(reversed(out))
+                            final_set.append(str(predicate + '(' + ','.join(outrev) + ').'))
 
                         instantiated_variables = instantiated_variables.union(set(self.relations_dict[predicate]))
 
@@ -358,6 +408,7 @@ class Networks:
                 
                 # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
                 multi = ',#' + predicate.lower()
+                multi = ''
 
                 final_set.append(str(predicate +
                                      '(+' + self.attribute_dict[predicate] + multi +
@@ -368,10 +419,13 @@ class Networks:
 
                 variables = self.relations_dict[predicate]
                 # reverse the order of the variables for correct predicate logic format:
-                variables = list(reversed(variables))
-
+                #variables = list(reversed(variables))
+                
                 for var in variables:
                     out.append("+%s" % var)
+                    # A small fix for reflexive relationships:
+                    if len(variables) == 1:
+                        out.append("+%s" % var)
                 final_set.append(str(predicate + '(' + ','.join(out) + ').'))
 
         self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
@@ -399,7 +453,15 @@ if __name__ == '__main__':
 
     if (setup.walk or setup.shortest):
         target = dictionaries.target
-        features = dictionaries.importants
+        all_features = list(set(dictionaries.relations).union(set(dictionaries.attributes)) - set([target]))
+
+        if (setup.Nfeatures == None):
+            features = dictionaries.importants
+        elif (setup.Nfeatures > len(dictionaries.importants)):
+            features = dictionaries.importants
+        else:
+            features = dictionaries.importants[:setup.Nfeatures]
+        print(features)
 
         networks = Networks(target, features)
         
@@ -414,12 +476,20 @@ if __name__ == '__main__':
         # User-selected target
         target = dictionaries.target
         # Features not including the target
-        all_features = list(set(dictionaries.Graph.keys()) - set([target]))
+        #all_features = list(set(dictionaries.Graph.keys()) - set([target]))
+        all_features = list(set(dictionaries.relations).union(set(dictionaries.attributes)) - set([target]))
         # Select a random set of features from all_features
 
         if setup.random:
             print('"Random Mode": Ignore features the user selected and walk from the target to random features.')
-            features = random.sample(all_features, random.randint(1, len(all_features)))
+
+            if (setup.Nfeatures == None):
+                features = random.sample(all_features, random.randint(1, len(all_features)))
+            elif (setup.Nfeatures > len(all_features)):
+                features = random.sample(all_features, len(all_features))
+            else:
+                features = random.sample(all_features, setup.Nfeatures)
+
             print(features, '/', all_features)
 
         elif setup.exhaustive:
