@@ -1,6 +1,6 @@
 '''
 Walk-ER : a system for walking paths in an entity-relational diagram.
-usage: walker.py [-h] [-n] Nfeatures [-v] [-n | -w | -p] diagram_file
+usage: walker.py [-h] [-v] [--number NUMBER] [-w | -s | -n | -e | -r | -rw ] diagram_file
 '''
 
 from __future__ import print_function
