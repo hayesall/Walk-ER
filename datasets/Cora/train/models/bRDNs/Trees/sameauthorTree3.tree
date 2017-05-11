@@ -3,12 +3,11 @@ setParam: stringsAreCaseSensitive = true.
 usePrologVariables: true.
 
 
-(sameauthor(A, B, 0.35949899623156634) :-  /* #neg=26 #pos=172 */ haswordauthor(A, UniqueVar47), haswordauthor(B, UniqueVar47), haswordtitle(UniqueVar48, UniqueVar47), haswordauthor(B, UniqueVar49), haswordvenue(_, UniqueVar49), haswordtitle(UniqueVar48, UniqueVar49)).
-(sameauthor(A, B, 0.45535456981891453) :-  /* #pos=26 */ haswordauthor(A, UniqueVar50), haswordauthor(B, UniqueVar50), haswordtitle(_, UniqueVar50), haswordauthor(B, UniqueVar51), haswordvenue(_, UniqueVar51)).
-(sameauthor(A, B, 0.381527146527018) :-  /* #neg=2 #pos=21 */ haswordauthor(A, UniqueVar52), haswordauthor(B, UniqueVar52), haswordtitle(_, UniqueVar52), haswordauthor(A, UniqueVar53), haswordvenue(_, UniqueVar53)).
-(sameauthor(A, B, 0.32603673902458197) :-  /* #neg=12 #pos=45 */ haswordauthor(A, UniqueVar54), haswordauthor(B, UniqueVar54), haswordtitle(_, UniqueVar54)).
-(sameauthor(A, B, 0.4314543079805128) :-  /* #pos=11 */ haswordauthor(A, UniqueVar55), haswordauthor(B, UniqueVar55), haswordauthor(A, UniqueVar56), haswordvenue(_, UniqueVar56), haswordauthor(B, UniqueVar57), haswordtitle(_, UniqueVar57)).
-(sameauthor(A, B, 0.39670072684077956) :-  /* #neg=2 #pos=46 */ haswordauthor(A, UniqueVar58), haswordauthor(B, UniqueVar58), haswordauthor(A, UniqueVar59), haswordvenue(_, UniqueVar59)).
-(sameauthor(A, B, 0.39915588358350146) :-  /* #neg=2 #pos=44 */ haswordauthor(A, UniqueVar60), haswordauthor(B, UniqueVar60), haswordauthor(B, UniqueVar61), haswordvenue(_, UniqueVar61)).
-(sameauthor(A, B, 0.4175135841583093) :-  /* #pos=123 */ haswordauthor(A, UniqueVar62), haswordauthor(B, UniqueVar62)).
+(sameauthor(A, B, 0.4942492053911084) :-  /* #pos=10 */ haswordauthor(A, UniqueVar47), haswordauthor(B, UniqueVar47), haswordtitle(UniqueVar48, UniqueVar47), author(UniqueVar49, B), title(UniqueVar49, UniqueVar48)).
+(sameauthor(A, B, 0.49424920539110834) :-  /* #pos=5 */ haswordauthor(A, UniqueVar50), haswordauthor(B, UniqueVar50), haswordtitle(UniqueVar51, UniqueVar50), author(UniqueVar52, A), title(UniqueVar52, UniqueVar51)).
+(sameauthor(A, B, 0.3563136431473618) :-  /* #neg=40 #pos=249 */ haswordauthor(A, UniqueVar53), haswordauthor(B, UniqueVar53), haswordtitle(_, UniqueVar53)).
+(sameauthor(A, B, 0.39947900812804216) :-  /* #neg=2 #pos=49 */ haswordauthor(A, UniqueVar54), haswordauthor(B, UniqueVar54), haswordauthor(A, UniqueVar55), haswordvenue(_, UniqueVar55), haswordtitle(_, UniqueVar55)).
+(sameauthor(A, B, 0.4267870648186737) :-  /* #pos=8 */ haswordauthor(A, UniqueVar56), haswordauthor(B, UniqueVar56), haswordauthor(A, UniqueVar57), haswordvenue(_, UniqueVar57)).
+(sameauthor(A, B, 0.3971686662962299) :-  /* #neg=2 #pos=44 */ haswordauthor(A, UniqueVar58), haswordauthor(B, UniqueVar58), haswordauthor(B, UniqueVar59), haswordvenue(_, UniqueVar59)).
+(sameauthor(A, B, 0.4182469498921977) :-  /* #pos=123 */ haswordauthor(A, UniqueVar60), haswordauthor(B, UniqueVar60)).
 sameauthor(_, _, -0.10159632948783635) /* #neg=22 */ .

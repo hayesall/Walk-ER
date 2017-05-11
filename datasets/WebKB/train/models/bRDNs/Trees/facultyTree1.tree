@@ -3,6 +3,6 @@ setParam: stringsAreCaseSensitive = true.
 usePrologVariables: true.
 
 
-(faculty(A, -0.125444638528392) :-  /* #neg=293 */ student(A)).
+(faculty(A, -0.12544463852839205) :-  /* #neg=319 */ student(A)).
 (faculty(A, 0.7194734122109563) :-  /* #pos=154 */ sameperson(A, A)).
 faculty(_, -0.12544463852839138) /* #neg=17 */ .

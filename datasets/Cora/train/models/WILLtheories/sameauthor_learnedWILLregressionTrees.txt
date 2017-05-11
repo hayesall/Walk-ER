@@ -15,23 +15,21 @@ usePrologVariables: true.
 
 
 
-%%%%%  WILL-Produced Tree #1 @ 8:54:26 5/11/17.  [Using 13,675,880 memory cells.]  %%%%%
+%%%%%  WILL-Produced Tree #1 @ 13:55:22 5/11/17.  [Using 13,658,976 memory cells.]  %%%%%
 
 % FOR sameauthor(A, B):
 %   if ( haswordauthor(A, C), haswordauthor(B, C) )
 %   then if ( haswordtitle(D, C) )
 %   | then if ( haswordauthor(A, E), haswordvenue(F, E) )
-%   | | then if ( haswordtitle(G, E), sametitle(D, G) )
+%   | | then if ( haswordtitle(D, E) )
 %   | | | then return 0.7268358037863779;  // std dev = 4.752, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
 %   | | | else return 0.8581489350995118;  // std dev = 1.46e-07, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
-%   | | else if ( haswordauthor(B, H), haswordvenue(I, H) )
-%   | | | then return 0.7711924133603816;  // std dev = 1.351, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
-%   | | | else return 0.6476226193100387;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
-%   | else if ( haswordauthor(A, J), haswordvenue(K, J) )
-%   | | then if ( haswordauthor(B, L), haswordvenue(M, L) )
+%   | | else return 0.6831489350995129;  // std dev = 0.380, 80.000 (wgt'ed) examples reached here.  /* #neg=14 #pos=66 */
+%   | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | then if ( haswordauthor(B, I), haswordvenue(J, I) )
 %   | | | then return 0.8581489350995123;  // std dev = 0.000, 13.000 (wgt'ed) examples reached here.  /* #pos=13 */
 %   | | | else return 0.8146706742299468;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
-%   | | else if ( haswordauthor(B, N), haswordvenue(P, N) )
+%   | | else if ( haswordauthor(B, K), haswordvenue(L, K) )
 %   | | | then return 0.8146706742299468;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
 %   | | | else return 0.8581489350995105;  // std dev = 6.95e-07, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
 %   else return -0.14185106490048774;  // std dev = 1.05e-08, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
@@ -45,8 +43,7 @@ sameauthor(A, B, 0.7268358037863779) :-
      haswordtitle(D, C), 
      haswordauthor(A, E), 
      haswordvenue(F, E), 
-     haswordtitle(G, E), 
-     sametitle(D, G), 
+     haswordtitle(D, E), 
      !. // Clause #1.
 
 sameauthor(A, B, 0.8581489350995118) :- 
@@ -57,19 +54,11 @@ sameauthor(A, B, 0.8581489350995118) :-
      haswordvenue(F, E), 
      !. // Clause #2.
 
-sameauthor(A, B, 0.7711924133603816) :- 
+sameauthor(A, B, 0.6831489350995129) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
-     haswordauthor(B, E), 
-     haswordvenue(F, E), 
      !. // Clause #3.
-
-sameauthor(A, B, 0.6476226193100387) :- 
-     haswordauthor(A, C), 
-     haswordauthor(B, C), 
-     haswordtitle(D, C), 
-     !. // Clause #4.
 
 sameauthor(A, B, 0.8581489350995123) :- 
      haswordauthor(A, C), 
@@ -78,28 +67,28 @@ sameauthor(A, B, 0.8581489350995123) :-
      haswordvenue(E, D), 
      haswordauthor(B, F), 
      haswordvenue(G, F), 
-     !. // Clause #5.
+     !. // Clause #4.
 
 sameauthor(A, B, 0.8146706742299468) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordauthor(A, D), 
      haswordvenue(E, D), 
-     !. // Clause #6.
+     !. // Clause #5.
 
 sameauthor(A, B, 0.8146706742299468) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordauthor(B, D), 
      haswordvenue(E, D), 
-     !. // Clause #7.
+     !. // Clause #6.
 
 sameauthor(A, B, 0.8581489350995105) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     !. // Clause #8.
+     !. // Clause #7.
 
-sameauthor(A, B, -0.14185106490048774) :- !. // Clause #9.
+sameauthor(A, B, -0.14185106490048774) :- !. // Clause #8.
 
 
 % The flattened versions of these clauses:
@@ -110,133 +99,121 @@ flattened_sameauthor(a, b, 0.7268358037863779) :-  /* #neg=26 #pos=172 */
    haswordtitle(uniqueVar2, uniqueVar1),
    haswordauthor(a, uniqueVar3),
    haswordvenue(underscore, uniqueVar3),
-   haswordtitle(uniqueVar4, uniqueVar3),
-   sametitle(uniqueVar2, uniqueVar4),
+   haswordtitle(uniqueVar2, uniqueVar3),
    !. // Flattened version of clause #1.
 
 flattened_sameauthor(a, b, 0.8581489350995118) :-  /* #pos=26 */ 
+   haswordauthor(a, uniqueVar4),
+   haswordauthor(b, uniqueVar4),
+   haswordtitle(underscore, uniqueVar4),
    haswordauthor(a, uniqueVar5),
-   haswordauthor(b, uniqueVar5),
-   haswordtitle(underscore, uniqueVar5),
-   haswordauthor(a, uniqueVar6),
-   haswordvenue(underscore, uniqueVar6),
+   haswordvenue(underscore, uniqueVar5),
    !. // Flattened version of clause #2.
 
-flattened_sameauthor(a, b, 0.7711924133603816) :-  /* #neg=2 #pos=21 */ 
-   haswordauthor(a, uniqueVar7),
-   haswordauthor(b, uniqueVar7),
-   haswordtitle(underscore, uniqueVar7),
-   haswordauthor(b, uniqueVar8),
-   haswordvenue(underscore, uniqueVar8),
+flattened_sameauthor(a, b, 0.6831489350995129) :-  /* #neg=14 #pos=66 */ 
+   haswordauthor(a, uniqueVar6),
+   haswordauthor(b, uniqueVar6),
+   haswordtitle(underscore, uniqueVar6),
    !. // Flattened version of clause #3.
 
-flattened_sameauthor(a, b, 0.6476226193100387) :-  /* #neg=12 #pos=45 */ 
-   haswordauthor(a, uniqueVar9),
+flattened_sameauthor(a, b, 0.8581489350995123) :-  /* #pos=13 */ 
+   haswordauthor(a, uniqueVar7),
+   haswordauthor(b, uniqueVar7),
+   haswordauthor(a, uniqueVar8),
+   haswordvenue(underscore, uniqueVar8),
    haswordauthor(b, uniqueVar9),
-   haswordtitle(underscore, uniqueVar9),
+   haswordvenue(underscore, uniqueVar9),
    !. // Flattened version of clause #4.
 
-flattened_sameauthor(a, b, 0.8581489350995123) :-  /* #pos=13 */ 
+flattened_sameauthor(a, b, 0.8146706742299468) :-  /* #neg=2 #pos=44 */ 
    haswordauthor(a, uniqueVar10),
    haswordauthor(b, uniqueVar10),
    haswordauthor(a, uniqueVar11),
    haswordvenue(underscore, uniqueVar11),
-   haswordauthor(b, uniqueVar12),
-   haswordvenue(underscore, uniqueVar12),
    !. // Flattened version of clause #5.
 
 flattened_sameauthor(a, b, 0.8146706742299468) :-  /* #neg=2 #pos=44 */ 
-   haswordauthor(a, uniqueVar13),
+   haswordauthor(a, uniqueVar12),
+   haswordauthor(b, uniqueVar12),
    haswordauthor(b, uniqueVar13),
-   haswordauthor(a, uniqueVar14),
-   haswordvenue(underscore, uniqueVar14),
+   haswordvenue(underscore, uniqueVar13),
    !. // Flattened version of clause #6.
 
-flattened_sameauthor(a, b, 0.8146706742299468) :-  /* #neg=2 #pos=44 */ 
-   haswordauthor(a, uniqueVar15),
-   haswordauthor(b, uniqueVar15),
-   haswordauthor(b, uniqueVar16),
-   haswordvenue(underscore, uniqueVar16),
+flattened_sameauthor(a, b, 0.8581489350995105) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar14),
+   haswordauthor(b, uniqueVar14),
    !. // Flattened version of clause #7.
 
-flattened_sameauthor(a, b, 0.8581489350995105) :-  /* #pos=123 */ 
-   haswordauthor(a, uniqueVar17),
-   haswordauthor(b, uniqueVar17),
-   !. // Flattened version of clause #8.
-
 flattened_sameauthor(underscore, underscore, -0.14185106490048774) :-  /* #neg=22 */ 
-   !. // Flattened version of clause #9.
+   !. // Flattened version of clause #8.
 
 
 % The unique flattened literals:
-%   haswordauthor(a, uniqueVar6)
-%   haswordvenue(underscore, uniqueVar12)
+%   haswordvenue(underscore, uniqueVar5)
 %   haswordauthor(b, uniqueVar13)
-%   haswordauthor(a, uniqueVar14)
-%   haswordauthor(a, uniqueVar9)
-%   sametitle(uniqueVar2, uniqueVar4)
-%   haswordvenue(underscore, uniqueVar16)
+%   haswordauthor(b, uniqueVar1)
+%   haswordauthor(b, uniqueVar9)
 %   haswordauthor(a, uniqueVar3)
+%   haswordauthor(a, uniqueVar7)
+%   haswordtitle(uniqueVar2, uniqueVar1)
+%   haswordvenue(underscore, uniqueVar3)
+%   haswordauthor(a, uniqueVar6)
+%   haswordvenue(underscore, uniqueVar11)
 %   haswordauthor(b, uniqueVar12)
-%   haswordauthor(a, uniqueVar1)
-%   haswordtitle(underscore, uniqueVar7)
-%   haswordauthor(a, uniqueVar15)
+%   haswordtitle(underscore, uniqueVar4)
+%   haswordauthor(a, uniqueVar11)
+%   haswordvenue(underscore, uniqueVar9)
+%   haswordauthor(b, uniqueVar6)
+%   haswordvenue(underscore, uniqueVar13)
+%   haswordauthor(b, uniqueVar14)
+%   haswordauthor(b, uniqueVar4)
+%   haswordauthor(a, uniqueVar10)
+%   haswordauthor(a, uniqueVar12)
 %   haswordauthor(b, uniqueVar10)
 %   haswordauthor(b, uniqueVar7)
+%   haswordauthor(a, uniqueVar14)
+%   haswordauthor(a, uniqueVar1)
+%   haswordtitle(underscore, uniqueVar6)
+%   haswordauthor(a, uniqueVar8)
 %   haswordauthor(a, uniqueVar5)
-%   haswordauthor(a, uniqueVar7)
-%   haswordauthor(a, uniqueVar10)
-%   haswordvenue(underscore, uniqueVar14)
-%   haswordauthor(b, uniqueVar9)
-%   haswordauthor(b, uniqueVar5)
-%   haswordvenue(underscore, uniqueVar11)
-%   haswordauthor(b, uniqueVar15)
-%   haswordauthor(a, uniqueVar13)
-%   haswordauthor(b, uniqueVar1)
-%   haswordtitle(underscore, uniqueVar5)
-%   haswordvenue(underscore, uniqueVar3)
-%   haswordtitle(uniqueVar2, uniqueVar1)
-%   haswordauthor(a, uniqueVar17)
-%   haswordauthor(b, uniqueVar16)
-%   haswordtitle(uniqueVar4, uniqueVar3)
-%   haswordvenue(underscore, uniqueVar6)
+%   haswordtitle(uniqueVar2, uniqueVar3)
 %   haswordvenue(underscore, uniqueVar8)
-%   haswordauthor(b, uniqueVar8)
-%   haswordauthor(a, uniqueVar11)
-%   haswordtitle(underscore, uniqueVar9)
-%   haswordauthor(b, uniqueVar17)
+%   haswordauthor(a, uniqueVar4)
 
-%%%%%  WILL-Produced Tree #2 @ 8:54:27 5/11/17.  [Using 13,824,312 memory cells.]  %%%%%
+%%%%%  WILL-Produced Tree #2 @ 13:55:24 5/11/17.  [Using 13,801,096 memory cells.]  %%%%%
 
 % FOR sameauthor(A, B):
 %   if ( haswordauthor(A, C), haswordauthor(B, C) )
 %   then if ( haswordtitle(D, C) )
-%   | then if ( author(E, A), title(E, D) )
-%   | | then return 0.7451981925919738;  // std dev = 5.16e-08, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
-%   | | else if ( haswordauthor(B, F), haswordvenue(G, F) )
-%   | | | then return 0.6213453482063944;  // std dev = 4.771, 214.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=188 */
-%   | | | else return 0.5762033760020602;  // std dev = 3.374, 80.000 (wgt'ed) examples reached here.  /* #neg=14 #pos=66 */
-%   | else if ( haswordauthor(B, H), haswordvenue(I, H) )
-%   | | then if ( author(J, B), venue(J, I) )
-%   | | | then return 0.7264261946342654;  // std dev = 0.011, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordtitle(D, E) )
+%   | | | then return 0.6142580595371709;  // std dev = 4.751, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
+%   | | | else return 0.7377438117840313;  // std dev = 0.086, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.642583108881788;  // std dev = 1.329, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
+%   | | | else return 0.5428778384857663;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
+%   | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then if ( author(K, A), venue(K, J) )
+%   | | | then return 0.7264261946342655;  // std dev = 0.011, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
 %   | | | else return 0.685397027825389;  // std dev = 1.382, 49.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=47 */
-%   | | else if ( haswordauthor(A, K), haswordvenue(L, K) )
-%   | | | then return 0.6846861293705276;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
-%   | | | else return 0.7194734122109554;  // std dev = 0.000, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   | | else if ( haswordauthor(B, L), haswordtitle(M, L) )
+%   | | | then return 0.6936593178498907;  // std dev = 1.388, 63.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=61 */
+%   | | | else return 0.7197193832872512;  // std dev = 0.015, 106.000 (wgt'ed) examples reached here.  /* #pos=106 */
 %   else return -0.12544463852839138;  // std dev = 0.000, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
 
 
 % Clauses:
 
-sameauthor(A, B, 0.7451981925919738) :- 
+sameauthor(A, B, 0.6142580595371709) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
-     author(E, A), 
-     title(E, D), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     haswordtitle(D, E), 
      !. // Clause #1.
 
-sameauthor(A, B, 0.6213453482063944) :- 
+sameauthor(A, B, 0.7377438117840313) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
@@ -244,190 +221,212 @@ sameauthor(A, B, 0.6213453482063944) :-
      haswordvenue(F, E), 
      !. // Clause #2.
 
-sameauthor(A, B, 0.5762033760020602) :- 
+sameauthor(A, B, 0.642583108881788) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
      !. // Clause #3.
 
-sameauthor(A, B, 0.7264261946342654) :- 
+sameauthor(A, B, 0.5428778384857663) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordauthor(B, D), 
-     haswordvenue(E, D), 
-     author(F, B), 
-     venue(F, E), 
+     haswordtitle(D, C), 
      !. // Clause #4.
 
-sameauthor(A, B, 0.685397027825389) :- 
+sameauthor(A, B, 0.7264261946342655) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordauthor(B, D), 
+     haswordauthor(A, D), 
      haswordvenue(E, D), 
+     author(F, A), 
+     venue(F, E), 
      !. // Clause #5.
 
-sameauthor(A, B, 0.6846861293705276) :- 
+sameauthor(A, B, 0.685397027825389) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordauthor(A, D), 
      haswordvenue(E, D), 
      !. // Clause #6.
 
-sameauthor(A, B, 0.7194734122109554) :- 
+sameauthor(A, B, 0.6936593178498907) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordtitle(E, D), 
      !. // Clause #7.
 
-sameauthor(A, B, -0.12544463852839138) :- !. // Clause #8.
+sameauthor(A, B, 0.7197193832872512) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #8.
+
+sameauthor(A, B, -0.12544463852839138) :- !. // Clause #9.
 
 
 % The flattened versions of these clauses:
 
-flattened_sameauthor(a, b, 0.7451981925919738) :-  /* #pos=10 */ 
-   haswordauthor(a, uniqueVar18),
-   haswordauthor(b, uniqueVar18),
-   haswordtitle(uniqueVar19, uniqueVar18),
-   author(uniqueVar20, a),
-   title(uniqueVar20, uniqueVar19),
+flattened_sameauthor(a, b, 0.6142580595371709) :-  /* #neg=26 #pos=172 */ 
+   haswordauthor(a, uniqueVar15),
+   haswordauthor(b, uniqueVar15),
+   haswordtitle(uniqueVar16, uniqueVar15),
+   haswordauthor(b, uniqueVar17),
+   haswordvenue(underscore, uniqueVar17),
+   haswordtitle(uniqueVar16, uniqueVar17),
    !. // Flattened version of clause #1.
 
-flattened_sameauthor(a, b, 0.6213453482063944) :-  /* #neg=26 #pos=188 */ 
-   haswordauthor(a, uniqueVar21),
-   haswordauthor(b, uniqueVar21),
-   haswordtitle(underscore, uniqueVar21),
-   haswordauthor(b, uniqueVar22),
-   haswordvenue(underscore, uniqueVar22),
+flattened_sameauthor(a, b, 0.7377438117840313) :-  /* #pos=26 */ 
+   haswordauthor(a, uniqueVar18),
+   haswordauthor(b, uniqueVar18),
+   haswordtitle(underscore, uniqueVar18),
+   haswordauthor(b, uniqueVar19),
+   haswordvenue(underscore, uniqueVar19),
    !. // Flattened version of clause #2.
 
-flattened_sameauthor(a, b, 0.5762033760020602) :-  /* #neg=14 #pos=66 */ 
-   haswordauthor(a, uniqueVar23),
-   haswordauthor(b, uniqueVar23),
-   haswordtitle(underscore, uniqueVar23),
+flattened_sameauthor(a, b, 0.642583108881788) :-  /* #neg=2 #pos=21 */ 
+   haswordauthor(a, uniqueVar20),
+   haswordauthor(b, uniqueVar20),
+   haswordtitle(underscore, uniqueVar20),
+   haswordauthor(a, uniqueVar21),
+   haswordvenue(underscore, uniqueVar21),
    !. // Flattened version of clause #3.
 
-flattened_sameauthor(a, b, 0.7264261946342654) :-  /* #pos=10 */ 
-   haswordauthor(a, uniqueVar24),
-   haswordauthor(b, uniqueVar24),
-   haswordauthor(b, uniqueVar25),
-   haswordvenue(uniqueVar26, uniqueVar25),
-   author(uniqueVar27, b),
-   venue(uniqueVar27, uniqueVar26),
+flattened_sameauthor(a, b, 0.5428778384857663) :-  /* #neg=12 #pos=45 */ 
+   haswordauthor(a, uniqueVar22),
+   haswordauthor(b, uniqueVar22),
+   haswordtitle(underscore, uniqueVar22),
    !. // Flattened version of clause #4.
 
-flattened_sameauthor(a, b, 0.685397027825389) :-  /* #neg=2 #pos=47 */ 
-   haswordauthor(a, uniqueVar28),
-   haswordauthor(b, uniqueVar28),
-   haswordauthor(b, uniqueVar29),
-   haswordvenue(underscore, uniqueVar29),
+flattened_sameauthor(a, b, 0.7264261946342655) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar23),
+   haswordauthor(b, uniqueVar23),
+   haswordauthor(a, uniqueVar24),
+   haswordvenue(uniqueVar25, uniqueVar24),
+   author(uniqueVar26, a),
+   venue(uniqueVar26, uniqueVar25),
    !. // Flattened version of clause #5.
 
-flattened_sameauthor(a, b, 0.6846861293705276) :-  /* #neg=2 #pos=44 */ 
-   haswordauthor(a, uniqueVar30),
-   haswordauthor(b, uniqueVar30),
-   haswordauthor(a, uniqueVar31),
-   haswordvenue(underscore, uniqueVar31),
+flattened_sameauthor(a, b, 0.685397027825389) :-  /* #neg=2 #pos=47 */ 
+   haswordauthor(a, uniqueVar27),
+   haswordauthor(b, uniqueVar27),
+   haswordauthor(a, uniqueVar28),
+   haswordvenue(underscore, uniqueVar28),
    !. // Flattened version of clause #6.
 
-flattened_sameauthor(a, b, 0.7194734122109554) :-  /* #pos=123 */ 
-   haswordauthor(a, uniqueVar32),
-   haswordauthor(b, uniqueVar32),
+flattened_sameauthor(a, b, 0.6936593178498907) :-  /* #neg=2 #pos=61 */ 
+   haswordauthor(a, uniqueVar29),
+   haswordauthor(b, uniqueVar29),
+   haswordauthor(b, uniqueVar30),
+   haswordtitle(underscore, uniqueVar30),
    !. // Flattened version of clause #7.
 
-flattened_sameauthor(underscore, underscore, -0.12544463852839138) :-  /* #neg=22 */ 
+flattened_sameauthor(a, b, 0.7197193832872512) :-  /* #pos=106 */ 
+   haswordauthor(a, uniqueVar31),
+   haswordauthor(b, uniqueVar31),
    !. // Flattened version of clause #8.
+
+flattened_sameauthor(underscore, underscore, -0.12544463852839138) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #9.
 
 
 % The unique flattened literals:
-%   haswordauthor(b, uniqueVar30)
-%   haswordauthor(b, uniqueVar24)
-%   haswordtitle(underscore, uniqueVar23)
-%   haswordauthor(b, uniqueVar21)
-%   author(uniqueVar27, b)
-%   haswordauthor(a, uniqueVar21)
-%   haswordvenue(uniqueVar26, uniqueVar25)
-%   haswordauthor(b, uniqueVar32)
-%   title(uniqueVar20, uniqueVar19)
-%   haswordauthor(b, uniqueVar18)
-%   haswordauthor(b, uniqueVar29)
+%   haswordtitle(uniqueVar16, uniqueVar17)
+%   haswordvenue(underscore, uniqueVar21)
+%   author(uniqueVar26, a)
 %   haswordauthor(a, uniqueVar28)
-%   haswordauthor(b, uniqueVar28)
-%   venue(uniqueVar27, uniqueVar26)
-%   haswordvenue(underscore, uniqueVar29)
-%   haswordauthor(a, uniqueVar18)
+%   haswordtitle(underscore, uniqueVar18)
+%   haswordauthor(b, uniqueVar31)
+%   haswordtitle(underscore, uniqueVar20)
 %   haswordauthor(b, uniqueVar23)
+%   haswordauthor(a, uniqueVar18)
+%   haswordauthor(b, uniqueVar29)
+%   haswordtitle(underscore, uniqueVar30)
+%   haswordtitle(underscore, uniqueVar22)
+%   haswordauthor(b, uniqueVar27)
+%   haswordvenue(underscore, uniqueVar28)
+%   haswordauthor(a, uniqueVar20)
 %   haswordauthor(a, uniqueVar23)
-%   haswordauthor(a, uniqueVar31)
-%   haswordauthor(a, uniqueVar32)
-%   haswordauthor(b, uniqueVar25)
-%   haswordauthor(a, uniqueVar30)
+%   haswordauthor(b, uniqueVar15)
+%   haswordauthor(a, uniqueVar29)
+%   haswordauthor(b, uniqueVar17)
+%   haswordauthor(b, uniqueVar18)
 %   haswordauthor(a, uniqueVar24)
-%   haswordvenue(underscore, uniqueVar22)
-%   haswordvenue(underscore, uniqueVar31)
-%   haswordtitle(underscore, uniqueVar21)
-%   haswordtitle(uniqueVar19, uniqueVar18)
+%   haswordvenue(underscore, uniqueVar19)
+%   haswordvenue(uniqueVar25, uniqueVar24)
+%   haswordvenue(underscore, uniqueVar17)
+%   haswordauthor(a, uniqueVar15)
+%   haswordauthor(b, uniqueVar20)
+%   haswordauthor(a, uniqueVar22)
+%   haswordauthor(b, uniqueVar30)
+%   haswordauthor(a, uniqueVar27)
+%   haswordtitle(uniqueVar16, uniqueVar15)
+%   haswordauthor(a, uniqueVar21)
+%   venue(uniqueVar26, uniqueVar25)
+%   haswordauthor(a, uniqueVar31)
+%   haswordauthor(b, uniqueVar19)
 %   haswordauthor(b, uniqueVar22)
-%   author(uniqueVar20, a)
 
-%%%%%  WILL-Produced Tree #3 @ 8:54:29 5/11/17.  [Using 13,939,328 memory cells.]  %%%%%
+%%%%%  WILL-Produced Tree #3 @ 13:55:25 5/11/17.  [Using 13,920,992 memory cells.]  %%%%%
 
 % FOR sameauthor(A, B):
 %   if ( haswordauthor(A, C), haswordauthor(B, C) )
 %   then if ( haswordtitle(D, C) )
-%   | then if ( haswordauthor(A, E), haswordvenue(F, E) )
-%   | | then if ( haswordtitle(G, E), sametitle(D, G) )
-%   | | | then return 0.47873819653588756;  // std dev = 4.743, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
-%   | | | else return 0.5853487070688884;  // std dev = 0.028, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
-%   | | else if ( haswordauthor(B, H), haswordvenue(I, H) )
-%   | | | then return 0.51352269367404;  // std dev = 1.351, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
-%   | | | else return 0.42966025474120595;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
-%   | else if ( haswordauthor(B, J), haswordvenue(K, J) )
-%   | | then if ( haswordtitle(L, J) )
-%   | | | then return 0.5315632593874174;  // std dev = 1.382, 51.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=49 */
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordtitle(D, E) )
+%   | | | then return 0.48191032952960855;  // std dev = 4.751, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
+%   | | | else return 0.5739005202171528;  // std dev = 0.109, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.49973050014200104;  // std dev = 1.325, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
+%   | | | else return 0.42915315422602124;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
+%   | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then if ( haswordtitle(K, I) )
+%   | | | then return 0.5315632593874177;  // std dev = 1.382, 51.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=49 */
 %   | | | else return 0.5677624978089177;  // std dev = 0.015, 8.000 (wgt'ed) examples reached here.  /* #pos=8 */
-%   | | else if ( haswordauthor(A, M), haswordvenue(N, M) )
-%   | | | then return 0.5311214831143672;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
-%   | | | else return 0.5553664367462834;  // std dev = 4.54e-07, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   | | else if ( haswordauthor(B, L), haswordvenue(M, L) )
+%   | | | then return 0.5285099232197915;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.5563505233588584;  // std dev = 0.026, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
 %   else return -0.11231637819360638;  // std dev = 1.29e-08, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
 
 
 % Clauses:
 
-sameauthor(A, B, 0.47873819653588756) :- 
-     haswordauthor(A, C), 
-     haswordauthor(B, C), 
-     haswordtitle(D, C), 
-     haswordauthor(A, E), 
-     haswordvenue(F, E), 
-     haswordtitle(G, E), 
-     sametitle(D, G), 
-     !. // Clause #1.
-
-sameauthor(A, B, 0.5853487070688884) :- 
-     haswordauthor(A, C), 
-     haswordauthor(B, C), 
-     haswordtitle(D, C), 
-     haswordauthor(A, E), 
-     haswordvenue(F, E), 
-     !. // Clause #2.
-
-sameauthor(A, B, 0.51352269367404) :- 
+sameauthor(A, B, 0.48191032952960855) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
      haswordauthor(B, E), 
      haswordvenue(F, E), 
+     haswordtitle(D, E), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.5739005202171528) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.49973050014200104) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
      !. // Clause #3.
 
-sameauthor(A, B, 0.42966025474120595) :- 
+sameauthor(A, B, 0.42915315422602124) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
      !. // Clause #4.
 
-sameauthor(A, B, 0.5315632593874174) :- 
+sameauthor(A, B, 0.5315632593874177) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordauthor(B, D), 
+     haswordauthor(A, D), 
      haswordvenue(E, D), 
      haswordtitle(F, D), 
      !. // Clause #5.
@@ -435,18 +434,18 @@ sameauthor(A, B, 0.5315632593874174) :-
 sameauthor(A, B, 0.5677624978089177) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordauthor(B, D), 
+     haswordauthor(A, D), 
      haswordvenue(E, D), 
      !. // Clause #6.
 
-sameauthor(A, B, 0.5311214831143672) :- 
+sameauthor(A, B, 0.5285099232197915) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordauthor(A, D), 
+     haswordauthor(B, D), 
      haswordvenue(E, D), 
      !. // Clause #7.
 
-sameauthor(A, B, 0.5553664367462834) :- 
+sameauthor(A, B, 0.5563505233588584) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      !. // Clause #8.
@@ -456,63 +455,62 @@ sameauthor(A, B, -0.11231637819360638) :- !. // Clause #9.
 
 % The flattened versions of these clauses:
 
-flattened_sameauthor(a, b, 0.47873819653588756) :-  /* #neg=26 #pos=172 */ 
-   haswordauthor(a, uniqueVar33),
-   haswordauthor(b, uniqueVar33),
-   haswordtitle(uniqueVar34, uniqueVar33),
-   haswordauthor(a, uniqueVar35),
-   haswordvenue(underscore, uniqueVar35),
-   haswordtitle(uniqueVar36, uniqueVar35),
-   sametitle(uniqueVar34, uniqueVar36),
+flattened_sameauthor(a, b, 0.48191032952960855) :-  /* #neg=26 #pos=172 */ 
+   haswordauthor(a, uniqueVar32),
+   haswordauthor(b, uniqueVar32),
+   haswordtitle(uniqueVar33, uniqueVar32),
+   haswordauthor(b, uniqueVar34),
+   haswordvenue(underscore, uniqueVar34),
+   haswordtitle(uniqueVar33, uniqueVar34),
    !. // Flattened version of clause #1.
 
-flattened_sameauthor(a, b, 0.5853487070688884) :-  /* #pos=26 */ 
+flattened_sameauthor(a, b, 0.5739005202171528) :-  /* #pos=26 */ 
+   haswordauthor(a, uniqueVar35),
+   haswordauthor(b, uniqueVar35),
+   haswordtitle(underscore, uniqueVar35),
+   haswordauthor(b, uniqueVar36),
+   haswordvenue(underscore, uniqueVar36),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.49973050014200104) :-  /* #neg=2 #pos=21 */ 
    haswordauthor(a, uniqueVar37),
    haswordauthor(b, uniqueVar37),
    haswordtitle(underscore, uniqueVar37),
    haswordauthor(a, uniqueVar38),
    haswordvenue(underscore, uniqueVar38),
-   !. // Flattened version of clause #2.
+   !. // Flattened version of clause #3.
 
-flattened_sameauthor(a, b, 0.51352269367404) :-  /* #neg=2 #pos=21 */ 
+flattened_sameauthor(a, b, 0.42915315422602124) :-  /* #neg=12 #pos=45 */ 
    haswordauthor(a, uniqueVar39),
    haswordauthor(b, uniqueVar39),
    haswordtitle(underscore, uniqueVar39),
-   haswordauthor(b, uniqueVar40),
-   haswordvenue(underscore, uniqueVar40),
-   !. // Flattened version of clause #3.
-
-flattened_sameauthor(a, b, 0.42966025474120595) :-  /* #neg=12 #pos=45 */ 
-   haswordauthor(a, uniqueVar41),
-   haswordauthor(b, uniqueVar41),
-   haswordtitle(underscore, uniqueVar41),
    !. // Flattened version of clause #4.
 
-flattened_sameauthor(a, b, 0.5315632593874174) :-  /* #neg=2 #pos=49 */ 
-   haswordauthor(a, uniqueVar42),
-   haswordauthor(b, uniqueVar42),
-   haswordauthor(b, uniqueVar43),
-   haswordvenue(underscore, uniqueVar43),
-   haswordtitle(underscore, uniqueVar43),
+flattened_sameauthor(a, b, 0.5315632593874177) :-  /* #neg=2 #pos=49 */ 
+   haswordauthor(a, uniqueVar40),
+   haswordauthor(b, uniqueVar40),
+   haswordauthor(a, uniqueVar41),
+   haswordvenue(underscore, uniqueVar41),
+   haswordtitle(underscore, uniqueVar41),
    !. // Flattened version of clause #5.
 
 flattened_sameauthor(a, b, 0.5677624978089177) :-  /* #pos=8 */ 
+   haswordauthor(a, uniqueVar42),
+   haswordauthor(b, uniqueVar42),
+   haswordauthor(a, uniqueVar43),
+   haswordvenue(underscore, uniqueVar43),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.5285099232197915) :-  /* #neg=2 #pos=44 */ 
    haswordauthor(a, uniqueVar44),
    haswordauthor(b, uniqueVar44),
    haswordauthor(b, uniqueVar45),
    haswordvenue(underscore, uniqueVar45),
-   !. // Flattened version of clause #6.
-
-flattened_sameauthor(a, b, 0.5311214831143672) :-  /* #neg=2 #pos=44 */ 
-   haswordauthor(a, uniqueVar46),
-   haswordauthor(b, uniqueVar46),
-   haswordauthor(a, uniqueVar47),
-   haswordvenue(underscore, uniqueVar47),
    !. // Flattened version of clause #7.
 
-flattened_sameauthor(a, b, 0.5553664367462834) :-  /* #pos=123 */ 
-   haswordauthor(a, uniqueVar48),
-   haswordauthor(b, uniqueVar48),
+flattened_sameauthor(a, b, 0.5563505233588584) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar46),
+   haswordauthor(b, uniqueVar46),
    !. // Flattened version of clause #8.
 
 flattened_sameauthor(underscore, underscore, -0.11231637819360638) :-  /* #neg=22 */ 
@@ -520,41 +518,1252 @@ flattened_sameauthor(underscore, underscore, -0.11231637819360638) :-  /* #neg=2
 
 
 % The unique flattened literals:
-%   haswordauthor(b, uniqueVar44)
-%   haswordauthor(b, uniqueVar37)
-%   haswordauthor(b, uniqueVar40)
-%   haswordtitle(underscore, uniqueVar37)
-%   haswordvenue(underscore, uniqueVar40)
-%   haswordtitle(uniqueVar36, uniqueVar35)
-%   haswordauthor(a, uniqueVar41)
-%   haswordauthor(a, uniqueVar42)
-%   haswordauthor(b, uniqueVar43)
-%   haswordauthor(a, uniqueVar33)
-%   haswordauthor(b, uniqueVar45)
-%   haswordvenue(underscore, uniqueVar35)
-%   haswordvenue(underscore, uniqueVar45)
-%   haswordauthor(a, uniqueVar35)
 %   haswordtitle(underscore, uniqueVar41)
-%   haswordvenue(underscore, uniqueVar43)
-%   haswordauthor(a, uniqueVar46)
-%   haswordauthor(b, uniqueVar33)
-%   haswordtitle(underscore, uniqueVar39)
-%   haswordtitle(uniqueVar34, uniqueVar33)
-%   haswordauthor(b, uniqueVar42)
-%   haswordauthor(a, uniqueVar48)
-%   sametitle(uniqueVar34, uniqueVar36)
-%   haswordauthor(b, uniqueVar39)
-%   haswordauthor(a, uniqueVar44)
-%   haswordauthor(a, uniqueVar37)
-%   haswordvenue(underscore, uniqueVar47)
 %   haswordauthor(a, uniqueVar38)
-%   haswordtitle(underscore, uniqueVar43)
-%   haswordauthor(a, uniqueVar47)
-%   haswordauthor(b, uniqueVar41)
-%   haswordauthor(b, uniqueVar48)
-%   haswordvenue(underscore, uniqueVar38)
-%   haswordauthor(a, uniqueVar39)
+%   haswordauthor(b, uniqueVar34)
+%   haswordvenue(underscore, uniqueVar43)
+%   haswordauthor(b, uniqueVar44)
+%   haswordtitle(underscore, uniqueVar39)
+%   haswordauthor(b, uniqueVar45)
 %   haswordauthor(b, uniqueVar46)
+%   haswordauthor(a, uniqueVar35)
+%   haswordauthor(a, uniqueVar40)
+%   haswordauthor(a, uniqueVar41)
+%   haswordauthor(b, uniqueVar35)
+%   haswordvenue(underscore, uniqueVar41)
+%   haswordvenue(underscore, uniqueVar36)
+%   haswordauthor(b, uniqueVar40)
+%   haswordauthor(a, uniqueVar37)
+%   haswordauthor(b, uniqueVar42)
+%   haswordauthor(a, uniqueVar44)
+%   haswordvenue(underscore, uniqueVar45)
+%   haswordtitle(uniqueVar33, uniqueVar32)
+%   haswordauthor(b, uniqueVar37)
+%   haswordvenue(underscore, uniqueVar34)
+%   haswordauthor(b, uniqueVar39)
+%   haswordauthor(b, uniqueVar32)
+%   haswordauthor(a, uniqueVar42)
+%   haswordvenue(underscore, uniqueVar38)
+%   haswordauthor(a, uniqueVar43)
+%   haswordtitle(underscore, uniqueVar35)
+%   haswordauthor(a, uniqueVar39)
+%   haswordtitle(underscore, uniqueVar37)
+%   haswordtitle(uniqueVar33, uniqueVar34)
+%   haswordauthor(a, uniqueVar46)
+%   haswordauthor(a, uniqueVar32)
+%   haswordauthor(b, uniqueVar36)
+
+%%%%%  WILL-Produced Tree #4 @ 13:55:27 5/11/17.  [Using 13,971,400 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( author(E, B), title(E, D) )
+%   | | then return 0.4942492053911084;  // std dev = 0.000, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else if ( author(F, A), title(F, D) )
+%   | | | then return 0.49424920539110834;  // std dev = 0.000, 5.000 (wgt'ed) examples reached here.  /* #pos=5 */
+%   | | | else return 0.3563136431473618;  // std dev = 5.809, 289.000 (wgt'ed) examples reached here.  /* #neg=40 #pos=249 */
+%   | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | then if ( haswordtitle(I, G) )
+%   | | | then return 0.39947900812804216;  // std dev = 1.382, 51.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=49 */
+%   | | | else return 0.4267870648186737;  // std dev = 0.015, 8.000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | else if ( haswordauthor(B, J), haswordvenue(K, J) )
+%   | | | then return 0.3971686662962299;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.4182469498921977;  // std dev = 0.026, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.10159632948783635;  // std dev = 0.000, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.4942492053911084) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     author(E, B), 
+     title(E, D), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.49424920539110834) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     author(E, A), 
+     title(E, D), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.3563136431473618) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.39947900812804216) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     haswordtitle(F, D), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.4267870648186737) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.3971686662962299) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.4182469498921977) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #7.
+
+sameauthor(A, B, -0.10159632948783635) :- !. // Clause #8.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.4942492053911084) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar47),
+   haswordauthor(b, uniqueVar47),
+   haswordtitle(uniqueVar48, uniqueVar47),
+   author(uniqueVar49, b),
+   title(uniqueVar49, uniqueVar48),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.49424920539110834) :-  /* #pos=5 */ 
+   haswordauthor(a, uniqueVar50),
+   haswordauthor(b, uniqueVar50),
+   haswordtitle(uniqueVar51, uniqueVar50),
+   author(uniqueVar52, a),
+   title(uniqueVar52, uniqueVar51),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.3563136431473618) :-  /* #neg=40 #pos=249 */ 
+   haswordauthor(a, uniqueVar53),
+   haswordauthor(b, uniqueVar53),
+   haswordtitle(underscore, uniqueVar53),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.39947900812804216) :-  /* #neg=2 #pos=49 */ 
+   haswordauthor(a, uniqueVar54),
+   haswordauthor(b, uniqueVar54),
+   haswordauthor(a, uniqueVar55),
+   haswordvenue(underscore, uniqueVar55),
+   haswordtitle(underscore, uniqueVar55),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.4267870648186737) :-  /* #pos=8 */ 
+   haswordauthor(a, uniqueVar56),
+   haswordauthor(b, uniqueVar56),
+   haswordauthor(a, uniqueVar57),
+   haswordvenue(underscore, uniqueVar57),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.3971686662962299) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar58),
+   haswordauthor(b, uniqueVar58),
+   haswordauthor(b, uniqueVar59),
+   haswordvenue(underscore, uniqueVar59),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.4182469498921977) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar60),
+   haswordauthor(b, uniqueVar60),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(underscore, underscore, -0.10159632948783635) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #8.
+
+
+% The unique flattened literals:
+%   haswordauthor(b, uniqueVar53)
+%   haswordtitle(uniqueVar48, uniqueVar47)
+%   haswordvenue(underscore, uniqueVar59)
+%   haswordvenue(underscore, uniqueVar55)
+%   haswordauthor(b, uniqueVar54)
+%   author(uniqueVar49, b)
+%   title(uniqueVar52, uniqueVar51)
+%   haswordauthor(a, uniqueVar54)
+%   haswordauthor(a, uniqueVar60)
+%   haswordauthor(b, uniqueVar56)
+%   haswordauthor(b, uniqueVar50)
+%   haswordauthor(a, uniqueVar53)
+%   haswordvenue(underscore, uniqueVar57)
+%   haswordauthor(a, uniqueVar57)
+%   title(uniqueVar49, uniqueVar48)
+%   haswordauthor(a, uniqueVar50)
+%   haswordtitle(uniqueVar51, uniqueVar50)
+%   haswordtitle(underscore, uniqueVar55)
+%   haswordauthor(a, uniqueVar56)
+%   author(uniqueVar52, a)
+%   haswordauthor(b, uniqueVar59)
+%   haswordauthor(b, uniqueVar47)
+%   haswordauthor(a, uniqueVar58)
+%   haswordauthor(a, uniqueVar47)
+%   haswordtitle(underscore, uniqueVar53)
+%   haswordauthor(b, uniqueVar60)
+%   haswordauthor(a, uniqueVar55)
+%   haswordauthor(b, uniqueVar58)
+
+%%%%%  WILL-Produced Tree #5 @ 13:55:29 5/11/17.  [Using 13,989,384 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordtitle(D, E) )
+%   | | | then return 0.27297460133054335;  // std dev = 4.739, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
+%   | | | else return 0.3473500898252632;  // std dev = 0.101, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.2894349605209356;  // std dev = 1.325, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
+%   | | | else return 0.23679649740067318;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
+%   | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then if ( haswordauthor(B, K), haswordtitle(L, K) )
+%   | | | then return 0.3350309584063773;  // std dev = 0.032, 11.000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | | else return 0.3014693299163489;  // std dev = 1.379, 48.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=46 */
+%   | | else if ( haswordauthor(B, M), haswordvenue(N, M) )
+%   | | | then return 0.3027405538734759;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.3212110362425906;  // std dev = 0.023, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.09269127618926093;  // std dev = 1.18e-08, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.27297460133054335) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     haswordtitle(D, E), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.3473500898252632) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.2894349605209356) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.23679649740067318) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.3350309584063773) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     haswordauthor(B, F), 
+     haswordtitle(G, F), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.3014693299163489) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.3027405538734759) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #7.
+
+sameauthor(A, B, 0.3212110362425906) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #8.
+
+sameauthor(A, B, -0.09269127618926093) :- !. // Clause #9.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.27297460133054335) :-  /* #neg=26 #pos=172 */ 
+   haswordauthor(a, uniqueVar61),
+   haswordauthor(b, uniqueVar61),
+   haswordtitle(uniqueVar62, uniqueVar61),
+   haswordauthor(b, uniqueVar63),
+   haswordvenue(underscore, uniqueVar63),
+   haswordtitle(uniqueVar62, uniqueVar63),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.3473500898252632) :-  /* #pos=26 */ 
+   haswordauthor(a, uniqueVar64),
+   haswordauthor(b, uniqueVar64),
+   haswordtitle(underscore, uniqueVar64),
+   haswordauthor(b, uniqueVar65),
+   haswordvenue(underscore, uniqueVar65),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.2894349605209356) :-  /* #neg=2 #pos=21 */ 
+   haswordauthor(a, uniqueVar66),
+   haswordauthor(b, uniqueVar66),
+   haswordtitle(underscore, uniqueVar66),
+   haswordauthor(a, uniqueVar67),
+   haswordvenue(underscore, uniqueVar67),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.23679649740067318) :-  /* #neg=12 #pos=45 */ 
+   haswordauthor(a, uniqueVar68),
+   haswordauthor(b, uniqueVar68),
+   haswordtitle(underscore, uniqueVar68),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.3350309584063773) :-  /* #pos=11 */ 
+   haswordauthor(a, uniqueVar69),
+   haswordauthor(b, uniqueVar69),
+   haswordauthor(a, uniqueVar70),
+   haswordvenue(underscore, uniqueVar70),
+   haswordauthor(b, uniqueVar71),
+   haswordtitle(underscore, uniqueVar71),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.3014693299163489) :-  /* #neg=2 #pos=46 */ 
+   haswordauthor(a, uniqueVar72),
+   haswordauthor(b, uniqueVar72),
+   haswordauthor(a, uniqueVar73),
+   haswordvenue(underscore, uniqueVar73),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.3027405538734759) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar74),
+   haswordauthor(b, uniqueVar74),
+   haswordauthor(b, uniqueVar75),
+   haswordvenue(underscore, uniqueVar75),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(a, b, 0.3212110362425906) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar76),
+   haswordauthor(b, uniqueVar76),
+   !. // Flattened version of clause #8.
+
+flattened_sameauthor(underscore, underscore, -0.09269127618926093) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #9.
+
+
+% The unique flattened literals:
+%   haswordauthor(b, uniqueVar68)
+%   haswordauthor(b, uniqueVar76)
+%   haswordauthor(a, uniqueVar64)
+%   haswordtitle(underscore, uniqueVar64)
+%   haswordtitle(underscore, uniqueVar71)
+%   haswordauthor(b, uniqueVar64)
+%   haswordauthor(b, uniqueVar72)
+%   haswordauthor(a, uniqueVar76)
+%   haswordvenue(underscore, uniqueVar63)
+%   haswordauthor(a, uniqueVar66)
+%   haswordauthor(b, uniqueVar65)
+%   haswordvenue(underscore, uniqueVar73)
+%   haswordauthor(a, uniqueVar73)
+%   haswordtitle(underscore, uniqueVar68)
+%   haswordauthor(a, uniqueVar67)
+%   haswordauthor(b, uniqueVar75)
+%   haswordauthor(a, uniqueVar70)
+%   haswordauthor(a, uniqueVar72)
+%   haswordauthor(b, uniqueVar66)
+%   haswordauthor(b, uniqueVar71)
+%   haswordauthor(b, uniqueVar69)
+%   haswordauthor(b, uniqueVar74)
+%   haswordtitle(uniqueVar62, uniqueVar63)
+%   haswordvenue(underscore, uniqueVar75)
+%   haswordvenue(underscore, uniqueVar67)
+%   haswordauthor(a, uniqueVar61)
+%   haswordvenue(underscore, uniqueVar65)
+%   haswordtitle(uniqueVar62, uniqueVar61)
+%   haswordvenue(underscore, uniqueVar70)
+%   haswordauthor(a, uniqueVar68)
+%   haswordauthor(a, uniqueVar69)
+%   haswordtitle(underscore, uniqueVar66)
+%   haswordauthor(b, uniqueVar61)
+%   haswordauthor(a, uniqueVar74)
+%   haswordauthor(b, uniqueVar63)
+
+%%%%%  WILL-Produced Tree #6 @ 13:55:30 5/11/17.  [Using 14,063,712 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( author(G, B), venue(G, F) )
+%   | | | then return 0.34247312791388507;  // std dev = 0.000, 8.000 (wgt'ed) examples reached here.  /* #pos=8 */
+%   | | | else return 0.21209182099618934;  // std dev = 4.737, 216.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=190 */
+%   | | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | | then return 0.2243414256534896;  // std dev = 1.327, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
+%   | | | else return 0.17924107865883804;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
+%   | else if ( haswordauthor(A, J), haswordvenue(K, J) )
+%   | | then if ( author(L, A), venue(L, K) )
+%   | | | then return 0.2724485261437381;  // std dev = 0.011, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | | else return 0.23610158646683113;  // std dev = 1.378, 49.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=47 */
+%   | | else if ( haswordauthor(B, M), haswordvenue(N, M) )
+%   | | | then return 0.23773738013899257;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.25551399901739086;  // std dev = 0.020, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.08518475138839682;  // std dev = 1.49e-08, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.34247312791388507) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     author(G, B), 
+     venue(G, F), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.21209182099618934) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.2243414256534896) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.17924107865883804) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.2724485261437381) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     author(F, A), 
+     venue(F, E), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.23610158646683113) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.23773738013899257) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #7.
+
+sameauthor(A, B, 0.25551399901739086) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #8.
+
+sameauthor(A, B, -0.08518475138839682) :- !. // Clause #9.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.34247312791388507) :-  /* #pos=8 */ 
+   haswordauthor(a, uniqueVar77),
+   haswordauthor(b, uniqueVar77),
+   haswordtitle(underscore, uniqueVar77),
+   haswordauthor(b, uniqueVar78),
+   haswordvenue(uniqueVar79, uniqueVar78),
+   author(uniqueVar80, b),
+   venue(uniqueVar80, uniqueVar79),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.21209182099618934) :-  /* #neg=26 #pos=190 */ 
+   haswordauthor(a, uniqueVar81),
+   haswordauthor(b, uniqueVar81),
+   haswordtitle(underscore, uniqueVar81),
+   haswordauthor(b, uniqueVar82),
+   haswordvenue(underscore, uniqueVar82),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.2243414256534896) :-  /* #neg=2 #pos=21 */ 
+   haswordauthor(a, uniqueVar83),
+   haswordauthor(b, uniqueVar83),
+   haswordtitle(underscore, uniqueVar83),
+   haswordauthor(a, uniqueVar84),
+   haswordvenue(underscore, uniqueVar84),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.17924107865883804) :-  /* #neg=12 #pos=45 */ 
+   haswordauthor(a, uniqueVar85),
+   haswordauthor(b, uniqueVar85),
+   haswordtitle(underscore, uniqueVar85),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.2724485261437381) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar86),
+   haswordauthor(b, uniqueVar86),
+   haswordauthor(a, uniqueVar87),
+   haswordvenue(uniqueVar88, uniqueVar87),
+   author(uniqueVar89, a),
+   venue(uniqueVar89, uniqueVar88),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.23610158646683113) :-  /* #neg=2 #pos=47 */ 
+   haswordauthor(a, uniqueVar90),
+   haswordauthor(b, uniqueVar90),
+   haswordauthor(a, uniqueVar91),
+   haswordvenue(underscore, uniqueVar91),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.23773738013899257) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar92),
+   haswordauthor(b, uniqueVar92),
+   haswordauthor(b, uniqueVar93),
+   haswordvenue(underscore, uniqueVar93),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(a, b, 0.25551399901739086) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar94),
+   haswordauthor(b, uniqueVar94),
+   !. // Flattened version of clause #8.
+
+flattened_sameauthor(underscore, underscore, -0.08518475138839682) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #9.
+
+
+% The unique flattened literals:
+%   haswordtitle(underscore, uniqueVar77)
+%   haswordauthor(a, uniqueVar84)
+%   haswordtitle(underscore, uniqueVar81)
+%   haswordtitle(underscore, uniqueVar83)
+%   haswordauthor(b, uniqueVar90)
+%   haswordauthor(a, uniqueVar77)
+%   haswordvenue(uniqueVar79, uniqueVar78)
+%   haswordauthor(a, uniqueVar83)
+%   author(uniqueVar80, b)
+%   venue(uniqueVar89, uniqueVar88)
+%   haswordauthor(a, uniqueVar92)
+%   haswordvenue(underscore, uniqueVar84)
+%   haswordvenue(underscore, uniqueVar93)
+%   haswordauthor(b, uniqueVar81)
+%   haswordauthor(a, uniqueVar85)
+%   haswordauthor(a, uniqueVar91)
+%   haswordvenue(underscore, uniqueVar91)
+%   venue(uniqueVar80, uniqueVar79)
+%   haswordauthor(a, uniqueVar81)
+%   haswordauthor(b, uniqueVar92)
+%   haswordauthor(a, uniqueVar86)
+%   haswordauthor(b, uniqueVar85)
+%   haswordauthor(b, uniqueVar94)
+%   haswordvenue(underscore, uniqueVar82)
+%   haswordvenue(uniqueVar88, uniqueVar87)
+%   haswordtitle(underscore, uniqueVar85)
+%   haswordauthor(b, uniqueVar77)
+%   haswordauthor(b, uniqueVar82)
+%   haswordauthor(a, uniqueVar90)
+%   haswordauthor(a, uniqueVar94)
+%   haswordauthor(b, uniqueVar83)
+%   haswordauthor(b, uniqueVar86)
+%   haswordauthor(a, uniqueVar87)
+%   haswordauthor(b, uniqueVar78)
+%   author(uniqueVar89, a)
+%   haswordauthor(b, uniqueVar93)
+
+%%%%%  WILL-Produced Tree #7 @ 13:55:33 5/11/17.  [Using 14,081,984 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
+%   | | then if ( haswordtitle(D, E) )
+%   | | | then return 0.16234348395482717;  // std dev = 4.735, 198.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=172 */
+%   | | | else return 0.23338639461136051;  // std dev = 0.079, 26.000 (wgt'ed) examples reached here.  /* #pos=26 */
+%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
+%   | | | then return 0.17841992063233392;  // std dev = 1.329, 23.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=21 */
+%   | | | else return 0.13754423748262135;  // std dev = 3.078, 57.000 (wgt'ed) examples reached here.  /* #neg=12 #pos=45 */
+%   | else if ( haswordauthor(A, I), haswordvenue(J, I) )
+%   | | then if ( haswordauthor(B, K), haswordvenue(L, K) )
+%   | | | then return 0.21946319265384548;  // std dev = 0.022, 13.000 (wgt'ed) examples reached here.  /* #pos=13 */
+%   | | | else return 0.19010185222130005;  // std dev = 1.379, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | else if ( haswordauthor(B, M), haswordvenue(N, M) )
+%   | | | then return 0.1922623536087925;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.20999980327240927;  // std dev = 0.018, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.07877675473109179;  // std dev = 0.000, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.16234348395482717) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     haswordtitle(D, E), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.23338639461136051) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.17841992063233392) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.13754423748262135) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.21946319265384548) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     haswordauthor(B, F), 
+     haswordvenue(G, F), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.19010185222130005) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.1922623536087925) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #7.
+
+sameauthor(A, B, 0.20999980327240927) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #8.
+
+sameauthor(A, B, -0.07877675473109179) :- !. // Clause #9.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.16234348395482717) :-  /* #neg=26 #pos=172 */ 
+   haswordauthor(a, uniqueVar95),
+   haswordauthor(b, uniqueVar95),
+   haswordtitle(uniqueVar96, uniqueVar95),
+   haswordauthor(b, uniqueVar97),
+   haswordvenue(underscore, uniqueVar97),
+   haswordtitle(uniqueVar96, uniqueVar97),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.23338639461136051) :-  /* #pos=26 */ 
+   haswordauthor(a, uniqueVar98),
+   haswordauthor(b, uniqueVar98),
+   haswordtitle(underscore, uniqueVar98),
+   haswordauthor(b, uniqueVar99),
+   haswordvenue(underscore, uniqueVar99),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.17841992063233392) :-  /* #neg=2 #pos=21 */ 
+   haswordauthor(a, uniqueVar100),
+   haswordauthor(b, uniqueVar100),
+   haswordtitle(underscore, uniqueVar100),
+   haswordauthor(a, uniqueVar101),
+   haswordvenue(underscore, uniqueVar101),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.13754423748262135) :-  /* #neg=12 #pos=45 */ 
+   haswordauthor(a, uniqueVar102),
+   haswordauthor(b, uniqueVar102),
+   haswordtitle(underscore, uniqueVar102),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.21946319265384548) :-  /* #pos=13 */ 
+   haswordauthor(a, uniqueVar103),
+   haswordauthor(b, uniqueVar103),
+   haswordauthor(a, uniqueVar104),
+   haswordvenue(underscore, uniqueVar104),
+   haswordauthor(b, uniqueVar105),
+   haswordvenue(underscore, uniqueVar105),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.19010185222130005) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar106),
+   haswordauthor(b, uniqueVar106),
+   haswordauthor(a, uniqueVar107),
+   haswordvenue(underscore, uniqueVar107),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.1922623536087925) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar108),
+   haswordauthor(b, uniqueVar108),
+   haswordauthor(b, uniqueVar109),
+   haswordvenue(underscore, uniqueVar109),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(a, b, 0.20999980327240927) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar110),
+   haswordauthor(b, uniqueVar110),
+   !. // Flattened version of clause #8.
+
+flattened_sameauthor(underscore, underscore, -0.07877675473109179) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #9.
+
+
+% The unique flattened literals:
+%   haswordvenue(underscore, uniqueVar107)
+%   haswordauthor(b, uniqueVar108)
+%   haswordvenue(underscore, uniqueVar97)
+%   haswordauthor(b, uniqueVar102)
+%   haswordauthor(b, uniqueVar95)
+%   haswordauthor(b, uniqueVar105)
+%   haswordauthor(a, uniqueVar108)
+%   haswordauthor(b, uniqueVar100)
+%   haswordauthor(a, uniqueVar95)
+%   haswordauthor(b, uniqueVar106)
+%   haswordauthor(b, uniqueVar109)
+%   haswordauthor(b, uniqueVar99)
+%   haswordauthor(a, uniqueVar103)
+%   haswordtitle(uniqueVar96, uniqueVar95)
+%   haswordauthor(a, uniqueVar101)
+%   haswordauthor(a, uniqueVar106)
+%   haswordvenue(underscore, uniqueVar101)
+%   haswordauthor(b, uniqueVar103)
+%   haswordtitle(uniqueVar96, uniqueVar97)
+%   haswordauthor(b, uniqueVar110)
+%   haswordauthor(b, uniqueVar97)
+%   haswordauthor(a, uniqueVar100)
+%   haswordauthor(a, uniqueVar102)
+%   haswordauthor(a, uniqueVar104)
+%   haswordauthor(a, uniqueVar98)
+%   haswordvenue(underscore, uniqueVar105)
+%   haswordtitle(underscore, uniqueVar98)
+%   haswordauthor(a, uniqueVar110)
+%   haswordvenue(underscore, uniqueVar109)
+%   haswordauthor(b, uniqueVar98)
+%   haswordvenue(underscore, uniqueVar99)
+%   haswordvenue(underscore, uniqueVar104)
+%   haswordauthor(a, uniqueVar107)
+%   haswordtitle(underscore, uniqueVar100)
+%   haswordtitle(underscore, uniqueVar102)
+
+%%%%%  WILL-Produced Tree #8 @ 13:55:34 5/11/17.  [Using 14,120,968 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( author(E, B), title(E, D) )
+%   | | then return 0.23782097133326108;  // std dev = 0.000, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | | then return 0.1326266930699474;  // std dev = 4.736, 214.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=188 */
+%   | | | else return 0.11797987134929366;  // std dev = 3.357, 80.000 (wgt'ed) examples reached here.  /* #neg=14 #pos=66 */
+%   | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | then if ( haswordauthor(B, J), haswordtitle(K, J) )
+%   | | | then return 0.18732229024435074;  // std dev = 0.027, 11.000 (wgt'ed) examples reached here.  /* #pos=11 */
+%   | | | else return 0.15818912288737516;  // std dev = 1.379, 48.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=46 */
+%   | | else if ( haswordauthor(B, L), haswordvenue(M, L) )
+%   | | | then return 0.15939436784474256;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.1772744832958837;  // std dev = 0.016, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.07324622576333704;  // std dev = 0.000, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.23782097133326108) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     author(E, B), 
+     title(E, D), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.1326266930699474) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.11797987134929366) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.18732229024435074) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     haswordauthor(B, F), 
+     haswordtitle(G, F), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.15818912288737516) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.15939436784474256) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.1772744832958837) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #7.
+
+sameauthor(A, B, -0.07324622576333704) :- !. // Clause #8.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.23782097133326108) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar111),
+   haswordauthor(b, uniqueVar111),
+   haswordtitle(uniqueVar112, uniqueVar111),
+   author(uniqueVar113, b),
+   title(uniqueVar113, uniqueVar112),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.1326266930699474) :-  /* #neg=26 #pos=188 */ 
+   haswordauthor(a, uniqueVar114),
+   haswordauthor(b, uniqueVar114),
+   haswordtitle(underscore, uniqueVar114),
+   haswordauthor(b, uniqueVar115),
+   haswordvenue(underscore, uniqueVar115),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.11797987134929366) :-  /* #neg=14 #pos=66 */ 
+   haswordauthor(a, uniqueVar116),
+   haswordauthor(b, uniqueVar116),
+   haswordtitle(underscore, uniqueVar116),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.18732229024435074) :-  /* #pos=11 */ 
+   haswordauthor(a, uniqueVar117),
+   haswordauthor(b, uniqueVar117),
+   haswordauthor(a, uniqueVar118),
+   haswordvenue(underscore, uniqueVar118),
+   haswordauthor(b, uniqueVar119),
+   haswordtitle(underscore, uniqueVar119),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.15818912288737516) :-  /* #neg=2 #pos=46 */ 
+   haswordauthor(a, uniqueVar120),
+   haswordauthor(b, uniqueVar120),
+   haswordauthor(a, uniqueVar121),
+   haswordvenue(underscore, uniqueVar121),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.15939436784474256) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar122),
+   haswordauthor(b, uniqueVar122),
+   haswordauthor(b, uniqueVar123),
+   haswordvenue(underscore, uniqueVar123),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.1772744832958837) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar124),
+   haswordauthor(b, uniqueVar124),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(underscore, underscore, -0.07324622576333704) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #8.
+
+
+% The unique flattened literals:
+%   title(uniqueVar113, uniqueVar112)
+%   haswordauthor(a, uniqueVar124)
+%   haswordauthor(b, uniqueVar119)
+%   haswordauthor(b, uniqueVar122)
+%   haswordauthor(b, uniqueVar114)
+%   haswordtitle(underscore, uniqueVar116)
+%   haswordvenue(underscore, uniqueVar123)
+%   author(uniqueVar113, b)
+%   haswordvenue(underscore, uniqueVar115)
+%   haswordauthor(b, uniqueVar111)
+%   haswordtitle(underscore, uniqueVar114)
+%   haswordauthor(b, uniqueVar116)
+%   haswordauthor(b, uniqueVar115)
+%   haswordauthor(a, uniqueVar122)
+%   haswordauthor(a, uniqueVar114)
+%   haswordauthor(b, uniqueVar120)
+%   haswordtitle(uniqueVar112, uniqueVar111)
+%   haswordauthor(b, uniqueVar117)
+%   haswordvenue(underscore, uniqueVar121)
+%   haswordvenue(underscore, uniqueVar118)
+%   haswordauthor(b, uniqueVar123)
+%   haswordtitle(underscore, uniqueVar119)
+%   haswordauthor(a, uniqueVar116)
+%   haswordauthor(a, uniqueVar121)
+%   haswordauthor(a, uniqueVar118)
+%   haswordauthor(a, uniqueVar120)
+%   haswordauthor(a, uniqueVar111)
+%   haswordauthor(b, uniqueVar124)
+%   haswordauthor(a, uniqueVar117)
+
+%%%%%  WILL-Produced Tree #9 @ 13:55:36 5/11/17.  [Using 14,148,224 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( author(E, A), title(E, D) )
+%   | | then return 0.20602182475755398;  // std dev = 0.027, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else if ( haswordauthor(A, F), haswordvenue(G, F) )
+%   | | | then return 0.10819463946017165;  // std dev = 4.744, 214.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=188 */
+%   | | | else return 0.09374590286938231;  // std dev = 3.347, 80.000 (wgt'ed) examples reached here.  /* #neg=14 #pos=66 */
+%   | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | then if ( author(J, A), venue(J, I) )
+%   | | | then return 0.16677833979385062;  // std dev = 0.013, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | | else return 0.13334424018735366;  // std dev = 1.378, 49.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=47 */
+%   | | else if ( haswordauthor(B, K), haswordvenue(L, K) )
+%   | | | then return 0.13483321589401936;  // std dev = 1.383, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | | else return 0.15287916019445782;  // std dev = 0.014, 123.000 (wgt'ed) examples reached here.  /* #pos=123 */
+%   else return -0.06842697784420275;  // std dev = 0.000, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.20602182475755398) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     author(E, A), 
+     title(E, D), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.10819463946017165) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(A, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.09374590286938231) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.16677833979385062) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     author(F, A), 
+     venue(F, E), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.13334424018735366) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.13483321589401936) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordvenue(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.15287916019445782) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #7.
+
+sameauthor(A, B, -0.06842697784420275) :- !. // Clause #8.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.20602182475755398) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar125),
+   haswordauthor(b, uniqueVar125),
+   haswordtitle(uniqueVar126, uniqueVar125),
+   author(uniqueVar127, a),
+   title(uniqueVar127, uniqueVar126),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.10819463946017165) :-  /* #neg=26 #pos=188 */ 
+   haswordauthor(a, uniqueVar128),
+   haswordauthor(b, uniqueVar128),
+   haswordtitle(underscore, uniqueVar128),
+   haswordauthor(a, uniqueVar129),
+   haswordvenue(underscore, uniqueVar129),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.09374590286938231) :-  /* #neg=14 #pos=66 */ 
+   haswordauthor(a, uniqueVar130),
+   haswordauthor(b, uniqueVar130),
+   haswordtitle(underscore, uniqueVar130),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.16677833979385062) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar131),
+   haswordauthor(b, uniqueVar131),
+   haswordauthor(a, uniqueVar132),
+   haswordvenue(uniqueVar133, uniqueVar132),
+   author(uniqueVar134, a),
+   venue(uniqueVar134, uniqueVar133),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.13334424018735366) :-  /* #neg=2 #pos=47 */ 
+   haswordauthor(a, uniqueVar135),
+   haswordauthor(b, uniqueVar135),
+   haswordauthor(a, uniqueVar136),
+   haswordvenue(underscore, uniqueVar136),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.13483321589401936) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar137),
+   haswordauthor(b, uniqueVar137),
+   haswordauthor(b, uniqueVar138),
+   haswordvenue(underscore, uniqueVar138),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.15287916019445782) :-  /* #pos=123 */ 
+   haswordauthor(a, uniqueVar139),
+   haswordauthor(b, uniqueVar139),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(underscore, underscore, -0.06842697784420275) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #8.
+
+
+% The unique flattened literals:
+%   haswordvenue(underscore, uniqueVar129)
+%   haswordauthor(a, uniqueVar128)
+%   haswordauthor(a, uniqueVar139)
+%   haswordvenue(underscore, uniqueVar136)
+%   haswordtitle(uniqueVar126, uniqueVar125)
+%   haswordtitle(underscore, uniqueVar128)
+%   haswordauthor(b, uniqueVar137)
+%   haswordauthor(b, uniqueVar130)
+%   haswordauthor(a, uniqueVar136)
+%   venue(uniqueVar134, uniqueVar133)
+%   haswordvenue(underscore, uniqueVar138)
+%   haswordauthor(a, uniqueVar129)
+%   author(uniqueVar127, a)
+%   haswordauthor(b, uniqueVar139)
+%   haswordauthor(a, uniqueVar135)
+%   haswordauthor(a, uniqueVar130)
+%   haswordauthor(b, uniqueVar128)
+%   haswordauthor(a, uniqueVar125)
+%   title(uniqueVar127, uniqueVar126)
+%   haswordauthor(b, uniqueVar135)
+%   haswordvenue(uniqueVar133, uniqueVar132)
+%   haswordauthor(b, uniqueVar125)
+%   haswordauthor(a, uniqueVar131)
+%   haswordauthor(a, uniqueVar132)
+%   author(uniqueVar134, a)
+%   haswordauthor(b, uniqueVar131)
+%   haswordauthor(a, uniqueVar137)
+%   haswordtitle(underscore, uniqueVar130)
+%   haswordauthor(b, uniqueVar138)
+
+%%%%%  WILL-Produced Tree #10 @ 13:55:38 5/11/17.  [Using 14,177,936 memory cells.]  %%%%%
+
+% FOR sameauthor(A, B):
+%   if ( haswordauthor(A, C), haswordauthor(B, C) )
+%   then if ( haswordtitle(D, C) )
+%   | then if ( author(E, A), title(E, D) )
+%   | | then return 0.17436411092059528;  // std dev = 0.024, 10.000 (wgt'ed) examples reached here.  /* #pos=10 */
+%   | | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | | then return 0.08970213128804166;  // std dev = 4.738, 214.000 (wgt'ed) examples reached here.  /* #neg=26 #pos=188 */
+%   | | | else return 0.07574026659441778;  // std dev = 3.359, 80.000 (wgt'ed) examples reached here.  /* #neg=14 #pos=66 */
+%   | else if ( haswordauthor(A, H), haswordvenue(I, H) )
+%   | | then if ( haswordauthor(B, J), haswordvenue(K, J) )
+%   | | | then return 0.1415436727889379;  // std dev = 0.019, 13.000 (wgt'ed) examples reached here.  /* #pos=13 */
+%   | | | else return 0.11399217983287105;  // std dev = 1.378, 46.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=44 */
+%   | | else if ( haswordauthor(B, L), haswordtitle(M, L) )
+%   | | | then return 0.12059362188573336;  // std dev = 1.384, 63.000 (wgt'ed) examples reached here.  /* #neg=2 #pos=61 */
+%   | | | else return 0.13425577463591265;  // std dev = 0.038, 106.000 (wgt'ed) examples reached here.  /* #pos=106 */
+%   else return -0.06419184008202622;  // std dev = 5.27e-09, 22.000 (wgt'ed) examples reached here.  /* #neg=22 */
+
+
+% Clauses:
+
+sameauthor(A, B, 0.17436411092059528) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     author(E, A), 
+     title(E, D), 
+     !. // Clause #1.
+
+sameauthor(A, B, 0.08970213128804166) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     haswordauthor(B, E), 
+     haswordvenue(F, E), 
+     !. // Clause #2.
+
+sameauthor(A, B, 0.07574026659441778) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordtitle(D, C), 
+     !. // Clause #3.
+
+sameauthor(A, B, 0.1415436727889379) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     haswordauthor(B, F), 
+     haswordvenue(G, F), 
+     !. // Clause #4.
+
+sameauthor(A, B, 0.11399217983287105) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(A, D), 
+     haswordvenue(E, D), 
+     !. // Clause #5.
+
+sameauthor(A, B, 0.12059362188573336) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     haswordauthor(B, D), 
+     haswordtitle(E, D), 
+     !. // Clause #6.
+
+sameauthor(A, B, 0.13425577463591265) :- 
+     haswordauthor(A, C), 
+     haswordauthor(B, C), 
+     !. // Clause #7.
+
+sameauthor(A, B, -0.06419184008202622) :- !. // Clause #8.
+
+
+% The flattened versions of these clauses:
+
+flattened_sameauthor(a, b, 0.17436411092059528) :-  /* #pos=10 */ 
+   haswordauthor(a, uniqueVar140),
+   haswordauthor(b, uniqueVar140),
+   haswordtitle(uniqueVar141, uniqueVar140),
+   author(uniqueVar142, a),
+   title(uniqueVar142, uniqueVar141),
+   !. // Flattened version of clause #1.
+
+flattened_sameauthor(a, b, 0.08970213128804166) :-  /* #neg=26 #pos=188 */ 
+   haswordauthor(a, uniqueVar143),
+   haswordauthor(b, uniqueVar143),
+   haswordtitle(underscore, uniqueVar143),
+   haswordauthor(b, uniqueVar144),
+   haswordvenue(underscore, uniqueVar144),
+   !. // Flattened version of clause #2.
+
+flattened_sameauthor(a, b, 0.07574026659441778) :-  /* #neg=14 #pos=66 */ 
+   haswordauthor(a, uniqueVar145),
+   haswordauthor(b, uniqueVar145),
+   haswordtitle(underscore, uniqueVar145),
+   !. // Flattened version of clause #3.
+
+flattened_sameauthor(a, b, 0.1415436727889379) :-  /* #pos=13 */ 
+   haswordauthor(a, uniqueVar146),
+   haswordauthor(b, uniqueVar146),
+   haswordauthor(a, uniqueVar147),
+   haswordvenue(underscore, uniqueVar147),
+   haswordauthor(b, uniqueVar148),
+   haswordvenue(underscore, uniqueVar148),
+   !. // Flattened version of clause #4.
+
+flattened_sameauthor(a, b, 0.11399217983287105) :-  /* #neg=2 #pos=44 */ 
+   haswordauthor(a, uniqueVar149),
+   haswordauthor(b, uniqueVar149),
+   haswordauthor(a, uniqueVar150),
+   haswordvenue(underscore, uniqueVar150),
+   !. // Flattened version of clause #5.
+
+flattened_sameauthor(a, b, 0.12059362188573336) :-  /* #neg=2 #pos=61 */ 
+   haswordauthor(a, uniqueVar151),
+   haswordauthor(b, uniqueVar151),
+   haswordauthor(b, uniqueVar152),
+   haswordtitle(underscore, uniqueVar152),
+   !. // Flattened version of clause #6.
+
+flattened_sameauthor(a, b, 0.13425577463591265) :-  /* #pos=106 */ 
+   haswordauthor(a, uniqueVar153),
+   haswordauthor(b, uniqueVar153),
+   !. // Flattened version of clause #7.
+
+flattened_sameauthor(underscore, underscore, -0.06419184008202622) :-  /* #neg=22 */ 
+   !. // Flattened version of clause #8.
+
+
+% The unique flattened literals:
+%   haswordauthor(b, uniqueVar148)
+%   haswordauthor(a, uniqueVar146)
+%   haswordauthor(a, uniqueVar149)
+%   haswordauthor(a, uniqueVar147)
+%   title(uniqueVar142, uniqueVar141)
+%   haswordvenue(underscore, uniqueVar144)
+%   haswordtitle(uniqueVar141, uniqueVar140)
+%   haswordvenue(underscore, uniqueVar150)
+%   haswordauthor(b, uniqueVar149)
+%   haswordauthor(b, uniqueVar153)
+%   haswordauthor(b, uniqueVar146)
+%   haswordtitle(underscore, uniqueVar143)
+%   haswordauthor(b, uniqueVar151)
+%   haswordtitle(underscore, uniqueVar152)
+%   haswordauthor(a, uniqueVar153)
+%   author(uniqueVar142, a)
+%   haswordauthor(a, uniqueVar145)
+%   haswordvenue(underscore, uniqueVar147)
+%   haswordauthor(b, uniqueVar140)
+%   haswordauthor(a, uniqueVar151)
+%   haswordauthor(b, uniqueVar143)
+%   haswordauthor(a, uniqueVar150)
+%   haswordauthor(b, uniqueVar144)
+%   haswordauthor(b, uniqueVar145)
+%   haswordauthor(a, uniqueVar140)
+%   haswordvenue(underscore, uniqueVar148)
+%   haswordauthor(a, uniqueVar143)
+%   haswordauthor(b, uniqueVar152)
+%   haswordtitle(underscore, uniqueVar145)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -564,6 +1773,13 @@ flattened_sameauthor(underscore, underscore, -0.11231637819360638) :-  /* #neg=2
 stepLength_tree1(1.0).
 stepLength_tree2(1.0).
 stepLength_tree3(1.0).
+stepLength_tree4(1.0).
+stepLength_tree5(1.0).
+stepLength_tree6(1.0).
+stepLength_tree7(1.0).
+stepLength_tree8(1.0).
+stepLength_tree9(1.0).
+stepLength_tree10(1.0).
 
 logPrior(-1.8).
 sameauthor(D, E, Total) :- // A general accessor. 
@@ -575,7 +1791,14 @@ sameauthor(D, E, TreesToUse, Total) :- // A tree-limited accessor (e.g., for tun
    getScore_sameauthor_tree1(D, E, TreesToUse, Total1),
    getScore_sameauthor_tree2(D, E, TreesToUse, Total2),
    getScore_sameauthor_tree3(D, E, TreesToUse, Total3),
-   Total is LogPrior + Total1 + Total2 + Total3,
+   getScore_sameauthor_tree4(D, E, TreesToUse, Total4),
+   getScore_sameauthor_tree5(D, E, TreesToUse, Total5),
+   getScore_sameauthor_tree6(D, E, TreesToUse, Total6),
+   getScore_sameauthor_tree7(D, E, TreesToUse, Total7),
+   getScore_sameauthor_tree8(D, E, TreesToUse, Total8),
+   getScore_sameauthor_tree9(D, E, TreesToUse, Total9),
+   getScore_sameauthor_tree10(D, E, TreesToUse, Total10),
+   Total is LogPrior + Total1 + Total2 + Total3 + Total4 + Total5 + Total6 + Total7 + Total8 + Total9 + Total10,
    !.
 sameauthor(D, E, TreesToUse, Total) :- waitHere("This should not fail", sameauthor(D, E, TreesToUse, Total)).
 
@@ -588,142 +1811,380 @@ getScore_sameauthor_tree2(D, E, TreesToUse, Total2) :- sameauthor_tree2(D, E, To
 getScore_sameauthor_tree3(D, E, TreesToUse, 0.0) :- 3 > TreesToUse, !.
 getScore_sameauthor_tree3(D, E, TreesToUse, Total3) :- sameauthor_tree3(D, E, Total), stepLength_tree3(StepLen), Total3 is Total * StepLen.
 
-flattenedLiteralsInThisSetOfTrees(sameauthor, 100, [
-   haswordauthor(b, uniqueVar44),
-   haswordvenue(underscore, uniqueVar12),
-   haswordauthor(a, uniqueVar9),
-   sametitle(uniqueVar2, uniqueVar4),
-   haswordvenue(underscore, uniqueVar40),
-   haswordauthor(b, uniqueVar21),
-   haswordtitle(uniqueVar36, uniqueVar35),
-   haswordauthor(a, uniqueVar3),
-   author(uniqueVar27, b),
-   haswordvenue(uniqueVar26, uniqueVar25),
-   haswordauthor(b, uniqueVar18),
-   haswordauthor(b, uniqueVar43),
-   haswordauthor(a, uniqueVar28),
-   haswordauthor(b, uniqueVar45),
-   venue(uniqueVar27, uniqueVar26),
-   haswordvenue(underscore, uniqueVar35),
-   haswordauthor(a, uniqueVar7),
-   haswordauthor(a, uniqueVar10),
-   haswordauthor(a, uniqueVar23),
-   haswordtitle(underscore, uniqueVar41),
-   haswordauthor(b, uniqueVar5),
-   haswordauthor(b, uniqueVar42),
-   sametitle(uniqueVar34, uniqueVar36),
-   haswordauthor(b, uniqueVar1),
-   haswordauthor(b, uniqueVar25),
-   haswordauthor(a, uniqueVar37),
-   haswordvenue(underscore, uniqueVar47),
-   haswordauthor(a, uniqueVar47),
-   haswordauthor(b, uniqueVar48),
-   haswordtitle(uniqueVar4, uniqueVar3),
-   haswordauthor(b, uniqueVar8),
-   haswordauthor(a, uniqueVar11),
-   haswordauthor(a, uniqueVar6),
-   haswordauthor(b, uniqueVar13),
-   haswordauthor(b, uniqueVar30),
-   haswordvenue(underscore, uniqueVar16),
-   haswordauthor(b, uniqueVar29),
-   haswordauthor(b, uniqueVar10),
-   haswordauthor(b, uniqueVar28),
-   haswordvenue(underscore, uniqueVar29),
-   haswordauthor(a, uniqueVar18),
-   haswordauthor(a, uniqueVar35),
-   haswordauthor(a, uniqueVar46),
-   haswordauthor(b, uniqueVar9),
-   haswordauthor(b, uniqueVar33),
-   haswordauthor(a, uniqueVar13),
-   haswordauthor(a, uniqueVar31),
-   haswordauthor(a, uniqueVar32),
-   haswordtitle(uniqueVar2, uniqueVar1),
-   haswordvenue(underscore, uniqueVar31),
-   haswordtitle(underscore, uniqueVar21),
-   haswordauthor(b, uniqueVar46),
-   haswordauthor(b, uniqueVar40),
-   haswordtitle(underscore, uniqueVar37),
-   haswordauthor(b, uniqueVar12),
-   haswordauthor(a, uniqueVar21),
-   haswordauthor(b, uniqueVar32),
-   haswordauthor(a, uniqueVar42),
-   haswordauthor(a, uniqueVar33),
-   haswordauthor(b, uniqueVar7),
-   haswordauthor(b, uniqueVar23),
-   haswordvenue(underscore, uniqueVar45),
-   haswordvenue(underscore, uniqueVar43),
-   haswordtitle(underscore, uniqueVar39),
-   haswordtitle(uniqueVar34, uniqueVar33),
-   haswordvenue(underscore, uniqueVar11),
-   haswordauthor(b, uniqueVar15),
-   haswordauthor(a, uniqueVar48),
-   haswordtitle(underscore, uniqueVar5),
-   haswordauthor(a, uniqueVar38),
-   haswordtitle(underscore, uniqueVar43),
-   haswordauthor(b, uniqueVar41),
-   haswordauthor(a, uniqueVar30),
-   haswordauthor(a, uniqueVar24),
-   haswordvenue(underscore, uniqueVar38),
-   haswordauthor(b, uniqueVar16),
-   haswordtitle(uniqueVar19, uniqueVar18),
-   haswordvenue(underscore, uniqueVar6),
-   haswordvenue(underscore, uniqueVar8),
-   haswordtitle(underscore, uniqueVar9),
-   author(uniqueVar20, a),
-   haswordauthor(a, uniqueVar14),
-   haswordauthor(b, uniqueVar37),
-   haswordauthor(b, uniqueVar24),
-   haswordtitle(underscore, uniqueVar23),
-   haswordauthor(a, uniqueVar1),
-   haswordauthor(a, uniqueVar41),
-   title(uniqueVar20, uniqueVar19),
-   haswordtitle(underscore, uniqueVar7),
-   haswordauthor(a, uniqueVar15),
-   haswordauthor(a, uniqueVar5),
-   haswordvenue(underscore, uniqueVar14),
-   haswordauthor(b, uniqueVar39),
-   haswordauthor(a, uniqueVar44),
-   haswordvenue(underscore, uniqueVar3),
-   haswordauthor(a, uniqueVar17),
-   haswordauthor(a, uniqueVar39),
-   haswordvenue(underscore, uniqueVar22),
-   haswordauthor(b, uniqueVar22),
-   haswordauthor(b, uniqueVar17)]).
+getScore_sameauthor_tree4(D, E, TreesToUse, 0.0) :- 4 > TreesToUse, !.
+getScore_sameauthor_tree4(D, E, TreesToUse, Total4) :- sameauthor_tree4(D, E, Total), stepLength_tree4(StepLen), Total4 is Total * StepLen.
 
-%%%%%  WILL-Produced Tree Combined @ 8:54:33 5/11/17.  [Using 13,890,328 memory cells.]  %%%%%
+getScore_sameauthor_tree5(D, E, TreesToUse, 0.0) :- 5 > TreesToUse, !.
+getScore_sameauthor_tree5(D, E, TreesToUse, Total5) :- sameauthor_tree5(D, E, Total), stepLength_tree5(StepLen), Total5 is Total * StepLen.
+
+getScore_sameauthor_tree6(D, E, TreesToUse, 0.0) :- 6 > TreesToUse, !.
+getScore_sameauthor_tree6(D, E, TreesToUse, Total6) :- sameauthor_tree6(D, E, Total), stepLength_tree6(StepLen), Total6 is Total * StepLen.
+
+getScore_sameauthor_tree7(D, E, TreesToUse, 0.0) :- 7 > TreesToUse, !.
+getScore_sameauthor_tree7(D, E, TreesToUse, Total7) :- sameauthor_tree7(D, E, Total), stepLength_tree7(StepLen), Total7 is Total * StepLen.
+
+getScore_sameauthor_tree8(D, E, TreesToUse, 0.0) :- 8 > TreesToUse, !.
+getScore_sameauthor_tree8(D, E, TreesToUse, Total8) :- sameauthor_tree8(D, E, Total), stepLength_tree8(StepLen), Total8 is Total * StepLen.
+
+getScore_sameauthor_tree9(D, E, TreesToUse, 0.0) :- 9 > TreesToUse, !.
+getScore_sameauthor_tree9(D, E, TreesToUse, Total9) :- sameauthor_tree9(D, E, Total), stepLength_tree9(StepLen), Total9 is Total * StepLen.
+
+getScore_sameauthor_tree10(D, E, TreesToUse, 0.0) :- 10 > TreesToUse, !.
+getScore_sameauthor_tree10(D, E, TreesToUse, Total10) :- sameauthor_tree10(D, E, Total), stepLength_tree10(StepLen), Total10 is Total * StepLen.
+
+flattenedLiteralsInThisSetOfTrees(sameauthor, 320, [
+   haswordauthor(a, uniqueVar146),
+   haswordvenue(underscore, uniqueVar144),
+   haswordauthor(a, uniqueVar40),
+   haswordauthor(b, uniqueVar95),
+   haswordauthor(b, uniqueVar35),
+   haswordauthor(a, uniqueVar60),
+   haswordauthor(b, uniqueVar130),
+   haswordvenue(underscore, uniqueVar150),
+   haswordvenue(underscore, uniqueVar84),
+   haswordauthor(b, uniqueVar81),
+   haswordauthor(a, uniqueVar57),
+   haswordtitle(underscore, uniqueVar55),
+   haswordauthor(b, uniqueVar97),
+   haswordauthor(a, uniqueVar100),
+   haswordauthor(b, uniqueVar17),
+   haswordauthor(b, uniqueVar6),
+   haswordauthor(a, uniqueVar86),
+   haswordvenue(underscore, uniqueVar105),
+   title(uniqueVar127, uniqueVar126),
+   haswordauthor(b, uniqueVar47),
+   haswordauthor(a, uniqueVar42),
+   haswordauthor(a, uniqueVar110),
+   haswordauthor(a, uniqueVar69),
+   haswordauthor(a, uniqueVar94),
+   haswordauthor(a, uniqueVar74),
+   haswordtitle(uniqueVar2, uniqueVar3),
+   haswordtitle(underscore, uniqueVar100),
+   haswordauthor(a, uniqueVar149),
+   haswordtitle(underscore, uniqueVar18),
+   haswordauthor(b, uniqueVar31),
+   haswordauthor(b, uniqueVar45),
+   haswordauthor(b, uniqueVar46),
+   haswordauthor(b, uniqueVar68),
+   haswordauthor(b, uniqueVar1),
+   title(uniqueVar52, uniqueVar51),
+   haswordauthor(b, uniqueVar137),
+   haswordauthor(a, uniqueVar54),
+   haswordtitle(uniqueVar141, uniqueVar140),
+   author(uniqueVar80, b),
+   haswordtitle(underscore, uniqueVar30),
+   venue(uniqueVar89, uniqueVar88),
+   haswordvenue(underscore, uniqueVar28),
+   haswordvenue(underscore, uniqueVar3),
+   haswordvenue(underscore, uniqueVar11),
+   haswordauthor(b, uniqueVar114),
+   haswordauthor(a, uniqueVar37),
+   haswordauthor(a, uniqueVar101),
+   haswordauthor(b, uniqueVar12),
+   haswordauthor(b, uniqueVar103),
+   haswordauthor(a, uniqueVar50),
+   haswordauthor(a, uniqueVar11),
+   haswordtitle(uniqueVar33, uniqueVar32),
+   haswordauthor(b, uniqueVar66),
+   haswordauthor(b, uniqueVar71),
+   haswordauthor(b, uniqueVar144),
+   haswordvenue(underscore, uniqueVar121),
+   haswordauthor(b, uniqueVar125),
+   haswordauthor(a, uniqueVar131),
+   haswordauthor(b, uniqueVar32),
+   haswordauthor(a, uniqueVar14),
+   haswordauthor(a, uniqueVar121),
+   haswordtitle(underscore, uniqueVar37),
+   haswordauthor(b, uniqueVar83),
+   haswordauthor(b, uniqueVar36),
+   haswordauthor(a, uniqueVar111),
+   haswordauthor(b, uniqueVar22),
+   haswordauthor(b, uniqueVar148),
+   haswordauthor(a, uniqueVar84),
+   haswordvenue(underscore, uniqueVar129),
+   haswordauthor(b, uniqueVar102),
+   haswordvenue(underscore, uniqueVar136),
+   haswordauthor(b, uniqueVar119),
+   haswordauthor(a, uniqueVar64),
+   haswordauthor(a, uniqueVar108),
+   haswordauthor(b, uniqueVar56),
+   haswordauthor(b, uniqueVar153),
+   haswordtitle(underscore, uniqueVar71),
+   venue(uniqueVar134, uniqueVar133),
+   haswordauthor(b, uniqueVar72),
+   haswordvenue(underscore, uniqueVar63),
+   haswordauthor(a, uniqueVar85),
+   haswordauthor(a, uniqueVar23),
+   haswordauthor(b, uniqueVar65),
+   haswordvenue(underscore, uniqueVar57),
+   haswordtitle(underscore, uniqueVar143),
+   haswordtitle(underscore, uniqueVar68),
+   haswordtitle(underscore, uniqueVar152),
+   author(uniqueVar142, a),
+   haswordauthor(b, uniqueVar18),
+   haswordauthor(b, uniqueVar75),
+   haswordauthor(a, uniqueVar72),
+   haswordauthor(b, uniqueVar92),
+   haswordvenue(uniqueVar25, uniqueVar24),
+   author(uniqueVar52, a),
+   haswordvenue(underscore, uniqueVar17),
+   haswordauthor(a, uniqueVar22),
+   haswordauthor(b, uniqueVar145),
+   haswordauthor(b, uniqueVar120),
+   haswordauthor(b, uniqueVar123),
+   haswordauthor(b, uniqueVar10),
+   haswordvenue(underscore, uniqueVar99),
+   haswordtitle(underscore, uniqueVar119),
+   haswordvenue(underscore, uniqueVar104),
+   haswordauthor(a, uniqueVar132),
+   haswordauthor(b, uniqueVar152),
+   haswordtitle(underscore, uniqueVar66),
+   author(uniqueVar134, a),
+   haswordauthor(a, uniqueVar87),
+   haswordauthor(a, uniqueVar4),
+   haswordauthor(a, uniqueVar117),
+   haswordauthor(b, uniqueVar138),
+   haswordvenue(underscore, uniqueVar21),
+   author(uniqueVar26, a),
+   haswordauthor(b, uniqueVar53),
+   haswordtitle(uniqueVar48, uniqueVar47),
+   haswordvenue(underscore, uniqueVar43),
+   haswordtitle(underscore, uniqueVar81),
+   haswordauthor(a, uniqueVar128),
+   haswordtitle(underscore, uniqueVar39),
+   haswordauthor(a, uniqueVar41),
+   author(uniqueVar49, b),
+   haswordauthor(a, uniqueVar124),
+   haswordauthor(b, uniqueVar149),
+   haswordvenue(underscore, uniqueVar138),
+   haswordauthor(a, uniqueVar76),
+   haswordauthor(b, uniqueVar106),
+   author(uniqueVar113, b),
+   haswordtitle(uniqueVar96, uniqueVar95),
+   haswordauthor(a, uniqueVar67),
+   haswordtitle(uniqueVar96, uniqueVar97),
+   haswordauthor(a, uniqueVar29),
+   haswordvenue(underscore, uniqueVar147),
+   haswordvenue(underscore, uniqueVar19),
+   haswordauthor(b, uniqueVar116),
+   haswordauthor(b, uniqueVar140),
+   haswordauthor(a, uniqueVar98),
+   haswordauthor(a, uniqueVar122),
+   haswordauthor(a, uniqueVar151),
+   haswordauthor(b, uniqueVar143),
+   haswordauthor(b, uniqueVar39),
+   haswordvenue(underscore, uniqueVar75),
+   haswordtitle(uniqueVar16, uniqueVar15),
+   haswordauthor(a, uniqueVar107),
+   venue(uniqueVar26, uniqueVar25),
+   haswordtitle(underscore, uniqueVar53),
+   haswordauthor(a, uniqueVar1),
+   haswordauthor(a, uniqueVar8),
+   haswordauthor(a, uniqueVar55),
+   haswordtitle(underscore, uniqueVar145),
+   haswordauthor(b, uniqueVar63),
+   haswordtitle(underscore, uniqueVar102),
+   haswordvenue(underscore, uniqueVar5),
+   haswordauthor(b, uniqueVar13),
+   haswordtitle(underscore, uniqueVar77),
+   haswordvenue(underscore, uniqueVar107),
+   haswordtitle(underscore, uniqueVar20),
+   title(uniqueVar142, uniqueVar141),
+   haswordauthor(a, uniqueVar35),
+   haswordtitle(uniqueVar126, uniqueVar125),
+   haswordauthor(a, uniqueVar83),
+   haswordauthor(a, uniqueVar136),
+   haswordauthor(b, uniqueVar100),
+   haswordauthor(b, uniqueVar40),
+   haswordauthor(a, uniqueVar129),
+   haswordauthor(b, uniqueVar146),
+   haswordauthor(a, uniqueVar6),
+   haswordauthor(a, uniqueVar95),
+   haswordtitle(underscore, uniqueVar116),
+   haswordauthor(b, uniqueVar99),
+   haswordvenue(underscore, uniqueVar73),
+   haswordauthor(a, uniqueVar81),
+   haswordvenue(underscore, uniqueVar101),
+   haswordauthor(b, uniqueVar42),
+   haswordauthor(a, uniqueVar130),
+   haswordauthor(b, uniqueVar111),
+   haswordauthor(a, uniqueVar125),
+   haswordauthor(a, uniqueVar104),
+   haswordauthor(b, uniqueVar37),
+   haswordauthor(b, uniqueVar115),
+   haswordauthor(b, uniqueVar59),
+   haswordauthor(a, uniqueVar114),
+   haswordtitle(uniqueVar62, uniqueVar63),
+   haswordvenue(underscore, uniqueVar67),
+   haswordvenue(uniqueVar88, uniqueVar87),
+   haswordvenue(underscore, uniqueVar118),
+   haswordvenue(underscore, uniqueVar38),
+   haswordtitle(underscore, uniqueVar85),
+   haswordvenue(underscore, uniqueVar70),
+   haswordauthor(a, uniqueVar116),
+   haswordauthor(b, uniqueVar82),
+   haswordauthor(b, uniqueVar60),
+   haswordauthor(b, uniqueVar61),
+   haswordauthor(b, uniqueVar19),
+   haswordauthor(a, uniqueVar32),
+   haswordauthor(b, uniqueVar58),
+   haswordauthor(a, uniqueVar137),
+   haswordtitle(underscore, uniqueVar130),
+   haswordtitle(uniqueVar16, uniqueVar17),
+   haswordvenue(underscore, uniqueVar59),
+   haswordauthor(a, uniqueVar28),
+   haswordauthor(b, uniqueVar44),
+   haswordtitle(underscore, uniqueVar83),
+   haswordauthor(b, uniqueVar90),
+   haswordauthor(b, uniqueVar54),
+   title(uniqueVar113, uniqueVar112),
+   haswordauthor(a, uniqueVar77),
+   haswordauthor(b, uniqueVar9),
+   haswordauthor(a, uniqueVar3),
+   haswordauthor(b, uniqueVar50),
+   haswordauthor(b, uniqueVar29),
+   haswordtitle(underscore, uniqueVar22),
+   haswordauthor(b, uniqueVar27),
+   haswordauthor(a, uniqueVar92),
+   haswordvenue(underscore, uniqueVar123),
+   haswordauthor(a, uniqueVar20),
+   haswordauthor(a, uniqueVar103),
+   author(uniqueVar127, a),
+   haswordauthor(b, uniqueVar139),
+   haswordauthor(a, uniqueVar91),
+   haswordvenue(underscore, uniqueVar91),
+   venue(uniqueVar80, uniqueVar79),
+   haswordauthor(b, uniqueVar151),
+   title(uniqueVar49, uniqueVar48),
+   haswordtitle(uniqueVar51, uniqueVar50),
+   haswordauthor(a, uniqueVar24),
+   haswordtitle(underscore, uniqueVar114),
+   haswordauthor(a, uniqueVar15),
+   haswordauthor(b, uniqueVar74),
+   haswordauthor(b, uniqueVar135),
+   haswordauthor(b, uniqueVar30),
+   haswordauthor(b, uniqueVar4),
+   haswordtitle(uniqueVar112, uniqueVar111),
+   haswordauthor(b, uniqueVar117),
+   haswordvenue(underscore, uniqueVar148),
+   haswordvenue(underscore, uniqueVar65),
+   haswordtitle(uniqueVar62, uniqueVar61),
+   haswordtitle(underscore, uniqueVar6),
+   haswordtitle(uniqueVar33, uniqueVar34),
+   haswordauthor(b, uniqueVar124),
+   haswordtitle(underscore, uniqueVar41),
+   haswordauthor(a, uniqueVar38),
+   haswordauthor(b, uniqueVar34),
+   haswordauthor(b, uniqueVar108),
+   haswordvenue(underscore, uniqueVar97),
+   haswordauthor(b, uniqueVar23),
+   haswordauthor(a, uniqueVar18),
+   haswordvenue(uniqueVar79, uniqueVar78),
+   haswordauthor(b, uniqueVar105),
+   haswordtitle(underscore, uniqueVar128),
+   haswordauthor(a, uniqueVar7),
+   haswordtitle(uniqueVar2, uniqueVar1),
+   haswordauthor(b, uniqueVar64),
+   haswordauthor(b, uniqueVar122),
+   haswordauthor(a, uniqueVar73),
+   haswordvenue(underscore, uniqueVar115),
+   haswordauthor(a, uniqueVar153),
+   haswordvenue(underscore, uniqueVar45),
+   haswordauthor(a, uniqueVar56),
+   haswordtitle(underscore, uniqueVar4),
+   haswordauthor(a, uniqueVar102),
+   haswordvenue(underscore, uniqueVar9),
+   haswordauthor(a, uniqueVar70),
+   haswordvenue(underscore, uniqueVar13),
+   haswordauthor(b, uniqueVar14),
+   haswordauthor(a, uniqueVar140),
+   haswordauthor(a, uniqueVar27),
+   haswordvenue(underscore, uniqueVar109),
+   haswordauthor(a, uniqueVar21),
+   haswordauthor(b, uniqueVar98),
+   haswordauthor(a, uniqueVar143),
+   haswordauthor(b, uniqueVar7),
+   haswordauthor(a, uniqueVar39),
+   haswordauthor(a, uniqueVar90),
+   haswordauthor(a, uniqueVar118),
+   haswordauthor(a, uniqueVar5),
+   haswordauthor(a, uniqueVar46),
+   haswordauthor(b, uniqueVar131),
+   haswordauthor(b, uniqueVar78),
+   author(uniqueVar89, a),
+   haswordauthor(b, uniqueVar93),
+   haswordvenue(underscore, uniqueVar55),
+   haswordauthor(a, uniqueVar139),
+   haswordauthor(a, uniqueVar147),
+   haswordauthor(b, uniqueVar76),
+   haswordvenue(underscore, uniqueVar41),
+   haswordvenue(underscore, uniqueVar36),
+   haswordtitle(underscore, uniqueVar64),
+   haswordauthor(b, uniqueVar109),
+   haswordauthor(a, uniqueVar66),
+   haswordvenue(underscore, uniqueVar93),
+   haswordauthor(a, uniqueVar53),
+   haswordauthor(a, uniqueVar106),
+   haswordauthor(a, uniqueVar135),
+   haswordauthor(b, uniqueVar15),
+   haswordauthor(a, uniqueVar44),
+   haswordauthor(b, uniqueVar110),
+   haswordauthor(a, uniqueVar145),
+   haswordauthor(b, uniqueVar128),
+   haswordauthor(b, uniqueVar85),
+   haswordauthor(b, uniqueVar94),
+   haswordtitle(underscore, uniqueVar98),
+   haswordvenue(underscore, uniqueVar34),
+   haswordauthor(b, uniqueVar69),
+   haswordauthor(a, uniqueVar150),
+   haswordauthor(b, uniqueVar20),
+   haswordauthor(a, uniqueVar58),
+   haswordvenue(underscore, uniqueVar82),
+   haswordauthor(a, uniqueVar10),
+   haswordauthor(a, uniqueVar61),
+   haswordvenue(uniqueVar133, uniqueVar132),
+   haswordauthor(a, uniqueVar12),
+   haswordauthor(a, uniqueVar43),
+   haswordauthor(a, uniqueVar68),
+   haswordauthor(a, uniqueVar31),
+   haswordauthor(a, uniqueVar47),
+   haswordtitle(underscore, uniqueVar35),
+   haswordauthor(b, uniqueVar77),
+   haswordauthor(b, uniqueVar86),
+   haswordauthor(a, uniqueVar120),
+   haswordvenue(underscore, uniqueVar8)]).
+
+%%%%%  WILL-Produced Tree Combined @ 13:55:51 5/11/17.  [Using 14,095,592 memory cells.]  %%%%%
 
 % FOR sameauthor(A, B):
 %   if ( haswordauthor(A, C), haswordauthor(B, C) )
 %   then if ( haswordtitle(D, C) )
-%   | then if ( haswordauthor(B, E), haswordvenue(F, E) )
-%   | | then if ( haswordtitle(D, E) )
-%   | | | then return 1.8181054630488118;  // std dev = 24.687, 594.000 (wgt'ed) examples reached here.  /* #neg=78 #pos=516 */
-%   | | | else return 2.177662207477098;  // std dev = 0.168, 78.000 (wgt'ed) examples reached here.  /* #pos=78 */
-%   | | else if ( haswordauthor(A, G), haswordvenue(H, G) )
-%   | | | then return 1.9294885691427233;  // std dev = 6.936, 69.000 (wgt'ed) examples reached here.  /* #neg=6 #pos=63 */
-%   | | | else return 1.6267014455579738;  // std dev = 15.993, 171.000 (wgt'ed) examples reached here.  /* #neg=36 #pos=135 */
-%   | else if ( haswordauthor(B, I), haswordvenue(J, I) )
-%   | | then if ( haswordauthor(A, K), haswordvenue(L, K) )
-%   | | | then return 2.139830530672095;  // std dev = 0.023, 39.000 (wgt'ed) examples reached here.  /* #pos=39 */
-%   | | | else return 2.0285550607206613;  // std dev = 7.183, 138.000 (wgt'ed) examples reached here.  /* #neg=6 #pos=132 */
-%   | | else if ( haswordauthor(A, M), haswordvenue(N, M) )
-%   | | | then return 2.0304782867148403;  // std dev = 7.187, 138.000 (wgt'ed) examples reached here.  /* #neg=6 #pos=132 */
-%   | | | else return 2.1329887840567694;  // std dev = 0.000, 369.000 (wgt'ed) examples reached here.  /* #pos=369 */
-%   else return -0.3796120816224861;  // std dev = 0.000, 66.000 (wgt'ed) examples reached here.  /* #neg=66 */
+%   | then if ( author(E, A), title(E, D) )
+%   | | then return 4.282657871490724;  // std dev = 0.162, 100.000 (wgt'ed) examples reached here.  /* #pos=100 */
+%   | | else if ( haswordauthor(B, F), haswordvenue(G, F) )
+%   | | | then return 3.1983087599992217;  // std dev = 150.117, 2,140.000 (wgt'ed) examples reached here.  /* #neg=260 #pos=1,880 */
+%   | | | else return 2.9256734623297054;  // std dev = 106.324, 800.000 (wgt'ed) examples reached here.  /* #neg=140 #pos=660 */
+%   | else if ( haswordauthor(B, H), haswordtitle(I, H) )
+%   | | then if ( haswordvenue(J, H) )
+%   | | | then return 3.5899457260839465;  // std dev = 43.748, 510.000 (wgt'ed) examples reached here.  /* #neg=20 #pos=490 */
+%   | | | else return 3.8539508434174246;  // std dev = 0.739, 230.000 (wgt'ed) examples reached here.  /* #pos=230 */
+%   | | else if ( haswordauthor(A, K), haswordvenue(L, K) )
+%   | | | then return 3.564741138103386;  // std dev = 43.640, 480.000 (wgt'ed) examples reached here.  /* #neg=20 #pos=460 */
+%   | | | else return 3.8017844490710186;  // std dev = 0.909, 1,060.000 (wgt'ed) examples reached here.  /* #pos=1,060 */
+%   else return -0.9437262371086408;  // std dev = 0.000, 220.000 (wgt'ed) examples reached here.  /* #neg=220 */
 
 
 % Clauses:
 
-sameauthor(A, B, 1.8181054630488118) :- 
+sameauthor(A, B, 4.282657871490724) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
-     haswordauthor(B, E), 
-     haswordvenue(F, E), 
-     haswordtitle(D, E), 
+     author(E, A), 
+     title(E, D), 
      !. // Clause #1.
 
-sameauthor(A, B, 2.177662207477098) :- 
+sameauthor(A, B, 3.1983087599992217) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
@@ -731,149 +2192,123 @@ sameauthor(A, B, 2.177662207477098) :-
      haswordvenue(F, E), 
      !. // Clause #2.
 
-sameauthor(A, B, 1.9294885691427233) :- 
+sameauthor(A, B, 2.9256734623297054) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordtitle(D, C), 
-     haswordauthor(A, E), 
-     haswordvenue(F, E), 
      !. // Clause #3.
 
-sameauthor(A, B, 1.6267014455579738) :- 
+sameauthor(A, B, 3.5899457260839465) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     haswordtitle(D, C), 
+     haswordauthor(B, D), 
+     haswordtitle(E, D), 
+     haswordvenue(F, D), 
      !. // Clause #4.
 
-sameauthor(A, B, 2.139830530672095) :- 
+sameauthor(A, B, 3.8539508434174246) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordauthor(B, D), 
-     haswordvenue(E, D), 
-     haswordauthor(A, F), 
-     haswordvenue(G, F), 
+     haswordtitle(E, D), 
      !. // Clause #5.
 
-sameauthor(A, B, 2.0285550607206613) :- 
-     haswordauthor(A, C), 
-     haswordauthor(B, C), 
-     haswordauthor(B, D), 
-     haswordvenue(E, D), 
-     !. // Clause #6.
-
-sameauthor(A, B, 2.0304782867148403) :- 
+sameauthor(A, B, 3.564741138103386) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
      haswordauthor(A, D), 
      haswordvenue(E, D), 
-     !. // Clause #7.
+     !. // Clause #6.
 
-sameauthor(A, B, 2.1329887840567694) :- 
+sameauthor(A, B, 3.8017844490710186) :- 
      haswordauthor(A, C), 
      haswordauthor(B, C), 
-     !. // Clause #8.
+     !. // Clause #7.
 
-sameauthor(A, B, -0.3796120816224861) :- !. // Clause #9.
+sameauthor(A, B, -0.9437262371086408) :- !. // Clause #8.
 
 
 % The flattened versions of these clauses:
 
-flattened_sameauthor(a, b, 1.8181054630488118) :-  /* #neg=78 #pos=516 */ 
-   haswordauthor(a, uniqueVar49),
-   haswordauthor(b, uniqueVar49),
-   haswordtitle(uniqueVar50, uniqueVar49),
-   haswordauthor(b, uniqueVar51),
-   haswordvenue(underscore, uniqueVar51),
-   haswordtitle(uniqueVar50, uniqueVar51),
+flattened_sameauthor(a, b, 4.282657871490724) :-  /* #pos=100 */ 
+   haswordauthor(a, uniqueVar154),
+   haswordauthor(b, uniqueVar154),
+   haswordtitle(uniqueVar155, uniqueVar154),
+   author(uniqueVar156, a),
+   title(uniqueVar156, uniqueVar155),
    !. // Flattened version of clause #1.
 
-flattened_sameauthor(a, b, 2.177662207477098) :-  /* #pos=78 */ 
-   haswordauthor(a, uniqueVar52),
-   haswordauthor(b, uniqueVar52),
-   haswordtitle(underscore, uniqueVar52),
-   haswordauthor(b, uniqueVar53),
-   haswordvenue(underscore, uniqueVar53),
+flattened_sameauthor(a, b, 3.1983087599992217) :-  /* #neg=260 #pos=1,880 */ 
+   haswordauthor(a, uniqueVar157),
+   haswordauthor(b, uniqueVar157),
+   haswordtitle(underscore, uniqueVar157),
+   haswordauthor(b, uniqueVar158),
+   haswordvenue(underscore, uniqueVar158),
    !. // Flattened version of clause #2.
 
-flattened_sameauthor(a, b, 1.9294885691427233) :-  /* #neg=6 #pos=63 */ 
-   haswordauthor(a, uniqueVar54),
-   haswordauthor(b, uniqueVar54),
-   haswordtitle(underscore, uniqueVar54),
-   haswordauthor(a, uniqueVar55),
-   haswordvenue(underscore, uniqueVar55),
+flattened_sameauthor(a, b, 2.9256734623297054) :-  /* #neg=140 #pos=660 */ 
+   haswordauthor(a, uniqueVar159),
+   haswordauthor(b, uniqueVar159),
+   haswordtitle(underscore, uniqueVar159),
    !. // Flattened version of clause #3.
 
-flattened_sameauthor(a, b, 1.6267014455579738) :-  /* #neg=36 #pos=135 */ 
-   haswordauthor(a, uniqueVar56),
-   haswordauthor(b, uniqueVar56),
-   haswordtitle(underscore, uniqueVar56),
+flattened_sameauthor(a, b, 3.5899457260839465) :-  /* #neg=20 #pos=490 */ 
+   haswordauthor(a, uniqueVar160),
+   haswordauthor(b, uniqueVar160),
+   haswordauthor(b, uniqueVar161),
+   haswordtitle(underscore, uniqueVar161),
+   haswordvenue(underscore, uniqueVar161),
    !. // Flattened version of clause #4.
 
-flattened_sameauthor(a, b, 2.139830530672095) :-  /* #pos=39 */ 
-   haswordauthor(a, uniqueVar57),
-   haswordauthor(b, uniqueVar57),
-   haswordauthor(b, uniqueVar58),
-   haswordvenue(underscore, uniqueVar58),
-   haswordauthor(a, uniqueVar59),
-   haswordvenue(underscore, uniqueVar59),
+flattened_sameauthor(a, b, 3.8539508434174246) :-  /* #pos=230 */ 
+   haswordauthor(a, uniqueVar162),
+   haswordauthor(b, uniqueVar162),
+   haswordauthor(b, uniqueVar163),
+   haswordtitle(underscore, uniqueVar163),
    !. // Flattened version of clause #5.
 
-flattened_sameauthor(a, b, 2.0285550607206613) :-  /* #neg=6 #pos=132 */ 
-   haswordauthor(a, uniqueVar60),
-   haswordauthor(b, uniqueVar60),
-   haswordauthor(b, uniqueVar61),
-   haswordvenue(underscore, uniqueVar61),
+flattened_sameauthor(a, b, 3.564741138103386) :-  /* #neg=20 #pos=460 */ 
+   haswordauthor(a, uniqueVar164),
+   haswordauthor(b, uniqueVar164),
+   haswordauthor(a, uniqueVar165),
+   haswordvenue(underscore, uniqueVar165),
    !. // Flattened version of clause #6.
 
-flattened_sameauthor(a, b, 2.0304782867148403) :-  /* #neg=6 #pos=132 */ 
-   haswordauthor(a, uniqueVar62),
-   haswordauthor(b, uniqueVar62),
-   haswordauthor(a, uniqueVar63),
-   haswordvenue(underscore, uniqueVar63),
+flattened_sameauthor(a, b, 3.8017844490710186) :-  /* #pos=1,060 */ 
+   haswordauthor(a, uniqueVar166),
+   haswordauthor(b, uniqueVar166),
    !. // Flattened version of clause #7.
 
-flattened_sameauthor(a, b, 2.1329887840567694) :-  /* #pos=369 */ 
-   haswordauthor(a, uniqueVar64),
-   haswordauthor(b, uniqueVar64),
+flattened_sameauthor(underscore, underscore, -0.9437262371086408) :-  /* #neg=220 */ 
    !. // Flattened version of clause #8.
-
-flattened_sameauthor(underscore, underscore, -0.3796120816224861) :-  /* #neg=66 */ 
-   !. // Flattened version of clause #9.
 
 
 % The unique flattened literals:
-%   haswordauthor(a, uniqueVar57)
-%   haswordvenue(underscore, uniqueVar58)
-%   haswordauthor(a, uniqueVar62)
-%   haswordvenue(underscore, uniqueVar51)
-%   haswordauthor(a, uniqueVar60)
-%   haswordauthor(b, uniqueVar52)
-%   haswordauthor(b, uniqueVar53)
-%   haswordauthor(b, uniqueVar54)
-%   haswordtitle(uniqueVar50, uniqueVar51)
-%   haswordvenue(underscore, uniqueVar63)
-%   haswordtitle(underscore, uniqueVar56)
-%   haswordvenue(underscore, uniqueVar59)
-%   haswordauthor(b, uniqueVar61)
-%   haswordauthor(b, uniqueVar64)
-%   haswordauthor(a, uniqueVar55)
-%   haswordauthor(a, uniqueVar59)
-%   haswordauthor(a, uniqueVar63)
-%   haswordtitle(uniqueVar50, uniqueVar49)
-%   haswordauthor(b, uniqueVar56)
-%   haswordauthor(b, uniqueVar58)
-%   haswordauthor(a, uniqueVar56)
-%   haswordauthor(b, uniqueVar51)
-%   haswordtitle(underscore, uniqueVar54)
-%   haswordvenue(underscore, uniqueVar55)
-%   haswordauthor(b, uniqueVar62)
-%   haswordauthor(a, uniqueVar64)
-%   haswordauthor(b, uniqueVar49)
-%   haswordauthor(b, uniqueVar60)
-%   haswordvenue(underscore, uniqueVar53)
-%   haswordauthor(a, uniqueVar54)
-%   haswordauthor(b, uniqueVar57)
-%   haswordvenue(underscore, uniqueVar61)
-%   haswordauthor(a, uniqueVar52)
-%   haswordauthor(a, uniqueVar49)
-%   haswordtitle(underscore, uniqueVar52)
+%   author(uniqueVar156, a)
+%   haswordauthor(b, uniqueVar158)
+%   haswordauthor(b, uniqueVar157)
+%   haswordtitle(underscore, uniqueVar163)
+%   haswordauthor(a, uniqueVar157)
+%   haswordauthor(b, uniqueVar159)
+%   haswordauthor(a, uniqueVar164)
+%   haswordauthor(a, uniqueVar154)
+%   haswordauthor(b, uniqueVar163)
+%   haswordtitle(underscore, uniqueVar159)
+%   haswordauthor(b, uniqueVar166)
+%   haswordtitle(uniqueVar155, uniqueVar154)
+%   haswordauthor(a, uniqueVar166)
+%   haswordvenue(underscore, uniqueVar161)
+%   haswordauthor(a, uniqueVar165)
+%   haswordvenue(underscore, uniqueVar165)
+%   haswordauthor(b, uniqueVar162)
+%   haswordauthor(b, uniqueVar154)
+%   haswordvenue(underscore, uniqueVar158)
+%   haswordauthor(b, uniqueVar161)
+%   title(uniqueVar156, uniqueVar155)
+%   haswordtitle(underscore, uniqueVar157)
+%   haswordauthor(a, uniqueVar162)
+%   haswordauthor(b, uniqueVar160)
+%   haswordtitle(underscore, uniqueVar161)
+%   haswordauthor(b, uniqueVar164)
+%   haswordauthor(a, uniqueVar159)
+%   haswordauthor(a, uniqueVar160)

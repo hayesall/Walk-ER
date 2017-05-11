@@ -18,6 +18,8 @@ from scipy import stats
 from sklearn import cross_validation
 
 #from tabulate import tabulate
+from datetime import datetime
+
 import os
 import re
 import sys
@@ -31,8 +33,8 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 2
-TREES = 3
+EPOCHS = 25
+TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
@@ -56,6 +58,7 @@ def main():
             params = a[1]
 
             for f in FLAGS:
+                print(datetime.now().time())
                 print(dataset, '| flag:', f)
 
                 training_time_means, training_time_stds = [], []
@@ -228,7 +231,7 @@ def print_information(training_mean, training_std, auc_roc_mean, auc_roc_std, au
 
 def log_progress(training_time_means, training_time_stds, roc_means, roc_stds, pr_means, pr_stds, name_to_save):
     print('Saving information for', name_to_save, 'to file.')
-    with open('hacksaw_log.txt', 'a') as f:
+    with open('mode_comp_log.txt', 'a') as f:
         f.write(name_to_save + '\n' + \
                 str(training_time_means) + '\n' + str(training_time_stds) + '\n' + \
                 str(roc_means) + '\n' + str(roc_stds) + '\n' + \

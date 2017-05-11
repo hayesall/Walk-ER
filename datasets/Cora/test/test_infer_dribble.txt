@@ -91,11 +91,11 @@
 % Collecting the types of constants.
 
 % Looking at the training examples to see if any types of new constants can be inferred.
-% Time to collect constants: 122 milliseconds
+% Time to collect constants: 123 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 35,007 pos examples and 27,708 neg examples.
-% Time to init learnOneClause: 151 milliseconds
+% Time to init learnOneClause: 152 milliseconds
 % Old dirdatasets/Cora/train/models/
 
 % Have 35,007 'raw' positive examples and kept 488.
@@ -116,7 +116,14 @@
 %   loadModel (#0): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree0.tree
 %   loadModel (#1): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree1.tree
 %   loadModel (#2): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree2.tree
-%  Done loading 3 models.
+%   loadModel (#3): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree3.tree
+%   loadModel (#4): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree4.tree
+%   loadModel (#5): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree5.tree
+%   loadModel (#6): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree6.tree
+%   loadModel (#7): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree7.tree
+%   loadModel (#8): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree8.tree
+%   loadModel (#9): datasets/Cora/train/models/bRDNs/Trees/sameauthorTree9.tree
+%  Done loading 10 models.
 File: datasets/Cora/test/advice.txt doesnt exist.Hence no advice loaded
 
 % for sameauthor |lookupPos| = 488
@@ -124,19 +131,19 @@ File: datasets/Cora/test/advice.txt doesnt exist.Hence no advice loaded
 % getJointExamples: |pos| = 488, |neg| = 66
 
 % Starting inference in bRDN.
-% Trees = 3
+% Trees = 10
 
 % Starting getMarginalProbabilities.
 % [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for haswordauthor/2.
 % [ LazyGroundClauseIndex ]  Building full index for haswordauthor/2 with 203 assertions.
 % [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for haswordtitle/2.
 % [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for haswordvenue/2.
-% [ LazyGroundClauseIndex ]  Building full index for sametitle/2 with 661 assertions.
+% [ LazyGroundClauseIndex ]  Building full index for haswordtitle/2 with 1,139 assertions.
 % [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for author/2.
 % [ LazyGroundClauseIndex ]  Building full index for title/2 with 1,295 assertions.
 % [ LazyGroundClauseIndex ]  Building full index for venue/2 with 1,295 assertions.
 % No Gibbs sampling needed during inference.
- (Arithmetic) Mean Probability Assigned to Correct Output Class: 303.889/554.00 = 0.548537
+ (Arithmetic) Mean Probability Assigned to Correct Output Class: 435.440/554.00 = 0.785993
 
  The weighted count of positive examples = 488.000 and the weighted count of negative examples = 66.000
 
@@ -149,20 +156,20 @@ printExamples: Writing out predictions (for Tuffy?) on 554 examples for 'sameaut
 % Computing Area Under Curves.
 %Pos=488
 %Neg=66
-%LL:-304.5862233559604
-%LL:-337.49945600974837
+%LL:-91.26751421488568
+%LL:-161.00507600330863
 
 % Running command: java -jar ./auc.jar datasets/Cora/test/AUC/aucTemp.txt list 0.0
 % WAITING FOR command: java -jar ./auc.jar datasets/Cora/test/AUC/aucTemp.txt list 0.0
 % DONE WAITING FOR command: java -jar ./auc.jar datasets/Cora/test/AUC/aucTemp.txt list 0.0
 % F1 = 1.0
-% Threshold = 0.5105435786554164
+% Threshold = 0.7985766269915308
 
-%   AUC ROC   = 0.842182
-%   AUC PR    = 0.974290
-%   CLL	      = -0.609205
-%   Precision = 0.935622 at threshold = 0.500
-%   Recall    = 0.893443
-%   F1        = 0.914046
+%   AUC ROC   = 0.849944
+%   AUC PR    = 0.976014
+%   CLL	      = -0.290623
+%   Precision = 0.917293 at threshold = 0.500
+%   Recall    = 1.000000
+%   F1        = 0.956863
 
-% Total inference time (3 trees): 1.678 seconds.
+% Total inference time (10 trees): 2.264 seconds.

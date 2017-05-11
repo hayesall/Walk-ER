@@ -235,11 +235,11 @@
 
 ***** Warning: checkThatTypesOfAllConstantsAreKnown: Note that there were some constants whose type was not known (see list above or in dribble file). *****
 
-% Time to collect constants: 59 milliseconds
+% Time to collect constants: 54 milliseconds
 % Time to collect examples: 0 seconds
 
 % Read 153 pos examples and 593 neg examples.
-% Time to init learnOneClause: 76 milliseconds
+% Time to init learnOneClause: 61 milliseconds
 % Old dirdatasets/WebKB/train/models/
 
 % Have 153 'raw' positive examples and kept 153.
@@ -260,7 +260,14 @@
 %   loadModel (#0): datasets/WebKB/train/models/bRDNs/Trees/facultyTree0.tree
 %   loadModel (#1): datasets/WebKB/train/models/bRDNs/Trees/facultyTree1.tree
 %   loadModel (#2): datasets/WebKB/train/models/bRDNs/Trees/facultyTree2.tree
-%  Done loading 3 models.
+%   loadModel (#3): datasets/WebKB/train/models/bRDNs/Trees/facultyTree3.tree
+%   loadModel (#4): datasets/WebKB/train/models/bRDNs/Trees/facultyTree4.tree
+%   loadModel (#5): datasets/WebKB/train/models/bRDNs/Trees/facultyTree5.tree
+%   loadModel (#6): datasets/WebKB/train/models/bRDNs/Trees/facultyTree6.tree
+%   loadModel (#7): datasets/WebKB/train/models/bRDNs/Trees/facultyTree7.tree
+%   loadModel (#8): datasets/WebKB/train/models/bRDNs/Trees/facultyTree8.tree
+%   loadModel (#9): datasets/WebKB/train/models/bRDNs/Trees/facultyTree9.tree
+%  Done loading 10 models.
 File: datasets/WebKB/test/advice.txt doesnt exist.Hence no advice loaded
 
 % for faculty |lookupPos| = 153
@@ -268,13 +275,13 @@ File: datasets/WebKB/test/advice.txt doesnt exist.Hence no advice loaded
 % getJointExamples: |pos| = 153, |neg| = 593
 
 % Starting inference in bRDN.
-% Trees = 3
+% Trees = 10
 
 % Starting getMarginalProbabilities.
 % [ LazyGroundClauseIndex ]  Building full index for student/1 with 558 assertions.
 % [ LazyGroundClauseIndex ]  Building full index for sameperson/2 with 711 assertions.
 % No Gibbs sampling needed during inference.
- (Arithmetic) Mean Probability Assigned to Correct Output Class: 621.874/746.00 = 0.833611
+ (Arithmetic) Mean Probability Assigned to Correct Output Class: 691.920/746.00 = 0.927506
 
  The weighted count of positive examples = 153.000 and the weighted count of negative examples = 593.000
 
@@ -287,20 +294,20 @@ printExamples: Writing out predictions (for Tuffy?) on 746 examples for 'faculty
 % Computing Area Under Curves.
 %Pos=153
 %Neg=593
-%LL:-82.68876038142194
-%LL:-146.22028382538298
+%LL:-19.420139629765806
+%LL:-56.39112306770732
 
 % Running command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
 % WAITING FOR command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
 % DONE WAITING FOR command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
 % F1 = 1.0
-% Threshold = 0.3420413726647629
+% Threshold = 0.470619069968228
 
 %   AUC ROC   = 1.000000
 %   AUC PR    = 1.000000
-%   CLL	      = -0.196006
+%   CLL	      = -0.075591
 %   Precision = 1.000000 at threshold = 0.500
 %   Recall    = 1.000000
 %   F1        = 1.000000
 
-% Total inference time (3 trees): 714 milliseconds.
+% Total inference time (10 trees): 876 milliseconds.
