@@ -1,0 +1,1336 @@
+author(class_2,author_eric_bauer_).
+author(class_131,author_ehrenfeucht_a_).
+author(class_132,author_ehrenfeucht_a_).
+author(class_133,author_a_ehrenfeucht_).
+author(class_134,author_a_ehrenfeucht_).
+author(class_135,author_ehrenfeucht_a_).
+author(class_136,author_a_ehrenfeucht_).
+author(class_137,author_a_ehrenfeucht_).
+author(class_177,author_m_feder_).
+author(class_178,author_m_feder_).
+author(class_179,author_m_feder_).
+author(class_180,author_m_feder_).
+author(class_249,author_yoav_freund_).
+author(class_321,author_y_freund_).
+author(class_322,author_y_freund_).
+author(class_323,author_y_freund_).
+author(class_324,author_y_freund_).
+author(class_325,author_y_freund_).
+author(class_394,author_freund_y_).
+author(class_395,author_freund_y_).
+author(class_396,author_freund_y_).
+author(class_397,author_freund_y_).
+author(class_398,author_freund_y_).
+author(class_399,author_freund_y_).
+author(class_400,author_freund_y_).
+author(class_401,author_freund_y_).
+author(class_402,author_yoav_freund_).
+author(class_403,author_freund_y_).
+author(class_500,author_david_haussler_).
+author(class_501,author_d_haussler_).
+author(class_502,author_d_haussler_).
+author(class_503,author_d_haussler_).
+author(class_504,author_d_haussler_).
+author(class_505,author_david_haussler_).
+author(class_506,author_david_haussler_).
+author(class_507,author_d_haussler_).
+author(class_508,author_d_haussler_).
+author(class_509,author_david_haussler_).
+author(class_510,author_david_haussler_).
+author(class_511,author_david_haussler_).
+author(class_512,author_d_haussler_).
+author(class_513,author_d_haussler_).
+author(class_514,author_david_haussler_).
+author(class_515,author_d_haussler_).
+author(class_516,author_d_haussler_).
+author(class_517,author_david_haussler_).
+author(class_518,author_david_haussler_).
+author(class_519,author_d_haussler_).
+author(class_520,author_d_haussler_).
+author(class_521,author_d_haussler_).
+author(class_522,author_d_haussler_).
+author(class_523,author_d_haussler_).
+author(class_524,author_david_haussler_).
+author(class_525,author_haussler_d_).
+author(class_526,author_david_haussler_).
+author(class_589,author_d_haussler_).
+author(class_593,author_d_p_helmbold_).
+author(class_594,author_david_p_helmbold_).
+author(class_595,author_david_p_helmhold_).
+author(class_596,author_david_p_helmbold_).
+author(class_597,author_d_p_helmbold_).
+author(class_598,author_d_p_helmbold_).
+author(class_613,author_helmbold_d_p_).
+author(class_614,author_helmbold_d_p_).
+author(class_615,author_d_p_helmbold_).
+author(class_646,author_m_kearns_).
+author(class_647,author_m_kearns_).
+author(class_648,author_m_kearns_).
+author(class_649,author_kearns_m_j_).
+author(class_650,author_kearns_m_).
+author(class_651,author_kearns_m_).
+author(class_652,author_kearns_m_).
+author(class_653,author_m_kearns_).
+author(class_654,author_m_kearns_).
+author(class_655,author_michael_kearns_).
+author(class_656,author_m_kearns_).
+author(class_657,author_m_kearns_).
+author(class_658,author_michael_kearns_).
+author(class_659,author_michael_kearns_).
+author(class_660,author_m_kearns_).
+author(class_661,author_m_kearns_).
+author(class_662,author_kearns_m_).
+author(class_663,author_kearns_m_).
+author(class_664,author_m_kearns_).
+author(class_665,author_michael_kearns_).
+author(class_666,author_m_j_kearns_).
+author(class_667,author_m_kearns_).
+author(class_668,author_m_kearns_).
+author(class_669,author_m_kearns_).
+author(class_670,author_michael_kearns_).
+author(class_671,author_m_kearns_).
+author(class_672,author_michael_kearns_).
+author(class_673,author_m_kearns_).
+author(class_674,author_kearns_m_).
+author(class_675,author_m_kearns_).
+author(class_676,author_m_kearns_).
+author(class_677,author_m_kearns_).
+author(class_678,author_m_kearns_).
+author(class_679,author_michael_kearns_).
+author(class_680,author_michael_kearns_).
+author(class_681,author_m_kearns_).
+author(class_682,author_kearns_m_).
+author(class_714,author_kearns_m_).
+author(class_715,author_m_kearns_).
+author(class_716,author_michael_kearns_).
+author(class_717,author_m_kearns_).
+author(class_986,author_m_kearns_).
+author(class_987,author_kearns_m_).
+author(class_988,author_kearns_m_).
+author(class_989,author_kearns_m_).
+author(class_990,author_kearns_m_j_).
+author(class_991,author_kearns_m_j_).
+author(class_992,author_m_kearns_).
+author(class_993,author_m_kearns_).
+author(class_994,author_m_kearns_).
+author(class_995,author_m_j_kearns_).
+author(class_996,author_m_kearns_).
+author(class_997,author_michael_kearns_).
+author(class_998,author_m_kearns_).
+author(class_999,author_m_kearns_).
+author(class_1000,author_m_kearns_).
+author(class_1001,author_m_j_kearns_).
+author(class_1002,author_m_kearns_).
+author(class_1003,author_m_j_kearns_).
+author(class_1004,author_michael_kearns_).
+author(class_1005,author_kearns_).
+author(class_1006,author_m_j_kearns_).
+author(class_1007,author_m_kearns_).
+author(class_1020,author_kearns_m_).
+author(class_1021,author_m_kearns_).
+author(class_1022,author_m_kearns_).
+author(class_1023,author_m_kearns_).
+author(class_1034,author_kearns_m_).
+author(class_1035,author_kearns_m_).
+author(class_1036,author_kearns_m_).
+author(class_1037,author_kearns_m_j_).
+author(class_1038,author_m_kearns_).
+author(class_1039,author_michael_kearns_).
+author(class_1040,author_m_kearns_).
+author(class_1041,author_m_kearns_).
+author(class_1042,author_kearns_m_j_).
+author(class_1043,author_kearns_m_j_).
+author(class_1055,author_m_kearns_).
+author(class_1056,author_m_kearns_).
+author(class_1057,author_m_kearns_).
+author(class_1058,author_kearns_m_).
+author(class_1084,author_littlestone_n_).
+author(class_1092,author_r_rivest_).
+author(class_1093,author_rivest_r_l_).
+author(class_1094,author_rivest_r_l_).
+author(class_1095,author_rivest_r_l_).
+author(class_1096,author_ronald_l_rivest_).
+author(class_1097,author_ronald_l_rivest_).
+author(class_1098,author_r_rivest_).
+author(class_1099,author_r_l_rivest_).
+author(class_1100,author_ronald_l_rivest_).
+author(class_1101,author_r_l_rivest_).
+author(class_1102,author_ronald_l_rivest_).
+author(class_1103,author_ronald_l_rivest_).
+author(class_1104,author_r_l_rivest_).
+author(class_1105,author_r_l_rivest_).
+author(class_1106,author_ronald_l_rivest_).
+author(class_1107,author_ronald_l_rivest_).
+author(class_1123,author_r_rivest_).
+author(class_1167,author_robert_e_schapire_).
+author(class_1168,author_robert_e_schapire_).
+author(class_1169,author_schapire_r_e_).
+author(class_1170,author_schapire_r_e_).
+author(class_1171,author_r_schapire_).
+author(class_1172,author_r_schapire_).
+author(class_1173,author_robert_e_schapire_).
+author(class_1174,author_r_schapire_).
+author(class_1175,author_robert_e_schapire_).
+author(class_1176,author_schapire_r_).
+author(class_1177,author_schapire_r_).
+author(class_1178,author_schapire_r_).
+author(class_1179,author_schapire_r_).
+author(class_1180,author_schapire_r_e_).
+author(class_1181,author_schapire_r_e_).
+author(class_1182,author_schapire_r_e_).
+author(class_1183,author_schapire_r_e_).
+author(class_1184,author_schapire_r_e_).
+author(class_1185,author_schapire_r_e_).
+author(class_1186,author_schapire_r_e_).
+author(class_1187,author_schapire_r_e_).
+author(class_1188,author_schapire_r_e_).
+author(class_1189,author_schapire_r_e_).
+author(class_1190,author_schapire_r_e_).
+author(class_1191,author_schapire_r_e_).
+author(class_1192,author_schapire_r_e_).
+author(class_1193,author_schapire_r_e_).
+author(class_1194,author_schapire_robert_e_).
+author(class_1195,author_shapire_r_).
+author(class_1196,author_r_e_schapire_).
+author(class_1197,author_r_schapire_).
+author(class_1198,author_schapire_r_).
+author(class_1199,author_r_e_schapire_).
+author(class_1200,author_robert_e_schapire_).
+author(class_1201,author_robert_e_schapire_).
+author(class_1202,author_robert_e_schapire_).
+author(class_1203,author_robert_e_schapire_).
+author(class_1204,author_r_e_schapire_).
+author(class_1205,author_r_schapire_).
+author(class_1206,author_robert_schapire_).
+author(class_1207,author_r_e_schapire_).
+author(class_1208,author_r_schapire_).
+author(class_1209,author_r_schapire_).
+author(class_1210,author_robert_e_schapire_).
+author(class_1211,author_robert_schapire_).
+author(class_1212,author_robert_e_schapire_).
+author(class_1213,author_robert_e_schapire_).
+author(class_1214,author_r_e_schapire_).
+author(class_1215,author_robert_e_schapire_).
+author(class_1216,author_robert_e_schapire_).
+author(class_1217,author_robert_e_schapire_).
+author(class_1218,author_robert_e_schapire_).
+author(class_1219,author_r_e_schapire_).
+author(class_1220,author_r_schapire_).
+author(class_1221,author_schapire_r_).
+author(class_1222,author_r_e_schapire_).
+author(class_1223,author_robert_e_schapire_).
+author(class_1224,author_robert_e_schapire_).
+author(class_1225,author_schapire_r_e_).
+author(class_1226,author_shapire_r_e_).
+author(class_1227,author_robert_e_schapire_).
+author(class_1228,author_r_e_schapire_).
+author(class_1229,author_robert_e_schapire_).
+author(class_1230,author_r_e_schapire_).
+author(class_1231,author_schapire_r_).
+author(class_1232,author_r_e_schapire_).
+author(class_1233,author_r_e_schapire_).
+author(class_1234,author_robert_e_schapire_).
+author(class_1235,author_schapire_r_).
+author(class_1236,author_r_schapire_).
+author(class_1237,author_robert_e_schapire_).
+author(class_1238,author_r_e_schapire_).
+author(class_1239,author_robert_e_schapire_).
+author(class_1240,author_robert_e_schapire_).
+author(class_1241,author_robert_e_schapire_).
+author(class_1242,author_r_e_schapire_).
+author(class_1243,author_r_e_schapire_).
+author(class_1244,author_robert_e_schapire_).
+author(class_1245,author_schapire_r_e_).
+author(class_1246,author_schapire_r_e_).
+
+title(class_2,title_stacked_generalization_).
+title(class_131,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_132,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_133,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_134,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_135,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_136,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_137,title_a_general_lower_bound_number_examples_needed_learning_).
+title(class_177,title_optimal_universal_learning_prediction_probabilistic_concepts_).
+title(class_178,title_optimal_universal_learning_prediction_probabilistic_concepts_).
+title(class_179,title_optimal_universal_learning_prediction_probabilistic_concepts_).
+title(class_180,title_optimal_universal_learning_prediction_probabilistic_concepts_).
+title(class_249,title_selective_sampling_using_query_by_committee_algorithm_).
+title(class_321,title_learning_to_model_sequences_generated_by_switching_distributions_).
+title(class_322,title_learning_to_model_sequences_generated_by_switching_distributions_).
+title(class_323,title_learning_to_model_sequences_generated_by_switching_distributions_).
+title(class_324,title_learning_to_model_sequences_generated_by_switching_distributions_).
+title(class_325,title_learning_to_model_sequences_generated_by_switching_distributions_).
+title(class_394,title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_).
+title(class_395,title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_).
+title(class_396,title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_).
+title(class_397,title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_).
+title(class_398,title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_).
+title(class_399,title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_).
+title(class_400,title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_).
+title(class_401,title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_).
+title(class_402,title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_).
+title(class_403,title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_).
+title(class_500,title_equivalence_models_polynomial_learnability_).
+title(class_501,title_equivalence_models_polynomial_learnability_).
+title(class_502,title_equivalence_models_polynomial_learnability_).
+title(class_503,title_equivalence_models_polynomial_learnability_).
+title(class_504,title_equivalence_models_polynomial_learnability_).
+title(class_505,title_equivalence_models_polynomial_learnability_).
+title(class_506,title_equivalence_models_polynomial_learnability_).
+title(class_507,title_equivalence_models_polynomial_learnability_).
+title(class_508,title_equivalence_models_polynomial_learnability_).
+title(class_509,title_equivalence_models_polynomial_learnability_).
+title(class_510,title_equivalence_models_polynomial_learnability_).
+title(class_511,title_equivalence_models_polynomial_learnability_).
+title(class_512,title_equivalence_models_polynomial_learnability_).
+title(class_513,title_equivalence_models_polynomial_learnability_).
+title(class_514,title_equivalence_models_polynomial_learnability_).
+title(class_515,title_equivalence_models_polynomial_learnabil_ity_information_computation_).
+title(class_516,title_equivalence_models_polynomial_learnability_).
+title(class_517,title_equivalence_models_polynomial_learnability_).
+title(class_518,title_equivalence_models_polynomial_learnability_).
+title(class_519,title_equiva_lence_models_polynomial_learnability_).
+title(class_520,title_equivalence_models_polynomial_learnability_).
+title(class_521,title_equivalence_models_polynomial_learnability_).
+title(class_522,title_equivalence_models_polynomial_learnability_).
+title(class_523,title_equivalence_models_polynomial_learnability_).
+title(class_524,title_equivalence_models_polynomial_learnability_).
+title(class_525,title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_).
+title(class_526,title_equivalence_models_polynomial_learnability_).
+title(class_589,title_schapire_).
+title(class_593,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_594,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_595,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_596,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_597,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_598,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_613,title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_).
+title(class_614,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_615,title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_).
+title(class_646,title_learnability_boolean_formulae_).
+title(class_647,title_learnability_boolean_formu_lae_).
+title(class_648,title_learnability_boolean_formulae_).
+title(class_649,title_learnability_boolean_formulae_).
+title(class_650,title_learnability_boolean_formulae_).
+title(class_651,title_learnability_boolean_formulae_).
+title(class_652,title_learnability_boolean_formula_).
+title(class_653,title_valiant_1987_learnability_boolean_formul_).
+title(class_654,title_learnability_boolean_formulae_).
+title(class_655,title_learnability_boolean_formulae_).
+title(class_656,title_learnability_boolean_formulae_).
+title(class_657,title_learn_ability_boolean_formulae_).
+title(class_658,title_learnability_boolean_formulae_).
+title(class_659,title_learnability_boolean_formulae_).
+title(class_660,title_learnability_boolean_formulae_).
+title(class_661,title_learnability_boolean_formulae_).
+title(class_662,title_learnability_boolean_formulae_).
+title(class_663,title_learnability_boolean_formulae_).
+title(class_664,title_learnability_boolean_formulae_).
+title(class_665,title_learnability_boolean_formulae_).
+title(class_666,title_learnability_boolean_formula_).
+title(class_667,title_learnability_boolean_formulae_).
+title(class_668,title_learn_ability_boolean_formulae_).
+title(class_669,title_learnability_boolean_formulae_).
+title(class_670,title_learnability_boolean_formulae_).
+title(class_671,title_learnability_boolean_formulae_).
+title(class_672,title_learnability_boolean_formulae_).
+title(class_673,title_learnability_boolean_formulae_).
+title(class_674,title_learnability_boolean_formulae_).
+title(class_675,title_learnability_boolean_formulae_).
+title(class_676,title_learnability_boolean_formulae_).
+title(class_677,title_learnability_boolean_formulae_).
+title(class_678,title_learnability_boolean_formulae_).
+title(class_679,title_learnability_boolean_formulae_).
+title(class_680,title_learnability_boolean_formulae_).
+title(class_681,title_learnability_boolean_formulae_).
+title(class_682,title_learnability_boolean_formula_).
+title(class_714,title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_).
+title(class_715,title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_).
+title(class_716,title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_).
+title(class_717,title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_).
+title(class_986,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_987,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_988,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_989,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_990,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_991,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_992,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_993,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_994,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_995,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_996,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_997,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_998,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_999,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1000,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1001,title_cryptographic_limitations_learning_boolean_formula_finite_automata_).
+title(class_1002,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1003,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1004,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1005,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1006,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1007,title_cryptographic_limitations_learning_boolean_formulae_finite_automata_).
+title(class_1020,title_learning_boolean_formulas_).
+title(class_1021,title_learning_boolean_formulas_).
+title(class_1022,title_learning_boolean_formulae_).
+title(class_1023,title_learn_ing_boolean_formulas_).
+title(class_1034,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_).
+title(class_1035,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_).
+title(class_1036,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_).
+title(class_1037,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_).
+title(class_1038,title_a_bound_error_cross_validation_with_consequences_training_test_split_).
+title(class_1039,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_).
+title(class_1040,title_a_bound_error_cross_validation_with_consequences_training_test_split_).
+title(class_1041,title_a_bound_error_cross_validation_with_consequences_training_test_split_).
+title(class_1042,title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_).
+title(class_1043,title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_).
+title(class_1055,title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_).
+title(class_1056,title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_).
+title(class_1057,title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_).
+title(class_1058,title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_).
+title(class_1084,title_hypothesis_schemas_).
+title(class_1092,title_diversity_based_inference_finite_automata_).
+title(class_1093,title_diversity_based_inference_finite_au_tomata_).
+title(class_1094,title_diversity_based_inference_finite_automata_).
+title(class_1095,title_diversity_based_inference_finite_automata_).
+title(class_1096,title_diversity_based_inference_finite_automata_).
+title(class_1097,title_diversity_based_inference_finite_automata_).
+title(class_1098,title_diversity_based_inference_finite_automata_).
+title(class_1099,title_diversity_based_inference_finite_automata_).
+title(class_1100,title_diversity_based_inference_finite_automata_).
+title(class_1101,title_diversity_based_inference_finite_automata_).
+title(class_1102,title_diversity_based_inference_finite_au_tomata_).
+title(class_1103,title_diversity_based_inference_finite_automata_).
+title(class_1104,title_diversity_based_inference_finite_automata_).
+title(class_1105,title_diversity_based_inference_finite_automata_).
+title(class_1106,title_diversity_based_inference_finite_automata_).
+title(class_1107,title_diversity_based_inference_finite_automata_).
+title(class_1123,title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_).
+title(class_1167,title_boosting_margin_a_new_explanation_effectiveness_voting_methods_).
+title(class_1168,title_boosting_margin_a_new_explanation_effectiveness_voting_methods_).
+title(class_1169,title_boosting_margin_a_new_explanation_effectiveness_voting_methods_).
+title(class_1170,title_diversity_based_inference_finite_automata_).
+title(class_1171,title_strength_weak_learnability_).
+title(class_1172,title_strength_weak_learnability_).
+title(class_1173,title_strength_weak_learnability_).
+title(class_1174,title_strength_weak_learnability_).
+title(class_1175,title_strength_weak_learnability_).
+title(class_1176,title_strength_weak_learnability_).
+title(class_1177,title_strength_weak_learnability_).
+title(class_1178,title_strength_weak_learnability_).
+title(class_1179,title_strength_weak_learnability_machine_learning_).
+title(class_1180,title_strength_weak_learnability_).
+title(class_1181,title_strength_weak_learnability_).
+title(class_1182,title_strength_weak_learnability_).
+title(class_1183,title_strength_weak_learn_ability_).
+title(class_1184,title_strength_weak_learnability_).
+title(class_1185,title_strength_weak_learnability_).
+title(class_1186,title_strength_weak_learnability_).
+title(class_1187,title_strength_weak_learnability_).
+title(class_1188,title_strength_weak_learnability_).
+title(class_1189,title_strength_weak_learnability_).
+title(class_1190,title_strength_weak_learn_ability_).
+title(class_1191,title_strength_weak_learnability_).
+title(class_1192,title_strength_weak_learnability_).
+title(class_1193,title_strength_weak_learnability_).
+title(class_1194,title_strength_weak_learn_ability_).
+title(class_1195,title_strength_weak_learnability_).
+title(class_1196,title_strength_weak_learnability_).
+title(class_1197,title_strength_weak_learnability_).
+title(class_1198,title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_).
+title(class_1199,title_strength_weak_learnability_).
+title(class_1200,title_strength_weak_learnability_).
+title(class_1201,title_strength_weak_learnability_).
+title(class_1202,title_strength_weak_learnability_).
+title(class_1203,title_strength_weak_learnability_).
+title(class_1204,title_strength_weak_learnability_).
+title(class_1205,title_strength_weak_learnability_).
+title(class_1206,title_strength_weak_learnability_).
+title(class_1207,title_strength_weak_learnability_).
+title(class_1208,title_strength_weak_learnability_).
+title(class_1209,title_strength_weak_learnability_).
+title(class_1210,title_strength_weak_learnability_).
+title(class_1211,title_strength_weak_learnability_).
+title(class_1212,title_strength_weak_learnability_).
+title(class_1213,title_strength_weak_learnability_).
+title(class_1214,title_strength_weak_learnability_).
+title(class_1215,title_strength_weak_learnability_).
+title(class_1216,title_strength_weak_learnability_).
+title(class_1217,title_strength_weak_learnability_).
+title(class_1218,title_strength_weak_learnability_).
+title(class_1219,title_strength_weak_learnability_).
+title(class_1220,title_strength_weak_learnability_).
+title(class_1221,title_strength_weak_learnability_).
+title(class_1222,title_strength_weak_learnability_).
+title(class_1223,title_strength_weak_learnability_).
+title(class_1224,title_strength_weak_learnability_).
+title(class_1225,title_strength_weak_learnability_).
+title(class_1226,title_strength_weak_learnability_).
+title(class_1227,title_combining_regression_estimates_29_).
+title(class_1228,title_pattern_languages_are_not_learnable_).
+title(class_1229,title_emerging_theory_average_case_complexity_).
+title(class_1230,title_design_analysis_efficient_learning_algorithms_).
+title(class_1231,title_design_analysis_efficient_learning_algorithms_).
+title(class_1232,title_design_analysis_efficient_learning_algorithms_).
+title(class_1233,title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_).
+title(class_1234,title_design_analysis_ef_ficient_learning_algorithms_).
+title(class_1235,title_design_analysis_efficient_learning_algorithms_).
+title(class_1236,title_design_analysis_efficient_learning_algorithms_).
+title(class_1237,title_design_analysis_efficient_learning_algorithms_).
+title(class_1238,title_design_analysis_efficient_learning_algorithms_).
+title(class_1239,title_design_analysis_efficient_learning_algorithms_).
+title(class_1240,title_design_analysis_efficient_learning_algorithms_).
+title(class_1241,title_design_analysis_efficient_learning_algorithms_).
+title(class_1242,title_design_analysis_efficient_learning_algorithms_).
+title(class_1243,title_design_analysis_efficient_learning_algorithms_).
+title(class_1244,title_design_analysis_efficient_learning_algorithms_).
+title(class_1245,title_design_analysis_efficient_learning_algorithms_).
+title(class_1246,title_design_analysis_efficient_learning_algorithms_).
+
+venue(class_2,venue_neural_networks_5_).
+venue(class_131,venue_proceedings_colt_88_).
+venue(class_132,venue_proceedings_first_workshop_computational_learning_theory_).
+venue(class_133,venue_colt_88_proceedings_conference_learning_).
+venue(class_134,venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_).
+venue(class_135,venue_proceedings_1988_workshop_computational_learning_theory_).
+venue(class_136,venue_proc_1988_workshop_computational_learning_theory_).
+venue(class_137,venue_33_proceedings_1988_workshop_computational_learning_theory_).
+venue(class_177,venue_proc_ieee_information_theory_conference_).
+venue(class_178,venue_proc_ieee_information_theory_conference_).
+venue(class_179,venue_proc_ieee_information_theory_conference_).
+venue(class_180,venue_proc_ieee_information_theory_conference_).
+venue(class_249,venue_advances_neural_information_processing_systems_).
+venue(class_321,venue_proceedings_1995_conference_computational_learning_theory_).
+venue(class_322,venue_proceedings_1995_conference_computational_learning_theory_).
+venue(class_323,venue_proceedings_1995_conference_computational_learning_theory_).
+venue(class_324,venue_proceedings_eighth_conference_computational_learning_theory_colt_).
+venue(class_325,venue_proceedings_eighth_conference_computational_learning_theory_colt_).
+venue(class_394,venue_second_european_conference_).
+venue(class_395,venue_second_european_conference_).
+venue(class_396,venue_second_european_conference_).
+venue(class_397,venue_unpublished_manuscript_).
+venue(class_398,venue_unpublished_manuscript_).
+venue(class_399,venue_unpublished_manuscript_).
+venue(class_400,venue_second_european_conference_).
+venue(class_401,venue_second_european_conference_).
+venue(class_402,venue_second_european_conference_).
+venue(class_403,venue_second_european_conference_).
+venue(class_500,venue_information_computation_).
+venue(class_501,venue_information_computation_).
+venue(class_502,venue_inform_comput_).
+venue(class_503,venue_inform_comput_).
+venue(class_504,venue_inform_comput_).
+venue(class_505,venue_information_computation_).
+venue(class_506,venue_information_computation_).
+venue(class_507,venue_information_computation_).
+venue(class_508,venue_inform_comput_).
+venue(class_509,venue_information_computation_).
+venue(class_510,venue_information_computation_).
+venue(class_511,venue_information_computation_).
+venue(class_512,venue_information_computation_).
+venue(class_513,venue_inform_comput_).
+venue(class_514,venue_information_computation_).
+venue(class_515,venue_information_computation_).
+venue(class_516,venue_information_computation_).
+venue(class_517,venue_information_computation_).
+venue(class_518,venue_information_computation_).
+venue(class_519,venue_inform_comput_).
+venue(class_520,venue_inform_comput_).
+venue(class_521,venue_information_computation_).
+venue(class_522,venue_inform_comput_).
+venue(class_523,venue_inform_comput_).
+venue(class_524,venue_information_computation_).
+venue(class_525,venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_).
+venue(class_526,venue_information_computation_).
+venue(class_589,venue_machine_learning_).
+venue(class_593,venue_proceedings_eighth_conference_computational_learning_theory_).
+venue(class_594,venue_proceedings_eighth_conference_computational_learning_theory_).
+venue(class_595,venue_proceedings_8th_conference_computational_learning_theory_).
+venue(class_596,venue_proceedings_eighth_conference_computational_learning_theory_).
+venue(class_597,venue_proc_6th_conf_comput_learning_theory_).
+venue(class_598,venue_to_appear_proceedings_eighth_conference_computational_learning_theory_).
+venue(class_613,venue_proc_13th_international_conference_machine_learning_).
+venue(class_614,venue_machine_learning_).
+venue(class_615,venue_machine_learning_).
+venue(class_646,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_647,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_648,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_649,venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_).
+venue(class_650,venue_proceedings_nineteenth_symposium_theory_computing_pp_).
+venue(class_651,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_652,venue_proceedings_nineteenth_symposium_theory_computing_pp_).
+venue(class_653,venue_proceedings_19th_symposium_theory_computing_).
+venue(class_654,venue_proceedings_19th_symposium_theory_computation_).
+venue(class_655,venue_proceedings_19th_symposium_theory_computations_).
+venue(class_656,venue_proc_19th_symposium_theory_computing_1987_285_295_).
+venue(class_657,venue_proc_19th_stoc_).
+venue(class_658,venue_proceedings_19th_symposium_theory_computing_).
+venue(class_659,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_660,venue_proceedings_19th_a_c_m_symposium_theory_computing_).
+venue(class_661,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_662,venue_proceedings_nineteenth_symposium_theory_computing_pp_).
+venue(class_663,venue_proc_19th_symp_theory_computing_).
+venue(class_664,venue_proc_19_th_stoc_).
+venue(class_665,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_666,venue_proceedings_19th_symposium_theory_computing_).
+venue(class_667,venue_proc_19th_symposium_theory_computing_).
+venue(class_668,venue_proceedings_19th_symposium_theory_computation_).
+venue(class_669,venue_proceedings_19th_a_c_m_symposium_theory_computing_).
+venue(class_670,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_671,venue_proc_19th_sympos_theory_comput_).
+venue(class_672,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_673,venue_proc_19_th_symposium_theory_computing_).
+venue(class_674,venue_19th_symposium_theory_computing_).
+venue(class_675,venue_stoc_87_).
+venue(class_676,venue_proc_19th_sympos_theory_comput_).
+venue(class_677,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_678,venue_stoc_87_p_).
+venue(class_679,venue_proceedings_nineteenth_symposium_theory_computing_).
+venue(class_680,venue_proceedings_19th_symposium_theory_computations_).
+venue(class_681,venue_proceedings_19th_a_c_m_symposium_theory_computing_).
+venue(class_682,venue_proceedings_19th_symposium_theory_computing_).
+venue(class_714,venue_technical_report_tr_14_88_).
+venue(class_715,venue_technical_report_tr_14_88_).
+venue(class_716,venue_technical_report_tr_14_88_).
+venue(class_717,venue_technical_report_tr_14_88_).
+venue(class_986,venue_journal_association_computing_machinery_).
+venue(class_987,venue_journal_).
+venue(class_988,venue_journal_association_computing_machinery_).
+venue(class_989,venue_journal_).
+venue(class_990,venue_j_assoc_computing_mach_).
+venue(class_991,venue_journal_).
+venue(class_992,venue_journal_).
+venue(class_993,venue_journal_).
+venue(class_994,venue_journal_).
+venue(class_995,venue_journal_association_computing_machinery_).
+venue(class_996,venue_journal_association_computing_machinery_).
+venue(class_997,venue_journal_association_computing_machinery_).
+venue(class_998,venue_journal_association_computing_machinery_).
+venue(class_999,venue_j_).
+venue(class_1000,venue_journal_).
+venue(class_1001,venue_journal_).
+venue(class_1002,venue_journal_).
+venue(class_1003,venue_journal_41_1_).
+venue(class_1004,venue_journal_).
+venue(class_1005,venue_journal_).
+venue(class_1006,venue_journal_association_computing_machinery_).
+venue(class_1007,venue_j_).
+venue(class_1020,venue_41_).
+venue(class_1021,venue_journal_).
+venue(class_1022,venue_journal_association_computing_machinery_).
+venue(class_1023,venue_journal_).
+venue(class_1034,venue_advances_neural_information_processing_8_).
+venue(class_1035,venue_advances_neural_information_processing_systems_number_8_nips_).
+venue(class_1036,venue_advances_neural_information_processing_8_).
+venue(class_1037,venue_advances_neural_information_processing_systems_8_).
+venue(class_1038,venue_advances_neural_information_processing_systems_8_).
+venue(class_1039,venue_advances_neural_information_processing_systems_).
+venue(class_1040,venue_advances_neural_information_processing_systems_8_).
+venue(class_1041,venue_advances_neural_information_processing_systems_8_).
+venue(class_1042,venue_advances_neural_information_processing_systems_8_).
+venue(class_1043,venue_advances_neural_information_processing_systems_8_).
+venue(class_1055,venue_proc_13th_conference_uncertainty_artificial_intelligence_).
+venue(class_1056,venue_proc_13th_conference_uncertainty_artificial_intelligence_).
+venue(class_1057,venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_).
+venue(class_1058,venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_1997_).
+venue(class_1084,venue_progress_).
+venue(class_1092,venue_proceedings_28th_ieee_symposium_foundations_computer_science_).
+venue(class_1093,venue_proceedings_twenty_eighth_symposium_foundations_computer_science_).
+venue(class_1094,venue_proceedings_28th_ieee_symp_foundations_computer_science_).
+venue(class_1095,venue_proceedings_28th_foundation_computer_science_ieee_).
+venue(class_1096,venue_proceedings_foundations_computer_science_).
+venue(class_1097,venue_proceedings_29th_symposium_foundations_computer_science_).
+venue(class_1098,venue_proc_28th_focs_).
+venue(class_1099,venue_proceedings_focs_87_).
+venue(class_1100,venue_28th_symposium_foundations_computer_science_).
+venue(class_1101,venue_proceedings_foundations_computer_science_).
+venue(class_1102,venue_proceeding_twenty_eighth_symposium_foundations_computer_science_).
+venue(class_1103,venue_proceeding_twenty_eighth_symposium_foundations_computer_science_).
+venue(class_1104,venue_ieee_symposium_foundations_computer_science_).
+venue(class_1105,venue_proc_28th_ieee_symp_foundations_computer_science_).
+venue(class_1106,venue_proceedings_twenty_eighth_symposium_foundations_computer_science_).
+venue(class_1107,venue_proceedings_twenty_eighth_symposium_foundations_computer_science_).
+venue(class_1123,venue_ietf_).
+venue(class_1167,venue_annals_statistics_).
+venue(class_1168,venue_annals_statistics_).
+venue(class_1169,venue_annals_statistics_).
+venue(class_1170,venue_masters_thesis_).
+venue(class_1171,venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_).
+venue(class_1172,venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_).
+venue(class_1173,venue_machine_learning_).
+venue(class_1174,venue_machine_learning_).
+venue(class_1175,venue_machine_learning_).
+venue(class_1176,venue_machine_learning_5_2_).
+venue(class_1177,venue_machine_learning_).
+venue(class_1178,venue_machine_learning_).
+venue(class_1179,venue_5_).
+venue(class_1180,venue_machine_learning_5_2_).
+venue(class_1181,venue_machine_learning_5_2_).
+venue(class_1182,venue_machine_learning_5_2_).
+venue(class_1183,venue_mach_learn_).
+venue(class_1184,venue_machine_learning_).
+venue(class_1185,venue_machine_learning_).
+venue(class_1186,venue_machine_learning_).
+venue(class_1187,venue_machine_learning_).
+venue(class_1188,venue_machine_learning_).
+venue(class_1189,venue_machine_learning_).
+venue(class_1190,venue_machine_learning_5_).
+venue(class_1191,venue_machine_learning_5_).
+venue(class_1192,venue_machine_learning_).
+venue(class_1193,venue_machine_learning_).
+venue(class_1194,venue_machine_learning_5_2_).
+venue(class_1195,venue_machine_learning_).
+venue(class_1196,venue_machine_learning_).
+venue(class_1197,venue_machine_learning_).
+venue(class_1198,venue_machine_learning_).
+venue(class_1199,venue_machine_learning_).
+venue(class_1200,venue_machine_learning_).
+venue(class_1201,venue_machine_learning_).
+venue(class_1202,venue_machine_learning_).
+venue(class_1203,venue_machine_learning_).
+venue(class_1204,venue_machine_learning_).
+venue(class_1205,venue_machine_learning_).
+venue(class_1206,venue_machine_learning_).
+venue(class_1207,venue_machine_learning_).
+venue(class_1208,venue_machine_learning_).
+venue(class_1209,venue_machine_learning_).
+venue(class_1210,venue_machine_learning_).
+venue(class_1211,venue_machine_learning_).
+venue(class_1212,venue_machine_learning_).
+venue(class_1213,venue_machine_learning_).
+venue(class_1214,venue_machine_learning_5_2_).
+venue(class_1215,venue_machine_learning_).
+venue(class_1216,venue_machine_learning_).
+venue(class_1217,venue_machine_learning_).
+venue(class_1218,venue_machine_learning_).
+venue(class_1219,venue_machine_learning_).
+venue(class_1220,venue_machine_learning_).
+venue(class_1221,venue_machine_learning_).
+venue(class_1222,venue_machine_learning_).
+venue(class_1223,venue_machine_learning_).
+venue(class_1224,venue_machine_learning_).
+venue(class_1225,venue_machine_learning_5_).
+venue(class_1226,venue_machine_learning_).
+venue(class_1227,venue_machine_learning_).
+venue(class_1228,venue_proceedings_colt_90_).
+venue(class_1229,venue_tech_report_mit_lcs_tm_431_).
+venue(class_1230,venue_phd_thesis_).
+venue(class_1231,venue_phd_thesis_).
+venue(class_1232,venue_phd_thesis_).
+venue(class_1233,venue_phd_thesis_).
+venue(class_1234,venue_phd_thesis_).
+venue(class_1235,venue_phd_thesis_).
+venue(class_1236,venue_phd_thesis_).
+venue(class_1237,venue_phd_thesis_).
+venue(class_1238,venue_phd_thesis_).
+venue(class_1239,venue_phd_thesis_).
+venue(class_1240,venue_phd_thesis_).
+venue(class_1241,venue_phd_thesis_).
+venue(class_1242,venue_phd_thesis_).
+venue(class_1243,venue_phd_thesis_).
+venue(class_1244,venue_phd_thesis_).
+venue(class_1245,venue_phd_thesis_).
+venue(class_1246,venue_phd_thesis_).
+
+haswordauthor(author_eric_bauer_, word_bauer).
+haswordauthor(author_eric_bauer_, word_eric).
+haswordauthor(author_ehrenfeucht_a_, word_a).
+haswordauthor(author_ehrenfeucht_a_, word_ehrenfeucht).
+haswordauthor(author_a_ehrenfeucht_, word_a).
+haswordauthor(author_a_ehrenfeucht_, word_ehrenfeucht).
+haswordauthor(author_m_feder_, word_feder).
+haswordauthor(author_m_feder_, word_m).
+haswordauthor(author_yoav_freund_, word_freund).
+haswordauthor(author_yoav_freund_, word_fyoav).
+haswordauthor(author_y_freund_, word_freund).
+haswordauthor(author_y_freund_, word_y).
+haswordauthor(author_freund_y_, word_freund).
+haswordauthor(author_freund_y_, word_y).
+haswordauthor(author_david_haussler_, word_david).
+haswordauthor(author_david_haussler_, word_haussler).
+haswordauthor(author_d_haussler_, word_d).
+haswordauthor(author_d_haussler_, word_haussler).
+haswordauthor(author_haussler_d_, word_d).
+haswordauthor(author_haussler_d_, word_haussler).
+haswordauthor(author_d_p_helmbold_, word_d).
+haswordauthor(author_d_p_helmbold_, word_helmbold).
+haswordauthor(author_d_p_helmbold_, word_p).
+haswordauthor(author_david_p_helmbold_, word_david).
+haswordauthor(author_david_p_helmbold_, word_helmbold).
+haswordauthor(author_david_p_helmbold_, word_p).
+haswordauthor(author_david_p_helmhold_, word_david).
+haswordauthor(author_david_p_helmhold_, word_helmbold).
+haswordauthor(author_david_p_helmhold_, word_p).
+haswordauthor(author_helmbold_d_p_, word_d).
+haswordauthor(author_helmbold_d_p_, word_helmbold).
+haswordauthor(author_helmbold_d_p_, word_p).
+haswordauthor(author_m_kearns_, word_kearns).
+haswordauthor(author_m_kearns_, word_m).
+haswordauthor(author_kearns_m_j_, word_j).
+haswordauthor(author_kearns_m_j_, word_kearns).
+haswordauthor(author_kearns_m_j_, word_m).
+haswordauthor(author_kearns_m_, word_kearns).
+haswordauthor(author_kearns_m_, word_m).
+haswordauthor(author_michael_kearns_, word_kearns).
+haswordauthor(author_michael_kearns_, word_michael).
+haswordauthor(author_m_j_kearns_, word_j).
+haswordauthor(author_m_j_kearns_, word_kearns).
+haswordauthor(author_m_j_kearns_, word_m).
+haswordauthor(author_kearns_, word_kearns).
+haswordauthor(author_littlestone_n_, word_littlestone).
+haswordauthor(author_littlestone_n_, word_n).
+haswordauthor(author_r_rivest_, word_r).
+haswordauthor(author_r_rivest_, word_rivest).
+haswordauthor(author_rivest_r_l_, word_l).
+haswordauthor(author_rivest_r_l_, word_r).
+haswordauthor(author_rivest_r_l_, word_rivest).
+haswordauthor(author_ronald_l_rivest_, word_l).
+haswordauthor(author_ronald_l_rivest_, word_rivest).
+haswordauthor(author_ronald_l_rivest_, word_ronald).
+haswordauthor(author_r_l_rivest_, word_l).
+haswordauthor(author_r_l_rivest_, word_r).
+haswordauthor(author_r_l_rivest_, word_rivest).
+haswordauthor(author_robert_e_schapire_, word_e).
+haswordauthor(author_robert_e_schapire_, word_robert).
+haswordauthor(author_robert_e_schapire_, word_shapire).
+haswordauthor(author_schapire_r_e_, word_e).
+haswordauthor(author_schapire_r_e_, word_r).
+haswordauthor(author_schapire_r_e_, word_shapire).
+haswordauthor(author_r_schapire_, word_r).
+haswordauthor(author_r_schapire_, word_shapire).
+haswordauthor(author_schapire_r_, word_r).
+haswordauthor(author_schapire_r_, word_shapire).
+haswordauthor(author_schapire_robert_e_, word_e).
+haswordauthor(author_schapire_robert_e_, word_robert).
+haswordauthor(author_schapire_robert_e_, word_shapire).
+haswordauthor(author_shapire_r_, word_r).
+haswordauthor(author_shapire_r_, word_shapire).
+haswordauthor(author_r_e_schapire_, word_e).
+haswordauthor(author_r_e_schapire_, word_r).
+haswordauthor(author_r_e_schapire_, word_shapire).
+haswordauthor(author_robert_schapire_, word_robert).
+haswordauthor(author_robert_schapire_, word_shapire).
+haswordauthor(author_shapire_r_e_, word_e).
+haswordauthor(author_shapire_r_e_, word_r).
+haswordauthor(author_shapire_r_e_, word_shapire).
+
+haswordtitle(title_stacked_generalization_, word_stacked).
+haswordtitle(title_stacked_generalization_, word_test).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_a).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_bound).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_general).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_leslie).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_lower).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_needed).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_number).
+haswordtitle(title_a_general_lower_bound_number_examples_needed_learning_, word_test).
+haswordtitle(title_optimal_universal_learning_prediction_probabilistic_concepts_, word_optimal).
+haswordtitle(title_optimal_universal_learning_prediction_probabilistic_concepts_, word_precence).
+haswordtitle(title_optimal_universal_learning_prediction_probabilistic_concepts_, word_test).
+haswordtitle(title_optimal_universal_learning_prediction_probabilistic_concepts_, word_universal).
+haswordtitle(title_selective_sampling_using_query_by_committee_algorithm_, word_algorithm).
+haswordtitle(title_selective_sampling_using_query_by_committee_algorithm_, word_by).
+haswordtitle(title_selective_sampling_using_query_by_committee_algorithm_, word_query).
+haswordtitle(title_selective_sampling_using_query_by_committee_algorithm_, word_test).
+haswordtitle(title_learning_to_model_sequences_generated_by_switching_distributions_, word_by).
+haswordtitle(title_learning_to_model_sequences_generated_by_switching_distributions_, word_model).
+haswordtitle(title_learning_to_model_sequences_generated_by_switching_distributions_, word_test).
+haswordtitle(title_learning_to_model_sequences_generated_by_switching_distributions_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_, word_a).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_, word_an).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_, word_online).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_, word_test).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_an_application_to_boosting_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_, word_a).
+haswordtitle(title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_, word_an).
+haswordtitle(title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_, word_online).
+haswordtitle(title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_, word_test).
+haswordtitle(title_a_decision_theoretic_generalization_online_learning_an_application_to_boosting_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_, word_a).
+haswordtitle(title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_, word_an).
+haswordtitle(title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_, word_online).
+haswordtitle(title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_, word_test).
+haswordtitle(title_a_decision_theoretic_generalization_line_learn_ing_an_application_to_boosting_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_a).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_an).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_att).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_authors).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_available).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_extended).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_from).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_fyoav).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_home).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_http).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_manuscript).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_online).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_orgs).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_pages).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_people).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_schapireg).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_ssr).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_test).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_unpublished_manuscript_available_from_authors_home_pages_http_www_research_att_com_orgs_ssr_people_fyoav_schapireg_extended_abstract_appears_computational_theory_, word_www).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_a).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_an).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_at).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_att).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_extended).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_fyoav).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_http).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_online).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_or).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_orgs).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_people).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_site).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_ssr).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_test).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_to).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_web).
+haswordtitle(title_a_decision_theoretic_generalization_line_learning_learning_an_an_application_to_boosting_at_web_site_http_http_www_www_research_research_att_att_com_com_yoav_yoav_or_orgs_ssr_people_extended_abstract_appears_proceedings_second_european_conference_computational_theory_barcelona_, word_www).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_a).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_an).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_available).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_by).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_electronically).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_extended).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_manuscript).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_online).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_or).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_our).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_pages).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_request).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_test).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_to).
+haswordtitle(title_a_decision_theoreticgeneralizationof_online_learning_learning_an_an_application_to_boosting_unpublishedmanuscript_available_electronically_our_web_pages_or_by_email_request_extended_abstract_appeared_computational_theory_, word_web).
+haswordtitle(title_equivalence_models_polynomial_learnability_, word_equivalence).
+haswordtitle(title_equivalence_models_polynomial_learnability_, word_models).
+haswordtitle(title_equivalence_models_polynomial_learnability_, word_polynomials).
+haswordtitle(title_equivalence_models_polynomial_learnability_, word_test).
+haswordtitle(title_equivalence_models_polynomial_learnabil_ity_information_computation_, word_equivalence).
+haswordtitle(title_equivalence_models_polynomial_learnabil_ity_information_computation_, word_models).
+haswordtitle(title_equivalence_models_polynomial_learnabil_ity_information_computation_, word_polynomials).
+haswordtitle(title_equivalence_models_polynomial_learnabil_ity_information_computation_, word_test).
+haswordtitle(title_equiva_lence_models_polynomial_learnability_, word_alence).
+haswordtitle(title_equiva_lence_models_polynomial_learnability_, word_equivalence).
+haswordtitle(title_equiva_lence_models_polynomial_learnability_, word_models).
+haswordtitle(title_equiva_lence_models_polynomial_learnability_, word_polynomials).
+haswordtitle(title_equiva_lence_models_polynomial_learnability_, word_test).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_alence).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_equivalence).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_models).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_polynomials).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_test).
+haswordtitle(title_equiv_alence_models_polynomial_learnability_information_computation_to_appear_, word_to).
+haswordtitle(title_schapire_, word_shapire).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_a).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_as).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_best).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_nearly).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_pruning).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_test).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_tree).
+haswordtitle(title_predicting_nearly_as_as_well_best_pruning_a_decision_tree_, word_well).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_a).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_algorithm).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_mixture).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_new).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_old).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_problem).
+haswordtitle(title_a_a_comparison_new_old_algorithms_mixture_estimation_problem_, word_test).
+haswordtitle(title_learnability_boolean_formulae_, word_test).
+haswordtitle(title_learnability_boolean_formu_lae_, word_lae).
+haswordtitle(title_learnability_boolean_formu_lae_, word_test).
+haswordtitle(title_learnability_boolean_formula_, word_test).
+haswordtitle(title_valiant_1987_learnability_boolean_formul_, word_1987).
+haswordtitle(title_valiant_1987_learnability_boolean_formul_, word_test).
+haswordtitle(title_valiant_1987_learnability_boolean_formul_, word_valiant).
+haswordtitle(title_learn_ability_boolean_formulae_, word_test).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_as).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_finite).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_hard).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_is).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_or).
+haswordtitle(title_learning_boolean_formulae_or_finite_automata_is_as_as_hard_factoring_, word_test).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_as).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_au).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_finite).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_hard).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_is).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_or).
+haswordtitle(title_learning_boolean_formulae_or_finite_au_tomata_is_as_as_hard_factoring_, word_test).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formulae_finite_automata_, word_criptographic).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formulae_finite_automata_, word_finite).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formulae_finite_automata_, word_test).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formula_finite_automata_, word_criptographic).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formula_finite_automata_, word_finite).
+haswordtitle(title_cryptographic_limitations_learning_boolean_formula_finite_automata_, word_test).
+haswordtitle(title_learning_boolean_formulas_, word_test).
+haswordtitle(title_learning_boolean_formulae_, word_test).
+haswordtitle(title_learn_ing_boolean_formulas_, word_test).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_8).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_a).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_algorithm).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_bound).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_consequences).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_cross).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_error).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_neural).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_split).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_neural_information_processing_8_, word_test).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_a).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_algorithm).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_bound).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_consequences).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_cross).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_error).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_split).
+haswordtitle(title_a_bound_error_cross_validation_using_approximation_estimation_rates_with_consequences_training_test_split_, word_test).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_a).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_algorithm).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_bound).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_consequences).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_cross).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_error).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_split).
+haswordtitle(title_a_bound_error_cross_validation_with_consequences_training_test_split_, word_test).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_a).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_algorithm).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_bound).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_consequences).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_cross).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_error).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_split).
+haswordtitle(title_a_bound_error_cross_validation_using_approxima_tion_estimation_rates_with_consequences_training_test_split_, word_test).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_an).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_assignment).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_hard).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_methods).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_soft).
+haswordtitle(title_an_information_theoretic_analysis_hard_soft_assignment_methods_clustering_, word_test).
+haswordtitle(title_hypothesis_schemas_, word_hypothesis).
+haswordtitle(title_hypothesis_schemas_, word_schemas).
+haswordtitle(title_diversity_based_inference_finite_automata_, word_based).
+haswordtitle(title_diversity_based_inference_finite_automata_, word_diversity).
+haswordtitle(title_diversity_based_inference_finite_automata_, word_finite).
+haswordtitle(title_diversity_based_inference_finite_automata_, word_test).
+haswordtitle(title_diversity_based_inference_finite_au_tomata_, word_au).
+haswordtitle(title_diversity_based_inference_finite_au_tomata_, word_based).
+haswordtitle(title_diversity_based_inference_finite_au_tomata_, word_diversity).
+haswordtitle(title_diversity_based_inference_finite_au_tomata_, word_finite).
+haswordtitle(title_diversity_based_inference_finite_au_tomata_, word_test).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_1321).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_algorithm).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_comments).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_group).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_md5).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_message).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_network).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_request).
+haswordtitle(title_md5_message_digest_algorithm_network_working_group_request_comments_rfc_1321_, word_rfc).
+haswordtitle(title_boosting_margin_a_new_explanation_effectiveness_voting_methods_, word_a).
+haswordtitle(title_boosting_margin_a_new_explanation_effectiveness_voting_methods_, word_margin).
+haswordtitle(title_boosting_margin_a_new_explanation_effectiveness_voting_methods_, word_methods).
+haswordtitle(title_boosting_margin_a_new_explanation_effectiveness_voting_methods_, word_new).
+haswordtitle(title_boosting_margin_a_new_explanation_effectiveness_voting_methods_, word_test).
+haswordtitle(title_strength_weak_learnability_, word_strength).
+haswordtitle(title_strength_weak_learnability_, word_test).
+haswordtitle(title_strength_weak_learnability_, word_weak).
+haswordtitle(title_strength_weak_learnability_machine_learning_, word_macro).
+haswordtitle(title_strength_weak_learnability_machine_learning_, word_strength).
+haswordtitle(title_strength_weak_learnability_machine_learning_, word_test).
+haswordtitle(title_strength_weak_learnability_machine_learning_, word_weak).
+haswordtitle(title_strength_weak_learn_ability_, word_strength).
+haswordtitle(title_strength_weak_learn_ability_, word_test).
+haswordtitle(title_strength_weak_learn_ability_, word_weak).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_197).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_227).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_5).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_a).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_algorithm).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_article).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_e).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_l).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_llncs).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_macro).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_package).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_processed).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_strength).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_style).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_t).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_test).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_this).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_was).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_weak).
+haswordtitle(title_strength_weak_learnability_machine_learning_5_197_227_this_article_was_processed_using_l_a_t_e_x_macro_package_with_llncs_style_, word_x).
+haswordtitle(title_combining_regression_estimates_29_, word_29).
+haswordtitle(title_combining_regression_estimates_29_, word_estimates).
+haswordtitle(title_combining_regression_estimates_29_, word_processed).
+haswordtitle(title_combining_regression_estimates_29_, word_test).
+haswordtitle(title_pattern_languages_are_not_learnable_, word_are).
+haswordtitle(title_pattern_languages_are_not_learnable_, word_languages).
+haswordtitle(title_pattern_languages_are_not_learnable_, word_learnable).
+haswordtitle(title_pattern_languages_are_not_learnable_, word_not).
+haswordtitle(title_pattern_languages_are_not_learnable_, word_pattern).
+haswordtitle(title_emerging_theory_average_case_complexity_, word_average).
+haswordtitle(title_emerging_theory_average_case_complexity_, word_case).
+haswordtitle(title_emerging_theory_average_case_complexity_, word_emerging).
+haswordtitle(title_emerging_theory_average_case_complexity_, word_test).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_, word_algorithm).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_, word_design).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_, word_recent).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_, word_test).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_algorithm).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_awards).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_design).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_dissertation).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_recent).
+haswordtitle(title_design_analysis_efficient_learning_algorithms_distinguished_dissertation_awards_series_, word_test).
+haswordtitle(title_design_analysis_ef_ficient_learning_algorithms_, word_algorithm).
+haswordtitle(title_design_analysis_ef_ficient_learning_algorithms_, word_design).
+haswordtitle(title_design_analysis_ef_ficient_learning_algorithms_, word_ef).
+haswordtitle(title_design_analysis_ef_ficient_learning_algorithms_, word_recent).
+haswordtitle(title_design_analysis_ef_ficient_learning_algorithms_, word_test).
+
+haswordvenue(venue_neural_networks_5_, word_5).
+haswordvenue(venue_neural_networks_5_, word_neural).
+haswordvenue(venue_neural_networks_5_, word_works).
+haswordvenue(venue_proceedings_colt_88_, word_88).
+haswordvenue(venue_proceedings_colt_88_, word_colt).
+haswordvenue(venue_proceedings_colt_88_, word_test).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_, word_first).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_, word_test).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_, word_workshop).
+haswordvenue(venue_colt_88_proceedings_conference_learning_, word_88).
+haswordvenue(venue_colt_88_proceedings_conference_learning_, word_colt).
+haswordvenue(venue_colt_88_proceedings_conference_learning_, word_test).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_, word_first).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_, word_kaufmann).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_, word_morgan).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_, word_test).
+haswordvenue(venue_proceedings_first_workshop_computational_learning_theory_morgan_kaufmann_, word_workshop).
+haswordvenue(venue_proceedings_1988_workshop_computational_learning_theory_, word_1988).
+haswordvenue(venue_proceedings_1988_workshop_computational_learning_theory_, word_test).
+haswordvenue(venue_proceedings_1988_workshop_computational_learning_theory_, word_workshop).
+haswordvenue(venue_proc_1988_workshop_computational_learning_theory_, word_1988).
+haswordvenue(venue_proc_1988_workshop_computational_learning_theory_, word_test).
+haswordvenue(venue_proc_1988_workshop_computational_learning_theory_, word_workshop).
+haswordvenue(venue_33_proceedings_1988_workshop_computational_learning_theory_, word_1988).
+haswordvenue(venue_33_proceedings_1988_workshop_computational_learning_theory_, word_33).
+haswordvenue(venue_33_proceedings_1988_workshop_computational_learning_theory_, word_test).
+haswordvenue(venue_33_proceedings_1988_workshop_computational_learning_theory_, word_workshop).
+haswordvenue(venue_proc_ieee_information_theory_conference_, word_ieee).
+haswordvenue(venue_proc_ieee_information_theory_conference_, word_test).
+haswordvenue(venue_advances_neural_information_processing_systems_, word_neural).
+haswordvenue(venue_advances_neural_information_processing_systems_, word_systems).
+haswordvenue(venue_advances_neural_information_processing_systems_, word_test).
+haswordvenue(venue_proceedings_1995_conference_computational_learning_theory_, word_1996).
+haswordvenue(venue_proceedings_1995_conference_computational_learning_theory_, word_test).
+haswordvenue(venue_proceedings_eighth_conference_computational_learning_theory_colt_, word_colt).
+haswordvenue(venue_proceedings_eighth_conference_computational_learning_theory_colt_, word_eighth).
+haswordvenue(venue_proceedings_eighth_conference_computational_learning_theory_colt_, word_test).
+haswordvenue(venue_second_european_conference_, word_test).
+haswordvenue(venue_unpublished_manuscript_, word_manuscript).
+haswordvenue(venue_information_computation_, word_test).
+haswordvenue(venue_inform_comput_, word_inform).
+haswordvenue(venue_inform_comput_, word_test).
+haswordvenue(venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_, word_1st).
+haswordvenue(venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_, word_an).
+haswordvenue(venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_, word_extended).
+haswordvenue(venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_, word_test).
+haswordvenue(venue_an_extended_abstract_appeared_proceedings_1st_workshop_computational_learning_theory_, word_workshop).
+haswordvenue(venue_machine_learning_, word_macro).
+haswordvenue(venue_machine_learning_, word_test).
+haswordvenue(venue_proceedings_eighth_conference_computational_learning_theory_, word_eighth).
+haswordvenue(venue_proceedings_eighth_conference_computational_learning_theory_, word_test).
+haswordvenue(venue_proceedings_8th_conference_computational_learning_theory_, word_8th).
+haswordvenue(venue_proceedings_8th_conference_computational_learning_theory_, word_test).
+haswordvenue(venue_proc_6th_conf_comput_learning_theory_, word_6th).
+haswordvenue(venue_proc_6th_conf_comput_learning_theory_, word_test).
+haswordvenue(venue_to_appear_proceedings_eighth_conference_computational_learning_theory_, word_eighth).
+haswordvenue(venue_to_appear_proceedings_eighth_conference_computational_learning_theory_, word_test).
+haswordvenue(venue_to_appear_proceedings_eighth_conference_computational_learning_theory_, word_to).
+haswordvenue(venue_proc_13th_international_conference_machine_learning_, word_13th).
+haswordvenue(venue_proc_13th_international_conference_machine_learning_, word_macro).
+haswordvenue(venue_proc_13th_international_conference_machine_learning_, word_test).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_, word_nineteenth).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_, word_pos).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_, word_test).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_, word_87).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_, word_nineteenth).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_, word_pos).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_, word_stoc).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_stoc_87_, word_test).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_pp_, word_nineteenth).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_pp_, word_pos).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_pp_, word_pp).
+haswordvenue(venue_proceedings_nineteenth_symposium_theory_computing_pp_, word_test).
+haswordvenue(venue_proceedings_19th_symposium_theory_computing_, word_19th).
+haswordvenue(venue_proceedings_19th_symposium_theory_computing_, word_pos).
+haswordvenue(venue_proceedings_19th_symposium_theory_computing_, word_test).
+haswordvenue(venue_proceedings_19th_symposium_theory_computation_, word_19th).
+haswordvenue(venue_proceedings_19th_symposium_theory_computation_, word_pos).
+haswordvenue(venue_proceedings_19th_symposium_theory_computation_, word_test).
+haswordvenue(venue_proceedings_19th_symposium_theory_computations_, word_19th).
+haswordvenue(venue_proceedings_19th_symposium_theory_computations_, word_pos).
+haswordvenue(venue_proceedings_19th_symposium_theory_computations_, word_test).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_1987).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_19th).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_285).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_295).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_pos).
+haswordvenue(venue_proc_19th_symposium_theory_computing_1987_285_295_, word_test).
+haswordvenue(venue_proc_19th_stoc_, word_19th).
+haswordvenue(venue_proc_19th_stoc_, word_stoc).
+haswordvenue(venue_proc_19th_stoc_, word_test).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_19th).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_a).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_c).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_m).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_pos).
+haswordvenue(venue_proceedings_19th_a_c_m_symposium_theory_computing_, word_test).
+haswordvenue(venue_proc_19th_symp_theory_computing_, word_19th).
+haswordvenue(venue_proc_19th_symp_theory_computing_, word_pos).
+haswordvenue(venue_proc_19th_symp_theory_computing_, word_test).
+haswordvenue(venue_proc_19_th_stoc_, word_19).
+haswordvenue(venue_proc_19_th_stoc_, word_stoc).
+haswordvenue(venue_proc_19_th_stoc_, word_test).
+haswordvenue(venue_proc_19_th_stoc_, word_th).
+haswordvenue(venue_proc_19th_symposium_theory_computing_, word_19th).
+haswordvenue(venue_proc_19th_symposium_theory_computing_, word_pos).
+haswordvenue(venue_proc_19th_symposium_theory_computing_, word_test).
+haswordvenue(venue_proc_19th_sympos_theory_comput_, word_19th).
+haswordvenue(venue_proc_19th_sympos_theory_comput_, word_pos).
+haswordvenue(venue_proc_19th_sympos_theory_comput_, word_test).
+haswordvenue(venue_proc_19_th_symposium_theory_computing_, word_19).
+haswordvenue(venue_proc_19_th_symposium_theory_computing_, word_pos).
+haswordvenue(venue_proc_19_th_symposium_theory_computing_, word_test).
+haswordvenue(venue_proc_19_th_symposium_theory_computing_, word_th).
+haswordvenue(venue_19th_symposium_theory_computing_, word_19th).
+haswordvenue(venue_19th_symposium_theory_computing_, word_pos).
+haswordvenue(venue_19th_symposium_theory_computing_, word_test).
+haswordvenue(venue_stoc_87_, word_87).
+haswordvenue(venue_stoc_87_, word_stoc).
+haswordvenue(venue_stoc_87_p_, word_87).
+haswordvenue(venue_stoc_87_p_, word_p).
+haswordvenue(venue_stoc_87_p_, word_stoc).
+haswordvenue(venue_technical_report_tr_14_88_, word_14).
+haswordvenue(venue_technical_report_tr_14_88_, word_88).
+haswordvenue(venue_technical_report_tr_14_88_, word_rep).
+haswordvenue(venue_technical_report_tr_14_88_, word_technical).
+haswordvenue(venue_technical_report_tr_14_88_, word_tr).
+haswordvenue(venue_journal_association_computing_machinery_, word_nineteenth).
+haswordvenue(venue_journal_association_computing_machinery_, word_test).
+haswordvenue(venue_journal_, word_test).
+haswordvenue(venue_j_assoc_computing_mach_, word_j).
+haswordvenue(venue_j_assoc_computing_mach_, word_macro).
+haswordvenue(venue_j_assoc_computing_mach_, word_test).
+haswordvenue(venue_j_, word_j).
+haswordvenue(venue_journal_41_1_, word_1).
+haswordvenue(venue_journal_41_1_, word_41).
+haswordvenue(venue_journal_41_1_, word_test).
+haswordvenue(venue_41_, word_41).
+haswordvenue(venue_advances_neural_information_processing_8_, word_8).
+haswordvenue(venue_advances_neural_information_processing_8_, word_neural).
+haswordvenue(venue_advances_neural_information_processing_8_, word_test).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_8).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_neural).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_nips).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_number).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_systems).
+haswordvenue(venue_advances_neural_information_processing_systems_number_8_nips_, word_test).
+haswordvenue(venue_advances_neural_information_processing_systems_8_, word_8).
+haswordvenue(venue_advances_neural_information_processing_systems_8_, word_neural).
+haswordvenue(venue_advances_neural_information_processing_systems_8_, word_systems).
+haswordvenue(venue_advances_neural_information_processing_systems_8_, word_test).
+haswordvenue(venue_proc_13th_conference_uncertainty_artificial_intelligence_, word_13th).
+haswordvenue(venue_proc_13th_conference_uncertainty_artificial_intelligence_, word_artificial).
+haswordvenue(venue_proc_13th_conference_uncertainty_artificial_intelligence_, word_test).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_, word_artificial).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_, word_test).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_, word_third).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_1997_, word_1996).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_1997_, word_artificial).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_1997_, word_test).
+haswordvenue(venue_proceedings_thirteenth_conference_uncertainty_artificial_intelligence_1997_, word_third).
+haswordvenue(venue_progress_, word_progress).
+haswordvenue(venue_proceedings_28th_ieee_symposium_foundations_computer_science_, word_28th).
+haswordvenue(venue_proceedings_28th_ieee_symposium_foundations_computer_science_, word_ieee).
+haswordvenue(venue_proceedings_28th_ieee_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceedings_28th_ieee_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_proceedings_twenty_eighth_symposium_foundations_computer_science_, word_eighth).
+haswordvenue(venue_proceedings_twenty_eighth_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceedings_twenty_eighth_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_proceedings_28th_ieee_symp_foundations_computer_science_, word_28th).
+haswordvenue(venue_proceedings_28th_ieee_symp_foundations_computer_science_, word_ieee).
+haswordvenue(venue_proceedings_28th_ieee_symp_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceedings_28th_ieee_symp_foundations_computer_science_, word_test).
+haswordvenue(venue_proceedings_28th_foundation_computer_science_ieee_, word_28th).
+haswordvenue(venue_proceedings_28th_foundation_computer_science_ieee_, word_ieee).
+haswordvenue(venue_proceedings_28th_foundation_computer_science_ieee_, word_test).
+haswordvenue(venue_proceedings_foundations_computer_science_, word_test).
+haswordvenue(venue_proceedings_29th_symposium_foundations_computer_science_, word_29th).
+haswordvenue(venue_proceedings_29th_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceedings_29th_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_proc_28th_focs_, word_28th).
+haswordvenue(venue_proc_28th_focs_, word_focs).
+haswordvenue(venue_proc_28th_focs_, word_test).
+haswordvenue(venue_proceedings_focs_87_, word_87).
+haswordvenue(venue_proceedings_focs_87_, word_focs).
+haswordvenue(venue_proceedings_focs_87_, word_test).
+haswordvenue(venue_28th_symposium_foundations_computer_science_, word_28th).
+haswordvenue(venue_28th_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_28th_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_proceeding_twenty_eighth_symposium_foundations_computer_science_, word_eighth).
+haswordvenue(venue_proceeding_twenty_eighth_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceeding_twenty_eighth_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_ieee_symposium_foundations_computer_science_, word_ieee).
+haswordvenue(venue_ieee_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_ieee_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_proc_28th_ieee_symp_foundations_computer_science_, word_28th).
+haswordvenue(venue_proc_28th_ieee_symp_foundations_computer_science_, word_ieee).
+haswordvenue(venue_proc_28th_ieee_symp_foundations_computer_science_, word_pos).
+haswordvenue(venue_proc_28th_ieee_symp_foundations_computer_science_, word_test).
+haswordvenue(venue_ietf_, word_ietf).
+haswordvenue(venue_annals_statistics_, word_annals).
+haswordvenue(venue_annals_statistics_, word_statistics).
+haswordvenue(venue_masters_thesis_, word_masters).
+haswordvenue(venue_masters_thesis_, word_test).
+haswordvenue(venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_30th).
+haswordvenue(venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_e).
+haswordvenue(venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_i).
+haswordvenue(venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_30th).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_42).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_e).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_i).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_pos).
+haswordvenue(venue_42_proceedings_30th_i_e_e_e_symposium_foundations_computer_science_, word_test).
+haswordvenue(venue_machine_learning_5_2_, word_2).
+haswordvenue(venue_machine_learning_5_2_, word_5).
+haswordvenue(venue_machine_learning_5_2_, word_macro).
+haswordvenue(venue_machine_learning_5_2_, word_test).
+haswordvenue(venue_5_, word_5).
+haswordvenue(venue_mach_learn_, word_macro).
+haswordvenue(venue_mach_learn_, word_test).
+haswordvenue(venue_machine_learning_5_, word_5).
+haswordvenue(venue_machine_learning_5_, word_macro).
+haswordvenue(venue_machine_learning_5_, word_test).
+haswordvenue(venue_proceedings_colt_90_, word_90).
+haswordvenue(venue_proceedings_colt_90_, word_colt).
+haswordvenue(venue_proceedings_colt_90_, word_test).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_431).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_lcs).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_mit).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_rep).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_technical).
+haswordvenue(venue_tech_report_mit_lcs_tm_431_, word_tm).
+haswordvenue(venue_phd_thesis_, word_phd).
+haswordvenue(venue_phd_thesis_, word_test).
+
+
+
+
+

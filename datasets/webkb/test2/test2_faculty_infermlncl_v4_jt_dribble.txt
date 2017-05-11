@@ -1,0 +1,200 @@
+% Running on host: nebula-6
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% getInputArgWithDefaultValue: args=[/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_pos.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_neg.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_bk.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_facts.txt]
+%  for N=0: args[N]=/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_pos.txt
+
+% getInputArgWithDefaultValue: args=[/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_pos.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_neg.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_bk.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_facts.txt]
+%  for N=1: args[N]=/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_neg.txt
+
+% getInputArgWithDefaultValue: args=[/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_pos.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_neg.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_bk.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_facts.txt]
+%  for N=2: args[N]=/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_bk.txt
+
+% getInputArgWithDefaultValue: args=[/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_pos.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_neg.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_bk.txt, /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_facts.txt]
+%  for N=3: args[N]=/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty_facts.txt
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+% Reading background theory from dir: null
+% Load '../webkb_bk.txt'.
+% loadThisFile: directoryName = /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty, newFileName = ../webkb_bk.txt, file2load = /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/../webkb_bk.txt
+
+% Switching to VarIndicator = uppercase.
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+% LoadAllModes() called.  Currently loaded modes: []
+% Have read 42 examples from '/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty' [/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty*].
+% Have read 167 examples from '/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty' [/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/test2_faculty*].
+Started initting
+
+% NEW target:                 faculty(D)
+%  targetPredicateSignatures: [const]
+%  targetPred:                faculty/1
+%  targetArgTypes:            signature = [const], types = [+Person]
+%  targets:                   [faculty(D)]
+%  targetPredicates:          [faculty/1]
+%  targetArgSpecs:            [[D[+Person]]]
+%  variablesInTargets:        [[D]]
+Started constants
+
+% Read 42 pos examples and 167 neg examples.
+
+Have 42 'raw' positive examples and kept 0.
+Have 167 'raw' negative examples and kept 0.
+No pos eg for courseprof
+No neg eg for courseprof
+No pos eg for courseta
+No neg eg for courseta
+
+% Target variant already exists.  Skipping target:                 faculty(E).
+%  examplePredicateSignatures: [const]
+%  targetArgTypes:            signature = [const], types = [+Person]
+%  targetArgSpecs:            [[D[+Person]]]
+
+% NEW target:                 courseta(F, G)
+%  targetPredicateSignatures: [const, const]
+%  targetPred:                courseta/2
+%  targetArgTypes:            signature = [const, const], types = [+Course, -Person]
+%  targets:                   [faculty(D), courseta(F, G)]
+%  targetPredicates:          [faculty/1, courseta/2, courseprof/2]
+%  targetArgSpecs:            [[D[+Person]], [F[+Course], G[-Person]]]
+%  variablesInTargets:        [[D], [F, G]]
+
+% NEW target:                 courseprof(H, I)
+%  targetPredicateSignatures: [const, const]
+%  targetPred:                courseprof/2
+%  targetArgTypes:            signature = [const, const], types = [-Course, +Person]
+%  targets:                   [faculty(D), courseta(F, G), courseprof(H, I)]
+%  targetPredicates:          [faculty/1, courseta/2, courseprof/2]
+%  targetArgSpecs:            [[D[+Person]], [F[+Course], G[-Person]], [H[-Course], I[+Person]]]
+%  variablesInTargets:        [[D], [F, G], [H, I]]
+%   Have considered 1,000 possible negative examples for null.null.
+%   Have randomly created 1,000 putative negative examples.
+%   Have considered 2,000 possible negative examples for null.null.
+%   Have randomly created 2,000 putative negative examples.
+%   Have considered 3,000 possible negative examples for null.null.
+%   Have randomly created 3,000 putative negative examples.
+%   Have considered 4,000 possible negative examples for null.null.
+%   Have randomly created 4,000 putative negative examples.
+%   Have considered 5,000 possible negative examples for null.null.
+%   Have randomly created 5,000 putative negative examples.
+%   Have considered 6,000 possible negative examples for null.null.
+%   Have randomly created 6,000 putative negative examples.
+%   Have considered 7,000 possible negative examples for null.null.
+%   Have randomly created 7,000 putative negative examples.
+%   Have considered 8,000 possible negative examples for null.null.
+%   Have randomly created 8,000 putative negative examples.
+%   Have considered 9,000 possible negative examples for null.null.
+%   Have randomly created 9,000 putative negative examples.
+%   Have considered 10,000 possible negative examples for null.null.
+%   Have randomly created 10,000 putative negative examples.
+%   Have considered 11,000 possible negative examples for null.null.
+%   Have randomly created 11,000 putative negative examples.
+%   Have considered 12,000 possible negative examples for null.null.
+%   Have randomly created 12,000 putative negative examples.
+%   Have considered 1,000 possible negative examples for null.null.
+%   Have randomly created 1,000 putative negative examples.
+%   Have considered 2,000 possible negative examples for null.null.
+%   Have randomly created 2,000 putative negative examples.
+%   Have considered 3,000 possible negative examples for null.null.
+%   Have randomly created 3,000 putative negative examples.
+%   Have considered 4,000 possible negative examples for null.null.
+%   Have randomly created 4,000 putative negative examples.
+%   Have considered 5,000 possible negative examples for null.null.
+%   Have randomly created 5,000 putative negative examples.
+%   Have considered 6,000 possible negative examples for null.null.
+%   Have randomly created 6,000 putative negative examples.
+%   Have considered 7,000 possible negative examples for null.null.
+%   Have randomly created 7,000 putative negative examples.
+%   Have considered 8,000 possible negative examples for null.null.
+%   Have randomly created 8,000 putative negative examples.
+%   Have considered 9,000 possible negative examples for null.null.
+%   Have randomly created 9,000 putative negative examples.
+%   Have considered 10,000 possible negative examples for null.null.
+%   Have randomly created 10,000 putative negative examples.
+%   Have considered 11,000 possible negative examples for null.null.
+%   Have randomly created 11,000 putative negative examples.
+%   Have considered 12,000 possible negative examples for null.null.
+%   Have randomly created 12,000 putative negative examples.
+
+% processing backup's
+%  POS EX = 39
+%  NEG EX = 12,292
+
+% processing backup's
+%  POS EX = 73
+%  NEG EX = 12,258
+
+% Memory usage by WILLSetup (just counts # targets?):
+%  |backupPosExamples| = 2
+%  |backupNegExamples| = 2
+%  |predicatesAsFacts| = 2
+%  |addedToFactBase|   = 0
+Old dir/u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/
+% Did not learn a model for 'courseprof' this run.
+%   loadModel (#0): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree0.tree
+%   loadModel (#1): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree1.tree
+%   loadModel (#2): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree2.tree
+%   loadModel (#3): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree3.tree
+%   loadModel (#4): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree4.tree
+%   loadModel (#5): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree5.tree
+%   loadModel (#6): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree6.tree
+%   loadModel (#7): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree7.tree
+%   loadModel (#8): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree8.tree
+%   loadModel (#9): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree9.tree
+%   loadModel (#10): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree10.tree
+%   loadModel (#11): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree11.tree
+%   loadModel (#12): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree12.tree
+%   loadModel (#13): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree13.tree
+%   loadModel (#14): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree14.tree
+%   loadModel (#15): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree15.tree
+%   loadModel (#16): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree16.tree
+%   loadModel (#17): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree17.tree
+%   loadModel (#18): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree18.tree
+%   loadModel (#19): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseprof_mlncl_v4_jtTree19.tree
+%  Done loading 20 models.
+% Did not learn a model for 'courseta' this run.
+%   loadModel (#0): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree0.tree
+%   loadModel (#1): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree1.tree
+%   loadModel (#2): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree2.tree
+%   loadModel (#3): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree3.tree
+%   loadModel (#4): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree4.tree
+%   loadModel (#5): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree5.tree
+%   loadModel (#6): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree6.tree
+%   loadModel (#7): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree7.tree
+%   loadModel (#8): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree8.tree
+%   loadModel (#9): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree9.tree
+%   loadModel (#10): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree10.tree
+%   loadModel (#11): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree11.tree
+%   loadModel (#12): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree12.tree
+%   loadModel (#13): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree13.tree
+%   loadModel (#14): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree14.tree
+%   loadModel (#15): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree15.tree
+%   loadModel (#16): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree16.tree
+%   loadModel (#17): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree17.tree
+%   loadModel (#18): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree18.tree
+%   loadModel (#19): /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/train2_faculty/models/bRDNs/Trees/courseta_mlncl_v4_jtTree19.tree
+%  Done loading 20 models.
+File: /u/tkhot/sharkbkup/workspace/Testbeds/RDNs/webkb_busl/test2_faculty/advice.txt doesnt exist.Hence no advice loaded
+
+% for courseprof |lookupPos| = 39
+% for courseprof |lookupNeg| = 12,292
+
+% for courseta |lookupPos| = 73
+% for courseta |lookupNeg| = 12,258
+% getJointExamples: |pos| = 112, |neg| = 24,550
+% Trees = 20
+Need sampling for:courseprof
+Need sampling for:courseta
+%   Sample #0
+%   Sample #100

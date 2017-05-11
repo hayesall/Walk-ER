@@ -10,7 +10,7 @@ Sample Calls:
    $ python mode_comparator.py
 
 Notes:
-   - Arrays in 'DATASETS' are the name of the folder, target, and number of features.
+   - Arrays in 'DATASETS' are the name of the folder, target, number of features, crossvalidation folds.
 '''
 
 from __future__ import print_function
@@ -33,13 +33,13 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 25
-TREES = 10
+EPOCHS = 1
+TREES = 3
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['Cora', 'sameauthor', 9],
-            ['WebKB', 'faculty', 5]]
+DATASETS = [['cora', 'sameauthor', 9, 5],
+            ['webkb', 'faculty', 5, 4]]
 
 ALGOS = [['RDN-Boost', '']]
 
@@ -52,6 +52,7 @@ def main():
         dataset = d[0]
         target = d[1]
         number_of_features = d[2]
+        cross_validation_folds = d[3]
 
         for a in ALGOS:
 
@@ -60,42 +61,40 @@ def main():
             for f in FLAGS:
                 print(datetime.now().time())
                 print(dataset, '| flag:', f)
-
+                
                 training_time_means, training_time_stds = [], []
                 roc_means, roc_stds = [], []
                 pr_means, pr_stds = [], []
-                
-                if f in ['-rw', '-w', '-s']:
-                    # Random Walk, Walk, or Shortest Walk
 
+                if f in ['-rw']:
+                    # Random Walk
+                    
                     for n in range(number_of_features):
                         traintime, roc, pr = [], [], []
-                        
+
                         print(dataset, '| # of features:', n + 1, '| flag:', f)
                         
                         for e in range(EPOCHS):
                             
-                            # Create the modes file for this Train/Test epoch
-                            construct_modes(dataset, f, NUMBER=n)
+                            for cv in range(1, cross_validation_folds + 1):
+                                
+                                # Construct the modes for this Train/Test epoch and validation set.
+                                construct_modes(dataset, f, NUMBER=n)
+                                # BoostSRL Training
+                                train_model(dataset, params, target, cv)
+                                # Find the time (in seconds) from the log file
+                                traintime.append(get_training_time())
+                                # BoostSRL Testing
+                                test_model(dataset, params, target, cv)
+                                # Find the AUC ROC and AUC PR
+                                roc_score, pr_score = get_roc_and_pr_score()
+                                roc.append(roc_score)
+                                pr.append(pr_score)
 
-                            # BoostSRL Training
-                            train_model(dataset, params, target)
-
-                            # Find the time (in seconds) from the log file
-                            traintime.append(get_training_time())
-
-                            # BoostSRL Testing
-                            test_model(dataset, params, target)
-
-                            # Find the AUC ROC and AUC PR
-                            roc_score, pr_score = get_roc_and_pr_score()
-                            roc.append(roc_score)
-                            pr.append(pr_score)
-                        
-                        # Calculate mean and standard deviation for Training Time, AUC ROC, and AUC PR
-                        training_mean, training_std = np.mean(traintime), np.std(traintime)
-                        auc_roc_mean, auc_roc_std = np.mean(roc), np.std(roc)
-                        auc_pr_mean, auc_pr_std = np.mean(pr), np.std(pr)
+                            # Calculate mean and standard deviation for Training Time, AUC ROC, and AUC PR
+                            training_mean, training_std = np.mean(traintime), np.std(traintime)
+                            auc_roc_mean, auc_roc_std = np.mean(roc), np.std(roc)
+                            auc_pr_mean, auc_pr_std = np.mean(pr), np.std(pr)
 
                         # Update the arrays holding the values, these will be used for plotting the information
                         training_time_means.append(training_mean)
@@ -119,33 +118,83 @@ def main():
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
-                    #exit()
+                
+                elif f in ['-w', '-s']:
+                    # Walk or Shortest Walk
+
+                    for n in range(number_of_features):
+                        traintime, roc, pr = [], [], []
+                        
+                        print(dataset, '| # of features:', n + 1, '| flag:', f)
+                        
+                        for e in range(EPOCHS):
+
+                            for cv in range(1, cross_validation_folds + 1):
+                            
+                                # Create the modes file for this Train/Test epoch
+                                construct_modes(dataset, f, NUMBER=n)
+                                # BoostSRL Training
+                                train_model(dataset, params, target, cv)
+                                # Find the time (in seconds) from the log file
+                                traintime.append(get_training_time())
+                                # BoostSRL Testing
+                                test_model(dataset, params, target, cv)
+                                # Find the AUC ROC and AUC PR
+                                roc_score, pr_score = get_roc_and_pr_score()
+                                roc.append(roc_score)
+                                pr.append(pr_score)
+                        
+                            # Calculate mean and standard deviation for Training Time, AUC ROC, and AUC PR
+                            training_mean, training_std = np.mean(traintime), np.std(traintime)
+                            auc_roc_mean, auc_roc_std = np.mean(roc), np.std(roc)
+                            auc_pr_mean, auc_pr_std = np.mean(pr), np.std(pr)
+
+                        # Update the arrays holding the values, these will be used for plotting the information
+                        training_time_means.append(training_mean)
+                        training_time_stds.append(training_std)
+                        roc_means.append(auc_roc_mean)
+                        roc_stds.append(auc_roc_std)
+                        pr_means.append(auc_pr_mean)
+                        pr_stds.append(auc_pr_std)
+                        
+                        '''
+                        print_information(training_mean, training_std,
+                                          auc_roc_mean, auc_roc_std,
+                                          auc_pr_mean, auc_pr_std)
+                        '''
+
+                    name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
+
+                    plot_errorbars(training_time_means, training_time_stds,
+                                   roc_means, roc_stds,
+                                   pr_means, pr_stds, name_to_save)
+                    log_progress(training_time_means, training_time_stds,
+                                 roc_means, roc_stds,
+                                 pr_means, pr_stds, name_to_save)
                     
                 else:
-                    # for now, do not worry about these while I work on the code for them
-                    #continue
-                    
+                    # Tushar and -e
+
                     traintime, roc, pr = [], [], []
-                    
+
+                    print(dataset, '| flag:', f, '| epoch:', e)
+
                     for e in range(EPOCHS):
-                        print(dataset, '| flag:', f, '| epoch:', e)
                         
-                        # Create the modes file for this train/test epoch
-                        construct_modes(dataset, f)
+                        for cv in range(1, cross_validation_folds + 1):
                         
-                        # BoostSRL Training
-                        train_model(dataset, params, target)
-                        
-                        # Find the time (in seconds) from the log file
-                        traintime.append(get_training_time())
-
-                        # BoostSRL Testing
-                        test_model(dataset, params, target)
-
-                        # Find the AUC ROC and AUC PR
-                        roc_score, pr_score = get_roc_and_pr_score()
-                        roc.append(roc_score)
-                        pr.append(pr_score)
+                            # Create the modes file for this train/test epoch
+                            construct_modes(dataset, f)
+                            # BoostSRL Training
+                            train_model(dataset, params, target, cv)
+                            # Find the time (in seconds) from the log file
+                            traintime.append(get_training_time())
+                            # BoostSRL Testing
+                            test_model(dataset, params, target, cv)
+                            # Find the AUC ROC and AUC PR
+                            roc_score, pr_score = get_roc_and_pr_score()
+                            roc.append(roc_score)
+                            pr.append(pr_score)
 
                     name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
 
@@ -154,9 +203,6 @@ def main():
                                    pr, [0] * len(pr), name_to_save)
 
                     log_progress(traintime, '-', roc, '-', pr, '-', name_to_save)
-                    
-                    #exit()
-                        
                         
 def import_data(file_to_read):
     if os.path.isfile(file_to_read):
@@ -192,16 +238,20 @@ def construct_modes(dataset, flag, NUMBER=None):
                    '.mayukh | grep "mode:" >> datasets/' + dataset + '/' + dataset.lower() + '_bk.txt'
     call_process(CALL)
 
-def train_model(dataset, params, target):
+def train_model(dataset, params, target, cross_validation_fold):
     # BoostSRL Training
-    CALL = 'java -jar' + RDNJARPATH + '-l -train datasets/' + dataset + '/train/ ' + params + '-target ' + \
-           target + ' -trees ' + str(TREES) + ' > trainlog.txt'
+    CALL = 'java -jar' + RDNJARPATH + '-l -train datasets/' + dataset + '/train' + \
+           str(cross_validation_fold) + '/ ' + params + '-target ' + target + ' -trees ' + \
+           str(TREES) + ' > trainlog.txt'
     call_process(CALL)
 
-def test_model(dataset, params, target):
+def test_model(dataset, params, target, cross_validation_fold):
     # BoostSRL Testing
-    CALL = 'java -jar' + RDNJARPATH + '-i -model datasets/' + dataset + '/train/models/ -test datasets/' + \
-           dataset + '/test/ -target ' + target + AUCJARPATH + ' -trees ' + str(TREES) + ' > testlog.txt'
+    CALL = 'java -jar' + RDNJARPATH + '-i -model datasets/' + dataset + '/train' + \
+           str(cross_validation_fold) + '/models/ -test datasets/' + dataset + '/test' + \
+           str(cross_validation_fold) + '/ -target ' + \
+           target + AUCJARPATH + ' -trees ' + str(TREES) + ' > testlog.txt'
+           
     call_process(CALL)
 
 def get_training_time():
