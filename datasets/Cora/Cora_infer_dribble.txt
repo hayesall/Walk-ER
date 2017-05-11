@@ -1,0 +1,10 @@
+% Running on host: hawk
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% Calling ILPouterLoop from createRegressionOuterLooper.
+
+% getInputArgWithDefaultValue: args=[datasets/Cora/Cora_pos.txt, datasets/Cora/Cora_neg.txt, datasets/Cora/Cora_bk.txt, datasets/Cora/Cora_facts.txt]
+%  for N=0: args[N]=datasets/Cora/Cora_pos.txt

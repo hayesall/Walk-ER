@@ -1,0 +1,8 @@
+mode: courseprof(+courseid,+personid).
+mode: courseprof(-courseid,+personid).
+mode: courseta(+courseid,+personid).
+mode: courseta(-courseid,+personid).
+mode: faculty(+personid).
+mode: project(-projid,+personid).
+mode: sameperson(+personid,+personid).
+mode: student(+personid).

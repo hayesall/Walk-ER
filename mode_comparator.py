@@ -32,7 +32,7 @@ else:
     import subprocess
 
 EPOCHS = 2
-TREES = 5
+TREES = 3
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
@@ -116,14 +116,44 @@ def main():
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
-                    exit()
+                    #exit()
                     
                 else:
                     # for now, do not worry about these while I work on the code for them
-                    continue
+                    #continue
+                    
+                    traintime, roc, pr = [], [], []
                     
                     for e in range(EPOCHS):
                         print(dataset, '| flag:', f, '| epoch:', e)
+                        
+                        # Create the modes file for this train/test epoch
+                        construct_modes(dataset, f)
+                        
+                        # BoostSRL Training
+                        train_model(dataset, params, target)
+                        
+                        # Find the time (in seconds) from the log file
+                        traintime.append(get_training_time())
+
+                        # BoostSRL Testing
+                        test_model(dataset, params, target)
+
+                        # Find the AUC ROC and AUC PR
+                        roc_score, pr_score = get_roc_and_pr_score()
+                        roc.append(roc_score)
+                        pr.append(pr_score)
+
+                    name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
+
+                    plot_errorbars(traintime, [0] * len(traintime),
+                                   roc, [0] * len(roc),
+                                   pr, [0] * len(pr), name_to_save)
+
+                    log_progress(traintime, '-', roc, '-', pr, '-', name_to_save)
+                    
+                    #exit()
+                        
                         
 def import_data(file_to_read):
     if os.path.isfile(file_to_read):
@@ -148,9 +178,16 @@ def construct_modes(dataset, flag, NUMBER=None):
 
     # Create the modes file
     if NUMBER is not None:
-        CALL = 'python walker2.py --number ' + str(NUMBER) + ' ' + flag + ' ' + dataset + \
+        CALL = 'python walker2.py --number ' + str(NUMBER) + ' ' + flag + ' diagrams/' + dataset + \
                '.mayukh | grep "mode:" >> datasets/' + dataset + '/' + dataset.lower() + '_bk.txt'
-        call_process(CALL)
+    else:
+        if flag == 'tushar':
+            CALL = 'cp datasets/' + dataset + '/tushar_' + dataset.lower() + '_bk.txt ' + 'datasets/' + \
+                   dataset + '/' + dataset.lower() + '_bk.txt'
+        else:
+            CALL = 'python walker2.py ' + flag + ' diagrams/' + dataset + \
+                   '.mayukh | grep "mode:" >> datasets/' + dataset + '/' + dataset.lower() + '_bk.txt'
+    call_process(CALL)
 
 def train_model(dataset, params, target):
     # BoostSRL Training
@@ -198,7 +235,7 @@ def log_progress(training_time_means, training_time_stds, roc_means, roc_stds, p
                 str(pr_means) + '\n' + str(pr_stds) + '\n')
 
 def plot_errorbars(training_time_means, training_time_stds, roc_means, roc_stds, pr_means, pr_stds, name_to_save):
-    print('Saving image for', name_to_save)
+    print('Saving image for', name_to_save, 'to "graphs" directory.')
     
     x_axis = range(len(training_time_means)+1)[1:]
     fig, (ax0, ax1, ax2) = plt.subplots(ncols=3, figsize=(15,5))
@@ -230,7 +267,7 @@ def plot_errorbars(training_time_means, training_time_stds, roc_means, roc_stds,
     ax2.set_xlim([0, len(pr_means)+1])
     ax2.set_ylim([0.4,1])
     
-    plt.savefig(name_to_save, dpi=600)
+    plt.savefig('graphs/' + name_to_save, dpi=600)
 
 '''
 DATASETS = [['Father', 'father'],

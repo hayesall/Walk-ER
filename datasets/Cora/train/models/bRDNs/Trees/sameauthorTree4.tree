@@ -1,0 +1,13 @@
+setParam: stringsAreCaseSensitive = true.
+
+usePrologVariables: true.
+
+
+(sameauthor(A, B, 0.3898548812090788) :-  /* #pos=10 */ haswordauthor(A, UniqueVar63), haswordauthor(B, UniqueVar63), haswordtitle(UniqueVar64, UniqueVar63), author(UniqueVar65, B), title(UniqueVar65, UniqueVar64), !).
+(sameauthor(A, B, 0.274995549329405) :-  /* #neg=26 #pos=188 */ haswordauthor(A, UniqueVar66), haswordauthor(B, UniqueVar66), haswordtitle(_, UniqueVar66), haswordauthor(A, UniqueVar67), haswordvenue(_, UniqueVar67), !).
+(sameauthor(A, B, 0.25630922126033784) :-  /* #neg=14 #pos=66 */ haswordauthor(A, UniqueVar68), haswordauthor(B, UniqueVar68), haswordtitle(_, UniqueVar68), !).
+(sameauthor(A, B, 0.33686914002688295) :-  /* #pos=10 */ haswordauthor(A, UniqueVar69), haswordauthor(B, UniqueVar69), haswordauthor(A, UniqueVar70), haswordvenue(UniqueVar71, UniqueVar70), author(UniqueVar72, A), venue(UniqueVar72, UniqueVar71), !).
+(sameauthor(A, B, 0.30178128405694793) :-  /* #neg=2 #pos=47 */ haswordauthor(A, UniqueVar73), haswordauthor(B, UniqueVar73), haswordauthor(A, UniqueVar74), haswordvenue(_, UniqueVar74), !).
+(sameauthor(A, B, 0.3041152323386093) :-  /* #neg=2 #pos=44 */ haswordauthor(A, UniqueVar75), haswordauthor(B, UniqueVar75), haswordauthor(B, UniqueVar76), haswordvenue(_, UniqueVar76), !).
+(sameauthor(A, B, 0.3207118471601499) :-  /* #pos=123 */ haswordauthor(A, UniqueVar77), haswordauthor(B, UniqueVar77), !).
+(sameauthor(_, _, -0.09269127618926093) :-  /* #neg=22 */ !).

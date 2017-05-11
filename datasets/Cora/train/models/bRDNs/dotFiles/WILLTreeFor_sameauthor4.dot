@@ -1,0 +1,31 @@
+digraph G{ 
+1[label = "[haswordauthor(A, C), haswordauthor(B, C)]"];
+1 -> 2[label="True"];
+1 -> 3[label="False"];
+2[label = "[haswordtitle(D, C)]"];
+2 -> 4[label="True"];
+2 -> 5[label="False"];
+4[label = "[author(E, B), title(E, D)]"];
+4 -> 6[label="True"];
+4 -> 7[label="False"];
+6[shape = box,label = "0.390(0.596)"];
+7[label = "[haswordauthor(A, F), haswordvenue(G, F)]"];
+7 -> 8[label="True"];
+7 -> 9[label="False"];
+8[shape = box,label = "0.275(0.568)"];
+9[shape = box,label = "0.256(0.564)"];
+5[label = "[haswordauthor(A, H), haswordvenue(I, H)]"];
+5 -> 10[label="True"];
+5 -> 11[label="False"];
+10[label = "[author(J, A), venue(J, I)]"];
+10 -> 12[label="True"];
+10 -> 13[label="False"];
+12[shape = box,label = "0.337(0.583)"];
+13[shape = box,label = "0.302(0.575)"];
+11[label = "[haswordauthor(B, K), haswordvenue(M, K)]"];
+11 -> 14[label="True"];
+11 -> 15[label="False"];
+14[shape = box,label = "0.304(0.575)"];
+15[shape = box,label = "0.321(0.579)"];
+3[shape = box,label = "-0.093(0.477)"];
+}

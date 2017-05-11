@@ -1,0 +1,22 @@
+useLeadingQuestionMarkVariables: true.
+
+// (Arithmetic) Mean Probability Assigned to Correct Output Class: 434.532/554.00 = 0.784354
+testsetLikelihood(sum(434.532), countOfExamples(554.00), mean(0.784354)).
+
+// The weighted count of positive examples = 488.000 and the weighted count of negative examples = 66.000
+weightedSumPos(488.000).
+weightedSumNeg(66.000).
+
+//  AUC ROC   = 0.805576
+//  AUC PR    = 0.967352
+//  CLL       = -0.295817
+aucROC(sameauthor, 0.805576).
+aucPR( sameauthor, 0.967352).
+
+//   Precision = 0.917293 at threshold = 0.500
+//   Recall    = 1.000000
+//   F1        = 0.956863
+precision(sameauthor, 0.917293, usingThreshold(0.5)).
+recall(   sameauthor, 1.000000, usingThreshold(0.5)).
+F1(       sameauthor, 0.956863, usingThreshold(0.5)).
+

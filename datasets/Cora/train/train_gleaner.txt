@@ -1,0 +1,348 @@
+////// Learned from a dataset containing 507 positive (507.0 weighted sum) and 0 negative (0.0 wgt'ed) examples.
+////// The minimal (wgt'ed) coverage = 3.000, the maximal (wgt'ed) NEG coverage = 0.499, and the minimal (wgt'ed) precision = 0.001 (using m = 0.1)
+
+usePrologVariables: true.
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: allPossibleMarkers
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #0, (-Infinity, 0.05], from 'outerLoop #5, null' and covering 11.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.049, precision = 0.991, and F1 = 0.094 - learned after 59 total and 30 acceptable nodes.  Node score = -22.617993482536317
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893), author(Anon28135, E), venue(Anon28135, Anon25719)) THEN output = 0.602612 ELSE output = 0.485354;
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #7, null' and covering 5.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.085, precision = 0.980, and F1 = 0.156 - learned after 23 total and 10 acceptable nodes.  Node score = -1.9124557365337866
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), author(Anon32769, D), venue(Anon32769, Anon32535)) THEN output = 0.568149 ELSE output = 0.533538;
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #8, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.136, precision = 0.996, and F1 = 0.239 - learned after 30 total and 2 acceptable nodes.  Node score = -1.9305186409846504
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon34811), haswordtitle(Anon35333, Anon34811)) THEN output = 0.557875 ELSE output = 0.547332;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #7, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.169, precision = 0.990, and F1 = 0.289 - learned after 33 total and 12 acceptable nodes.  Node score = -1.9099530253980914
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), author(Anon32769, E), venue(Anon32769, Anon32535)) THEN output = 0.562223 ELSE output = 0.531216;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #6, null' and covering 13.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.220, precision = 0.992, and F1 = 0.360 - learned after 44 total and 14 acceptable nodes.  Node score = -1.913049348260887
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordvenue(Anon19815, Anon19291), haswordauthor(D, Anon20051), haswordvenue(Anon21055, Anon20051)) THEN output = 0.719473 ELSE output = 0.684686;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #7, null' and covering 46.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.272, precision = 0.998, and F1 = 0.428 - learned after 24 total and 1 acceptable nodes.  Node score = -1.9130474282607075
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(D, Anon22135), haswordvenue(Anon22487, Anon22135)) THEN output = 0.684686 ELSE output = 0.719473;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #6, null' and covering 74.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.324, precision = 0.999, and F1 = 0.490 - learned after 30 total and 2 acceptable nodes.  Node score = -3.8535286485405145
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordtitle(Anon32533, Anon32011)) THEN output = 0.539741 ELSE output = 0.548394;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #8, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.373, precision = 0.998, and F1 = 0.543 - learned after 23 total and 0 acceptable nodes.  Node score = -1.9182166942851389
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(D, Anon34811), haswordtitle(Anon35161, Anon34811)) THEN output = 0.536748 ELSE output = 0.555911;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #2, null' and covering 283.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.532, precision = 1.000, and F1 = 0.694 - learned after 55 total and 27 acceptable nodes.  Node score = -38.611761687490436
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon23675), haswordvenue(Anon24643, Anon23675)) THEN output = 0.500391 ELSE output = 0.518449;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #2, null' and covering 304.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.571, precision = 1.000, and F1 = 0.727 - learned after 6 total and 0 acceptable nodes.  Node score = -38.11629208972838
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105)) THEN output = 0.481286 ELSE output = 0.545585;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #3, null' and covering 189.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.622, precision = 0.999, and F1 = 0.766 - learned after 7 total and 0 acceptable nodes.  Node score = -34.258277380168984
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordvenue(Anon24897, Anon23105)) THEN output = 0.482510 ELSE output = 0.479273;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #4, null' and covering 214.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.728, precision = 1.000, and F1 = 0.842 - learned after 55 total and 14 acceptable nodes.  Node score = -34.14400832266407
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordtitle(Anon14423, Anon13851), haswordauthor(E, Anon17471), haswordvenue(Anon18579, Anon17471)) THEN output = 0.621345 ELSE output = 0.576203;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #5, null' and covering 189.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.843, precision = 0.999, and F1 = 0.915 - learned after 5 total and 0 acceptable nodes.  Node score = -22.672298949760286
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893), haswordauthor(E, Anon24893)) THEN output = 0.482510 ELSE output = 0.537565;
+      /* FALSE NEG: sameauthor(author_d_p_helmbold_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_helmbold_d_p_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_robert_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #7, null' and covering 51.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.863, precision = 0.998, and F1 = 0.926 - learned after 6 total and 0 acceptable nodes.  Node score = -1.9088752999467928
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), haswordtitle(Anon32773, Anon32011)) THEN output = 0.531563 ELSE output = 0.567762;
+      /* FALSE NEG: sameauthor(author_kearns_m_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+      /* FALSE NEG: sameauthor(author_micahel_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.4255740336018926 Output=0.5744259663981074 */
+      /* FALSE NEG: sameauthor(author_michael_j_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+      /* FALSE NEG: sameauthor(author_kearns_michael_, author_michael_j_kearns_) Actual Bool=true Prob=0.4255740336018926 Output=0.5744259663981074 */
+      /* FALSE NEG: sameauthor(author_kearns_m_j_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1, null' and covering 532.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.960, precision = 1.000, and F1 = 0.980 - learned after 21 total and 0 acceptable nodes.  Node score = -38.65495021784134
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105)) THEN output = 0.508843 ELSE output = -0.112316;
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_haussler_d_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_d_helmbold_, author_david_haussler_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_david_haussler_, author_d_helmbold_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_d_haussler_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_d_haussler_, author_david_p_helmbold_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #1, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #1, null' and covering 292.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.527, precision = 1.000, and F1 = 0.690 - learned after 31 total and 5 acceptable nodes.  Node score = -46.80191584289077
+
+ FOR sameauthor(D, E) IF (haswordauthor(E, Anon23105), haswordvenue(Anon23515, Anon23105)) THEN output = 0.481506 ELSE output = 0.487151;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #1, null' and covering 394.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.711, precision = 1.000, and F1 = 0.831 - learned after 30 total and 4 acceptable nodes.  Node score = -46.4563427415668
+
+ FOR sameauthor(D, E) IF (haswordauthor(E, Anon23105), haswordtitle(Anon23513, Anon23105)) THEN output = 0.468159 ELSE output = 0.523617;
+
+// Best in (weighted) recall bin #19, (0.95, 1.01], from 'outerLoop #1, null' and covering 532.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.960, precision = 1.000, and F1 = 0.980 - learned after 21 total and 0 acceptable nodes.  Node score = -38.65495021784134
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105)) THEN output = 0.508843 ELSE output = -0.112316;
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_haussler_d_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_d_helmbold_, author_david_haussler_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_david_haussler_, author_d_helmbold_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_d_haussler_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+      /* FALSE NEG: sameauthor(author_d_haussler_, author_david_p_helmbold_) Actual Bool=false Prob=0.11231637819360639 Output=-0.11231637819360639 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #2, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #2, null' and covering 189.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.355, precision = 0.999, and F1 = 0.524 - learned after 13 total and 7 acceptable nodes.  Node score = -38.45168797838307
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordvenue(Anon23799, Anon23105)) THEN output = 0.482510 ELSE output = 0.523353;
+
+// Best in (weighted) recall bin #10, (0.5, 0.55], from 'outerLoop #2, null' and covering 283.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.532, precision = 1.000, and F1 = 0.694 - learned after 55 total and 27 acceptable nodes.  Node score = -38.611761687490436
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon23675), haswordvenue(Anon24643, Anon23675)) THEN output = 0.500391 ELSE output = 0.518449;
+
+// Best in (weighted) recall bin #11, (0.55, 0.6], from 'outerLoop #2, null' and covering 304.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.571, precision = 1.000, and F1 = 0.727 - learned after 6 total and 0 acceptable nodes.  Node score = -38.11629208972838
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105)) THEN output = 0.481286 ELSE output = 0.545585;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #2, null' and covering 378.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.710, precision = 1.000, and F1 = 0.831 - learned after 53 total and 25 acceptable nodes.  Node score = -38.31591023404314
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon23675), haswordtitle(Anon24641, Anon23675)) THEN output = 0.492729 ELSE output = 0.548394;
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #3, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #0, (-Infinity, 0.05], from 'outerLoop #3, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.033, precision = 0.990, and F1 = 0.064 - learned after 23 total and 10 acceptable nodes.  Node score = -34.26267180397351
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordtitle(Anon14423, Anon13851), author(Anon15637, D), title(Anon15637, Anon14423)) THEN output = 0.745198 ELSE output = 0.609062;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #3, null' and covering 189.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.622, precision = 0.999, and F1 = 0.766 - learned after 7 total and 0 acceptable nodes.  Node score = -34.258277380168984
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordvenue(Anon24897, Anon23105)) THEN output = 0.482510 ELSE output = 0.479273;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #3, null' and covering 224.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.737, precision = 1.000, and F1 = 0.848 - learned after 44 total and 12 acceptable nodes.  Node score = -34.17683013646312
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893)) THEN output = 0.491113 ELSE output = 0.453771;
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #4, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #4, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.287, precision = 0.996, and F1 = 0.446 - learned after 40 total and 0 acceptable nodes.  Node score = -11.299776227048039
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(E, Anon26727), haswordvenue(Anon27475, Anon26727)) THEN output = 0.513523 ELSE output = 0.429660;
+
+// Best in (weighted) recall bin #12, (0.6, 0.65], from 'outerLoop #4, null' and covering 179.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.609, precision = 0.999, and F1 = 0.757 - learned after 7 total and 0 acceptable nodes.  Node score = -34.26073252270204
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordtitle(Anon14423, Anon13851), haswordvenue(Anon17475, Anon13851)) THEN output = 0.611120 ELSE output = 0.605858;
+
+// Best in (weighted) recall bin #14, (0.7, 0.75], from 'outerLoop #4, null' and covering 214.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.728, precision = 1.000, and F1 = 0.842 - learned after 55 total and 14 acceptable nodes.  Node score = -34.14400832266407
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordtitle(Anon14423, Anon13851), haswordauthor(E, Anon17471), haswordvenue(Anon18579, Anon17471)) THEN output = 0.621345 ELSE output = 0.576203;
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #5, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #0, (-Infinity, 0.05], from 'outerLoop #5, null' and covering 11.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.049, precision = 0.991, and F1 = 0.094 - learned after 59 total and 30 acceptable nodes.  Node score = -22.617993482536317
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893), author(Anon28135, E), venue(Anon28135, Anon25719)) THEN output = 0.602612 ELSE output = 0.485354;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #5, null' and covering 59.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.259, precision = 0.998, and F1 = 0.411 - learned after 31 total and 3 acceptable nodes.  Node score = -3.8788716775214134
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordvenue(Anon19815, Anon19291)) THEN output = 0.692351 ELSE output = 0.710005;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #5, null' and covering 74.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.324, precision = 0.999, and F1 = 0.490 - learned after 30 total and 2 acceptable nodes.  Node score = -3.886193433228975
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordtitle(Anon19813, Anon19291)) THEN output = 0.697849 ELSE output = 0.709082;
+
+// Best in (weighted) recall bin #16, (0.8, 0.85], from 'outerLoop #5, null' and covering 189.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.843, precision = 0.999, and F1 = 0.915 - learned after 5 total and 0 acceptable nodes.  Node score = -22.672298949760286
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893), haswordauthor(E, Anon24893)) THEN output = 0.482510 ELSE output = 0.537565;
+      /* FALSE NEG: sameauthor(author_d_p_helmbold_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_helmbold_d_p_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_david_p_helmbold_, author_d_helmbold_) Actual Bool=true Prob=0.37825515269422993 Output=0.6217448473057701 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_robert_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #5, null' and covering 198.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.884, precision = 0.999, and F1 = 0.938 - learned after 117 total and 40 acceptable nodes.  Node score = -22.50059852742889
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordtitle(Anon23677, Anon23105), haswordauthor(D, Anon24893), haswordvenue(Anon25719, Anon24893), haswordtitle(Anon28139, Anon24893), sametitle(Anon23677, Anon28139)) THEN output = 0.478738 ELSE output = 0.585349;
+      /* FALSE NEG: sameauthor(author_robert_e_schapire_, author_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+      /* FALSE NEG: sameauthor(author_robert_e_schapire_, author_r_schapire_) Actual Bool=true Prob=0.42055250576413883 Output=0.5794474942358612 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+      /* FALSE NEG: sameauthor(author_r_e_schapire_, author_robert_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+      /* FALSE NEG: sameauthor(author_robert_e_schapire_, author_robert_schapire_) Actual Bool=true Prob=0.4095931105028022 Output=0.5904068894971978 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #6, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #6, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.169, precision = 0.990, and F1 = 0.289 - learned after 32 total and 11 acceptable nodes.  Node score = -1.9113342599410448
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordvenue(Anon19815, Anon19291), author(Anon20049, E), venue(Anon20049, Anon19815)) THEN output = 0.726426 ELSE output = 0.685397;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #6, null' and covering 13.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.220, precision = 0.992, and F1 = 0.360 - learned after 44 total and 14 acceptable nodes.  Node score = -1.913049348260887
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordvenue(Anon19815, Anon19291), haswordauthor(D, Anon20051), haswordvenue(Anon21055, Anon20051)) THEN output = 0.719473 ELSE output = 0.684686;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #6, null' and covering 59.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.259, precision = 0.998, and F1 = 0.411 - learned after 31 total and 3 acceptable nodes.  Node score = -3.8506590344548393
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011)) THEN output = 0.536472 ELSE output = 0.548767;
+
+// Best in (weighted) recall bin #6, (0.3, 0.35], from 'outerLoop #6, null' and covering 74.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.324, precision = 0.999, and F1 = 0.490 - learned after 30 total and 2 acceptable nodes.  Node score = -3.8535286485405145
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordtitle(Anon32533, Anon32011)) THEN output = 0.539741 ELSE output = 0.548394;
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #6, null' and covering 51.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.863, precision = 0.998, and F1 = 0.926 - learned after 6 total and 0 acceptable nodes.  Node score = -1.9167716274854754
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon19291), haswordvenue(Anon19815, Anon19291), haswordtitle(Anon20053, Anon19291)) THEN output = 0.687585 ELSE output = 0.722733;
+      /* FALSE NEG: sameauthor(author_kearns_m_, author_michael_j_kearns_) Actual Bool=true Prob=0.2805265877890456 Output=0.7194734122109544 */
+      /* FALSE NEG: sameauthor(author_micahel_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.27183560975990667 Output=0.7281643902400934 */
+      /* FALSE NEG: sameauthor(author_michael_j_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.2805265877890456 Output=0.7194734122109544 */
+      /* FALSE NEG: sameauthor(author_kearns_michael_, author_michael_j_kearns_) Actual Bool=true Prob=0.27183560975990667 Output=0.7281643902400934 */
+      /* FALSE NEG: sameauthor(author_kearns_m_j_, author_michael_j_kearns_) Actual Bool=true Prob=0.2805265877890456 Output=0.7194734122109544 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #7, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #1, (0.05, 0.1], from 'outerLoop #7, null' and covering 5.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.085, precision = 0.980, and F1 = 0.156 - learned after 23 total and 10 acceptable nodes.  Node score = -1.9124557365337866
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), author(Anon32769, D), venue(Anon32769, Anon32535)) THEN output = 0.568149 ELSE output = 0.533538;
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #7, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.136, precision = 0.996, and F1 = 0.239 - learned after 30 total and 2 acceptable nodes.  Node score = -1.9505698500445359
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(E, Anon22135), haswordtitle(Anon22657, Anon22135)) THEN output = 0.720607 ELSE output = 0.708334;
+
+// Best in (weighted) recall bin #3, (0.15, 0.2], from 'outerLoop #7, null' and covering 10.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.169, precision = 0.990, and F1 = 0.289 - learned after 33 total and 12 acceptable nodes.  Node score = -1.9099530253980914
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), author(Anon32769, E), venue(Anon32769, Anon32535)) THEN output = 0.562223 ELSE output = 0.531216;
+
+// Best in (weighted) recall bin #4, (0.2, 0.25], from 'outerLoop #7, null' and covering 13.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.220, precision = 0.992, and F1 = 0.360 - learned after 54 total and 16 acceptable nodes.  Node score = -1.9130493482609172
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon1111), haswordauthor(E, Anon1111), haswordauthor(D, Anon10001), haswordvenue(Anon10353, Anon10001), haswordauthor(E, Anon10731), haswordvenue(Anon12015, Anon10731)) THEN output = 0.858149 ELSE output = 0.814671;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #7, null' and covering 46.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.272, precision = 0.998, and F1 = 0.428 - learned after 24 total and 1 acceptable nodes.  Node score = -1.9130474282607075
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(D, Anon22135), haswordvenue(Anon22487, Anon22135)) THEN output = 0.684686 ELSE output = 0.719473;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #7, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.373, precision = 0.998, and F1 = 0.543 - learned after 23 total and 0 acceptable nodes.  Node score = -1.9267269967904816
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon13851), haswordauthor(E, Anon13851), haswordauthor(D, Anon22135), haswordtitle(Anon22485, Anon22135)) THEN output = 0.693659 ELSE output = 0.719719;
+
+// Best in (weighted) recall bin #17, (0.85, 0.9], from 'outerLoop #7, null' and covering 51.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.863, precision = 0.998, and F1 = 0.926 - learned after 6 total and 0 acceptable nodes.  Node score = -1.9088752999467928
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon32011), haswordvenue(Anon32535, Anon32011), haswordtitle(Anon32773, Anon32011)) THEN output = 0.531563 ELSE output = 0.567762;
+      /* FALSE NEG: sameauthor(author_kearns_m_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+      /* FALSE NEG: sameauthor(author_micahel_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.4255740336018926 Output=0.5744259663981074 */
+      /* FALSE NEG: sameauthor(author_michael_j_kearns_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+      /* FALSE NEG: sameauthor(author_kearns_michael_, author_michael_j_kearns_) Actual Bool=true Prob=0.4255740336018926 Output=0.5744259663981074 */
+      /* FALSE NEG: sameauthor(author_kearns_m_j_, author_michael_j_kearns_) Actual Bool=true Prob=0.4362355833445961 Output=0.5637644166554039 */
+
+
+////////////////////////////////////////////////////////////////////////////////
+////
+////     Gleaner for: outerLoop #8, null
+////
+////////////////////////////////////////////////////////////////////////////////
+
+// Best in (weighted) recall bin #2, (0.1, 0.15], from 'outerLoop #8, null' and covering 23.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.136, precision = 0.996, and F1 = 0.239 - learned after 30 total and 2 acceptable nodes.  Node score = -1.9305186409846504
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(E, Anon34811), haswordtitle(Anon35333, Anon34811)) THEN output = 0.557875 ELSE output = 0.547332;
+
+// Best in (weighted) recall bin #5, (0.25, 0.3], from 'outerLoop #8, null' and covering 46.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.272, precision = 0.998, and F1 = 0.428 - learned after 24 total and 1 acceptable nodes.  Node score = -1.913047428261093
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(D, Anon34811), haswordvenue(Anon35163, Anon34811)) THEN output = 0.531121 ELSE output = 0.555366;
+
+// Best in (weighted) recall bin #7, (0.35, 0.4], from 'outerLoop #8, null' and covering 63.0 wgt'ed positive and 0.0 wgt'ed negative examples:
+//    Wgt'ed recall = 0.373, precision = 0.998, and F1 = 0.543 - learned after 23 total and 0 acceptable nodes.  Node score = -1.9182166942851389
+
+ FOR sameauthor(D, E) IF (haswordauthor(D, Anon23105), haswordauthor(E, Anon23105), haswordauthor(D, Anon34811), haswordtitle(Anon35161, Anon34811)) THEN output = 0.536748 ELSE output = 0.555911;
+

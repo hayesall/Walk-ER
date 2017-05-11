@@ -1,0 +1,306 @@
+% Running on host: hawk
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+
+% Calling ILPouterLoop from createRegressionOuterLooper.
+
+% getInputArgWithDefaultValue: args=[datasets/WebKB/test/test_pos.txt, datasets/WebKB/test/test_neg.txt, datasets/WebKB/test/test_bk.txt, datasets/WebKB/test/test_facts.txt]
+%  for N=0: args[N]=datasets/WebKB/test/test_pos.txt
+
+% getInputArgWithDefaultValue: args=[datasets/WebKB/test/test_pos.txt, datasets/WebKB/test/test_neg.txt, datasets/WebKB/test/test_bk.txt, datasets/WebKB/test/test_facts.txt]
+%  for N=1: args[N]=datasets/WebKB/test/test_neg.txt
+
+% getInputArgWithDefaultValue: args=[datasets/WebKB/test/test_pos.txt, datasets/WebKB/test/test_neg.txt, datasets/WebKB/test/test_bk.txt, datasets/WebKB/test/test_facts.txt]
+%  for N=2: args[N]=datasets/WebKB/test/test_bk.txt
+
+% getInputArgWithDefaultValue: args=[datasets/WebKB/test/test_pos.txt, datasets/WebKB/test/test_neg.txt, datasets/WebKB/test/test_bk.txt, datasets/WebKB/test/test_facts.txt]
+%  for N=3: args[N]=datasets/WebKB/test/test_facts.txt
+
+% Welcome to the WILL ILP/SRL systems.
+
+
+% Switching to VarIndicator = uppercase.
+
+% Unset'ing VarIndicator.
+% Reading background theory from dir: null
+% Load '../webkb_bk.txt'.
+
+% Switching to VarIndicator = uppercase.
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+
+***** Warning: % Since this is the first setting of the notation for variables, will keep:
+%   variableIndicator = uppercase *****
+
+% [ LazyGroundClauseIndex ]  Building full index for mode/1 with 1 assertions.
+% LoadAllModes() called.  Currently loaded modes: []
+% [ LazyGroundClauseIndex ]  Building full index for sameAs/2 with 2 assertions.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 1:  Building full index for exp/3.
+% [ LazyGroundNthArgumentClauseIndex ]  Argument 0:  Building full index for log/3.
+
+%  Read the facts.
+%  Have read 1,912 facts.
+% Have read 153 examples from 'datasets/WebKB/test' [datasets/WebKB/test/test*].
+% Have read 593 examples from 'datasets/WebKB/test' [datasets/WebKB/test/test*].
+
+%  LearnOneClause initialized.
+
+% The outer looper has been created.
+
+% Initializing the ILP inner looper.
+
+% NEW target:                 faculty(D)
+%  targetPred:                faculty/1
+%  targetArgTypes:            signature = [const], types = [+Person]
+%  targets:                   [faculty(D)]
+%  targetPredicates:          [faculty/1]
+%  targetArgSpecs:            [[D[+Person]]]
+%  variablesInTargets:        [[D]]
+
+% Started collecting constants
+
+% Collecting the types of constants.
+%  Because type='Person' is inconsistent with project/2[Proj, Person], cannot infer constants from argument #1 in mode = [+Person, -Proj]
+%  Because type='Proj' is inconsistent with project/2[Proj, Person], cannot infer constants from argument #2 in mode = [+Person, -Proj]
+%  Because type='Person' is inconsistent with project/2[Proj, Person], cannot infer constants from argument #1 in mode = [+Person, +Proj]
+%  Because type='Proj' is inconsistent with project/2[Proj, Person], cannot infer constants from argument #2 in mode = [+Person, +Proj]
+
+% Looking at the training examples to see if any types of new constants can be inferred.
+
+% The type of the following constants are not known: 
+%  phttpcstrcscornelledu  [from: project(phttpcstrcscornelledu, ahttpdricornelledupubeopledavishtml)]
+%  Inferring that 'phttpcstrcscornelledu' is of type 'willAnything'.
+%  phttpdricornelledu  [from: project(phttpdricornelledu, ahttpdricornelledupubeopledavishtml)]
+%  Inferring that 'phttpdricornelledu' is of type 'willAnything'.
+%  phttpmetacrawlercswashingtonedu8080  [from: project(phttpmetacrawlercswashingtonedu8080, ahttpwwwcswashingtoneduhomesetzioni)]
+%  Inferring that 'phttpmetacrawlercswashingtonedu8080' is of type 'willAnything'.
+%  phttprobios8mewiscedu  [from: project(phttprobios8mewiscedu, ahttprobios8mewiscedulumelskylumelskyhtml)]
+%  Inferring that 'phttprobios8mewiscedu' is of type 'willAnything'.
+%  phttpsimoncscornelledunforojects  [from: project(phttpsimoncscornelledunforojects, ahttpsimoncscornelledunfoeoplevogels)]
+%  Inferring that 'phttpsimoncscornelledunforojects' is of type 'willAnything'.
+%  phttpwwwcscornelledunfoeoplenikoscprojectspremaindexhtml  [from: project(phttpwwwcscornelledunfoeoplenikoscprojectspremaindexhtml, ahttpwwwcscornelledunfoeoplenikoscnikoschtml)]
+%  Inferring that 'phttpwwwcscornelledunfoeoplenikoscprojectspremaindexhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunfoeoplepraveenprojectsseqhtml  [from: project(phttpwwwcscornelledunfoeoplepraveenprojectsseqhtml, ahttpwwwcscornelledunfoeoplepraveenpraveenhtml)]
+%  Inferring that 'phttpwwwcscornelledunfoeoplepraveenprojectsseqhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunfoeopletahhytechhtml  [from: project(phttpwwwcscornelledunfoeopletahhytechhtml, ahttpwwwcscornelledunfoeopletahtahhtml)]
+%  Inferring that 'phttpwwwcscornelledunfoeopletahhytechhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunfoeoplevavasisqmghomehtml  [from: project(phttpwwwcscornelledunfoeoplevavasisqmghomehtml, ahttpwwwcscornelledunfoeoplevavasisvavasishtml)]
+%  Inferring that 'phttpwwwcscornelledunfoeoplevavasisqmghomehtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunfoeopleyanhongcachethtml  [from: project(phttpwwwcscornelledunfoeopleyanhongcachethtml, ahttpwwwcscornelledunfoeoplettimeitelbaumhtml)]
+%  Inferring that 'phttpwwwcscornelledunfoeopleyanhongcachethtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojects2  [from: project(phttpwwwcscornelledunforojects2, ahttpwwwcscornelledunfoeoplegrzesgrzeshtml)]
+%  Inferring that 'phttpwwwcscornelledunforojects2' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojects  [from: project(phttpwwwcscornelledunforojects, ahttpwwwcscornelledunfoeoplechichaochichaohtml)]
+%  Inferring that 'phttpwwwcscornelledunforojects' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsarpahtml  [from: project(phttpwwwcscornelledunforojectsarpahtml, ahttpwwwcscornelledunfoeoplervrrvrhtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsarpahtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectscsrvlcsrvlhtml  [from: project(phttpwwwcscornelledunforojectscsrvlcsrvlhtml, ahttpwwwcscornelleducgibinssisnfoeoplekmaikmaihtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectscsrvlcsrvlhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsediaet  [from: project(phttpwwwcscornelledunforojectsediaet, ahttpwwwcscornelledunfoacultyrianmithhtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsediaet' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectset  [from: project(phttpwwwcscornelledunforojectset, ahttpsimoncscornelledunfoeoplevogels)]
+%  Inferring that 'phttpwwwcscornelledunforojectset' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsicaphtml  [from: project(phttpwwwcscornelledunforojectsicaphtml, ahttpwwwcscornelledunfoeopledeanhomehtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsicaphtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsimabindexhtml  [from: project(phttpwwwcscornelledunforojectsimabindexhtml, ahttpwwwcscornelledunfoacultyrcrchtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsimabindexhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsplit  [from: project(phttpwwwcscornelledunforojectsplit, ahttpwwwcscornelledunfoeoplechichaochichaohtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsplit' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectsurlnuprlhtml  [from: project(phttpwwwcscornelledunforojectsurlnuprlhtml, ahttpwwwcscornelledunfoacultyrcrchtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectsurlnuprlhtml' is of type 'willAnything'.
+%  phttpwwwcscornelledunforojectszenozenohtml  [from: project(phttpwwwcscornelledunforojectszenozenohtml, ahttpwwwcscornelledunfoacultyrianmithhtml)]
+%  Inferring that 'phttpwwwcscornelledunforojectszenozenohtml' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersailab  [from: project(phttpwwwcsutexaseduusersailab, ahttpwwwcsutexaseduusersboyer)]
+%  Inferring that 'phttpwwwcsutexaseduusersailab' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserscadcadhtml  [from: project(phttpwwwcsutexaseduuserscadcadhtml, ahttpwwwcsutexaseduusershaizhou)]
+%  Inferring that 'phttpwwwcsutexaseduuserscadcadhtml' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserscilk  [from: project(phttpwwwcsutexaseduuserscilk, ahttpwwwcsutexaseduusersrdb)]
+%  Inferring that 'phttpwwwcsutexaseduuserscilk' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserscode  [from: project(phttpwwwcsutexaseduuserscode, ahttpwwwcsutexaseduusersajohn)]
+%  Inferring that 'phttpwwwcsutexaseduuserscode' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserscpg  [from: project(phttpwwwcsutexaseduuserscpg, ahttpwwwcsutexaseduuserscdj)]
+%  Inferring that 'phttpwwwcsutexaseduuserscpg' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersdmcl  [from: project(phttpwwwcsutexaseduusersdmcl, ahttpwwwcsutexaseduusersejp)]
+%  Inferring that 'phttpwwwcsutexaseduusersdmcl' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserslam  [from: project(phttpwwwcsutexaseduuserslam, ahttpwwwcsutexaseduusersckwong)]
+%  Inferring that 'phttpwwwcsutexaseduuserslam' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersless  [from: project(phttpwwwcsutexaseduusersless, ahttpwwwcsutexaseduusersdahlin)]
+%  Inferring that 'phttpwwwcsutexaseduusersless' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersmfkb  [from: project(phttpwwwcsutexaseduusersmfkb, ahttpwwwcsutexaseduuserscorrel)]
+%  Inferring that 'phttpwwwcsutexaseduusersmfkb' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersnlacq  [from: project(phttpwwwcsutexaseduusersnlacq, ahttpwwwcsutexaseduuserscthomp)]
+%  Inferring that 'phttpwwwcsutexaseduusersnlacq' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersnn  [from: project(phttpwwwcsutexaseduusersnn, ahttpwwwcsutexaseduusersdianelaw)]
+%  Inferring that 'phttpwwwcsutexaseduusersnn' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersoops  [from: project(phttpwwwcsutexaseduusersoops, ahttpwwwcsutexaseduusersesteban)]
+%  Inferring that 'phttpwwwcsutexaseduusersoops' is of type 'willAnything'.
+%  phttpwwwcsutexaseduuserspsp  [from: project(phttpwwwcsutexaseduuserspsp, ahttpwwwcsutexaseduuserscarruth)]
+%  Inferring that 'phttpwwwcsutexaseduuserspsp' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersqr  [from: project(phttpwwwcsutexaseduusersqr, ahttpwwwcsutexaseduusersbert)]
+%  Inferring that 'phttpwwwcsutexaseduusersqr' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersschwartz  [from: project(phttpwwwcsutexaseduusersschwartz, ahttpwwwcsutexaseduusersdsb)]
+%  Inferring that 'phttpwwwcsutexaseduusersschwartz' is of type 'willAnything'.
+%  phttpwwwcsutexaseduusersvlrsachtml  [from: project(phttpwwwcsutexaseduusersvlrsachtml, ahttpwwwcsutexaseduusersckpoon)]
+%  Inferring that 'phttpwwwcsutexaseduusersvlrsachtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduhomesahrens  [from: project(phttpwwwcswashingtoneduhomesahrens, ahttpwwwcswashingtoneduhomesahrens)]
+%  Inferring that 'phttpwwwcswashingtoneduhomesahrens' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduhomeslevyopalopalhtml  [from: project(phttpwwwcswashingtoneduhomeslevyopalopalhtml, ahttpwwwcswashingtoneduhomesdylan)]
+%  Inferring that 'phttpwwwcswashingtoneduhomeslevyopalopalhtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduhomesromermemsysindexhtml  [from: project(phttpwwwcswashingtoneduhomesromermemsysindexhtml, ahttpwwwcswashingtoneduhomesbershad)]
+%  Inferring that 'phttpwwwcswashingtoneduhomesromermemsysindexhtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduhomesromerrocky  [from: project(phttpwwwcswashingtoneduhomesromerrocky, ahttpwwwcswashingtoneduhomesbershad)]
+%  Inferring that 'phttpwwwcswashingtoneduhomesromerrocky' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchmetipmetiphtml  [from: project(phttpwwwcswashingtoneduresearchmetipmetiphtml, ahttpwwwcswashingtoneduhomesbricker)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchmetipmetiphtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchmobicompmobilehtml  [from: project(phttpwwwcswashingtoneduresearchmobicompmobilehtml, ahttpwwwcswashingtoneduhomesbershad)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchmobicompmobilehtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectscecilcecilwwwcecilhomehtml  [from: project(phttpwwwcswashingtoneduresearchprojectscecilcecilwwwcecilhomehtml, ahttpwwwcswashingtoneduhomesgrove)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectscecilcecilwwwcecilhomehtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsgrail2wwwindexhtml  [from: project(phttpwwwcswashingtoneduresearchprojectsgrail2wwwindexhtml, ahttpwwwcswashingtoneduhomesadam)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsgrail2wwwindexhtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectslischaoswwwchaoshtml  [from: project(phttpwwwcswashingtoneduresearchprojectslischaoswwwchaoshtml, ahttpwwwcswashingtoneduhomeskwb)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectslischaoswwwchaoshtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectslischinookwww  [from: project(phttpwwwcswashingtoneduresearchprojectslischinookwww, ahttpwwwcswashingtoneduhomeschou)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectslischinookwww' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsliswwwemerald  [from: project(phttpwwwcswashingtoneduresearchprojectsliswwwemerald, ahttpwwwcswashingtoneduhomesdarrenc)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsliswwwemerald' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsliswwwindexhtml  [from: project(phttpwwwcswashingtoneduresearchprojectsliswwwindexhtml, ahttpwwwcswashingtoneduhomeschou)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsliswwwindexhtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectssafetywww  [from: project(phttpwwwcswashingtoneduresearchprojectssafetywww, ahttpwwwcswashingtoneduhomesjdreese)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectssafetywww' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectssoftbotswwwsoftbotshtml  [from: project(phttpwwwcswashingtoneduresearchprojectssoftbotswwwsoftbotshtml, ahttpwwwcswashingtoneduhomesbobd)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectssoftbotswwwsoftbotshtml' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsspinwww  [from: project(phttpwwwcswashingtoneduresearchprojectsspinwww, ahttpwwwcswashingtoneduhomesausland)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsspinwww' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsuniswynompwww  [from: project(phttpwwwcswashingtoneduresearchprojectsuniswynompwww, ahttpwwwcswashingtoneduhomesausland)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsuniswynompwww' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectsweirdwww  [from: project(phttpwwwcswashingtoneduresearchprojectsweirdwww, ahttpwwwcswashingtoneduhomesborning)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectsweirdwww' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchprojectszpl  [from: project(phttpwwwcswashingtoneduresearchprojectszpl, ahttpwwwcswashingtoneduhomesbrad)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchprojectszpl' is of type 'willAnything'.
+%  phttpwwwcswashingtoneduresearchsmt  [from: project(phttpwwwcswashingtoneduresearchsmt, ahttpwwwcswashingtoneduhomeseggers)]
+%  Inferring that 'phttpwwwcswashingtoneduresearchsmt' is of type 'willAnything'.
+%  phttpwwwcswisceducomputervisionprojectsexplorationhtml  [from: project(phttpwwwcswisceducomputervisionprojectsexplorationhtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceducomputervisionprojectsexplorationhtml' is of type 'willAnything'.
+%  phttpwwwcswisceducomputervisionprojectsvisadhtml  [from: project(phttpwwwcswisceducomputervisionprojectsvisadhtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceducomputervisionprojectsvisadhtml' is of type 'willAnything'.
+%  phttpwwwcswisceducondor  [from: project(phttpwwwcswisceducondor, ahttpwwwcswiscedujbasneyjbasneyhtml)]
+%  Inferring that 'phttpwwwcswisceducondor' is of type 'willAnything'.
+%  phttpwwwcswisceducondorhtml  [from: project(phttpwwwcswisceducondorhtml, ahttpwwwcswiscedujussijussihtml)]
+%  Inferring that 'phttpwwwcswisceducondorhtml' is of type 'willAnything'.
+%  phttpwwwcswisceducoral  [from: project(phttpwwwcswisceducoral, ahttpwwwcswiscedubeyerbeyerhtml)]
+%  Inferring that 'phttpwwwcswisceducoral' is of type 'willAnything'.
+%  phttpwwwcswisceducpnet  [from: project(phttpwwwcswisceducpnet, ahttpwwwcswisceduferrisferrishtml)]
+%  Inferring that 'phttpwwwcswisceducpnet' is of type 'willAnything'.
+%  phttpwwwcswiscedudevise  [from: project(phttpwwwcswiscedudevise, ahttpwwwcswisceduflisakowflisakowhtml)]
+%  Inferring that 'phttpwwwcswiscedudevise' is of type 'willAnything'.
+%  phttpwwwcswisceduexodus  [from: project(phttpwwwcswisceduexodus, ahttpwwwcswisceducareycareyhtml)]
+%  Inferring that 'phttpwwwcswisceduexodus' is of type 'willAnything'.
+%  phttpwwwcswiscedugalileo  [from: project(phttpwwwcswiscedugalileo, ahttpwwwcswiscedualainalainhtml)]
+%  Inferring that 'phttpwwwcswiscedugalileo' is of type 'willAnything'.
+%  phttpwwwcswiscedumscalar  [from: project(phttpwwwcswiscedumscalar, ahttpwwwcswisceduamiramirhtml)]
+%  Inferring that 'phttpwwwcswiscedumscalar' is of type 'willAnything'.
+%  phttpwwwcswisceduolviuwmpcancerhtml  [from: project(phttpwwwcswisceduolviuwmpcancerhtml, ahttpwwwcswisceduolviolvihtml)]
+%  Inferring that 'phttpwwwcswisceduolviuwmpcancerhtml' is of type 'willAnything'.
+%  phttpwwwcswisceduolviuwmppatsephtml  [from: project(phttpwwwcswisceduolviuwmppatsephtml, ahttpwwwcswisceduolviolvihtml)]
+%  Inferring that 'phttpwwwcswisceduolviuwmppatsephtml' is of type 'willAnything'.
+%  phttpwwwcswisceduparadise  [from: project(phttpwwwcswisceduparadise, ahttpwwwcswiscedubolobolohtml)]
+%  Inferring that 'phttpwwwcswisceduparadise' is of type 'willAnything'.
+%  phttpwwwcswisceduparadyn  [from: project(phttpwwwcswisceduparadyn, ahttpwwwcswiscedubartbarthtml)]
+%  Inferring that 'phttpwwwcswisceduparadyn' is of type 'willAnything'.
+%  phttpwwwcswiscedupraveenprojectsseqhtml  [from: project(phttpwwwcswiscedupraveenprojectsseqhtml, ahttpwwwcswisceduraghuraghuhtml)]
+%  Inferring that 'phttpwwwcswiscedupraveenprojectsseqhtml' is of type 'willAnything'.
+%  phttpwwwcswisceduscout  [from: project(phttpwwwcswisceduscout, ahttpwwwcswisceduejhazenejhazenhtml)]
+%  Inferring that 'phttpwwwcswisceduscout' is of type 'willAnything'.
+%  phttpwwwcswisceduseitzanimationhtml  [from: project(phttpwwwcswisceduseitzanimationhtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceduseitzanimationhtml' is of type 'willAnything'.
+%  phttpwwwcswisceduseitzinterpinterphtml  [from: project(phttpwwwcswisceduseitzinterpinterphtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceduseitzinterpinterphtml' is of type 'willAnything'.
+%  phttpwwwcswisceduseitzinterpvmorphhtml  [from: project(phttpwwwcswisceduseitzinterpvmorphhtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceduseitzinterpvmorphhtml' is of type 'willAnything'.
+%  phttpwwwcswisceduseitzpmotionhtml  [from: project(phttpwwwcswisceduseitzpmotionhtml, ahttpwwwcswiscedudyerdyerhtml)]
+%  Inferring that 'phttpwwwcswisceduseitzpmotionhtml' is of type 'willAnything'.
+%  phttpwwwcswiscedushavlikuwmlhtml  [from: project(phttpwwwcswiscedushavlikuwmlhtml, ahttpwwwcswisceduallexallexhtml)]
+%  Inferring that 'phttpwwwcswiscedushavlikuwmlhtml' is of type 'willAnything'.
+%  phttpwwwcswiscedushore  [from: project(phttpwwwcswiscedushore, ahttpwwwcswiscedubolobolohtml)]
+%  Inferring that 'phttpwwwcswiscedushore' is of type 'willAnything'.
+%  phttpwwwcswisceduwwt  [from: project(phttpwwwcswisceduwwt, ahttpwwwcswisceducaocaohtml)]
+%  Inferring that 'phttpwwwcswisceduwwt' is of type 'willAnything'.
+%  phttpwwwmautexaseduusersbshults  [from: project(phttpwwwmautexaseduusersbshults, ahttpwwwcsutexaseduusersmartym)]
+%  Inferring that 'phttpwwwmautexaseduusersbshults' is of type 'willAnything'.
+
+***** Warning: checkThatTypesOfAllConstantsAreKnown: Note that there were some constants whose type was not known (see list above or in dribble file). *****
+
+% Time to collect constants: 59 milliseconds
+% Time to collect examples: 0 seconds
+
+% Read 153 pos examples and 593 neg examples.
+% Time to init learnOneClause: 76 milliseconds
+% Old dirdatasets/WebKB/train/models/
+
+% Have 153 'raw' positive examples and kept 153.
+% Have 593 'raw' negative examples and kept 593.
+
+% processing backup's for faculty
+%  POS EX = 153
+%  NEG EX = 593
+
+% Memory usage by WILLSetup (just counts # targets?):
+%  |backupPosExamples| = 1
+%  |backupNegExamples| = 1
+%  |predicatesAsFacts| = 0
+%  |addedToFactBase|   = 0
+
+% Getting bRDN's target predicates.
+% Did not learn a model for 'faculty' this run.
+%   loadModel (#0): datasets/WebKB/train/models/bRDNs/Trees/facultyTree0.tree
+%   loadModel (#1): datasets/WebKB/train/models/bRDNs/Trees/facultyTree1.tree
+%   loadModel (#2): datasets/WebKB/train/models/bRDNs/Trees/facultyTree2.tree
+%  Done loading 3 models.
+File: datasets/WebKB/test/advice.txt doesnt exist.Hence no advice loaded
+
+% for faculty |lookupPos| = 153
+% for faculty |lookupNeg| = 593
+% getJointExamples: |pos| = 153, |neg| = 593
+
+% Starting inference in bRDN.
+% Trees = 3
+
+% Starting getMarginalProbabilities.
+% [ LazyGroundClauseIndex ]  Building full index for student/1 with 558 assertions.
+% [ LazyGroundClauseIndex ]  Building full index for sameperson/2 with 711 assertions.
+% No Gibbs sampling needed during inference.
+ (Arithmetic) Mean Probability Assigned to Correct Output Class: 621.874/746.00 = 0.833611
+
+ The weighted count of positive examples = 153.000 and the weighted count of negative examples = 593.000
+
+printExamples: Writing out predictions (for Tuffy?) on 746 examples for 'faculty' to:
+  datasets/WebKB/test/results_faculty.db
+ and to:
+  datasets/WebKB/test/query_faculty.db
+%    No need to compress since small: datasets/WebKB/test/query_faculty.db
+
+% Computing Area Under Curves.
+%Pos=153
+%Neg=593
+%LL:-82.68876038142194
+%LL:-146.22028382538298
+
+% Running command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
+% WAITING FOR command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
+% DONE WAITING FOR command: java -jar ./auc.jar datasets/WebKB/test/AUC/aucTemp.txt list 0.0
+% F1 = 1.0
+% Threshold = 0.3420413726647629
+
+%   AUC ROC   = 1.000000
+%   AUC PR    = 1.000000
+%   CLL	      = -0.196006
+%   Precision = 1.000000 at threshold = 0.500
+%   Recall    = 1.000000
+%   F1        = 1.000000
+
+% Total inference time (3 trees): 714 milliseconds.

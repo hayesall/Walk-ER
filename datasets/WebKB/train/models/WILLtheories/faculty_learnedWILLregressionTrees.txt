@@ -1,0 +1,360 @@
+usePrologVariables: true.
+
+% maxTreeDepthInNodes                 = 5
+% maxTreeDepthInLiterals              = 12
+% maxNumberOfLiteralsAtAnInteriorNode = 3
+% maxFreeBridgersInBody               = 1
+% maxNumberOfClauses                  = 8
+% maxNodesToConsider                  = 10
+% maxNodesToCreate                    = 10,000
+% maxAcceptableNodeScoreToStop        = 0.003
+% negPosRatio                         = 2.000
+% testNegPosRatio                     = -1.000
+% # of pos examples                   = 467
+% # of neg examples                   = 0
+
+
+
+%%%%%  WILL-Produced Tree #1 @ 8:56:40 5/11/17.  [Using 3,205,512 memory cells.]  %%%%%
+
+% FOR faculty(A):
+%   if ( student(A) )
+%   then return -0.1418510649004879;  // std dev = 4.21e-08, 290.000 (wgt'ed) examples reached here.  /* #neg=290 */
+%   else if ( sameperson(A, A) )
+%   | then return 0.8581489350995098;  // std dev = 9.54e-07, 154.000 (wgt'ed) examples reached here.  /* #pos=154 */
+%   | else return -0.14185106490048774;  // std dev = 1.49e-08, 23.000 (wgt'ed) examples reached here.  /* #neg=23 */
+
+
+% Clauses:
+
+faculty(A, -0.1418510649004879) :- 
+     student(A), 
+     !. // Clause #1.
+
+faculty(A, 0.8581489350995098) :- 
+     sameperson(A, A), 
+     !. // Clause #2.
+
+faculty(A, -0.14185106490048774) :- !. // Clause #3.
+
+
+% The flattened versions of these clauses:
+
+flattened_faculty(a, -0.1418510649004879) :-  /* #neg=290 */ 
+   student(a),
+   !. // Flattened version of clause #1.
+
+flattened_faculty(a, 0.8581489350995098) :-  /* #pos=154 */ 
+   sameperson(a, a),
+   !. // Flattened version of clause #2.
+
+flattened_faculty(underscore, -0.14185106490048774) :-  /* #neg=23 */ 
+   !. // Flattened version of clause #3.
+
+
+% The unique flattened literals:
+%   sameperson(a, a)
+%   student(a)
+
+%%%%%  WILL-Produced Tree #2 @ 8:56:41 5/11/17.  [Using 3,296,568 memory cells.]  %%%%%
+
+% FOR faculty(A):
+%   if ( student(A) )
+%   then return -0.125444638528392;  // std dev = 0.000, 293.000 (wgt'ed) examples reached here.  /* #neg=293 */
+%   else if ( sameperson(A, A) )
+%   | then return 0.7194734122109563;  // std dev = 0.000, 154.000 (wgt'ed) examples reached here.  /* #pos=154 */
+%   | else return -0.12544463852839138;  // std dev = 0.000, 17.000 (wgt'ed) examples reached here.  /* #neg=17 */
+
+
+% Clauses:
+
+faculty(A, -0.125444638528392) :- 
+     student(A), 
+     !. // Clause #1.
+
+faculty(A, 0.7194734122109563) :- 
+     sameperson(A, A), 
+     !. // Clause #2.
+
+faculty(A, -0.12544463852839138) :- !. // Clause #3.
+
+
+% The flattened versions of these clauses:
+
+flattened_faculty(a, -0.125444638528392) :-  /* #neg=293 */ 
+   student(a),
+   !. // Flattened version of clause #1.
+
+flattened_faculty(a, 0.7194734122109563) :-  /* #pos=154 */ 
+   sameperson(a, a),
+   !. // Flattened version of clause #2.
+
+flattened_faculty(underscore, -0.12544463852839138) :-  /* #neg=17 */ 
+   !. // Flattened version of clause #3.
+
+
+% The unique flattened literals:
+%   sameperson(a, a)
+%   student(a)
+
+%%%%%  WILL-Produced Tree #3 @ 8:56:41 5/11/17.  [Using 3,390,872 memory cells.]  %%%%%
+
+% FOR faculty(A):
+%   if ( student(A) )
+%   then return -0.1123163781936068;  // std dev = 0.000, 302.000 (wgt'ed) examples reached here.  /* #neg=302 */
+%   else if ( sameperson(A, A) )
+%   | then return 0.5553664367462833;  // std dev = 5.40e-07, 154.000 (wgt'ed) examples reached here.  /* #pos=154 */
+%   | else return -0.11231637819360635;  // std dev = 1.67e-08, 18.000 (wgt'ed) examples reached here.  /* #neg=18 */
+
+
+% Clauses:
+
+faculty(A, -0.1123163781936068) :- 
+     student(A), 
+     !. // Clause #1.
+
+faculty(A, 0.5553664367462833) :- 
+     sameperson(A, A), 
+     !. // Clause #2.
+
+faculty(A, -0.11231637819360635) :- !. // Clause #3.
+
+
+% The flattened versions of these clauses:
+
+flattened_faculty(a, -0.1123163781936068) :-  /* #neg=302 */ 
+   student(a),
+   !. // Flattened version of clause #1.
+
+flattened_faculty(a, 0.5553664367462833) :-  /* #pos=154 */ 
+   sameperson(a, a),
+   !. // Flattened version of clause #2.
+
+flattened_faculty(underscore, -0.11231637819360635) :-  /* #neg=18 */ 
+   !. // Flattened version of clause #3.
+
+
+% The unique flattened literals:
+%   sameperson(a, a)
+%   student(a)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Final call for computing score for faculty.  %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+stepLength_tree1(1.0).
+stepLength_tree2(1.0).
+stepLength_tree3(1.0).
+
+logPrior(-1.8).
+faculty(D, Total) :- // A general accessor. 
+   faculty(D, 1000000, Total), !.
+faculty(D, Total) :- waitHere("This should not fail", faculty(D, Total)).
+
+faculty(D, TreesToUse, Total) :- // A tree-limited accessor (e.g., for tuning the number of trees to use).
+   logPrior(LogPrior),
+   getScore_faculty_tree1(D, TreesToUse, Total1),
+   getScore_faculty_tree2(D, TreesToUse, Total2),
+   getScore_faculty_tree3(D, TreesToUse, Total3),
+   Total is LogPrior + Total1 + Total2 + Total3,
+   !.
+faculty(D, TreesToUse, Total) :- waitHere("This should not fail", faculty(D, TreesToUse, Total)).
+
+getScore_faculty_tree1(D, TreesToUse, 0.0) :- 1 > TreesToUse, !.
+getScore_faculty_tree1(D, TreesToUse, Total1) :- faculty_tree1(D, Total), stepLength_tree1(StepLen), Total1 is Total * StepLen.
+
+getScore_faculty_tree2(D, TreesToUse, 0.0) :- 2 > TreesToUse, !.
+getScore_faculty_tree2(D, TreesToUse, Total2) :- faculty_tree2(D, Total), stepLength_tree2(StepLen), Total2 is Total * StepLen.
+
+getScore_faculty_tree3(D, TreesToUse, 0.0) :- 3 > TreesToUse, !.
+getScore_faculty_tree3(D, TreesToUse, Total3) :- faculty_tree3(D, Total), stepLength_tree3(StepLen), Total3 is Total * StepLen.
+
+flattenedLiteralsInThisSetOfTrees(faculty, 2, [
+   sameperson(a, a),
+   student(a)]).
+
+%%%%%  WILL-Produced Tree Combined @ 8:56:43 5/11/17.  [Using 3,456,136 memory cells.]  %%%%%
+
+% FOR faculty(A):
+%   if ( student(A) )
+%   then if ( project(B, A), project(B, C), courseta(D, C) )
+%   | then return -0.27074324006189315;  // std dev = 0.080, 66.000 (wgt'ed) examples reached here.  /* #neg=66 */
+%   | else return -0.2989876680612982;  // std dev = 0.076, 531.000 (wgt'ed) examples reached here.  /* #neg=531 */
+%   else if ( sameperson(A, A) )
+%   | then if ( project(E, A), project(E, F), courseprof(G, F) )
+%   | | then if ( courseta(G, H), project(I, H), courseprof(J, A) )
+%   | | | then if ( project(I, F) )
+%   | | | | then return 2.1329887840567507;  // std dev = 4.13e-07, 30.000 (wgt'ed) examples reached here.  /* #pos=30 */
+%   | | | | else if ( courseta(J, H) )
+%   | | | | | then return 2.1329887840567516;  // std dev = 0.000, 3.000 (wgt'ed) examples reached here.  /* #pos=3 */
+%   | | | | | else return 2.557935400375832;  // std dev = 2.754, 12.000 (wgt'ed) examples reached here.  /* #pos=12 */
+%   | | | else return 2.1329887840567503;  // std dev = 9.54e-07, 126.000 (wgt'ed) examples reached here.  /* #pos=126 */
+%   | | else return 2.132988784056751;  // std dev = 1.17e-06, 291.000 (wgt'ed) examples reached here.  /* #pos=291 */
+%   | else if ( project(K, A), project(K, L), sameperson(L, L) )
+%   | | then return -0.26029396458366055;  // std dev = 0.075, 30.000 (wgt'ed) examples reached here.  /* #neg=30 */
+%   | | else return -0.3305387580870267;  // std dev = 0.072, 14.000 (wgt'ed) examples reached here.  /* #neg=14 */
+
+
+% Clauses:
+
+faculty(A, -0.27074324006189315) :- 
+     student(A), 
+     project(B, A), 
+     project(B, C), 
+     courseta(D, C), 
+     !. // Clause #1.
+
+faculty(A, -0.2989876680612982) :- 
+     student(A), 
+     !. // Clause #2.
+
+faculty(A, 2.1329887840567507) :- 
+     sameperson(A, A), 
+     project(B, A), 
+     project(B, C), 
+     courseprof(D, C), 
+     courseta(D, E), 
+     project(F, E), 
+     courseprof(G, A), 
+     project(F, C), 
+     !. // Clause #3.
+
+faculty(A, 2.1329887840567516) :- 
+     sameperson(A, A), 
+     project(B, A), 
+     project(B, C), 
+     courseprof(D, C), 
+     courseta(D, E), 
+     project(F, E), 
+     courseprof(G, A), 
+     courseta(G, E), 
+     !. // Clause #4.
+
+faculty(A, 2.557935400375832) :- 
+     sameperson(A, A), 
+     project(B, A), 
+     project(B, C), 
+     courseprof(D, C), 
+     courseta(D, E), 
+     project(F, E), 
+     courseprof(G, A), 
+     !. // Clause #5.
+
+faculty(A, 2.1329887840567503) :- 
+     sameperson(A, A), 
+     project(B, A), 
+     project(B, C), 
+     courseprof(D, C), 
+     !. // Clause #6.
+
+faculty(A, 2.132988784056751) :- 
+     sameperson(A, A), 
+     !. // Clause #7.
+
+faculty(A, -0.26029396458366055) :- 
+     project(B, A), 
+     project(B, C), 
+     sameperson(C, C), 
+     !. // Clause #8.
+
+faculty(A, -0.3305387580870267) :- !. // Clause #9.
+
+
+% The flattened versions of these clauses:
+
+flattened_faculty(a, -0.27074324006189315) :-  /* #neg=66 */ 
+   student(a),
+   project(uniqueVar1, a),
+   project(uniqueVar1, uniqueVar2),
+   courseta(underscore, uniqueVar2),
+   !. // Flattened version of clause #1.
+
+flattened_faculty(a, -0.2989876680612982) :-  /* #neg=531 */ 
+   student(a),
+   !. // Flattened version of clause #2.
+
+flattened_faculty(a, 2.1329887840567507) :-  /* #pos=30 */ 
+   sameperson(a, a),
+   project(uniqueVar3, a),
+   project(uniqueVar3, uniqueVar4),
+   courseprof(uniqueVar5, uniqueVar4),
+   courseta(uniqueVar5, uniqueVar6),
+   project(uniqueVar7, uniqueVar6),
+   courseprof(underscore, a),
+   project(uniqueVar7, uniqueVar4),
+   !. // Flattened version of clause #3.
+
+flattened_faculty(a, 2.1329887840567516) :-  /* #pos=3 */ 
+   sameperson(a, a),
+   project(uniqueVar8, a),
+   project(uniqueVar8, uniqueVar9),
+   courseprof(uniqueVar10, uniqueVar9),
+   courseta(uniqueVar10, uniqueVar11),
+   project(underscore, uniqueVar11),
+   courseprof(uniqueVar12, a),
+   courseta(uniqueVar12, uniqueVar11),
+   !. // Flattened version of clause #4.
+
+flattened_faculty(a, 2.557935400375832) :-  /* #pos=12 */ 
+   sameperson(a, a),
+   project(uniqueVar13, a),
+   project(uniqueVar13, uniqueVar14),
+   courseprof(uniqueVar15, uniqueVar14),
+   courseta(uniqueVar15, uniqueVar16),
+   project(underscore, uniqueVar16),
+   courseprof(underscore, a),
+   !. // Flattened version of clause #5.
+
+flattened_faculty(a, 2.1329887840567503) :-  /* #pos=126 */ 
+   sameperson(a, a),
+   project(uniqueVar17, a),
+   project(uniqueVar17, uniqueVar18),
+   courseprof(underscore, uniqueVar18),
+   !. // Flattened version of clause #6.
+
+flattened_faculty(a, 2.132988784056751) :-  /* #pos=291 */ 
+   sameperson(a, a),
+   !. // Flattened version of clause #7.
+
+flattened_faculty(a, -0.26029396458366055) :-  /* #neg=30 */ 
+   project(uniqueVar19, a),
+   project(uniqueVar19, uniqueVar20),
+   sameperson(uniqueVar20, uniqueVar20),
+   !. // Flattened version of clause #8.
+
+flattened_faculty(underscore, -0.3305387580870267) :-  /* #neg=14 */ 
+   !. // Flattened version of clause #9.
+
+
+% The unique flattened literals:
+%   project(uniqueVar1, a)
+%   courseprof(underscore, a)
+%   courseta(uniqueVar5, uniqueVar6)
+%   courseprof(uniqueVar12, a)
+%   courseta(underscore, uniqueVar2)
+%   project(uniqueVar7, uniqueVar6)
+%   courseprof(uniqueVar15, uniqueVar14)
+%   project(uniqueVar3, a)
+%   courseta(uniqueVar15, uniqueVar16)
+%   student(a)
+%   sameperson(a, a)
+%   courseta(uniqueVar10, uniqueVar11)
+%   project(underscore, uniqueVar16)
+%   project(uniqueVar8, a)
+%   courseprof(uniqueVar10, uniqueVar9)
+%   project(uniqueVar13, uniqueVar14)
+%   project(uniqueVar7, uniqueVar4)
+%   courseta(uniqueVar12, uniqueVar11)
+%   project(uniqueVar17, a)
+%   project(underscore, uniqueVar11)
+%   project(uniqueVar13, a)
+%   project(uniqueVar17, uniqueVar18)
+%   project(uniqueVar19, a)
+%   project(uniqueVar3, uniqueVar4)
+%   courseprof(underscore, uniqueVar18)
+%   project(uniqueVar8, uniqueVar9)
+%   sameperson(uniqueVar20, uniqueVar20)
+%   project(uniqueVar1, uniqueVar2)
+%   courseprof(uniqueVar5, uniqueVar4)
+%   project(uniqueVar19, uniqueVar20)
