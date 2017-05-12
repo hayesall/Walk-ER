@@ -4,7 +4,7 @@ mode_comparator.py
    "Now with 90% more Python!"
    Written by Alexander L. Hayes
    hayesall@indiana.edu
-   Last updated: May 10, 2017
+   Last updated: May 12, 2017
 
 Sample Calls:
    $ python mode_comparator.py
@@ -33,13 +33,19 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 1
-TREES = 3
+EPOCHS = 10
+TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['cora', 'sameauthor', 9, 5],
-            ['webkb', 'faculty', 5, 4]]
+DATASETS = [['webkb', 'faculty', 4, 4],
+            ['cora', 'sameauthor', 9, 5]]
+
+'''
+DATASETS = [['webkb', 'faculty', 4, 4],
+            ['cora', 'sameauthor', 9, 5],
+            ['citeseer', 'infield_ftitle', 14, 4]]
+'''
 
 ALGOS = [['RDN-Boost', '']]
 
@@ -58,6 +64,8 @@ def main():
 
             params = a[1]
 
+            # Arrays for keeping track of the sample means and errors (used for graphing later)
+            
             for f in FLAGS:
                 print(datetime.now().time())
                 print(dataset, '| flag:', f)
@@ -72,22 +80,18 @@ def main():
                     for n in range(number_of_features):
                         traintime, roc, pr = [], [], []
 
-                        print(dataset, '| # of features:', n + 1, '| flag:', f)
-                        
-                        for e in range(EPOCHS):
+                        for e in range(EPOCHS * 2):
+                            # I may phase out the EPOCHS parameter over the next few versions.
+                            # Random Walks will happen 20-25 times depending on the dataset.
                             
                             for cv in range(1, cross_validation_folds + 1):
+                                print(dataset, '| # of features:', n + 1, '| flag:', f, \
+                                      '| epoch:', e, '| fold:', cv)
                                 
-                                # Construct the modes for this Train/Test epoch and validation set.
-                                construct_modes(dataset, f, NUMBER=n)
-                                # BoostSRL Training
-                                train_model(dataset, params, target, cv)
-                                # Find the time (in seconds) from the log file
-                                traintime.append(get_training_time())
-                                # BoostSRL Testing
-                                test_model(dataset, params, target, cv)
-                                # Find the AUC ROC and AUC PR
-                                roc_score, pr_score = get_roc_and_pr_score()
+                                # Create the modes and perform BoostSRL training/testing
+                                training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
+                                                                                            params, target, cv, n+1)
+                                traintime.append(training_score)
                                 roc.append(roc_score)
                                 pr.append(pr_score)
 
@@ -118,6 +122,8 @@ def main():
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
+
+                    rw_output = [training_time_means, training_time_stds, roc_means, roc_stds, pr_means, pr_stds]
                 
                 elif f in ['-w', '-s']:
                     # Walk or Shortest Walk
@@ -125,25 +131,20 @@ def main():
                     for n in range(number_of_features):
                         traintime, roc, pr = [], [], []
                         
-                        print(dataset, '| # of features:', n + 1, '| flag:', f)
-                        
                         for e in range(EPOCHS):
 
                             for cv in range(1, cross_validation_folds + 1):
-                            
-                                # Create the modes file for this Train/Test epoch
-                                construct_modes(dataset, f, NUMBER=n)
-                                # BoostSRL Training
-                                train_model(dataset, params, target, cv)
-                                # Find the time (in seconds) from the log file
-                                traintime.append(get_training_time())
-                                # BoostSRL Testing
-                                test_model(dataset, params, target, cv)
-                                # Find the AUC ROC and AUC PR
-                                roc_score, pr_score = get_roc_and_pr_score()
+
+                                print(dataset, '| # of features:', n + 1, '| flag:', f, \
+                                      '| epoch:', e, '| fold:', cv)
+
+                                # Create the modes and perform BoostSRL training/testing
+                                training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
+                                                                                            params, target, cv, n+1)
+                                traintime.append(training_score)
                                 roc.append(roc_score)
                                 pr.append(pr_score)
-                        
+                                
                             # Calculate mean and standard deviation for Training Time, AUC ROC, and AUC PR
                             training_mean, training_std = np.mean(traintime), np.std(traintime)
                             auc_roc_mean, auc_roc_std = np.mean(roc), np.std(roc)
@@ -171,28 +172,27 @@ def main():
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
+
+                    if (f == '-w'):
+                        w_output = [training_time_means, training_time_stds, roc_means, roc_stds, pr_means, pr_stds]
+                    elif (f == '-s'):
+                        s_output = [training_time_means, training_time_stds, roc_means, roc_stds, pr_means, pr_stds]
                     
                 else:
                     # Tushar and -e
 
                     traintime, roc, pr = [], [], []
 
-                    print(dataset, '| flag:', f, '| epoch:', e)
-
                     for e in range(EPOCHS):
-                        
+
                         for cv in range(1, cross_validation_folds + 1):
-                        
-                            # Create the modes file for this train/test epoch
-                            construct_modes(dataset, f)
-                            # BoostSRL Training
-                            train_model(dataset, params, target, cv)
-                            # Find the time (in seconds) from the log file
-                            traintime.append(get_training_time())
-                            # BoostSRL Testing
-                            test_model(dataset, params, target, cv)
-                            # Find the AUC ROC and AUC PR
-                            roc_score, pr_score = get_roc_and_pr_score()
+
+                            print(dataset, '| flag:', f, '| epoch:', e, '| fold:', cv)
+
+                            # Create the modes and perform BoostSRL training/testing
+                            training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
+                                                                                        params, target, cv)
+                            traintime.append(training_score)
                             roc.append(roc_score)
                             pr.append(pr_score)
 
@@ -203,29 +203,82 @@ def main():
                                    pr, [0] * len(pr), name_to_save)
 
                     log_progress(traintime, '-', roc, '-', pr, '-', name_to_save)
-                        
+                    
+                    if (f == 'tushar'):
+                        tushar_output = [traintime, [0] * len(traintime), roc, [0] * len(roc), pr, [0] * len(pr)]
+                    elif (f == '-e'):
+                        e_output = [traintime, [0] * len(traintime), roc, [0] * len(roc), pr, [0] * len(pr)]
+
+        '''
+        print(tushar_output)
+        print(e_output)
+        print(rw_output)
+        print(w_output)
+        print(s_output)
+        '''
+
+        name_to_save = dataset + '-ALL-traintimes-' + str(EPOCHS) + '.png'
+        plot_data_summary(name_to_save, 'Training Time (s)', dataset, 
+                          [tushar_output[0], tushar_output[1]], 
+                          [e_output[0], e_output[1]], 
+                          [rw_output[0], rw_output[1]], 
+                          [w_output[0], w_output[1]], 
+                          [s_output[0], s_output[1]])
+        name_to_save = dataset + '-ALL-rocs-' + str(EPOCHS) + '.png'
+        plot_data_summary(name_to_save, 'AUC ROC', dataset, 
+                          [tushar_output[2], tushar_output[3]], 
+                          [e_output[2], e_output[3]], 
+                          [rw_output[2], rw_output[3]], 
+                          [w_output[2], w_output[3]], 
+                          [s_output[2], s_output[3]])
+        name_to_save = dataset + '-ALL-pr-' + str(EPOCHS) + '.png'
+        plot_data_summary(name_to_save, 'AUC PR', dataset, 
+                          [tushar_output[4], tushar_output[5]], 
+                          [e_output[4], e_output[5]], 
+                          [rw_output[4], rw_output[5]], 
+                          [w_output[4], w_output[5]], 
+                          [s_output[4], s_output[5]])
+            
 def import_data(file_to_read):
+    '''Safe data import that raises an exception if the file cannot be found.
+    args: file_to_read is a string representing the path to a file
+    returns: the contents as a string'''
     if os.path.isfile(file_to_read):
         with open(file_to_read, 'r') as f:
-            data = f.read().splitlines()
+            data = f.read()
         return data
     else:
-        raise('Error, there were problems when reading ' + file_to_read)
+        raise(Exception('Error, there were problems when reading ' + file_to_read))
 
 def data_validation(data):
+    '''This needs some further thought, mostly since the validation sets are already around
+    and dividing new ones is fairly difficult according to several people.'''
     #x_train, x_test, y_train, y_test = cross_validation()
     pass
 
 def call_process(call):
-    p = subprocess.Popen(call, shell=True)
-    os.waitpid(p.pid, 0)
+    '''Call a subprocess from python, and wait for it to complete.
+    args: a string representing a command (i.e. echo "hello")
+    returns: nothing.'''
+    #print(call)
+    try:
+        p = subprocess.Popen(call, shell=True)
+        os.waitpid(p.pid, 0)
+    except:
+        raise(Exception('Encountered problems while running: ', call))
 
 def construct_modes(dataset, flag, NUMBER=None):
-    # Extra parameters to Cora Modes (won't work without them):
-    if dataset == 'Cora':
-        call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam: nodeSize=2." > datasets/Cora/cora_bk.txt')
+    '''Construct a modes file with the Walk-ER algorithm.
+    This could likely be changed by importing the actual python script for generating them,
+    but this makes a few things slightly easier for now.'''
 
-    # Create the modes file
+    # Extra parameters to Cora Modes (won't work without them):
+    if (dataset == 'cora' or dataset == 'citeseer'):
+        call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam: nodeSize=2." > datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
+    else:
+        call_process('rm -f datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
+
+    # Create the modes file (notice that the modes are being appended, delete beforehand or replace with parameters)
     if NUMBER is not None:
         CALL = 'python walker2.py --number ' + str(NUMBER) + ' ' + flag + ' diagrams/' + dataset + \
                '.mayukh | grep "mode:" >> datasets/' + dataset + '/' + dataset.lower() + '_bk.txt'
@@ -239,40 +292,80 @@ def construct_modes(dataset, flag, NUMBER=None):
     call_process(CALL)
 
 def train_model(dataset, params, target, cross_validation_fold):
-    # BoostSRL Training
+    '''BoostSRL Training:
+    args: dataset (DATASET[0]), params (ALGOS[1]),
+          target (DATASET[1]), cross_validation_fold (str(DATASET[3]))
+    returns: nothing'''
     CALL = 'java -jar' + RDNJARPATH + '-l -train datasets/' + dataset + '/train' + \
            str(cross_validation_fold) + '/ ' + params + '-target ' + target + ' -trees ' + \
            str(TREES) + ' > trainlog.txt'
     call_process(CALL)
 
 def test_model(dataset, params, target, cross_validation_fold):
-    # BoostSRL Testing
+    '''BoostSRL Testing:
+    args: dataset (DATASET[0]), params (ALGOS[1]),
+          target (DATASET[1]), cross_validation_fold (str(DATASET[3]))
+    returns: nothing'''
     CALL = 'java -jar' + RDNJARPATH + '-i -model datasets/' + dataset + '/train' + \
            str(cross_validation_fold) + '/models/ -test datasets/' + dataset + '/test' + \
            str(cross_validation_fold) + '/ -target ' + \
            target + AUCJARPATH + ' -trees ' + str(TREES) + ' > testlog.txt'
-           
     call_process(CALL)
 
 def get_training_time():
-    text = open('trainlog.txt', 'r').read()
+    text = import_data('trainlog.txt')
+    #text = open('trainlog.txt', 'r').read()
     line = re.findall(r'trees\): \d*.\d* seconds', text)
     if not line:
         # Seconds should always be a decimal value, otherwise we need to deal in minutes and seconds
         line = re.findall(r'trees\): \d* minutes and \d*.\d* seconds', text)
-        # Convert the minutes into seconds and add the seconds:
-        splitline = line[0].split()
-        seconds = float(splitline[1] * 60 + float(splitline[4]))
+        if not line:
+            # Perhaps it took hours?
+            line = re.findall(r'trees\): \d* hours and \d* minutes and \d*.\d* seconds', text)
+            if not line:
+                # Well, perhaps milliseconds???
+                line = re.findall(r'trees\): \d* milliseconds.', text)
+                if not line:
+                    raise(Exception('Error, the training time could not be found.'))
+                else:
+                    # Convert the milliseconds into a float representing seconds
+                    splitline = line[0].split()
+                    seconds = float(splitline[1]) / 1000
+            else:
+                # Convert he hours/minutes/seconds into a float representing seconds.
+                splitline = line[0].split()
+                seconds = (float(splitline[1]) * 3600) + (float(splitline[4]) * 60) + float(splitline[7])
+        else:
+            # Convert the minutes into seconds and add the seconds:
+            splitline = line[0].split()
+            seconds = (float(splitline[1]) * 60) + float(splitline[4])
     else:
         seconds = float(line[0].split()[1])
     return seconds
 
 def get_roc_and_pr_score():
-    text = open('testlog.txt','r').read()
+    text = import_data('testlog.txt')
+    #text = open('testlog.txt','r').read()
     line = re.findall(r'AUC ROC   = \d.\d*|AUC PR    = \d.\d*', text)
+    if (len(line) != 2):
+        print(line)
+        raise('Error, testing may not have completed properly. ROC or PR were not found correctly.')
     roc_score = float(line[0].split()[3])
     pr_score = float(line[1].split()[3])
     return roc_score, pr_score
+
+def make_modes_train_test(dataset, f, params, target, cv, NUMBER=None):
+    # Construct the modes for this Train/Test epoch and validation set.
+    construct_modes(dataset, f, NUMBER=NUMBER)
+    # BoostSRL Training
+    train_model(dataset, params, target, cv)
+    # BoostSRL Testing
+    test_model(dataset, params, target, cv)
+    # Find the time (in seconds) from the log file
+    training_score = get_training_time()
+    # Find the AUC ROC and AUC PR
+    roc_score, pr_score = get_roc_and_pr_score()
+    return training_score, roc_score, pr_score
 
 def print_information(training_mean, training_std, auc_roc_mean, auc_roc_std, auc_pr_mean, auc_pr_std):
     print('Training Time |', training_mean, '+-', training_std)
@@ -320,7 +413,44 @@ def plot_errorbars(training_time_means, training_time_stds, roc_means, roc_stds,
     ax2.set_xlim([0, len(pr_means)+1])
     ax2.set_ylim([0.4,1])
     
-    plt.savefig('graphs/' + name_to_save, dpi=600)
+    plt.savefig('graphs/' + name_to_save, dpi=300)
+
+def plot_data_summary(name_to_save, title_to_save, dataset, p0, p1, p2, p3, p4):
+    '''Plots a summary of: 
+    Training Time vs. Number of predicates
+    AUC ROC vs. Number of predicates
+    AUC PR vs. Number of predicates
+       args:
+          name_to_save = a str representing the filename to save as
+          title_to_save = the title that will appear at the top AND along the y axis.
+          dataset = d[0]
+          p0 = [[array_of_means], [array_of_errors]] (Tushar)
+          p1 = [[array_of_means], [array_of_errors]] (-e)
+          ... (-rw), (-w)
+          p4 = [[array_of_means], [array_of_errors]] (-s)'''
+
+    print('Saving image for', name_to_save, 'to "graphs" directory.')
+    
+    x_axis_length = len(p2[0])
+    x = range(1, x_axis_length + 1)
+    
+    t0error = [0] * x_axis_length
+    t1error = [0] * x_axis_length
+
+    fig = plt.figure()
+    axes = plt.gca()
+
+    plt.errorbar(x, [np.mean(p0[0])] * x_axis_length, yerr=t0error, fmt='k--') # Tushar
+    plt.errorbar(x, [np.mean(p1[0])] * x_axis_length, yerr=t1error, fmt='c--') # -e
+    plt.errorbar(x, p2[0], yerr=p2[1], fmt='r-o') # -rw
+    plt.errorbar(x, p3[0], yerr=p3[1], fmt='b-o') # -w
+    plt.errorbar(x, p4[0], yerr=p4[1], fmt='g-o') # -s
+    
+    plt.title(dataset + ' ' + title_to_save + ' vs. Number of Predicates')
+    plt.xlabel('Number of predicates')
+    plt.ylabel(title_to_save)
+    
+    plt.savefig('graphs/' + name_to_save, dpi=300)
 
 '''
 DATASETS = [['Father', 'father'],
@@ -413,6 +543,8 @@ print(tabulate([['Exhaustive',
                  str(round(pr_stat_sig[1], 4))]],
                headers=['Method', 'Training (s)', 'Testing (s)', 'AUC ROC', 'AUC PR'],
                tablefmt='latex'))
+
+
 #tablefmt='latex'
 #tablefmt='orgtbl'
 
