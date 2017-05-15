@@ -1,1 +1,0 @@
-AUC/aucTemp.txt.pr --- --- Writing standardized PR file datasets/WebKB/test/AUC/aucTemp.txt.spr --- --- Writing ROC file datasets/WebKB/test/AUC/aucTemp.txt.roc --- Area Under the Curve for Precision - Recall is 1.0 Area Under the Curve for ROC is 1.0 

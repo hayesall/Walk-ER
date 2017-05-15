@@ -1,8 +1,0 @@
-setParam: stringsAreCaseSensitive = true.
-
-usePrologVariables: true.
-
-
-(faculty(A, -0.07877675473109141) :-  /* #neg=294 */ student(A)).
-(faculty(A, 0.2097577156325352) :-  /* #pos=154 */ sameperson(A, A)).
-faculty(_, -0.07877675473109179) /* #neg=22 */ .

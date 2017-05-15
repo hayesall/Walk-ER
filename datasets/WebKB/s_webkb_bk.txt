@@ -1,6 +1,0 @@
-mode: courseprof(-Course,+Person).
-mode: courseta(-Course,+Person).
-mode: faculty(+Person).
-mode: project(+Person,-Proj).
-mode: sameperson(+Person,+Person).
-mode: student(+Person).

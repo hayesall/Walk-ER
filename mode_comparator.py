@@ -38,9 +38,12 @@ TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
+DATASETS = [['cora', 'sameauthor', 9, 5]]
+
+'''
 DATASETS = [['webkb', 'faculty', 4, 4],
             ['cora', 'sameauthor', 9, 5]]
-
+'''
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
             ['cora', 'sameauthor', 9, 5],
@@ -314,6 +317,25 @@ def test_model(dataset, params, target, cross_validation_fold):
 
 def get_training_time():
     text = import_data('trainlog.txt')
+    line = re.findall(r'% Total learning time \(\d* trees\):.*', text)
+    splitline = line[0].replace('.','').split()
+    seconds = []
+    #print(splitline)
+    if 'milliseconds' in splitline:
+        seconds.append((float(splitline[splitline.index('milliseconds') - 1])) / 1000)
+    if 'seconds' in splitline:
+        seconds.append(float(splitline[splitline.index('seconds') - 1]))
+    if 'minutes' in splitline:
+        seconds.append(
+            float(splitline[splitline.index('minutes') - 1]) * 60)
+    if 'hours' in splitline:
+        seconds.append(float(splitline[splitline.index('hours') - 1]) * 3600)
+    #print(sum(seconds))
+    return sum(seconds)
+
+'''
+def get_training_time():
+    text = import_data('trainlog.txt')
     #text = open('trainlog.txt', 'r').read()
     line = re.findall(r'trees\): \d*.\d* seconds', text)
     if not line:
@@ -342,6 +364,7 @@ def get_training_time():
     else:
         seconds = float(line[0].split()[1])
     return seconds
+'''
 
 def get_roc_and_pr_score():
     text = import_data('testlog.txt')
