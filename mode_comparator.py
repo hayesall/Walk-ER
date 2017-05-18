@@ -33,20 +33,20 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 10
+EPOCHS = 3
 TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['cora', 'sameauthor', 9, 5]]
+DATASETS = [['citeseer', 'infield_ftitle', 14, 4]]
 
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
-            ['cora', 'sameauthor', 9, 5]]
+            ['cora', 'sameauthor', 6, 5]]
 '''
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
-            ['cora', 'sameauthor', 9, 5],
+            ['cora', 'sameauthor', 6, 5],
             ['citeseer', 'infield_ftitle', 14, 4]]
 '''
 
@@ -275,9 +275,11 @@ def construct_modes(dataset, flag, NUMBER=None):
     This could likely be changed by importing the actual python script for generating them,
     but this makes a few things slightly easier for now.'''
 
-    # Extra parameters to Cora Modes (won't work without them):
-    if (dataset == 'cora' or dataset == 'citeseer'):
-        call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam: nodeSize=2." > datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
+    # Extra parameters to cora modes (won't work without them) and citeseer modes:
+    if (dataset == 'cora'):
+        call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam: nodeSize=2." > datasets/cora/cora_bk.txt')
+    elif (dataset == 'citeseer'):
+        call_process('echo -e "setParam: maxTreeDepth=4.\nsetParam: nodeSize=2." > datasets/citeseer/citeseer_bk.txt')
     else:
         call_process('rm -f datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
 
@@ -318,7 +320,8 @@ def test_model(dataset, params, target, cross_validation_fold):
 def get_training_time():
     text = import_data('trainlog.txt')
     line = re.findall(r'% Total learning time \(\d* trees\):.*', text)
-    splitline = line[0].replace('.','').split()
+    # Remove the last character "." from the line and split it on spaces.
+    splitline = line[0][:-1].split()
     seconds = []
     #print(splitline)
     if 'milliseconds' in splitline:
@@ -326,11 +329,10 @@ def get_training_time():
     if 'seconds' in splitline:
         seconds.append(float(splitline[splitline.index('seconds') - 1]))
     if 'minutes' in splitline:
-        seconds.append(
-            float(splitline[splitline.index('minutes') - 1]) * 60)
+        seconds.append(float(splitline[splitline.index('minutes') - 1]) * 60)
     if 'hours' in splitline:
         seconds.append(float(splitline[splitline.index('hours') - 1]) * 3600)
-    #print(sum(seconds))
+    #print(seconds)
     return sum(seconds)
 
 '''
