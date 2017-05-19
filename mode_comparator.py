@@ -33,7 +33,7 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 3
+EPOCHS = 1
 TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
@@ -90,6 +90,7 @@ def main():
                             for cv in range(1, cross_validation_folds + 1):
                                 print(dataset, '| # of features:', n + 1, '| flag:', f, \
                                       '| epoch:', e, '| fold:', cv)
+                                write_to_log_file(dataset + ' | # of features: ' + str(n + 1) + ' | flag: ' + f + ' | epoch: ' + str(e) + ' | fold: ' + str(cv))
                                 
                                 # Create the modes and perform BoostSRL training/testing
                                 training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
@@ -140,7 +141,8 @@ def main():
 
                                 print(dataset, '| # of features:', n + 1, '| flag:', f, \
                                       '| epoch:', e, '| fold:', cv)
-
+                                write_to_log_file(dataset + ' | # of features: ' + str(n + 1) + ' | flag: ' + f + ' | epoch: ' + str(e) + ' | fold: ' + str(cv))
+                                
                                 # Create the modes and perform BoostSRL training/testing
                                 training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
                                                                                             params, target, cv, n+1)
@@ -191,6 +193,7 @@ def main():
                         for cv in range(1, cross_validation_folds + 1):
 
                             print(dataset, '| flag:', f, '| epoch:', e, '| fold:', cv)
+                            write_to_log_file(dataset + '| flag: ' + f + ' | epoch: ' + str(e) + ' | fold: ' + str(cv))
 
                             # Create the modes and perform BoostSRL training/testing
                             training_score, roc_score, pr_score = make_modes_train_test(dataset, f, \
@@ -252,6 +255,10 @@ def import_data(file_to_read):
         return data
     else:
         raise(Exception('Error, there were problems when reading ' + file_to_read))
+
+def write_to_log_file(line_to_write):
+    with open('mode_comp_log.txt', 'a') as f:
+        f.write(line_to_write + 'n')
 
 def data_validation(data):
     '''This needs some further thought, mostly since the validation sets are already around
@@ -333,40 +340,9 @@ def get_training_time():
     if 'hours' in splitline:
         seconds.append(float(splitline[splitline.index('hours') - 1]) * 3600)
     #print(seconds)
+    print(sum(seconds))
+    write_to_log_file(str(sum(seconds)))
     return sum(seconds)
-
-'''
-def get_training_time():
-    text = import_data('trainlog.txt')
-    #text = open('trainlog.txt', 'r').read()
-    line = re.findall(r'trees\): \d*.\d* seconds', text)
-    if not line:
-        # Seconds should always be a decimal value, otherwise we need to deal in minutes and seconds
-        line = re.findall(r'trees\): \d* minutes and \d*.\d* seconds', text)
-        if not line:
-            # Perhaps it took hours?
-            line = re.findall(r'trees\): \d* hours and \d* minutes and \d*.\d* seconds', text)
-            if not line:
-                # Well, perhaps milliseconds???
-                line = re.findall(r'trees\): \d* milliseconds.', text)
-                if not line:
-                    raise(Exception('Error, the training time could not be found.'))
-                else:
-                    # Convert the milliseconds into a float representing seconds
-                    splitline = line[0].split()
-                    seconds = float(splitline[1]) / 1000
-            else:
-                # Convert he hours/minutes/seconds into a float representing seconds.
-                splitline = line[0].split()
-                seconds = (float(splitline[1]) * 3600) + (float(splitline[4]) * 60) + float(splitline[7])
-        else:
-            # Convert the minutes into seconds and add the seconds:
-            splitline = line[0].split()
-            seconds = (float(splitline[1]) * 60) + float(splitline[4])
-    else:
-        seconds = float(line[0].split()[1])
-    return seconds
-'''
 
 def get_roc_and_pr_score():
     text = import_data('testlog.txt')
@@ -377,6 +353,8 @@ def get_roc_and_pr_score():
         raise('Error, testing may not have completed properly. ROC or PR were not found correctly.')
     roc_score = float(line[0].split()[3])
     pr_score = float(line[1].split()[3])
+    print(roc_score, pr_score)
+    write_to_log_file(str(roc_score) + ' ' + str(pr_score))
     return roc_score, pr_score
 
 def make_modes_train_test(dataset, f, params, target, cv, NUMBER=None):
