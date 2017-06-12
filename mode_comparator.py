@@ -52,7 +52,9 @@ DATASETS = [['webkb', 'faculty', 4, 4],
 
 ALGOS = [['RDN-Boost', '']]
 
-FLAGS = ['tushar', '-e', '-rw', '-w', '-s']
+#FLAGS = ['tushar', '-e', '-rw', '-w', '-s']
+#FLAGS = ['-e', '-rw', '-w', '-s']
+FLAGS = ['-rw', '-w', '-s']
 
 def main():
 
@@ -120,9 +122,11 @@ def main():
 
                     name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
 
+                    '''
                     plot_errorbars(training_time_means, training_time_stds,
                                    roc_means, roc_stds,
                                    pr_means, pr_stds, name_to_save)
+                    '''
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
@@ -170,10 +174,11 @@ def main():
                         '''
 
                     name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
-
+                    '''
                     plot_errorbars(training_time_means, training_time_stds,
                                    roc_means, roc_stds,
                                    pr_means, pr_stds, name_to_save)
+                    '''
                     log_progress(training_time_means, training_time_stds,
                                  roc_means, roc_stds,
                                  pr_means, pr_stds, name_to_save)
@@ -203,11 +208,11 @@ def main():
                             pr.append(pr_score)
 
                     name_to_save = dataset + '-' + f + '-' + str(EPOCHS) + '.png'
-
+                    '''
                     plot_errorbars(traintime, [0] * len(traintime),
                                    roc, [0] * len(roc),
                                    pr, [0] * len(pr), name_to_save)
-
+                    '''
                     log_progress(traintime, '-', roc, '-', pr, '-', name_to_save)
                     
                     if (f == 'tushar'):
@@ -222,8 +227,8 @@ def main():
         print(w_output)
         print(s_output)
         '''
-
         name_to_save = dataset + '-ALL-traintimes-' + str(EPOCHS) + '.png'
+        '''
         plot_data_summary(name_to_save, 'Training Time (s)', dataset, 
                           [tushar_output[0], tushar_output[1]], 
                           [e_output[0], e_output[1]], 
@@ -244,7 +249,8 @@ def main():
                           [rw_output[4], rw_output[5]], 
                           [w_output[4], w_output[5]], 
                           [s_output[4], s_output[5]])
-            
+        '''
+
 def import_data(file_to_read):
     '''Safe data import that raises an exception if the file cannot be found.
     args: file_to_read is a string representing the path to a file
@@ -258,7 +264,7 @@ def import_data(file_to_read):
 
 def write_to_log_file(line_to_write):
     with open('mode_comp_log.txt', 'a') as f:
-        f.write(line_to_write + 'n')
+        f.write(line_to_write + '\n')
 
 def data_validation(data):
     '''This needs some further thought, mostly since the validation sets are already around
@@ -339,6 +345,8 @@ def get_training_time():
         seconds.append(float(splitline[splitline.index('minutes') - 1]) * 60)
     if 'hours' in splitline:
         seconds.append(float(splitline[splitline.index('hours') - 1]) * 3600)
+    if 'days' in splitline:
+        seconds.append(float(splitline[splitline.index('days') - 1]) * 86400)
     #print(seconds)
     print(sum(seconds))
     write_to_log_file(str(sum(seconds)))
