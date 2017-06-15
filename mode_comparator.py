@@ -33,7 +33,7 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 else:
     import subprocess
 
-EPOCHS = 1
+EPOCHS = 10
 TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
@@ -288,6 +288,8 @@ def construct_modes(dataset, flag, NUMBER=None):
         call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam: nodeSize=2." > datasets/cora/cora_bk.txt')
     elif (dataset == 'citeseer'):
         call_process('echo -e "setParam: maxTreeDepth=4.\nsetParam: nodeSize=2." > datasets/citeseer/citeseer_bk.txt')
+    elif (dataset == 'imdb'):
+        call_process('echo -e "setParam: maxTreeDepth=4.\nsetParam:nodeSize=3." > datasets/imdb/imdb_bk.txt')
     else:
         call_process('rm -f datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
 
