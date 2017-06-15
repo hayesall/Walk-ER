@@ -1,9 +1,3 @@
-
-setParam: loadAllLibraries = false.
-setParam: treeDepth=3.
-setParam: nodeSize=3.
-setParam: numOfClauses=8.
-
 mode:courseprof(-Course, +Person).
 mode:courseprof(+Course, -Person).
 
@@ -15,5 +9,3 @@ mode:project(-Proj, +Person).
 mode:project(+Proj, -Person).
 
 mode:sameperson(-Person, +Person).
-mode:student(+Person).
-

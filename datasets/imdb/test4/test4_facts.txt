@@ -1,0 +1,138 @@
+actor(aalicjajachiewicz).
+actor(aangelinasarova).
+actor(aantonradichev).
+actor(abogomilsimeonov).
+actor(adimitarhadzhiyanev).
+actor(aemiliaradeva).
+actor(aemilmarkov).
+actor(aganchoganchev).
+actor(ageorgistamatov).
+actor(ahristodinev).
+actor(aivanbratanov).
+actor(aivandimov).
+actor(aivangrigorov).
+actor(aivankondov).
+actor(aivantonev).
+actor(ajannowicki).
+actor(akirilyanev).
+actor(akostatsonev).
+actor(akunkabaeva).
+actor(alyubomirbachvarov).
+actor(alyubomirbobchevski).
+actor(alyubomirkanev).
+actor(amariashopova).
+actor(amichalbajor).
+actor(amikhailmikhajlov).
+actor(anevenakokanova).
+actor(anikoladadov).
+actor(apetardespotov).
+actor(apetyasilyanova).
+actor(asavahashamov).
+actor(asonyadjulgerova).
+actor(asotirmaynolovski).
+actor(astefandanailov).
+actor(astefanpejchev).
+actor(astefanpetrov).
+actor(astoychomazgalov).
+actor(atzenokandov).
+actor(atzvetolyubrakovski).
+actor(aviktordanchenko).
+actor(avyarakovacheva).
+genre(amarinovichanton, adrama).
+genre(apunchevborislav, adrama).
+genre(asurchadzhievstefani, adrama).
+genre(atraykovatanas, adrama).
+movie(ageratzite, aangelinasarova).
+movie(ageratzite, aganchoganchev).
+movie(ageratzite, ageorgistamatov).
+movie(ageratzite, aivanbratanov).
+movie(ageratzite, aivandimov).
+movie(ageratzite, aivantonev).
+movie(ageratzite, akunkabaeva).
+movie(ageratzite, amariashopova).
+movie(ageratzite, amarinovichanton).
+movie(ageratzite, anikoladadov).
+movie(ageratzite, astefanpejchev).
+movie(ageratzite, astefanpetrov).
+movie(ageratzite, atzvetolyubrakovski).
+movie(ageratzite, avyarakovacheva).
+movie(akristali, adimitarhadzhiyanev).
+movie(akristali, aemiliaradeva).
+movie(akristali, aivangrigorov).
+movie(akristali, akostatsonev).
+movie(akristali, anevenakokanova).
+movie(akristali, apetardespotov).
+movie(akristali, apetyasilyanova).
+movie(akristali, asonyadjulgerova).
+movie(akristali, astefandanailov).
+movie(akristali, astoychomazgalov).
+movie(akristali, atraykovatanas).
+movie(alegendazapaisiy, aangelinasarova).
+movie(alegendazapaisiy, ahristodinev).
+movie(alegendazapaisiy, aivankondov).
+movie(alegendazapaisiy, akirilyanev).
+movie(alegendazapaisiy, alyubomirbobchevski).
+movie(alegendazapaisiy, amikhailmikhajlov).
+movie(alegendazapaisiy, asavahashamov).
+movie(alegendazapaisiy, astoychomazgalov).
+movie(alegendazapaisiy, asurchadzhievstefani).
+movie(alegendazapaisiy, atzenokandov).
+movie(alegendazapaisiy, aviktordanchenko).
+movie(aspasenieto, aalicjajachiewicz).
+movie(aspasenieto, aantonradichev).
+movie(aspasenieto, abogomilsimeonov).
+movie(aspasenieto, aemilmarkov).
+movie(aspasenieto, ajannowicki).
+movie(aspasenieto, akostatsonev).
+movie(aspasenieto, alyubomirbachvarov).
+movie(aspasenieto, alyubomirkanev).
+movie(aspasenieto, amichalbajor).
+movie(aspasenieto, anevenakokanova).
+movie(aspasenieto, apunchevborislav).
+movie(aspasenieto, asotirmaynolovski).
+movie(aspasenieto, astoychomazgalov).
+workedunder(aalicjajachiewicz, apunchevborislav).
+workedunder(aangelinasarova, amarinovichanton).
+workedunder(aangelinasarova, asurchadzhievstefani).
+workedunder(aantonradichev, apunchevborislav).
+workedunder(abogomilsimeonov, apunchevborislav).
+workedunder(adimitarhadzhiyanev, atraykovatanas).
+workedunder(aemiliaradeva, atraykovatanas).
+workedunder(aemilmarkov, apunchevborislav).
+workedunder(aganchoganchev, amarinovichanton).
+workedunder(ageorgistamatov, amarinovichanton).
+workedunder(ahristodinev, asurchadzhievstefani).
+workedunder(aivanbratanov, amarinovichanton).
+workedunder(aivandimov, amarinovichanton).
+workedunder(aivangrigorov, atraykovatanas).
+workedunder(aivankondov, asurchadzhievstefani).
+workedunder(aivantonev, amarinovichanton).
+workedunder(ajannowicki, apunchevborislav).
+workedunder(akirilyanev, asurchadzhievstefani).
+workedunder(akostatsonev, apunchevborislav).
+workedunder(akostatsonev, atraykovatanas).
+workedunder(akunkabaeva, amarinovichanton).
+workedunder(alyubomirbachvarov, apunchevborislav).
+workedunder(alyubomirbobchevski, asurchadzhievstefani).
+workedunder(alyubomirkanev, apunchevborislav).
+workedunder(amariashopova, amarinovichanton).
+workedunder(amichalbajor, apunchevborislav).
+workedunder(amikhailmikhajlov, asurchadzhievstefani).
+workedunder(anevenakokanova, apunchevborislav).
+workedunder(anevenakokanova, atraykovatanas).
+workedunder(anikoladadov, amarinovichanton).
+workedunder(apetardespotov, atraykovatanas).
+workedunder(apetyasilyanova, atraykovatanas).
+workedunder(asavahashamov, asurchadzhievstefani).
+workedunder(asonyadjulgerova, atraykovatanas).
+workedunder(asotirmaynolovski, apunchevborislav).
+workedunder(astefandanailov, atraykovatanas).
+workedunder(astefanpejchev, amarinovichanton).
+workedunder(astefanpetrov, amarinovichanton).
+workedunder(astoychomazgalov, apunchevborislav).
+workedunder(astoychomazgalov, asurchadzhievstefani).
+workedunder(astoychomazgalov, atraykovatanas).
+workedunder(atzenokandov, asurchadzhievstefani).
+workedunder(atzvetolyubrakovski, amarinovichanton).
+workedunder(aviktordanchenko, asurchadzhievstefani).
+workedunder(avyarakovacheva, amarinovichanton).

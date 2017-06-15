@@ -1,0 +1,17 @@
+female_gender(acaitlinoheaney).
+female_gender(acharlotterampling).
+female_gender(achelcieross).
+female_gender(adebraengle).
+female_gender(adorothymalone).
+female_gender(aellenthomas).
+female_gender(afloramontgomery).
+female_gender(aginachiarelli).
+female_gender(ajanchappell).
+female_gender(ajeannetripplehorn).
+female_gender(ajurneesmollett).
+female_gender(aleilanisarelle).
+female_gender(amarksangster).
+female_gender(arobyndouglass).
+female_gender(asharonstone).
+female_gender(asheilapaterson).
+female_gender(atimberrington).

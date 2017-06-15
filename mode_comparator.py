@@ -38,23 +38,18 @@ TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['citeseer', 'infield_ftitle', 14, 4]]
+DATASETS = [['imdb', 'female_gender', 4, 5]]
 
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
-            ['cora', 'sameauthor', 6, 5]]
-'''
-'''
-DATASETS = [['webkb', 'faculty', 4, 4],
             ['cora', 'sameauthor', 6, 5],
+            ['imdb', 'female_gender', 4, 5],
             ['citeseer', 'infield_ftitle', 14, 4]]
 '''
 
 ALGOS = [['RDN-Boost', '']]
 
-#FLAGS = ['tushar', '-e', '-rw', '-w', '-s']
-#FLAGS = ['-e', '-rw', '-w', '-s']
-FLAGS = ['-rw', '-w', '-s']
+FLAGS = ['tushar', '-e', '-rw', '-w', '-s']
 
 def main():
 

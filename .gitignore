@@ -3,3 +3,30 @@
 # No class or backup files.
 *.class
 *~
+
+# Ignore log files, results files, models, and a few other things.
+
+datasets/*/*/AUC/*
+datasets/*/*/models/*
+datasets/*/*/query_*
+datasets/*/*/test*_infer_dribble.txt
+datasets/*/*/train*_learn_dribble.txt
+datasets/*/*/train*_gleaner.txt
+datasets/*/*/results_*
+
+# The bk files for each dataset will be based on what was created for a specific run, do not retain them.
+
+datasets/cora/cora_bk.txt
+datasets/webkb/webkb_bk.txt
+datasets/imdb/imdb_bk.txt
+datasets/uwcse/uwcse_bk.txt
+datasets/citeseer/citeseer_bk.txt
+
+# Zip files are most likely to be datasets I've downloaded elsewhere but haven't cleaned yet.
+
+*.zip
+
+
+
+# IGNORE UWCSE until I've finished fixing it.
+datasets/uwcse/*

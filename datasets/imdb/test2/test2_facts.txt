@@ -1,0 +1,187 @@
+actor(aalancpeterson).
+actor(abenjaminmouton).
+actor(abenjohnson).
+actor(abillcable).
+actor(abillyconnolly).
+actor(abruceayoung).
+actor(acaitlinoheaney).
+actor(acharlotterampling).
+actor(achelcieross).
+actor(aconnorwiddows).
+actor(adanielvonbargen).
+actor(adannflorek).
+actor(adavidarnett).
+actor(adavidmorrissey).
+actor(adavidthewlis).
+actor(adebraengle).
+actor(adenisarndt).
+actor(adillonmoen).
+actor(adorothymalone).
+actor(aellenthomas).
+actor(afloramontgomery).
+actor(afrankcturner).
+actor(ageorgedzundza).
+actor(agilbellows).
+actor(aginachiarelli).
+actor(agusmercurio).
+actor(aheathcotewilliams).
+actor(ahughdancy).
+actor(ahughkeaysbyrne).
+actor(aianholm).
+actor(aindiravarma).
+actor(ajackmcgee).
+actor(ajaimzwoolvett).
+actor(ajanchappell).
+actor(ajeannetripplehorn).
+actor(ajurneesmollett).
+actor(ajustinmonjo).
+actor(aleilanisarelle).
+actor(alewissmith).
+actor(alloydalan).
+actor(amarccaleb).
+actor(amarksangster).
+actor(amichaeldouglas).
+actor(amiguelferrer).
+actor(aneilmaskell).
+actor(anormanarmour).
+actor(arobyndouglass).
+actor(asharonstone).
+actor(asheilapaterson).
+actor(astancollymore).
+actor(astephentobolowsky).
+actor(astevekuhn).
+actor(aterenceharvey).
+actor(atimberrington).
+actor(awayneknight).
+genre(acatonjonesmichael, acrime).
+genre(acatonjonesmichael, adrama).
+genre(acatonjonesmichael, amystery).
+genre(acatonjonesmichael, athriller).
+genre(ametcalfestephen, acomedy).
+genre(ametcalfestephen, adrama).
+genre(ametcalfestephen, aromance).
+genre(amillergeorgei, ascifi).
+genre(averhoevenpauli, acrime).
+genre(averhoevenpauli, adrama).
+genre(averhoevenpauli, amystery).
+genre(averhoevenpauli, athriller).
+movie(abadlands2005, acaitlinoheaney).
+movie(abadlands2005, adavidarnett).
+movie(abadlands2005, adebraengle).
+movie(abadlands2005, agusmercurio).
+movie(abadlands2005, ahughkeaysbyrne).
+movie(abadlands2005, ajustinmonjo).
+movie(abadlands2005, alewissmith).
+movie(abadlands2005, alloydalan).
+movie(abadlands2005, amarccaleb).
+movie(abadlands2005, amiguelferrer).
+movie(abadlands2005, amillergeorgei).
+movie(abadlands2005, arobyndouglass).
+movie(abadlands2005, asharonstone).
+movie(abadlands2005, astevekuhn).
+movie(abasicinstinct2, acatonjonesmichael).
+movie(abasicinstinct2, acharlotterampling).
+movie(abasicinstinct2, adavidmorrissey).
+movie(abasicinstinct2, adavidthewlis).
+movie(abasicinstinct2, aellenthomas).
+movie(abasicinstinct2, afloramontgomery).
+movie(abasicinstinct2, aheathcotewilliams).
+movie(abasicinstinct2, ahughdancy).
+movie(abasicinstinct2, aindiravarma).
+movie(abasicinstinct2, ajanchappell).
+movie(abasicinstinct2, amarksangster).
+movie(abasicinstinct2, aneilmaskell).
+movie(abasicinstinct2, asharonstone).
+movie(abasicinstinct2, astancollymore).
+movie(abasicinstinct2, aterenceharvey).
+movie(abasicinstinct2, atimberrington).
+movie(abasicinstinct, abenjaminmouton).
+movie(abasicinstinct, abillcable).
+movie(abasicinstinct, abruceayoung).
+movie(abasicinstinct, achelcieross).
+movie(abasicinstinct, adanielvonbargen).
+movie(abasicinstinct, adenisarndt).
+movie(abasicinstinct, adorothymalone).
+movie(abasicinstinct, ageorgedzundza).
+movie(abasicinstinct, ajackmcgee).
+movie(abasicinstinct, ajeannetripplehorn).
+movie(abasicinstinct, aleilanisarelle).
+movie(abasicinstinct, amichaeldouglas).
+movie(abasicinstinct, asharonstone).
+movie(abasicinstinct, astephentobolowsky).
+movie(abasicinstinct, averhoevenpauli).
+movie(abasicinstinct, awayneknight).
+movie(abeautifuljoe, aalancpeterson).
+movie(abeautifuljoe, abenjohnson).
+movie(abeautifuljoe, abillyconnolly).
+movie(abeautifuljoe, aconnorwiddows).
+movie(abeautifuljoe, adannflorek).
+movie(abeautifuljoe, adillonmoen).
+movie(abeautifuljoe, afrankcturner).
+movie(abeautifuljoe, agilbellows).
+movie(abeautifuljoe, aginachiarelli).
+movie(abeautifuljoe, aianholm).
+movie(abeautifuljoe, ajaimzwoolvett).
+movie(abeautifuljoe, ajurneesmollett).
+movie(abeautifuljoe, ametcalfestephen).
+movie(abeautifuljoe, anormanarmour).
+movie(abeautifuljoe, asharonstone).
+movie(abeautifuljoe, asheilapaterson).
+workedunder(aalancpeterson, ametcalfestephen).
+workedunder(abenjaminmouton, averhoevenpauli).
+workedunder(abenjohnson, ametcalfestephen).
+workedunder(abillcable, averhoevenpauli).
+workedunder(abillyconnolly, ametcalfestephen).
+workedunder(abruceayoung, averhoevenpauli).
+workedunder(acaitlinoheaney, amillergeorgei).
+workedunder(acharlotterampling, acatonjonesmichael).
+workedunder(achelcieross, averhoevenpauli).
+workedunder(aconnorwiddows, ametcalfestephen).
+workedunder(adanielvonbargen, averhoevenpauli).
+workedunder(adannflorek, ametcalfestephen).
+workedunder(adavidarnett, amillergeorgei).
+workedunder(adavidmorrissey, acatonjonesmichael).
+workedunder(adavidthewlis, acatonjonesmichael).
+workedunder(adebraengle, amillergeorgei).
+workedunder(adenisarndt, averhoevenpauli).
+workedunder(adillonmoen, ametcalfestephen).
+workedunder(adorothymalone, averhoevenpauli).
+workedunder(aellenthomas, acatonjonesmichael).
+workedunder(afloramontgomery, acatonjonesmichael).
+workedunder(afrankcturner, ametcalfestephen).
+workedunder(ageorgedzundza, averhoevenpauli).
+workedunder(agilbellows, ametcalfestephen).
+workedunder(aginachiarelli, ametcalfestephen).
+workedunder(agusmercurio, amillergeorgei).
+workedunder(aheathcotewilliams, acatonjonesmichael).
+workedunder(ahughdancy, acatonjonesmichael).
+workedunder(ahughkeaysbyrne, amillergeorgei).
+workedunder(aianholm, ametcalfestephen).
+workedunder(aindiravarma, acatonjonesmichael).
+workedunder(ajackmcgee, averhoevenpauli).
+workedunder(ajaimzwoolvett, ametcalfestephen).
+workedunder(ajanchappell, acatonjonesmichael).
+workedunder(ajeannetripplehorn, averhoevenpauli).
+workedunder(ajurneesmollett, ametcalfestephen).
+workedunder(ajustinmonjo, amillergeorgei).
+workedunder(aleilanisarelle, averhoevenpauli).
+workedunder(alewissmith, amillergeorgei).
+workedunder(alloydalan, amillergeorgei).
+workedunder(amarccaleb, amillergeorgei).
+workedunder(amarksangster, acatonjonesmichael).
+workedunder(amichaeldouglas, averhoevenpauli).
+workedunder(amiguelferrer, amillergeorgei).
+workedunder(aneilmaskell, acatonjonesmichael).
+workedunder(anormanarmour, ametcalfestephen).
+workedunder(arobyndouglass, amillergeorgei).
+workedunder(asharonstone, acatonjonesmichael).
+workedunder(asharonstone, ametcalfestephen).
+workedunder(asharonstone, amillergeorgei).
+workedunder(asharonstone, averhoevenpauli).
+workedunder(asheilapaterson, ametcalfestephen).
+workedunder(astancollymore, acatonjonesmichael).
+workedunder(astephentobolowsky, averhoevenpauli).
+workedunder(astevekuhn, amillergeorgei).
+workedunder(aterenceharvey, acatonjonesmichael).
+workedunder(atimberrington, acatonjonesmichael).
+workedunder(awayneknight, averhoevenpauli).

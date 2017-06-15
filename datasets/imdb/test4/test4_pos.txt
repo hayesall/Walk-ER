@@ -1,0 +1,9 @@
+female_gender(aalicjajachiewicz).
+female_gender(aangelinasarova).
+female_gender(aemiliaradeva).
+female_gender(akunkabaeva).
+female_gender(amariashopova).
+female_gender(anevenakokanova).
+female_gender(apetyasilyanova).
+female_gender(asonyadjulgerova).
+female_gender(avyarakovacheva).

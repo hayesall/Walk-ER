@@ -1,0 +1,6 @@
+Nodes: {movieid=EntityNodeStyle, female_gender=AttributeNodeStyle, movie=RelationNodeStyle, genre=AttributeNodeStyle, personid=EntityNodeStyle, actor=AttributeNodeStyle, workedunder=RelationNodeStyle}
+Edges: {workedunder|personid=RelationEdge, genre|personid=AttributeEdge, movie|movieid=RelationEdge, personid|workedunder=RelationEdge, female_gender|personid=AttributeEdge, actor|personid=AttributeEdge, personid|movie=RelationEdge}
+Important: [genre, workedunder, actor, movie]
+Target: female_gender
+RelatedEntities: {movie=[movieid, personid], workedunder=[personid]}
+AttributeEntityMapping: {female_gender=personid, genre=personid, actor=personid}

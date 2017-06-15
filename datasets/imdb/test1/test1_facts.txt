@@ -1,0 +1,186 @@
+actor(aandygarcia).
+actor(aangelahall).
+actor(aannejacques).
+actor(aanthonyheald).
+actor(aberniemac).
+actor(abradpitt).
+actor(abrionjames).
+actor(acarolflorence).
+actor(acaseyaffleck).
+actor(acatherinezetajones).
+actor(aceceliaannbirt).
+actor(acynthiastevenson).
+actor(adavidsontag).
+actor(adeanstockwell).
+actor(adenzelwashington).
+actor(adinaconnolly).
+actor(adinamerrill).
+actor(adontiffany).
+actor(aeddiejemison).
+actor(aedkross).
+actor(aelliottgould).
+actor(afrankpatton).
+actor(afredward).
+actor(ageorgeclooney).
+actor(agretascacchi).
+actor(ahumecronyn).
+actor(ajamessikking).
+actor(ajohnfinn).
+actor(ajohnheard).
+actor(ajohnlithgow).
+actor(ajorgerhernandez).
+actor(ajuliaroberts).
+actor(alarrysontag).
+actor(aleahayres).
+actor(alorigalinski).
+actor(alylelovett).
+actor(amarkgantt).
+actor(aminianden).
+actor(anelsonpeltz).
+actor(anicholaswoodeson).
+actor(apaullnolan).
+actor(apetergallagher).
+actor(arichardegrant).
+actor(arobertculp).
+actor(asamshepard).
+actor(ascottcaan).
+actor(astanleyanderson).
+actor(astanleytucci).
+actor(asydneypollack).
+actor(atimothypaulperez).
+actor(atimrobbins).
+actor(atonygoldwyn).
+actor(avincentdonofrio).
+actor(awhoopigoldberg).
+actor(awilliamatherton).
+genre(aaltmanroberti, acomedy).
+genre(aaltmanroberti, adrama).
+genre(aaltmanroberti, athriller).
+genre(apakulaalanj, adrama).
+genre(apakulaalanj, amystery).
+genre(apakulaalanj, athriller).
+genre(asoderberghsteven, aaction).
+genre(asoderberghsteven, acomedy).
+genre(asoderberghsteven, acrime).
+genre(asoderberghsteven, adocumentary).
+genre(asoderberghsteven, athriller).
+movie(aoceanseleven, aberniemac).
+movie(aoceanseleven, abradpitt).
+movie(aoceanseleven, acarolflorence).
+movie(aoceanseleven, acaseyaffleck).
+movie(aoceanseleven, aceceliaannbirt).
+movie(aoceanseleven, aeddiejemison).
+movie(aoceanseleven, aelliottgould).
+movie(aoceanseleven, afrankpatton).
+movie(aoceanseleven, ageorgeclooney).
+movie(aoceanseleven, ajorgerhernandez).
+movie(aoceanseleven, alorigalinski).
+movie(aoceanseleven, amarkgantt).
+movie(aoceanseleven, apaullnolan).
+movie(aoceanseleven, ascottcaan).
+movie(aoceanseleven, asoderberghsteven).
+movie(aoceanseleven, atimothypaulperez).
+movie(aoceanstwelve, aandygarcia).
+movie(aoceanstwelve, aannejacques).
+movie(aoceanstwelve, abradpitt).
+movie(aoceanstwelve, acaseyaffleck).
+movie(aoceanstwelve, acatherinezetajones).
+movie(aoceanstwelve, adavidsontag).
+movie(aoceanstwelve, adinaconnolly).
+movie(aoceanstwelve, adontiffany).
+movie(aoceanstwelve, aedkross).
+movie(aoceanstwelve, ageorgeclooney).
+movie(aoceanstwelve, ajuliaroberts).
+movie(aoceanstwelve, alarrysontag).
+movie(aoceanstwelve, aminianden).
+movie(aoceanstwelve, anelsonpeltz).
+movie(aoceanstwelve, ascottcaan).
+movie(aoceanstwelve, asoderberghsteven).
+movie(apelicanbriefthe, aanthonyheald).
+movie(apelicanbriefthe, adenzelwashington).
+movie(apelicanbriefthe, ahumecronyn).
+movie(apelicanbriefthe, ajamessikking).
+movie(apelicanbriefthe, ajohnfinn).
+movie(apelicanbriefthe, ajohnheard).
+movie(apelicanbriefthe, ajohnlithgow).
+movie(apelicanbriefthe, ajuliaroberts).
+movie(apelicanbriefthe, anicholaswoodeson).
+movie(apelicanbriefthe, apakulaalanj).
+movie(apelicanbriefthe, arobertculp).
+movie(apelicanbriefthe, asamshepard).
+movie(apelicanbriefthe, astanleyanderson).
+movie(apelicanbriefthe, astanleytucci).
+movie(apelicanbriefthe, atonygoldwyn).
+movie(apelicanbriefthe, awilliamatherton).
+movie(aplayerthe, aaltmanroberti).
+movie(aplayerthe, aangelahall).
+movie(aplayerthe, abrionjames).
+movie(aplayerthe, acynthiastevenson).
+movie(aplayerthe, adeanstockwell).
+movie(aplayerthe, adinamerrill).
+movie(aplayerthe, afredward).
+movie(aplayerthe, agretascacchi).
+movie(aplayerthe, aleahayres).
+movie(aplayerthe, alylelovett).
+movie(aplayerthe, apetergallagher).
+movie(aplayerthe, arichardegrant).
+movie(aplayerthe, asydneypollack).
+movie(aplayerthe, atimrobbins).
+movie(aplayerthe, avincentdonofrio).
+movie(aplayerthe, awhoopigoldberg).
+workedunder(aandygarcia, asoderberghsteven).
+workedunder(aangelahall, aaltmanroberti).
+workedunder(aannejacques, asoderberghsteven).
+workedunder(aanthonyheald, apakulaalanj).
+workedunder(aberniemac, asoderberghsteven).
+workedunder(abradpitt, asoderberghsteven).
+workedunder(abrionjames, aaltmanroberti).
+workedunder(acarolflorence, asoderberghsteven).
+workedunder(acaseyaffleck, asoderberghsteven).
+workedunder(acatherinezetajones, asoderberghsteven).
+workedunder(aceceliaannbirt, asoderberghsteven).
+workedunder(acynthiastevenson, aaltmanroberti).
+workedunder(adavidsontag, asoderberghsteven).
+workedunder(adeanstockwell, aaltmanroberti).
+workedunder(adenzelwashington, apakulaalanj).
+workedunder(adinaconnolly, asoderberghsteven).
+workedunder(adinamerrill, aaltmanroberti).
+workedunder(adontiffany, asoderberghsteven).
+workedunder(aeddiejemison, asoderberghsteven).
+workedunder(aedkross, asoderberghsteven).
+workedunder(aelliottgould, asoderberghsteven).
+workedunder(afrankpatton, asoderberghsteven).
+workedunder(afredward, aaltmanroberti).
+workedunder(ageorgeclooney, asoderberghsteven).
+workedunder(agretascacchi, aaltmanroberti).
+workedunder(ahumecronyn, apakulaalanj).
+workedunder(ajamessikking, apakulaalanj).
+workedunder(ajohnfinn, apakulaalanj).
+workedunder(ajohnheard, apakulaalanj).
+workedunder(ajohnlithgow, apakulaalanj).
+workedunder(ajorgerhernandez, asoderberghsteven).
+workedunder(ajuliaroberts, apakulaalanj).
+workedunder(ajuliaroberts, asoderberghsteven).
+workedunder(alarrysontag, asoderberghsteven).
+workedunder(aleahayres, aaltmanroberti).
+workedunder(alorigalinski, asoderberghsteven).
+workedunder(alylelovett, aaltmanroberti).
+workedunder(amarkgantt, asoderberghsteven).
+workedunder(aminianden, asoderberghsteven).
+workedunder(anelsonpeltz, asoderberghsteven).
+workedunder(anicholaswoodeson, apakulaalanj).
+workedunder(apaullnolan, asoderberghsteven).
+workedunder(apetergallagher, aaltmanroberti).
+workedunder(arichardegrant, aaltmanroberti).
+workedunder(arobertculp, apakulaalanj).
+workedunder(asamshepard, apakulaalanj).
+workedunder(ascottcaan, asoderberghsteven).
+workedunder(astanleyanderson, apakulaalanj).
+workedunder(astanleytucci, apakulaalanj).
+workedunder(asydneypollack, aaltmanroberti).
+workedunder(atimothypaulperez, asoderberghsteven).
+workedunder(atimrobbins, aaltmanroberti).
+workedunder(atonygoldwyn, apakulaalanj).
+workedunder(avincentdonofrio, aaltmanroberti).
+workedunder(awhoopigoldberg, aaltmanroberti).
+workedunder(awilliamatherton, apakulaalanj).

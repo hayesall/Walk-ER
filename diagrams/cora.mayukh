@@ -1,0 +1,6 @@
+Nodes: {venueid=EntityNodeStyle, haswordvenue=RelationNodeStyle, authid=EntityNodeStyle, venue=RelationNodeStyle, paperid=EntityNodeStyle, author=RelationNodeStyle, haswordtitle=RelationNodeStyle, title=RelationNodeStyle, sameauthor=RelationNodeStyle, haswordauthor=RelationNodeStyle, wordid=EntityNodeStyle, titleid=EntityNodeStyle}
+Edges: {sameauthor|authid=RelationEdge, titleid|title=RelationEdge, haswordvenue|venueid=RelationEdge, author|paperid=RelationEdge, venueid|venue=RelationEdge, wordid|haswordvenue=RelationEdge, wordid|haswordauthor=RelationEdge, authid|sameauthor=RelationEdge, haswordauthor|authid=RelationEdge, venue|paperid=RelationEdge, haswordtitle|titleid=RelationEdge, wordid|haswordtitle=RelationEdge, authid|author=RelationEdge, title|paperid=RelationEdge}
+Important: [author, haswordauthor, venue, haswordvenue, haswordtitle, title]
+Target: sameauthor
+RelatedEntities: {venue=[paperid, venueid], haswordtitle=[titleid, wordid], author=[paperid, authid], haswordauthor=[authid, wordid], haswordvenue=[venueid, wordid], title=[paperid, titleid], sameauthor=[authid]}
+AttributeEntityMapping: {}
