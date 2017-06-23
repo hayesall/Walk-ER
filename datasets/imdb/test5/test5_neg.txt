@@ -1,22 +1,123 @@
-female_gender(aantoninobruschetta).
-female_gender(abiagiobarone).
-female_gender(acarmelogalati).
-female_gender(acesareapolito).
-female_gender(aconsuelolupo).
-female_gender(acorradofortuna).
-female_gender(adanielegalea).
-female_gender(aenzodimartino).
-female_gender(afabiolobello).
-female_gender(agiancarloscuderi).
-female_gender(alucavitrano).
-female_gender(amanliosgalambro).
-female_gender(amarcocavicchioli).
-female_gender(amarcoleonardi).
-female_gender(amarcospicuglia).
-female_gender(amaurizionicolosi).
-female_gender(amaurolenares).
-female_gender(asalvatorelazzaro).
-female_gender(asaromiano).
-female_gender(astefanodionisi).
-female_gender(avannifois).
-female_gender(avincenzocrivello).
+workedunder(aannamariagherardi, afabiolobello).
+workedunder(aantoniettacarbonetti, adonatellafinocchiaro).
+workedunder(aantoniettacarbonetti, anicolegrimaudo).
+workedunder(aantoninobruschetta, amanliosgalambro).
+workedunder(aantoninobruschetta, avincenzocrivello).
+workedunder(abarbaratabita, aantoniettacarbonetti).
+workedunder(abarbaratabita, acorradofortuna).
+workedunder(abarbaratabita, afabiolobello).
+workedunder(abarbaratabita, amanueladolcemascolo).
+workedunder(abattiatofranco, acesareapolito).
+workedunder(abattiatofranco, apieradegliesposti).
+workedunder(abiagiobarone, aantoniettacarbonetti).
+workedunder(abiagiobarone, abarbaratabita).
+workedunder(abiagiobarone, alaurabetti).
+workedunder(abiagiobarone, aluciacammalleri).
+workedunder(abiagiobarone, amanliosgalambro).
+workedunder(abiagiobarone, apenlopecruz).
+workedunder(abiagiobarone, asalvatorelazzaro).
+workedunder(acarmelogalati, alucavitrano).
+workedunder(acarmelogalati, amanueladolcemascolo).
+workedunder(acarmelogalati, anicolegrimaudo).
+workedunder(acesareapolito, adonatellafinocchiaro).
+workedunder(acesareapolito, aeddasabatini).
+workedunder(acesareapolito, afrancomirabella).
+workedunder(aconsuelolupo, acarmelogalati).
+workedunder(aconsuelolupo, aenzodimartino).
+workedunder(aconsuelolupo, afabiolobello).
+workedunder(aconsuelolupo, amanliosgalambro).
+workedunder(aconsuelolupo, amarcocavicchioli).
+workedunder(aconsuelolupo, araffaeladavi).
+workedunder(adanielegalea, abarbaratabita).
+workedunder(adanielegalea, aradarassimov).
+workedunder(adanielegalea, asalvatorelazzaro).
+workedunder(adanielegalea, avincenzocrivello).
+workedunder(adonatellafinocchiaro, afabiolobello).
+workedunder(adonatellafinocchiaro, agrimaldiaurelioi).
+workedunder(adonatellafinocchiaro, anicolegrimaudo).
+workedunder(adonatellafinocchiaro, apieradegliesposti).
+workedunder(aeddasabatini, adanielegalea).
+workedunder(aeddasabatini, apenlopecruz).
+workedunder(aenzodimartino, aantoniettacarbonetti).
+workedunder(aenzodimartino, aauroraquattrocchi).
+workedunder(aenzodimartino, alaurabetti).
+workedunder(aenzodimartino, amarcocavicchioli).
+workedunder(aenzodimartino, apieradegliesposti).
+workedunder(afabiolobello, asalvatorelazzaro).
+workedunder(afabiolobello, aserenaautieri).
+workedunder(afrancomirabella, acorradofortuna).
+workedunder(afrancomirabella, aradarassimov).
+workedunder(agabrieleferzetti, aconsuelolupo).
+workedunder(agabrieleferzetti, apaolaciampi).
+workedunder(agiancarloscuderi, aannamariagherardi).
+workedunder(agiancarloscuderi, abiagiobarone).
+workedunder(aileanarigano, agrimaldiaurelioi).
+workedunder(aileanarigano, avincenzocrivello).
+workedunder(alaurabetti, aannamariagherardi).
+workedunder(alaurabetti, acarmelogalati).
+workedunder(alaurabetti, aileanarigano).
+workedunder(alaurabetti, apieradegliesposti).
+workedunder(alucavitrano, aluciacammalleri).
+workedunder(alucavitrano, aradarassimov).
+workedunder(aluciasardo, aantoninobruschetta).
+workedunder(aluciasardo, adanielegalea).
+workedunder(aluciasardo, amarcocavicchioli).
+workedunder(amanliosgalambro, aluciacammalleri).
+workedunder(amanueladolcemascolo, aeddasabatini).
+workedunder(amanueladolcemascolo, aenzodimartino).
+workedunder(amanueladolcemascolo, alucavitrano).
+workedunder(amanueladolcemascolo, amaurizionicolosi).
+workedunder(amanueladolcemascolo, apaolaciampi).
+workedunder(amarcocavicchioli, aauroraquattrocchi).
+workedunder(amarcocavicchioli, abiagiobarone).
+workedunder(amarcocavicchioli, amarcoleonardi).
+workedunder(amarcospicuglia, aeddasabatini).
+workedunder(amaurizionicolosi, aantoninobruschetta).
+workedunder(amaurizionicolosi, amanueladolcemascolo).
+workedunder(amaurolenares, aluciacammalleri).
+workedunder(amaurolenares, araffaeladavi).
+workedunder(amaurolenares, asaromiano).
+workedunder(anicolegrimaudo, aileanarigano).
+workedunder(anicolegrimaudo, aradarassimov).
+workedunder(apaolaciampi, aantoniettacarbonetti).
+workedunder(apaolaciampi, acarmelogalati).
+workedunder(apaolaciampi, alucavitrano).
+workedunder(apenlopecruz, aconsuelolupo).
+workedunder(apenlopecruz, aluciasardo).
+workedunder(apieradegliesposti, abattiatofranco).
+workedunder(apieradegliesposti, afrancomirabella).
+workedunder(apieradegliesposti, alucavitrano).
+workedunder(apieradegliesposti, aluciacammalleri).
+workedunder(apieradegliesposti, amarcocavicchioli).
+workedunder(apieradegliesposti, amarcospicuglia).
+workedunder(apieradegliesposti, anicolegrimaudo).
+workedunder(aradarassimov, aenzodimartino).
+workedunder(aradarassimov, afabiolobello).
+workedunder(aradarassimov, asaromiano).
+workedunder(aradarassimov, atizianalodato).
+workedunder(araffaeladavi, amaurolenares).
+workedunder(araffaeladavi, aradarassimov).
+workedunder(araffaeladavi, avannifois).
+workedunder(asalvatorelazzaro, amarcocavicchioli).
+workedunder(asaromiano, aauroraquattrocchi).
+workedunder(asaromiano, araffaeladavi).
+workedunder(asciveresmarianna, aantoninobruschetta).
+workedunder(asciveresmarianna, agabrieleferzetti).
+workedunder(asciveresmarianna, aileanarigano).
+workedunder(asciveresmarianna, apenlopecruz).
+workedunder(aserenaautieri, afabiolobello).
+workedunder(aserenaautieri, aileanarigano).
+workedunder(aserenaautieri, anicolegrimaudo).
+workedunder(aserenaautieri, asaromiano).
+workedunder(astefanodionisi, afabiolobello).
+workedunder(astefanodionisi, aileanarigano).
+workedunder(astefanodionisi, amaurizionicolosi).
+workedunder(atizianalodato, abarbaratabita).
+workedunder(atizianalodato, aenzodimartino).
+workedunder(atizianalodato, amanliosgalambro).
+workedunder(atizianalodato, asaromiano).
+workedunder(avannifois, abarbaratabita).
+workedunder(avannifois, agiancarloscuderi).
+workedunder(avannifois, apenlopecruz).
+workedunder(avincenzocrivello, aeddasabatini).
+workedunder(avincenzocrivello, amarcoleonardi).

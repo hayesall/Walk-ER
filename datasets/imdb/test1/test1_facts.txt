@@ -53,6 +53,32 @@ actor(atonygoldwyn).
 actor(avincentdonofrio).
 actor(awhoopigoldberg).
 actor(awilliamatherton).
+female_gender(aangelahall).
+female_gender(aannejacques).
+female_gender(aberniemac).
+female_gender(abradpitt).
+female_gender(acarolflorence).
+female_gender(acaseyaffleck).
+female_gender(acatherinezetajones).
+female_gender(aceceliaannbirt).
+female_gender(acynthiastevenson).
+female_gender(adinaconnolly).
+female_gender(adinamerrill).
+female_gender(aeddiejemison).
+female_gender(aelliottgould).
+female_gender(afrankpatton).
+female_gender(ageorgeclooney).
+female_gender(agretascacchi).
+female_gender(ajorgerhernandez).
+female_gender(ajuliaroberts).
+female_gender(aleahayres).
+female_gender(alorigalinski).
+female_gender(amarkgantt).
+female_gender(aminianden).
+female_gender(apaullnolan).
+female_gender(ascottcaan).
+female_gender(atimothypaulperez).
+female_gender(awhoopigoldberg).
 genre(aaltmanroberti, acomedy).
 genre(aaltmanroberti, adrama).
 genre(aaltmanroberti, athriller).
@@ -128,59 +154,3 @@ movie(aplayerthe, asydneypollack).
 movie(aplayerthe, atimrobbins).
 movie(aplayerthe, avincentdonofrio).
 movie(aplayerthe, awhoopigoldberg).
-workedunder(aandygarcia, asoderberghsteven).
-workedunder(aangelahall, aaltmanroberti).
-workedunder(aannejacques, asoderberghsteven).
-workedunder(aanthonyheald, apakulaalanj).
-workedunder(aberniemac, asoderberghsteven).
-workedunder(abradpitt, asoderberghsteven).
-workedunder(abrionjames, aaltmanroberti).
-workedunder(acarolflorence, asoderberghsteven).
-workedunder(acaseyaffleck, asoderberghsteven).
-workedunder(acatherinezetajones, asoderberghsteven).
-workedunder(aceceliaannbirt, asoderberghsteven).
-workedunder(acynthiastevenson, aaltmanroberti).
-workedunder(adavidsontag, asoderberghsteven).
-workedunder(adeanstockwell, aaltmanroberti).
-workedunder(adenzelwashington, apakulaalanj).
-workedunder(adinaconnolly, asoderberghsteven).
-workedunder(adinamerrill, aaltmanroberti).
-workedunder(adontiffany, asoderberghsteven).
-workedunder(aeddiejemison, asoderberghsteven).
-workedunder(aedkross, asoderberghsteven).
-workedunder(aelliottgould, asoderberghsteven).
-workedunder(afrankpatton, asoderberghsteven).
-workedunder(afredward, aaltmanroberti).
-workedunder(ageorgeclooney, asoderberghsteven).
-workedunder(agretascacchi, aaltmanroberti).
-workedunder(ahumecronyn, apakulaalanj).
-workedunder(ajamessikking, apakulaalanj).
-workedunder(ajohnfinn, apakulaalanj).
-workedunder(ajohnheard, apakulaalanj).
-workedunder(ajohnlithgow, apakulaalanj).
-workedunder(ajorgerhernandez, asoderberghsteven).
-workedunder(ajuliaroberts, apakulaalanj).
-workedunder(ajuliaroberts, asoderberghsteven).
-workedunder(alarrysontag, asoderberghsteven).
-workedunder(aleahayres, aaltmanroberti).
-workedunder(alorigalinski, asoderberghsteven).
-workedunder(alylelovett, aaltmanroberti).
-workedunder(amarkgantt, asoderberghsteven).
-workedunder(aminianden, asoderberghsteven).
-workedunder(anelsonpeltz, asoderberghsteven).
-workedunder(anicholaswoodeson, apakulaalanj).
-workedunder(apaullnolan, asoderberghsteven).
-workedunder(apetergallagher, aaltmanroberti).
-workedunder(arichardegrant, aaltmanroberti).
-workedunder(arobertculp, apakulaalanj).
-workedunder(asamshepard, apakulaalanj).
-workedunder(ascottcaan, asoderberghsteven).
-workedunder(astanleyanderson, apakulaalanj).
-workedunder(astanleytucci, apakulaalanj).
-workedunder(asydneypollack, aaltmanroberti).
-workedunder(atimothypaulperez, asoderberghsteven).
-workedunder(atimrobbins, aaltmanroberti).
-workedunder(atonygoldwyn, apakulaalanj).
-workedunder(avincentdonofrio, aaltmanroberti).
-workedunder(awhoopigoldberg, aaltmanroberti).
-workedunder(awilliamatherton, apakulaalanj).

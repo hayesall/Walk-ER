@@ -6,6 +6,9 @@
 
 # Ignore log files, results files, models, and a few other things.
 
+trainlog.txt
+testlog.txt
+
 datasets/*/*/AUC/*
 datasets/*/*/models/*
 datasets/*/*/query_*
@@ -26,7 +29,10 @@ datasets/citeseer/citeseer_bk.txt
 
 *.zip
 
+# Backup for imdb and imdb_female_gender
 
+datasets/imdb_backup/*
+datasets/imdb_female_gender/*
 
 # IGNORE UWCSE until I've finished fixing it.
 datasets/uwcse/*

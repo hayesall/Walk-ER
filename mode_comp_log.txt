@@ -115,685 +115,90 @@ citeseer--s-1.png
 [0.02120360851806834, 0.025348786158068817, 0.026952600351125688, 0.025445429043101271, 0.024847906666105694, 0.025752348517902215, 0.025335623127328077, 0.10868550198709807, 0.11465349974461095, 0.021385337324905596, 0.11467623641665042, 0.089740580898498762, 0.12733247965169767, 0.087208642623237173]
 
 
+---
 
-citeseer | # of features: 1 | flag: -rw | epoch: 0 | fold: 1
-79.125
-0.5 0.331287
-citeseer | # of features: 1 | flag: -rw | epoch: 0 | fold: 2
-70.826
-0.5 0.312409
-citeseer | # of features: 1 | flag: -rw | epoch: 0 | fold: 3
-48.803
-0.5 0.279529
-citeseer | # of features: 1 | flag: -rw | epoch: 0 | fold: 4
-65.747
-0.5 0.318966
-citeseer | # of features: 1 | flag: -rw | epoch: 1 | fold: 1
-80.052
-0.5 0.331287
-citeseer | # of features: 1 | flag: -rw | epoch: 1 | fold: 2
-71.159
-0.5 0.312409
-citeseer | # of features: 1 | flag: -rw | epoch: 1 | fold: 3
-48.955
-0.5 0.279529
-citeseer | # of features: 1 | flag: -rw | epoch: 1 | fold: 4
-65.689
-0.5 0.318966
-citeseer | # of features: 2 | flag: -rw | epoch: 0 | fold: 1
-79.28
-0.5 0.331287
-citeseer | # of features: 2 | flag: -rw | epoch: 0 | fold: 2
-70.117
-0.5 0.312409
-citeseer | # of features: 2 | flag: -rw | epoch: 0 | fold: 3
-48.165
-0.5 0.279529
-citeseer | # of features: 2 | flag: -rw | epoch: 0 | fold: 4
-65.65
-0.5 0.318966
-citeseer | # of features: 2 | flag: -rw | epoch: 1 | fold: 1
-78.73
-0.5 0.331287
-citeseer | # of features: 2 | flag: -rw | epoch: 1 | fold: 2
-70.434
-0.5 0.312409
-citeseer | # of features: 2 | flag: -rw | epoch: 1 | fold: 3
-49.817
-0.5 0.279529
-citeseer | # of features: 2 | flag: -rw | epoch: 1 | fold: 4
-65.831
-0.5 0.318966
-citeseer | # of features: 3 | flag: -rw | epoch: 0 | fold: 1
-166.262
-0.674822 0.507345
-citeseer | # of features: 3 | flag: -rw | epoch: 0 | fold: 2
-167.33
-0.695471 0.505623
-citeseer | # of features: 3 | flag: -rw | epoch: 0 | fold: 3
-123.073
-0.709517 0.4918
-citeseer | # of features: 3 | flag: -rw | epoch: 0 | fold: 4
-149.055
-0.727519 0.548746
-citeseer | # of features: 3 | flag: -rw | epoch: 1 | fold: 1
-175.895
-0.690106 0.518636
-citeseer | # of features: 3 | flag: -rw | epoch: 1 | fold: 2
-69.398
-0.5 0.312409
-citeseer | # of features: 3 | flag: -rw | epoch: 1 | fold: 3
-116.647
-0.709491 0.491688
-citeseer | # of features: 3 | flag: -rw | epoch: 1 | fold: 4
-66.487
-0.5 0.318966
-citeseer | # of features: 4 | flag: -rw | epoch: 0 | fold: 1
-79.39
-0.5 0.331287
-citeseer | # of features: 4 | flag: -rw | epoch: 0 | fold: 2
-69.517
-0.5 0.312409
-citeseer | # of features: 4 | flag: -rw | epoch: 0 | fold: 3
-48.445
-0.5 0.279529
-citeseer | # of features: 4 | flag: -rw | epoch: 0 | fold: 4
-64.168
-0.5 0.318966
-citeseer | # of features: 4 | flag: -rw | epoch: 1 | fold: 1
-75.268
-0.5 0.331287
-citeseer | # of features: 4 | flag: -rw | epoch: 1 | fold: 2
-155.963
-0.693642 0.502265
-citeseer | # of features: 4 | flag: -rw | epoch: 1 | fold: 3
-111.585
-0.709534 0.49213
-citeseer | # of features: 4 | flag: -rw | epoch: 1 | fold: 4
-66.317
-0.5 0.318966
-citeseer | # of features: 5 | flag: -rw | epoch: 0 | fold: 1
-182.114
-0.686535 0.514841
-citeseer | # of features: 5 | flag: -rw | epoch: 0 | fold: 2
-26984.094
-0.74687 0.577252
-citeseer | # of features: 5 | flag: -rw | epoch: 0 | fold: 3
-116.979
-0.703929 0.489763
-citeseer | # of features: 5 | flag: -rw | epoch: 0 | fold: 4
-145.618
-0.727291 0.548438
-citeseer | # of features: 5 | flag: -rw | epoch: 1 | fold: 1
-171.949
-0.687067 0.51728
-citeseer | # of features: 5 | flag: -rw | epoch: 1 | fold: 2
-2670.573
-0.749883 0.584937
-citeseer | # of features: 5 | flag: -rw | epoch: 1 | fold: 3
-124.104
-0.70935 0.491822
-citeseer | # of features: 5 | flag: -rw | epoch: 1 | fold: 4
-65.944
-0.5 0.318966
-citeseer | # of features: 6 | flag: -rw | epoch: 0 | fold: 1
-79.194
-0.5 0.331287
-citeseer | # of features: 6 | flag: -rw | epoch: 0 | fold: 2
-170.29
-0.693087 0.502308
-citeseer | # of features: 6 | flag: -rw | epoch: 0 | fold: 3
-121.61
-0.709122 0.491865
-citeseer | # of features: 6 | flag: -rw | epoch: 0 | fold: 4
-150.46
-0.727457 0.548823
-citeseer | # of features: 6 | flag: -rw | epoch: 1 | fold: 1
-138.398
-0.690039 0.518469
-citeseer | # of features: 6 | flag: -rw | epoch: 1 | fold: 2
-225.972
-0.695611 0.50238
-citeseer | # of features: 6 | flag: -rw | epoch: 1 | fold: 3
-9138.726
-0.740267 0.526928
-citeseer | # of features: 6 | flag: -rw | epoch: 1 | fold: 4
-25649.088
-0.732671 0.552433
-citeseer | # of features: 7 | flag: -rw | epoch: 0 | fold: 1
-815.522
-0.727646 0.570244
-citeseer | # of features: 7 | flag: -rw | epoch: 0 | fold: 2
-70.894
-0.5 0.312409
-citeseer | # of features: 7 | flag: -rw | epoch: 0 | fold: 3
-7866.728
-0.892988 0.785953
-citeseer | # of features: 7 | flag: -rw | epoch: 0 | fold: 4
-153.946
-0.727501 0.548739
-citeseer | # of features: 7 | flag: -rw | epoch: 1 | fold: 1
-79.521
-0.5 0.331287
-citeseer | # of features: 7 | flag: -rw | epoch: 1 | fold: 2
-163.148
-0.693741 0.502294
-citeseer | # of features: 7 | flag: -rw | epoch: 1 | fold: 3
-112.681
-0.709595 0.492304
-citeseer | # of features: 7 | flag: -rw | epoch: 1 | fold: 4
-6271.009
-0.806059 0.638204
-citeseer | # of features: 8 | flag: -rw | epoch: 0 | fold: 1
-78.176
-0.5 0.331287
-citeseer | # of features: 8 | flag: -rw | epoch: 0 | fold: 2
-4010.888
-0.816128 0.663257
-citeseer | # of features: 8 | flag: -rw | epoch: 0 | fold: 3
-122.968
-0.709038 0.491967
-citeseer | # of features: 8 | flag: -rw | epoch: 0 | fold: 4
-758.164
-0.755582 0.583342
-citeseer | # of features: 8 | flag: -rw | epoch: 1 | fold: 1
-76.705
-0.5 0.331287
-citeseer | # of features: 8 | flag: -rw | epoch: 1 | fold: 2
-14900.473
-0.93908 0.878684
-citeseer | # of features: 8 | flag: -rw | epoch: 1 | fold: 3
-9496.084
-0.901892 0.803813
-citeseer | # of features: 8 | flag: -rw | epoch: 1 | fold: 4
-216.147
-0.731869 0.547787
-citeseer | # of features: 9 | flag: -rw | epoch: 0 | fold: 1
-180.09
-0.689874 0.518417
-citeseer | # of features: 9 | flag: -rw | epoch: 0 | fold: 2
-168.773
-0.690539 0.50132
-citeseer | # of features: 9 | flag: -rw | epoch: 0 | fold: 3
-10851.837
-0.773349 0.5904
-citeseer | # of features: 9 | flag: -rw | epoch: 0 | fold: 4
-152.074
-0.727233 0.54835
-citeseer | # of features: 9 | flag: -rw | epoch: 1 | fold: 1
-32894.371
-0.871914 0.797455
-citeseer | # of features: 9 | flag: -rw | epoch: 1 | fold: 2
-135.273
-0.69007 0.501137
-citeseer | # of features: 9 | flag: -rw | epoch: 1 | fold: 3
-18087.55
-0.950293 0.874496
-citeseer | # of features: 9 | flag: -rw | epoch: 1 | fold: 4
-15750.117
-0.8675 0.796193
-citeseer | # of features: 10 | flag: -rw | epoch: 0 | fold: 1
-177.51
-0.690169 0.518067
-citeseer | # of features: 10 | flag: -rw | epoch: 0 | fold: 2
-158.093
-0.688007 0.50016
-citeseer | # of features: 10 | flag: -rw | epoch: 0 | fold: 3
-731.615
-0.886592 0.774463
-citeseer | # of features: 10 | flag: -rw | epoch: 0 | fold: 4
-736.962
-0.819798 0.665013
-citeseer | # of features: 10 | flag: -rw | epoch: 1 | fold: 1
-658.47
-0.784622 0.634654
-citeseer | # of features: 10 | flag: -rw | epoch: 1 | fold: 2
-54244.572
-0.740604 0.564316
-citeseer | # of features: 10 | flag: -rw | epoch: 1 | fold: 3
-6516.951
-0.88769 0.75509
-citeseer | # of features: 10 | flag: -rw | epoch: 1 | fold: 4
-11138.197
-0.89681 0.800672
-citeseer | # of features: 11 | flag: -rw | epoch: 0 | fold: 1
-1766.313
-0.845342 0.701498
-citeseer | # of features: 11 | flag: -rw | epoch: 0 | fold: 2
-4286.215
-0.80634 0.645583
-citeseer | # of features: 11 | flag: -rw | epoch: 0 | fold: 3
-110.217
-0.705843 0.488975
-citeseer | # of features: 11 | flag: -rw | epoch: 0 | fold: 4
-2244.414
-0.775126 0.615738
-citeseer | # of features: 11 | flag: -rw | epoch: 1 | fold: 1
-67593.729
-0.876585 0.775411
-citeseer | # of features: 11 | flag: -rw | epoch: 1 | fold: 2
-265.893
-0.707866 0.507634
-citeseer | # of features: 11 | flag: -rw | epoch: 1 | fold: 3
-19411.877
-0.943813 0.862116
-citeseer | # of features: 11 | flag: -rw | epoch: 1 | fold: 4
-26098.744
-0.827481 0.757006
-citeseer | # of features: 12 | flag: -rw | epoch: 0 | fold: 1
-9432.769
-0.915176 0.830899
-citeseer | # of features: 12 | flag: -rw | epoch: 0 | fold: 2
-8482.404
-0.788564 0.610332
-citeseer | # of features: 12 | flag: -rw | epoch: 0 | fold: 3
-10808.86
-0.823675 0.666779
-citeseer | # of features: 12 | flag: -rw | epoch: 0 | fold: 4
-4533.575
-0.784359 0.636851
-citeseer | # of features: 12 | flag: -rw | epoch: 1 | fold: 1
-3299.866
-0.686902 0.517905
-citeseer | # of features: 12 | flag: -rw | epoch: 1 | fold: 2
-33775.862
-0.697733 0.50504
-citeseer | # of features: 12 | flag: -rw | epoch: 1 | fold: 3
-4802.498
-0.822269 0.641774
-citeseer | # of features: 12 | flag: -rw | epoch: 1 | fold: 4
-162.374
-0.723522 0.547139
-citeseer | # of features: 13 | flag: -rw | epoch: 0 | fold: 1
-10272.27
-0.788283 0.625791
-citeseer | # of features: 13 | flag: -rw | epoch: 0 | fold: 2
-24215.332
-0.738061 0.566981
-citeseer | # of features: 13 | flag: -rw | epoch: 0 | fold: 3
-49030.323
-0.785361 0.643641
-citeseer | # of features: 13 | flag: -rw | epoch: 0 | fold: 4
-156.585
-0.724752 0.545604
-citeseer | # of features: 13 | flag: -rw | epoch: 1 | fold: 1
-173.138
-0.690119 0.518491
-citeseer | # of features: 13 | flag: -rw | epoch: 1 | fold: 2
-18050.796
-0.920989 0.856195
-citeseer | # of features: 13 | flag: -rw | epoch: 1 | fold: 3
-22457.269
-0.929648 0.842136
-citeseer | # of features: 13 | flag: -rw | epoch: 1 | fold: 4
-59803.176
-0.843487 0.755362
-citeseer | # of features: 14 | flag: -rw | epoch: 0 | fold: 1
-11090.321
-0.868175 0.769236
-citeseer | # of features: 14 | flag: -rw | epoch: 0 | fold: 2
-27994.439
-0.854584 0.748359
-citeseer | # of features: 14 | flag: -rw | epoch: 0 | fold: 3
-7567.27
-0.814602 0.696347
-citeseer | # of features: 14 | flag: -rw | epoch: 0 | fold: 4
-49800.838
-0.768508 0.609682
-citeseer | # of features: 14 | flag: -rw | epoch: 1 | fold: 1
-15108.204
-0.850542 0.735236
-citeseer | # of features: 14 | flag: -rw | epoch: 1 | fold: 2
-33718.402
-0.873224 0.750973
-citeseer | # of features: 14 | flag: -rw | epoch: 1 | fold: 3
-22472.891
-0.937406 0.859494
-citeseer | # of features: 14 | flag: -rw | epoch: 1 | fold: 4
-9788.543
-0.958517 0.907413
+IMDB: female_gender
 
+imdb-tushar-10.png
+[24.685, 16.248, 18.412, 18.659, 26.351, 28.612, 13.196, 16.123, 29.487, 22.425, 36.518, 15.971, 17.82, 24.288, 24.321, 32.396, 12.353, 17.69, 29.079, 25.054, 28.797, 22.695, 15.919, 16.12, 23.394, 34.864, 13.552, 16.122, 18.97, 20.986, 34.661, 13.491, 15.02, 20.104, 21.589, 32.184, 13.592, 20.657, 16.752, 19.836, 38.432, 15.549, 16.572, 21.045, 23.659, 34.199, 22.673, 14.098, 26.196, 20.435]
+-
+[0.222812, 0.417957, 0.546537, 0.5, 0.528139, 0.278515, 0.417957, 0.617965, 0.5, 0.528139, 0.222812, 0.417957, 0.546537, 0.5, 0.528139, 0.278515, 0.417957, 0.617965, 0.5, 0.528139, 0.278515, 0.417957, 0.546537, 0.5, 0.528139, 0.188329, 0.417957, 0.546537, 0.5, 0.528139, 0.222812, 0.417957, 0.546537, 0.5, 0.528139, 0.278515, 0.417957, 0.617965, 0.5, 0.528139, 0.222812, 0.417957, 0.617965, 0.5, 0.528139, 0.222812, 0.417957, 0.546537, 0.5, 0.528139]
+-
+[0.331602, 0.266978, 0.622454, 0.225, 0.517695, 0.376165, 0.266978, 0.676746, 0.225, 0.517695, 0.331602, 0.266978, 0.622454, 0.225, 0.517695, 0.376165, 0.266978, 0.676746, 0.225, 0.517695, 0.376165, 0.266978, 0.622454, 0.225, 0.517695, 0.316811, 0.266978, 0.622454, 0.225, 0.517695, 0.331602, 0.266978, 0.622454, 0.225, 0.517695, 0.376165, 0.266978, 0.676746, 0.225, 0.517695, 0.331602, 0.266978, 0.676746, 0.225, 0.517695, 0.331602, 0.266978, 0.622454, 0.225, 0.517695]
+-
 
+imdb--e-10.png
+[3.715, 3.684, 4.189, 3.598, 3.801, 3.573, 3.583, 4.132, 3.788, 4.199, 3.394, 3.397, 4.207, 3.769, 3.483, 3.625, 3.566, 3.753, 3.204, 3.503, 4.286, 3.693, 3.461, 3.781, 3.275, 3.246, 3.036, 3.632, 3.647, 3.669, 3.603, 3.908, 4.057, 3.589, 3.577, 3.611, 3.404, 3.358, 3.751, 3.084, 3.073, 4.029, 3.89, 3.302, 2.359, 3.749, 3.182, 3.779, 4.322, 3.609]
+-
+[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+-
+[0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372, 0.472727, 0.309091, 0.511628, 0.225, 0.488372]
+-
 
+imdb--rw-10.png
+[1.6633999999999998, 1.6741899999999998, 2.5293299999999999, 2.35642]
+[0.13468630219885019, 0.12854016454011563, 1.0454666427485861, 0.98531263241673706]
+[0.5, 0.5, 0.5, 0.5]
+[0.0, 0.0, 0.0, 0.0]
+[0.4013636000000001, 0.4013636000000001, 0.4013636000000001, 0.4013636000000001]
+[0.11352513955349272, 0.11352513955349272, 0.11352513955349272, 0.11352513955349272]
 
+imdb--w-10.png
+[1.6846800000000002, 3.7921799999999997, 3.8340199999999998, 3.6827999999999999]
+[0.091048435461571764, 0.38942571512420698, 0.35810135380922531, 0.33799118331696171]
+[0.5, 0.5, 0.5, 0.5]
+[0.0, 0.0, 0.0, 0.0]
+[0.40136359999999999, 0.40136359999999999, 0.40136359999999999, 0.40136359999999999]
+[0.11352513955349271, 0.11352513955349271, 0.11352513955349271, 0.11352513955349271]
 
+imdb--s-10.png
+[1.6715600000000002, 3.7485600000000003, 3.7913600000000001, 3.6029599999999999]
+[0.12584500943621085, 0.39563767060278776, 0.32946798084184142, 0.38860514458766499]
+[0.5, 0.5, 0.5, 0.5]
+[0.0, 0.0, 0.0, 0.0]
+[0.40136359999999999, 0.40136359999999999, 0.40136359999999999, 0.40136359999999999]
+[0.11352513955349271, 0.11352513955349271, 0.11352513955349271, 0.11352513955349271]
 
-citeseer | # of features: 1 | flag: -w | epoch: 0 | fold: 1
-180.695
-0.690037 0.518015
-citeseer | # of features: 1 | flag: -w | epoch: 0 | fold: 2
-158.107
-0.695479 0.505871
-citeseer | # of features: 1 | flag: -w | epoch: 0 | fold: 3
-114.674
-0.709501 0.491792
-citeseer | # of features: 1 | flag: -w | epoch: 0 | fold: 4
-155.714
-0.72747 0.548828
-citeseer | # of features: 2 | flag: -w | epoch: 0 | fold: 1
-906.833
-0.756043 0.579669
-citeseer | # of features: 2 | flag: -w | epoch: 0 | fold: 2
-665.645
-0.75666 0.557778
-citeseer | # of features: 2 | flag: -w | epoch: 0 | fold: 3
-622.166
-0.762969 0.540193
-citeseer | # of features: 2 | flag: -w | epoch: 0 | fold: 4
-842.367
-0.782983 0.598496
-citeseer | # of features: 3 | flag: -w | epoch: 0 | fold: 1
-970.81
-0.756011 0.581092
-citeseer | # of features: 3 | flag: -w | epoch: 0 | fold: 2
-855.354
-0.757076 0.557143
-citeseer | # of features: 3 | flag: -w | epoch: 0 | fold: 3
-684.877
-0.76317 0.540766
-citeseer | # of features: 3 | flag: -w | epoch: 0 | fold: 4
-826.048
-0.786099 0.601348
-citeseer | # of features: 4 | flag: -w | epoch: 0 | fold: 1
-933.586
-0.757406 0.581829
-citeseer | # of features: 4 | flag: -w | epoch: 0 | fold: 2
-812.465
-0.755153 0.556787
-citeseer | # of features: 4 | flag: -w | epoch: 0 | fold: 3
-588.494
-0.76208 0.539569
-citeseer | # of features: 4 | flag: -w | epoch: 0 | fold: 4
-771.989
-0.786404 0.601553
-citeseer | # of features: 5 | flag: -w | epoch: 0 | fold: 1
-828.224
-0.756946 0.581651
-citeseer | # of features: 5 | flag: -w | epoch: 0 | fold: 2
-801.275
-0.755784 0.557806
-citeseer | # of features: 5 | flag: -w | epoch: 0 | fold: 3
-614.088
-0.763002 0.540279
-citeseer | # of features: 5 | flag: -w | epoch: 0 | fold: 4
-609.406
-0.785865 0.601245
-citeseer | # of features: 6 | flag: -w | epoch: 0 | fold: 1
-823.727
-0.756318 0.581389
-citeseer | # of features: 6 | flag: -w | epoch: 0 | fold: 2
-695.885
-0.751264 0.552168
-citeseer | # of features: 6 | flag: -w | epoch: 0 | fold: 3
-650.661
-0.763004 0.539258
-citeseer | # of features: 6 | flag: -w | epoch: 0 | fold: 4
-478.416
-0.784017 0.596133
-citeseer | # of features: 7 | flag: -w | epoch: 0 | fold: 1
-6458.349
-0.803251 0.663194
-citeseer | # of features: 7 | flag: -w | epoch: 0 | fold: 2
-6066.388
-0.80425 0.642706
-citeseer | # of features: 7 | flag: -w | epoch: 0 | fold: 3
-5018.532
-0.814983 0.635321
-citeseer | # of features: 7 | flag: -w | epoch: 0 | fold: 4
-6590.601
-0.83385 0.690765
-citeseer | # of features: 8 | flag: -w | epoch: 0 | fold: 1
-5418.247
-0.796325 0.652786
-citeseer | # of features: 8 | flag: -w | epoch: 0 | fold: 2
-5508.622
-0.800738 0.633415
-citeseer | # of features: 8 | flag: -w | epoch: 0 | fold: 3
-5100.388
-0.808973 0.62548
-citeseer | # of features: 8 | flag: -w | epoch: 0 | fold: 4
-4375.954
-0.826287 0.680733
-citeseer | # of features: 9 | flag: -w | epoch: 0 | fold: 1
-5423.072
-0.940212 0.878461
-citeseer | # of features: 9 | flag: -w | epoch: 0 | fold: 2
-5453.74
-0.906359 0.803161
-citeseer | # of features: 9 | flag: -w | epoch: 0 | fold: 3
-6079.257
-0.945828 0.869093
-citeseer | # of features: 9 | flag: -w | epoch: 0 | fold: 4
-3481.317
-0.816928 0.658225
-citeseer | # of features: 10 | flag: -w | epoch: 0 | fold: 1
-6055.969
-0.808728 0.670834
-citeseer | # of features: 10 | flag: -w | epoch: 0 | fold: 2
-3908.576
-0.886279 0.750818
-citeseer | # of features: 10 | flag: -w | epoch: 0 | fold: 3
-7851.743
-0.940862 0.851942
-citeseer | # of features: 10 | flag: -w | epoch: 0 | fold: 4
-3939.615
-0.819055 0.665545
-citeseer | # of features: 11 | flag: -w | epoch: 0 | fold: 1
-9277.168
-0.969695 0.938794
-citeseer | # of features: 11 | flag: -w | epoch: 0 | fold: 2
-5275.036
-0.920673 0.838257
-citeseer | # of features: 11 | flag: -w | epoch: 0 | fold: 3
-3136.995
-0.818979 0.638835
-citeseer | # of features: 11 | flag: -w | epoch: 0 | fold: 4
-3691.621
-0.949103 0.87822
-citeseer | # of features: 12 | flag: -w | epoch: 0 | fold: 1
-5065.439
-0.7989 0.654291
-citeseer | # of features: 12 | flag: -w | epoch: 0 | fold: 2
-5042.757
-0.908066 0.808086
-citeseer | # of features: 12 | flag: -w | epoch: 0 | fold: 3
-3069.273
-0.821476 0.643182
-citeseer | # of features: 12 | flag: -w | epoch: 0 | fold: 4
-7250.989
-0.971839 0.933423
-citeseer | # of features: 13 | flag: -w | epoch: 0 | fold: 1
-5216.836
-0.936324 0.870085
-citeseer | # of features: 13 | flag: -w | epoch: 0 | fold: 2
-8361.796
-0.910553 0.815663
-citeseer | # of features: 13 | flag: -w | epoch: 0 | fold: 3
-4365.668
-0.822794 0.647435
-citeseer | # of features: 13 | flag: -w | epoch: 0 | fold: 4
-6796.668
-0.956487 0.89894
-citeseer | # of features: 14 | flag: -w | epoch: 0 | fold: 1
-6877.256
-0.942611 0.87665
-citeseer | # of features: 14 | flag: -w | epoch: 0 | fold: 2
-4553.455
-0.912154 0.813212
-citeseer | # of features: 14 | flag: -w | epoch: 0 | fold: 3
-5170.943
-0.82345 0.650238
-citeseer | # of features: 14 | flag: -w | epoch: 0 | fold: 4
-5939.942
-0.962055 0.911831
+---
 
+IMDB: workedunder
 
+imdb-tushar-10.png
+[12.923, 13.993, 10.263, 15.632, 22.878, 12.274, 15.189, 8.801, 14.581, 20.356, 14.635, 16.767, 9.422, 11.859, 19.676, 10.16, 11.175, 7.556, 16.564, 16.929, 11.125, 11.955, 8.742, 12.962, 19.67, 10.637, 13.839, 9.438, 13.643, 20.617, 9.994, 12.432, 6.329, 11.37, 13.995, 11.062, 14.483, 7.583, 13.631, 18.006, 10.562, 9.997, 7.534, 14.078, 18.208, 10.934, 14.653, 7.626, 15.673, 16.703]
+-
+[1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.990976, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.996594, 1.0, 1.0]
+-
+[1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.954219, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.989562, 1.0, 1.0]
+-
 
-citeseer | # of features: 1 | flag: -s | epoch: 0 | fold: 1
-170.327
-0.690101 0.518042
-citeseer | # of features: 1 | flag: -s | epoch: 0 | fold: 2
-152.738
-0.695117 0.50492
-citeseer | # of features: 1 | flag: -s | epoch: 0 | fold: 3
-126.314
-0.709421 0.491517
-citeseer | # of features: 1 | flag: -s | epoch: 0 | fold: 4
-161.713
-0.727514 0.548744
-citeseer | # of features: 2 | flag: -s | epoch: 0 | fold: 1
-222.548
-0.731801 0.554434
-citeseer | # of features: 2 | flag: -s | epoch: 0 | fold: 2
-199.282
-0.729565 0.533957
-citeseer | # of features: 2 | flag: -s | epoch: 0 | fold: 3
-145.873
-0.740767 0.520751
-citeseer | # of features: 2 | flag: -s | epoch: 0 | fold: 4
-194.548
-0.769323 0.587945
-citeseer | # of features: 3 | flag: -s | epoch: 0 | fold: 1
-217.034
-0.716711 0.539874
-citeseer | # of features: 3 | flag: -s | epoch: 0 | fold: 2
-202.826
-0.727982 0.531631
-citeseer | # of features: 3 | flag: -s | epoch: 0 | fold: 3
-163.574
-0.741501 0.519839
-citeseer | # of features: 3 | flag: -s | epoch: 0 | fold: 4
-181.193
-0.770112 0.590481
-citeseer | # of features: 4 | flag: -s | epoch: 0 | fold: 1
-220.891
-0.731384 0.554023
-citeseer | # of features: 4 | flag: -s | epoch: 0 | fold: 2
-194.509
-0.732569 0.538056
-citeseer | # of features: 4 | flag: -s | epoch: 0 | fold: 3
-150.992
-0.742066 0.520963
-citeseer | # of features: 4 | flag: -s | epoch: 0 | fold: 4
-192.633
-0.769835 0.589875
-citeseer | # of features: 5 | flag: -s | epoch: 0 | fold: 1
-211.381
-0.732043 0.554261
-citeseer | # of features: 5 | flag: -s | epoch: 0 | fold: 2
-197.177
-0.733034 0.540135
-citeseer | # of features: 5 | flag: -s | epoch: 0 | fold: 3
-158.816
-0.741696 0.522259
-citeseer | # of features: 5 | flag: -s | epoch: 0 | fold: 4
-196.687
-0.770076 0.589944
-citeseer | # of features: 6 | flag: -s | epoch: 0 | fold: 1
-207.557
-0.731526 0.553946
-citeseer | # of features: 6 | flag: -s | epoch: 0 | fold: 2
-211.791
-0.732171 0.536919
-citeseer | # of features: 6 | flag: -s | epoch: 0 | fold: 3
-159.446
-0.742177 0.521484
-citeseer | # of features: 6 | flag: -s | epoch: 0 | fold: 4
-194.753
-0.770767 0.590684
-citeseer | # of features: 7 | flag: -s | epoch: 0 | fold: 1
-5620.336
-0.793077 0.643892
-citeseer | # of features: 7 | flag: -s | epoch: 0 | fold: 2
-5384.313
-0.805091 0.643746
-citeseer | # of features: 7 | flag: -s | epoch: 0 | fold: 3
-4468.104
-0.802281 0.612377
-citeseer | # of features: 7 | flag: -s | epoch: 0 | fold: 4
-5363.77
-0.830219 0.683783
-citeseer | # of features: 8 | flag: -s | epoch: 0 | fold: 1
-4674.009
-0.787159 0.635301
-citeseer | # of features: 8 | flag: -s | epoch: 0 | fold: 2
-5396.173
-0.793749 0.621052
-citeseer | # of features: 8 | flag: -s | epoch: 0 | fold: 3
-4207.274
-0.810067 0.623693
-citeseer | # of features: 8 | flag: -s | epoch: 0 | fold: 4
-5126.748
-0.944477 0.877375
-citeseer | # of features: 9 | flag: -s | epoch: 0 | fold: 1
-4676.473
-0.944422 0.880207
-citeseer | # of features: 9 | flag: -s | epoch: 0 | fold: 2
-3348.683
-0.912062 0.81328
-citeseer | # of features: 9 | flag: -s | epoch: 0 | fold: 3
-2167.832
-0.812139 0.625883
-citeseer | # of features: 9 | flag: -s | epoch: 0 | fold: 4
-6337.683
-0.968849 0.927277
-citeseer | # of features: 10 | flag: -s | epoch: 0 | fold: 1
-4165.724
-0.79825 0.653182
-citeseer | # of features: 10 | flag: -s | epoch: 0 | fold: 2
-3108.947
-0.80994 0.650614
-citeseer | # of features: 10 | flag: -s | epoch: 0 | fold: 3
-3466.953
-0.82331 0.649933
-citeseer | # of features: 10 | flag: -s | epoch: 0 | fold: 4
-3246.864
-0.839382 0.700551
-citeseer | # of features: 11 | flag: -s | epoch: 0 | fold: 1
-7250.24
-0.948634 0.886072
-citeseer | # of features: 11 | flag: -s | epoch: 0 | fold: 2
-3273.702
-0.892326 0.764622
-citeseer | # of features: 11 | flag: -s | epoch: 0 | fold: 3
-4516.106
-0.81157 0.625623
-citeseer | # of features: 11 | flag: -s | epoch: 0 | fold: 4
-5343.563
-0.963352 0.916398
-citeseer | # of features: 12 | flag: -s | epoch: 0 | fold: 1
-3581.667
-0.798357 0.65395
-citeseer | # of features: 12 | flag: -s | epoch: 0 | fold: 2
-4412.035
-0.905435 0.803458
-citeseer | # of features: 12 | flag: -s | epoch: 0 | fold: 3
-6268.318
-0.948458 0.876522
-citeseer | # of features: 12 | flag: -s | epoch: 0 | fold: 4
-5158.869
-0.830382 0.685094
-citeseer | # of features: 13 | flag: -s | epoch: 0 | fold: 1
-5120.457
-0.944383 0.880666
-citeseer | # of features: 13 | flag: -s | epoch: 0 | fold: 2
-3033.021
-0.808021 0.645655
-citeseer | # of features: 13 | flag: -s | epoch: 0 | fold: 3
-3143.641
-0.816394 0.636151
-citeseer | # of features: 13 | flag: -s | epoch: 0 | fold: 4
-5910.586
-0.961341 0.908742
-citeseer | # of features: 14 | flag: -s | epoch: 0 | fold: 1
-2923.925
-0.803313 0.66344
-citeseer | # of features: 14 | flag: -s | epoch: 0 | fold: 2
-3871.637
-0.907597 0.809581
-citeseer | # of features: 14 | flag: -s | epoch: 0 | fold: 3
-6951.959
-0.94982 0.882849
-citeseer | # of features: 14 | flag: -s | epoch: 0 | fold: 4
-3791.443
-0.839345 0.699919
+imdb--e-10.png
+[7.506, 7.027, 6.328, 7.14, 10.431, 7.297, 6.464, 5.063, 6.779, 9.84, 6.92, 7.182, 5.368, 8.693, 10.282, 7.11, 7.562, 6.8, 8.717, 9.312, 6.502, 6.644, 5.834, 8.437, 9.608, 7.164, 7.321, 5.14, 7.887, 9.946, 6.815, 7.716, 4.829, 8.793, 9.835, 6.663, 7.278, 5.055, 6.611, 9.438, 7.171, 6.853, 5.031, 7.838, 8.868, 6.767, 7.406, 5.564, 8.448, 10.207]
+-
+[1.0, 1.0, 0.990976, 1.0, 1.0, 1.0, 1.0, 0.992112, 1.0, 1.0, 1.0, 1.0, 0.991949, 1.0, 1.0, 1.0, 1.0, 0.993409, 1.0, 1.0, 1.0, 1.0, 0.994869, 1.0, 1.0, 1.0, 1.0, 0.990976, 1.0, 1.0, 1.0, 1.0, 0.994869, 1.0, 1.0, 1.0, 1.0, 0.996594, 1.0, 1.0, 1.0, 1.0, 0.990976, 1.0, 1.0, 1.0, 1.0, 0.994869, 1.0, 1.0]
+-
+[1.0, 1.0, 0.954219, 1.0, 1.0, 1.0, 1.0, 0.957352, 1.0, 1.0, 1.0, 1.0, 0.95694, 1.0, 1.0, 1.0, 1.0, 0.965715, 1.0, 1.0, 1.0, 1.0, 0.980486, 1.0, 1.0, 1.0, 1.0, 0.954219, 1.0, 1.0, 1.0, 1.0, 0.980486, 1.0, 1.0, 1.0, 1.0, 0.989562, 1.0, 1.0, 1.0, 1.0, 0.954219, 1.0, 1.0, 1.0, 1.0, 0.980486, 1.0, 1.0]
+-
+
+imdb--rw-10.png
+[4.2450999999999999, 4.22112, 4.8648400000000001, 4.9941499999999994]
+[0.56171985010323433, 0.53109427185764302, 1.1163570819410786, 1.2519197208687145]
+[0.96779117999999997, 0.96804076000000006, 0.97396585000000002, 0.97500073999999981]
+[0.027523113236470907, 0.027126461534494318, 0.027402553913230421, 0.025291229949775076]
+[0.86079190000000028, 0.86149112000000017, 0.88685965999999994, 0.88831478999999991]
+[0.091769584001944807, 0.091449033654957795, 0.10110150416519234, 0.092068840542313249]
+
+imdb--w-10.png
+[4.1727600000000002, 7.3971600000000004, 8.4928799999999995, 7.8150199999999996]
+[0.48342207479592819, 1.1864723572001161, 1.6703723853081385, 1.6865889420958506]
+[0.96792565999999991, 0.96954595999999993, 0.99878528, 0.99858005999999988]
+[0.028107998525409097, 0.024479801148669478, 0.0029887992307279635, 0.0029641018633643564]
+[0.86271869999999995, 0.86231093999999986, 0.99372778000000006, 0.99301923999999986]
+[0.09345922188853277, 0.096304710367127941, 0.015479510138618719, 0.015086645121510608]
+
+imdb--s-10.png
+[4.2207600000000003, 6.7175400000000005, 7.8497599999999998, 8.0289600000000014]
+[0.56979120947940209, 0.97818278884879184, 1.5672267424977153, 1.7017698077002072]
+[0.96742649999999997, 0.96904247999999982, 0.99855614000000004, 0.99870096000000008]
+[0.028864749917676402, 0.024079528290429603, 0.0030137281563538654, 0.0029092491330926025]
+[0.86132025999999995, 0.85883757999999988, 0.99263846, 0.99345348]
+[0.09409858296314777, 0.093374034589513169, 0.015864006612719243, 0.015167309391240089]

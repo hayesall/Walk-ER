@@ -1,38 +1,167 @@
-female_gender(aalancpeterson).
-female_gender(abenjaminmouton).
-female_gender(abenjohnson).
-female_gender(abillcable).
-female_gender(abillyconnolly).
-female_gender(abruceayoung).
-female_gender(aconnorwiddows).
-female_gender(adanielvonbargen).
-female_gender(adannflorek).
-female_gender(adavidarnett).
-female_gender(adavidmorrissey).
-female_gender(adavidthewlis).
-female_gender(adenisarndt).
-female_gender(adillonmoen).
-female_gender(afrankcturner).
-female_gender(ageorgedzundza).
-female_gender(agilbellows).
-female_gender(agusmercurio).
-female_gender(aheathcotewilliams).
-female_gender(ahughdancy).
-female_gender(ahughkeaysbyrne).
-female_gender(aianholm).
-female_gender(aindiravarma).
-female_gender(ajackmcgee).
-female_gender(ajaimzwoolvett).
-female_gender(ajustinmonjo).
-female_gender(alewissmith).
-female_gender(alloydalan).
-female_gender(amarccaleb).
-female_gender(amichaeldouglas).
-female_gender(amiguelferrer).
-female_gender(aneilmaskell).
-female_gender(anormanarmour).
-female_gender(astancollymore).
-female_gender(astephentobolowsky).
-female_gender(astevekuhn).
-female_gender(aterenceharvey).
-female_gender(awayneknight).
+workedunder(aalancpeterson, ahughdancy).
+workedunder(aalancpeterson, ajustinmonjo).
+workedunder(abenjaminmouton, ahughkeaysbyrne).
+workedunder(abenjohnson, ahughkeaysbyrne).
+workedunder(abillyconnolly, aginachiarelli).
+workedunder(abillyconnolly, anormanarmour).
+workedunder(abruceayoung, abillcable).
+workedunder(abruceayoung, ajurneesmollett).
+workedunder(abruceayoung, alewissmith).
+workedunder(abruceayoung, anormanarmour).
+workedunder(acatonjonesmichael, ajurneesmollett).
+workedunder(acatonjonesmichael, aleilanisarelle).
+workedunder(acharlotterampling, ajanchappell).
+workedunder(acharlotterampling, ajeannetripplehorn).
+workedunder(acharlotterampling, asharonstone).
+workedunder(acharlotterampling, aterenceharvey).
+workedunder(achelcieross, abenjaminmouton).
+workedunder(achelcieross, abenjohnson).
+workedunder(achelcieross, aianholm).
+workedunder(achelcieross, aleilanisarelle).
+workedunder(achelcieross, aneilmaskell).
+workedunder(aconnorwiddows, abruceayoung).
+workedunder(aconnorwiddows, anormanarmour).
+workedunder(adanielvonbargen, aginachiarelli).
+workedunder(adanielvonbargen, ahughdancy).
+workedunder(adannflorek, abenjohnson).
+workedunder(adavidarnett, adannflorek).
+workedunder(adavidmorrissey, aterenceharvey).
+workedunder(adavidthewlis, adillonmoen).
+workedunder(adavidthewlis, afrankcturner).
+workedunder(adavidthewlis, asharonstone).
+workedunder(adebraengle, afrankcturner).
+workedunder(adebraengle, agusmercurio).
+workedunder(adebraengle, ahughdancy).
+workedunder(adebraengle, amiguelferrer).
+workedunder(adebraengle, asharonstone).
+workedunder(adenisarndt, aalancpeterson).
+workedunder(adenisarndt, acaitlinoheaney).
+workedunder(adenisarndt, aindiravarma).
+workedunder(adenisarndt, amichaeldouglas).
+workedunder(adenisarndt, aneilmaskell).
+workedunder(adillonmoen, abillyconnolly).
+workedunder(adillonmoen, ageorgedzundza).
+workedunder(adillonmoen, ajeannetripplehorn).
+workedunder(adillonmoen, amiguelferrer).
+workedunder(adillonmoen, astephentobolowsky).
+workedunder(adorothymalone, adebraengle).
+workedunder(aellenthomas, abenjaminmouton).
+workedunder(aellenthomas, acharlotterampling).
+workedunder(aellenthomas, adannflorek).
+workedunder(aellenthomas, ajackmcgee).
+workedunder(afrankcturner, adannflorek).
+workedunder(ageorgedzundza, aalancpeterson).
+workedunder(ageorgedzundza, acatonjonesmichael).
+workedunder(ageorgedzundza, adavidmorrissey).
+workedunder(ageorgedzundza, adenisarndt).
+workedunder(ageorgedzundza, afloramontgomery).
+workedunder(ageorgedzundza, agusmercurio).
+workedunder(ageorgedzundza, awayneknight).
+workedunder(agilbellows, acatonjonesmichael).
+workedunder(agilbellows, ajackmcgee).
+workedunder(aginachiarelli, acatonjonesmichael).
+workedunder(aginachiarelli, achelcieross).
+workedunder(aginachiarelli, adanielvonbargen).
+workedunder(aginachiarelli, adavidthewlis).
+workedunder(agusmercurio, abenjaminmouton).
+workedunder(agusmercurio, acaitlinoheaney).
+workedunder(agusmercurio, afrankcturner).
+workedunder(agusmercurio, alewissmith).
+workedunder(agusmercurio, amiguelferrer).
+workedunder(aheathcotewilliams, ajanchappell).
+workedunder(aheathcotewilliams, asheilapaterson).
+workedunder(ahughdancy, adorothymalone).
+workedunder(ahughkeaysbyrne, adavidmorrissey).
+workedunder(ahughkeaysbyrne, adenisarndt).
+workedunder(ahughkeaysbyrne, ametcalfestephen).
+workedunder(aianholm, acharlotterampling).
+workedunder(aianholm, adenisarndt).
+workedunder(aindiravarma, acharlotterampling).
+workedunder(aindiravarma, adavidthewlis).
+workedunder(aindiravarma, anormanarmour).
+workedunder(aindiravarma, asheilapaterson).
+workedunder(ajackmcgee, acaitlinoheaney).
+workedunder(ajackmcgee, aianholm).
+workedunder(ajackmcgee, anormanarmour).
+workedunder(ajaimzwoolvett, abenjohnson).
+workedunder(ajaimzwoolvett, aindiravarma).
+workedunder(ajanchappell, abruceayoung).
+workedunder(ajanchappell, acaitlinoheaney).
+workedunder(ajanchappell, adavidarnett).
+workedunder(ajanchappell, adillonmoen).
+workedunder(ajanchappell, ajeannetripplehorn).
+workedunder(ajanchappell, alewissmith).
+workedunder(ajanchappell, asharonstone).
+workedunder(ajeannetripplehorn, abruceayoung).
+workedunder(ajeannetripplehorn, astephentobolowsky).
+workedunder(ajurneesmollett, abenjaminmouton).
+workedunder(ajurneesmollett, amarksangster).
+workedunder(ajurneesmollett, atimberrington).
+workedunder(ajustinmonjo, aalancpeterson).
+workedunder(ajustinmonjo, ajackmcgee).
+workedunder(ajustinmonjo, astephentobolowsky).
+workedunder(ajustinmonjo, astevekuhn).
+workedunder(aleilanisarelle, abenjaminmouton).
+workedunder(aleilanisarelle, adannflorek).
+workedunder(aleilanisarelle, ajackmcgee).
+workedunder(aleilanisarelle, amichaeldouglas).
+workedunder(aleilanisarelle, aneilmaskell).
+workedunder(alewissmith, acatonjonesmichael).
+workedunder(alewissmith, atimberrington).
+workedunder(amarccaleb, acatonjonesmichael).
+workedunder(amarccaleb, asharonstone).
+workedunder(amarccaleb, asheilapaterson).
+workedunder(amarccaleb, astephentobolowsky).
+workedunder(amarksangster, ahughkeaysbyrne).
+workedunder(amarksangster, ajackmcgee).
+workedunder(ametcalfestephen, afloramontgomery).
+workedunder(amichaeldouglas, astevekuhn).
+workedunder(amiguelferrer, abenjohnson).
+workedunder(amiguelferrer, ajanchappell).
+workedunder(amiguelferrer, aleilanisarelle).
+workedunder(amillergeorgei, aalancpeterson).
+workedunder(amillergeorgei, abenjaminmouton).
+workedunder(amillergeorgei, aconnorwiddows).
+workedunder(amillergeorgei, adebraengle).
+workedunder(amillergeorgei, ajaimzwoolvett).
+workedunder(amillergeorgei, amichaeldouglas).
+workedunder(aneilmaskell, adannflorek).
+workedunder(aneilmaskell, ageorgedzundza).
+workedunder(aneilmaskell, aheathcotewilliams).
+workedunder(aneilmaskell, ajeannetripplehorn).
+workedunder(anormanarmour, acharlotterampling).
+workedunder(anormanarmour, adenisarndt).
+workedunder(anormanarmour, ajurneesmollett).
+workedunder(anormanarmour, amichaeldouglas).
+workedunder(anormanarmour, atimberrington).
+workedunder(arobyndouglass, asheilapaterson).
+workedunder(asharonstone, acharlotterampling).
+workedunder(asharonstone, ahughdancy).
+workedunder(asharonstone, awayneknight).
+workedunder(asheilapaterson, abenjohnson).
+workedunder(asheilapaterson, aellenthomas).
+workedunder(asheilapaterson, amarksangster).
+workedunder(astancollymore, abruceayoung).
+workedunder(astancollymore, adanielvonbargen).
+workedunder(astancollymore, amichaeldouglas).
+workedunder(astancollymore, arobyndouglass).
+workedunder(astephentobolowsky, abillyconnolly).
+workedunder(astephentobolowsky, ahughkeaysbyrne).
+workedunder(astevekuhn, astephentobolowsky).
+workedunder(astevekuhn, aterenceharvey).
+workedunder(aterenceharvey, adavidarnett).
+workedunder(aterenceharvey, adavidmorrissey).
+workedunder(aterenceharvey, aianholm).
+workedunder(aterenceharvey, alewissmith).
+workedunder(aterenceharvey, arobyndouglass).
+workedunder(atimberrington, abruceayoung).
+workedunder(atimberrington, aindiravarma).
+workedunder(atimberrington, astephentobolowsky).
+workedunder(averhoevenpauli, agusmercurio).
+workedunder(averhoevenpauli, aianholm).
+workedunder(averhoevenpauli, aindiravarma).
+workedunder(averhoevenpauli, ajeannetripplehorn).
+workedunder(averhoevenpauli, amichaeldouglas).
+workedunder(averhoevenpauli, asharonstone).
+workedunder(awayneknight, ageorgedzundza).
+workedunder(awayneknight, amichaeldouglas).

@@ -41,6 +41,28 @@ actor(atommikulla).
 actor(aulrichmhe).
 actor(avincentlecoeur).
 actor(avolkerranisch).
+female_gender(aalexandrawinisky).
+female_gender(aarmelledeutsch).
+female_gender(abrigittefossey).
+female_gender(abrnicebejo).
+female_gender(accilecassel).
+female_gender(aclaudiamessner).
+female_gender(acoralyzahonero).
+female_gender(aestefanacastro).
+female_gender(afirminerichard).
+female_gender(afrancishuster).
+female_gender(afranoisechristophe).
+female_gender(agabriellelazure).
+female_gender(agesinecukrowski).
+female_gender(ajuliedray).
+female_gender(ajuttawachowiak).
+female_gender(akarinthaler).
+female_gender(akonstanzebreitebner).
+female_gender(amarenschumacher).
+female_gender(amarisaburger).
+female_gender(arenateschroeter).
+female_gender(asamantharnier).
+female_gender(atheresascholze).
 genre(aapprederisfranck, acomedy).
 genre(abraunbettinai, acomedy).
 genre(abraunbettinai, acrime).
@@ -121,181 +143,3 @@ movie(aunetunfontsix, apierrearditi).
 movie(aunetunfontsix, asamantharnier).
 movie(aunetunfontsix, avergnejeanpierre).
 movie(aunetunfontsix, avincentlecoeur).
-workedunder(aalexandrawinisky, aapprederisfranck).
-workedunder(aalexandrawinisky, avergnejeanpierre).
-workedunder(aandreasschwaiger, abraunbettinai).
-workedunder(aandreasschwaiger, aengelhardtwilhelm).
-workedunder(aandreasschwaiger, agutjahrrainer).
-workedunder(aandreasschwaiger, akinkelmartin).
-workedunder(aandreasschwaiger, aklischstefan).
-workedunder(aandreasschwaiger, akrgnther).
-workedunder(aandreasschwaiger, akronthalerthomas).
-workedunder(aandreasschwaiger, astephanbernhard).
-workedunder(aandreasschwaiger, azensmichael).
-workedunder(aarmelledeutsch, aapprederisfranck).
-workedunder(aarmelledeutsch, avergnejeanpierre).
-workedunder(abrigittefossey, aapprederisfranck).
-workedunder(abrigittefossey, avergnejeanpierre).
-workedunder(abrnicebejo, aapprederisfranck).
-workedunder(abrnicebejo, avergnejeanpierre).
-workedunder(accilecassel, abonnetchristiani).
-workedunder(accilecassel, agustemmanuelii).
-workedunder(accilecassel, akappesstphane).
-workedunder(accilecassel, aladogedominique).
-workedunder(accilecassel, aromeclaudemichel).
-workedunder(accilecassel, asummereric).
-workedunder(accilecassel, atonetticlaudio).
-workedunder(aclaudiamessner, astephanbernhard).
-workedunder(aclaudiamessner, azensmichael).
-workedunder(acoralyzahonero, abonnetchristiani).
-workedunder(acoralyzahonero, agustemmanuelii).
-workedunder(acoralyzahonero, akappesstphane).
-workedunder(acoralyzahonero, aladogedominique).
-workedunder(acoralyzahonero, aromeclaudemichel).
-workedunder(acoralyzahonero, asummereric).
-workedunder(acoralyzahonero, atonetticlaudio).
-workedunder(adidierdijoux, aapprederisfranck).
-workedunder(adidierdijoux, avergnejeanpierre).
-workedunder(adietermann, astephanbernhard).
-workedunder(adietermann, azensmichael).
-workedunder(aestefanacastro, aapprederisfranck).
-workedunder(aestefanacastro, avergnejeanpierre).
-workedunder(afirminerichard, abonnetchristiani).
-workedunder(afirminerichard, agustemmanuelii).
-workedunder(afirminerichard, akappesstphane).
-workedunder(afirminerichard, aladogedominique).
-workedunder(afirminerichard, aromeclaudemichel).
-workedunder(afirminerichard, asummereric).
-workedunder(afirminerichard, atonetticlaudio).
-workedunder(afrancishuster, abonnetchristiani).
-workedunder(afrancishuster, agustemmanuelii).
-workedunder(afrancishuster, akappesstphane).
-workedunder(afrancishuster, aladogedominique).
-workedunder(afrancishuster, aromeclaudemichel).
-workedunder(afrancishuster, asummereric).
-workedunder(afrancishuster, atonetticlaudio).
-workedunder(afranoisechristophe, abonnetchristiani).
-workedunder(afranoisechristophe, agustemmanuelii).
-workedunder(afranoisechristophe, akappesstphane).
-workedunder(afranoisechristophe, aladogedominique).
-workedunder(afranoisechristophe, aromeclaudemichel).
-workedunder(afranoisechristophe, asummereric).
-workedunder(afranoisechristophe, atonetticlaudio).
-workedunder(agabriellelazure, abonnetchristiani).
-workedunder(agabriellelazure, agustemmanuelii).
-workedunder(agabriellelazure, akappesstphane).
-workedunder(agabriellelazure, aladogedominique).
-workedunder(agabriellelazure, aromeclaudemichel).
-workedunder(agabriellelazure, asummereric).
-workedunder(agabriellelazure, atonetticlaudio).
-workedunder(agerdlohmeyer, abraunbettinai).
-workedunder(agerdlohmeyer, aengelhardtwilhelm).
-workedunder(agerdlohmeyer, agutjahrrainer).
-workedunder(agerdlohmeyer, akinkelmartin).
-workedunder(agerdlohmeyer, aklischstefan).
-workedunder(agerdlohmeyer, akrgnther).
-workedunder(agerdlohmeyer, akronthalerthomas).
-workedunder(agesinecukrowski, astephanbernhard).
-workedunder(agesinecukrowski, azensmichael).
-workedunder(aguillaumeromain, aapprederisfranck).
-workedunder(aguillaumeromain, avergnejeanpierre).
-workedunder(ahorstkummeth, abraunbettinai).
-workedunder(ahorstkummeth, aengelhardtwilhelm).
-workedunder(ahorstkummeth, agutjahrrainer).
-workedunder(ahorstkummeth, akinkelmartin).
-workedunder(ahorstkummeth, aklischstefan).
-workedunder(ahorstkummeth, akrgnther).
-workedunder(ahorstkummeth, akronthalerthomas).
-workedunder(ahubertmulzer, abraunbettinai).
-workedunder(ahubertmulzer, aengelhardtwilhelm).
-workedunder(ahubertmulzer, agutjahrrainer).
-workedunder(ahubertmulzer, akinkelmartin).
-workedunder(ahubertmulzer, aklischstefan).
-workedunder(ahubertmulzer, akrgnther).
-workedunder(ahubertmulzer, akronthalerthomas).
-workedunder(ajrggudzuhn, astephanbernhard).
-workedunder(ajrggudzuhn, azensmichael).
-workedunder(ajuliedray, aapprederisfranck).
-workedunder(ajuliedray, avergnejeanpierre).
-workedunder(ajuttawachowiak, astephanbernhard).
-workedunder(ajuttawachowiak, azensmichael).
-workedunder(akarinthaler, abraunbettinai).
-workedunder(akarinthaler, aengelhardtwilhelm).
-workedunder(akarinthaler, agutjahrrainer).
-workedunder(akarinthaler, akinkelmartin).
-workedunder(akarinthaler, aklischstefan).
-workedunder(akarinthaler, akrgnther).
-workedunder(akarinthaler, akronthalerthomas).
-workedunder(akonstanzebreitebner, astephanbernhard).
-workedunder(akonstanzebreitebner, azensmichael).
-workedunder(aleonardlansink, astephanbernhard).
-workedunder(aleonardlansink, azensmichael).
-workedunder(aloccorbery, aapprederisfranck).
-workedunder(aloccorbery, avergnejeanpierre).
-workedunder(aludwigbriand, aapprederisfranck).
-workedunder(aludwigbriand, avergnejeanpierre).
-workedunder(amarenschumacher, abraunbettinai).
-workedunder(amarenschumacher, aengelhardtwilhelm).
-workedunder(amarenschumacher, agutjahrrainer).
-workedunder(amarenschumacher, akinkelmartin).
-workedunder(amarenschumacher, aklischstefan).
-workedunder(amarenschumacher, akrgnther).
-workedunder(amarenschumacher, akronthalerthomas).
-workedunder(amarisaburger, abraunbettinai).
-workedunder(amarisaburger, aengelhardtwilhelm).
-workedunder(amarisaburger, agutjahrrainer).
-workedunder(amarisaburger, akinkelmartin).
-workedunder(amarisaburger, aklischstefan).
-workedunder(amarisaburger, akrgnther).
-workedunder(amarisaburger, akronthalerthomas).
-workedunder(amarkusbker, abraunbettinai).
-workedunder(amarkusbker, aengelhardtwilhelm).
-workedunder(amarkusbker, agutjahrrainer).
-workedunder(amarkusbker, akinkelmartin).
-workedunder(amarkusbker, aklischstefan).
-workedunder(amarkusbker, akrgnther).
-workedunder(amarkusbker, akronthalerthomas).
-workedunder(amaxmller, abraunbettinai).
-workedunder(amaxmller, aengelhardtwilhelm).
-workedunder(amaxmller, agutjahrrainer).
-workedunder(amaxmller, akinkelmartin).
-workedunder(amaxmller, aklischstefan).
-workedunder(amaxmller, akrgnther).
-workedunder(amaxmller, akronthalerthomas).
-workedunder(apatricejuiff, aapprederisfranck).
-workedunder(apatricejuiff, avergnejeanpierre).
-workedunder(apierrearditi, aapprederisfranck).
-workedunder(apierrearditi, avergnejeanpierre).
-workedunder(arenateschroeter, astephanbernhard).
-workedunder(arenateschroeter, azensmichael).
-workedunder(asamantharnier, aapprederisfranck).
-workedunder(asamantharnier, avergnejeanpierre).
-workedunder(astevekalfa, abonnetchristiani).
-workedunder(astevekalfa, agustemmanuelii).
-workedunder(astevekalfa, akappesstphane).
-workedunder(astevekalfa, aladogedominique).
-workedunder(astevekalfa, aromeclaudemichel).
-workedunder(astevekalfa, asummereric).
-workedunder(astevekalfa, atonetticlaudio).
-workedunder(atheresascholze, astephanbernhard).
-workedunder(atheresascholze, azensmichael).
-workedunder(athomasstielner, abraunbettinai).
-workedunder(athomasstielner, aengelhardtwilhelm).
-workedunder(athomasstielner, agutjahrrainer).
-workedunder(athomasstielner, akinkelmartin).
-workedunder(athomasstielner, aklischstefan).
-workedunder(athomasstielner, akrgnther).
-workedunder(athomasstielner, akronthalerthomas).
-workedunder(atommikulla, abraunbettinai).
-workedunder(atommikulla, aengelhardtwilhelm).
-workedunder(atommikulla, agutjahrrainer).
-workedunder(atommikulla, akinkelmartin).
-workedunder(atommikulla, aklischstefan).
-workedunder(atommikulla, akrgnther).
-workedunder(atommikulla, akronthalerthomas).
-workedunder(aulrichmhe, astephanbernhard).
-workedunder(aulrichmhe, azensmichael).
-workedunder(avincentlecoeur, aapprederisfranck).
-workedunder(avincentlecoeur, avergnejeanpierre).
-workedunder(avolkerranisch, astephanbernhard).
-workedunder(avolkerranisch, azensmichael).

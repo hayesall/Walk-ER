@@ -1,9 +1,45 @@
-female_gender(aalicjajachiewicz).
-female_gender(aangelinasarova).
-female_gender(aemiliaradeva).
-female_gender(akunkabaeva).
-female_gender(amariashopova).
-female_gender(anevenakokanova).
-female_gender(apetyasilyanova).
-female_gender(asonyadjulgerova).
-female_gender(avyarakovacheva).
+workedunder(aalicjajachiewicz, apunchevborislav).
+workedunder(aangelinasarova, amarinovichanton).
+workedunder(aangelinasarova, asurchadzhievstefani).
+workedunder(aantonradichev, apunchevborislav).
+workedunder(abogomilsimeonov, apunchevborislav).
+workedunder(adimitarhadzhiyanev, atraykovatanas).
+workedunder(aemiliaradeva, atraykovatanas).
+workedunder(aemilmarkov, apunchevborislav).
+workedunder(aganchoganchev, amarinovichanton).
+workedunder(ageorgistamatov, amarinovichanton).
+workedunder(ahristodinev, asurchadzhievstefani).
+workedunder(aivanbratanov, amarinovichanton).
+workedunder(aivandimov, amarinovichanton).
+workedunder(aivangrigorov, atraykovatanas).
+workedunder(aivankondov, asurchadzhievstefani).
+workedunder(aivantonev, amarinovichanton).
+workedunder(ajannowicki, apunchevborislav).
+workedunder(akirilyanev, asurchadzhievstefani).
+workedunder(akostatsonev, apunchevborislav).
+workedunder(akostatsonev, atraykovatanas).
+workedunder(akunkabaeva, amarinovichanton).
+workedunder(alyubomirbachvarov, apunchevborislav).
+workedunder(alyubomirbobchevski, asurchadzhievstefani).
+workedunder(alyubomirkanev, apunchevborislav).
+workedunder(amariashopova, amarinovichanton).
+workedunder(amichalbajor, apunchevborislav).
+workedunder(amikhailmikhajlov, asurchadzhievstefani).
+workedunder(anevenakokanova, apunchevborislav).
+workedunder(anevenakokanova, atraykovatanas).
+workedunder(anikoladadov, amarinovichanton).
+workedunder(apetardespotov, atraykovatanas).
+workedunder(apetyasilyanova, atraykovatanas).
+workedunder(asavahashamov, asurchadzhievstefani).
+workedunder(asonyadjulgerova, atraykovatanas).
+workedunder(asotirmaynolovski, apunchevborislav).
+workedunder(astefandanailov, atraykovatanas).
+workedunder(astefanpejchev, amarinovichanton).
+workedunder(astefanpetrov, amarinovichanton).
+workedunder(astoychomazgalov, apunchevborislav).
+workedunder(astoychomazgalov, asurchadzhievstefani).
+workedunder(astoychomazgalov, atraykovatanas).
+workedunder(atzenokandov, asurchadzhievstefani).
+workedunder(atzvetolyubrakovski, amarinovichanton).
+workedunder(aviktordanchenko, asurchadzhievstefani).
+workedunder(avyarakovacheva, amarinovichanton).

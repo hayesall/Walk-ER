@@ -1,17 +1,58 @@
-female_gender(acaitlinoheaney).
-female_gender(acharlotterampling).
-female_gender(achelcieross).
-female_gender(adebraengle).
-female_gender(adorothymalone).
-female_gender(aellenthomas).
-female_gender(afloramontgomery).
-female_gender(aginachiarelli).
-female_gender(ajanchappell).
-female_gender(ajeannetripplehorn).
-female_gender(ajurneesmollett).
-female_gender(aleilanisarelle).
-female_gender(amarksangster).
-female_gender(arobyndouglass).
-female_gender(asharonstone).
-female_gender(asheilapaterson).
-female_gender(atimberrington).
+workedunder(aalancpeterson, ametcalfestephen).
+workedunder(abenjaminmouton, averhoevenpauli).
+workedunder(abenjohnson, ametcalfestephen).
+workedunder(abillcable, averhoevenpauli).
+workedunder(abillyconnolly, ametcalfestephen).
+workedunder(abruceayoung, averhoevenpauli).
+workedunder(acaitlinoheaney, amillergeorgei).
+workedunder(acharlotterampling, acatonjonesmichael).
+workedunder(achelcieross, averhoevenpauli).
+workedunder(aconnorwiddows, ametcalfestephen).
+workedunder(adanielvonbargen, averhoevenpauli).
+workedunder(adannflorek, ametcalfestephen).
+workedunder(adavidarnett, amillergeorgei).
+workedunder(adavidmorrissey, acatonjonesmichael).
+workedunder(adavidthewlis, acatonjonesmichael).
+workedunder(adebraengle, amillergeorgei).
+workedunder(adenisarndt, averhoevenpauli).
+workedunder(adillonmoen, ametcalfestephen).
+workedunder(adorothymalone, averhoevenpauli).
+workedunder(aellenthomas, acatonjonesmichael).
+workedunder(afloramontgomery, acatonjonesmichael).
+workedunder(afrankcturner, ametcalfestephen).
+workedunder(ageorgedzundza, averhoevenpauli).
+workedunder(agilbellows, ametcalfestephen).
+workedunder(aginachiarelli, ametcalfestephen).
+workedunder(agusmercurio, amillergeorgei).
+workedunder(aheathcotewilliams, acatonjonesmichael).
+workedunder(ahughdancy, acatonjonesmichael).
+workedunder(ahughkeaysbyrne, amillergeorgei).
+workedunder(aianholm, ametcalfestephen).
+workedunder(aindiravarma, acatonjonesmichael).
+workedunder(ajackmcgee, averhoevenpauli).
+workedunder(ajaimzwoolvett, ametcalfestephen).
+workedunder(ajanchappell, acatonjonesmichael).
+workedunder(ajeannetripplehorn, averhoevenpauli).
+workedunder(ajurneesmollett, ametcalfestephen).
+workedunder(ajustinmonjo, amillergeorgei).
+workedunder(aleilanisarelle, averhoevenpauli).
+workedunder(alewissmith, amillergeorgei).
+workedunder(alloydalan, amillergeorgei).
+workedunder(amarccaleb, amillergeorgei).
+workedunder(amarksangster, acatonjonesmichael).
+workedunder(amichaeldouglas, averhoevenpauli).
+workedunder(amiguelferrer, amillergeorgei).
+workedunder(aneilmaskell, acatonjonesmichael).
+workedunder(anormanarmour, ametcalfestephen).
+workedunder(arobyndouglass, amillergeorgei).
+workedunder(asharonstone, acatonjonesmichael).
+workedunder(asharonstone, ametcalfestephen).
+workedunder(asharonstone, amillergeorgei).
+workedunder(asharonstone, averhoevenpauli).
+workedunder(asheilapaterson, ametcalfestephen).
+workedunder(astancollymore, acatonjonesmichael).
+workedunder(astephentobolowsky, averhoevenpauli).
+workedunder(astevekuhn, amillergeorgei).
+workedunder(aterenceharvey, acatonjonesmichael).
+workedunder(atimberrington, acatonjonesmichael).
+workedunder(awayneknight, averhoevenpauli).

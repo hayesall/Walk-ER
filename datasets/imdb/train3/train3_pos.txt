@@ -1,73 +1,204 @@
-female_gender(aalicjajachiewicz).
-female_gender(aangelahall).
-female_gender(aangelinasarova).
-female_gender(aannamariagherardi).
-female_gender(aannejacques).
-female_gender(aantoniettacarbonetti).
-female_gender(aauroraquattrocchi).
-female_gender(abarbaratabita).
-female_gender(aberniemac).
-female_gender(abradpitt).
-female_gender(acaitlinoheaney).
-female_gender(acarolflorence).
-female_gender(acaseyaffleck).
-female_gender(acatherinezetajones).
-female_gender(aceceliaannbirt).
-female_gender(acharlotterampling).
-female_gender(achelcieross).
-female_gender(acynthiastevenson).
-female_gender(adebraengle).
-female_gender(adinaconnolly).
-female_gender(adinamerrill).
-female_gender(adonatellafinocchiaro).
-female_gender(adorothymalone).
-female_gender(aeddasabatini).
-female_gender(aeddiejemison).
-female_gender(aellenthomas).
-female_gender(aelliottgould).
-female_gender(aemiliaradeva).
-female_gender(afloramontgomery).
-female_gender(afrancomirabella).
-female_gender(afrankpatton).
-female_gender(agabrieleferzetti).
-female_gender(ageorgeclooney).
-female_gender(aginachiarelli).
-female_gender(agretascacchi).
-female_gender(aileanarigano).
-female_gender(ajanchappell).
-female_gender(ajeannetripplehorn).
-female_gender(ajorgerhernandez).
-female_gender(ajuliaroberts).
-female_gender(ajurneesmollett).
-female_gender(akunkabaeva).
-female_gender(alaurabetti).
-female_gender(aleahayres).
-female_gender(aleilanisarelle).
-female_gender(alorigalinski).
-female_gender(aluciacammalleri).
-female_gender(aluciasardo).
-female_gender(amanueladolcemascolo).
-female_gender(amariashopova).
-female_gender(amarkgantt).
-female_gender(amarksangster).
-female_gender(aminianden).
-female_gender(anevenakokanova).
-female_gender(anicolegrimaudo).
-female_gender(apaolaciampi).
-female_gender(apaullnolan).
-female_gender(apenlopecruz).
-female_gender(apetyasilyanova).
-female_gender(apieradegliesposti).
-female_gender(aradarassimov).
-female_gender(araffaeladavi).
-female_gender(arobyndouglass).
-female_gender(ascottcaan).
-female_gender(aserenaautieri).
-female_gender(asharonstone).
-female_gender(asheilapaterson).
-female_gender(asonyadjulgerova).
-female_gender(atimberrington).
-female_gender(atimothypaulperez).
-female_gender(atizianalodato).
-female_gender(avyarakovacheva).
-female_gender(awhoopigoldberg).
+workedunder(aalancpeterson, ametcalfestephen).
+workedunder(aalicjajachiewicz, apunchevborislav).
+workedunder(aandygarcia, asoderberghsteven).
+workedunder(aangelahall, aaltmanroberti).
+workedunder(aangelinasarova, amarinovichanton).
+workedunder(aangelinasarova, asurchadzhievstefani).
+workedunder(aannamariagherardi, abattiatofranco).
+workedunder(aannejacques, asoderberghsteven).
+workedunder(aanthonyheald, apakulaalanj).
+workedunder(aantoniettacarbonetti, agrimaldiaurelioi).
+workedunder(aantoninobruschetta, abattiatofranco).
+workedunder(aantonradichev, apunchevborislav).
+workedunder(aauroraquattrocchi, agrimaldiaurelioi).
+workedunder(abarbaratabita, asciveresmarianna).
+workedunder(abenjaminmouton, averhoevenpauli).
+workedunder(abenjohnson, ametcalfestephen).
+workedunder(aberniemac, asoderberghsteven).
+workedunder(abiagiobarone, asciveresmarianna).
+workedunder(abillcable, averhoevenpauli).
+workedunder(abillyconnolly, ametcalfestephen).
+workedunder(abogomilsimeonov, apunchevborislav).
+workedunder(abradpitt, asoderberghsteven).
+workedunder(abrionjames, aaltmanroberti).
+workedunder(abruceayoung, averhoevenpauli).
+workedunder(acaitlinoheaney, amillergeorgei).
+workedunder(acarmelogalati, asciveresmarianna).
+workedunder(acarolflorence, asoderberghsteven).
+workedunder(acaseyaffleck, asoderberghsteven).
+workedunder(acatherinezetajones, asoderberghsteven).
+workedunder(aceceliaannbirt, asoderberghsteven).
+workedunder(acesareapolito, agrimaldiaurelioi).
+workedunder(acharlotterampling, acatonjonesmichael).
+workedunder(achelcieross, averhoevenpauli).
+workedunder(aconnorwiddows, ametcalfestephen).
+workedunder(aconsuelolupo, asciveresmarianna).
+workedunder(acorradofortuna, abattiatofranco).
+workedunder(acynthiastevenson, aaltmanroberti).
+workedunder(adanielegalea, agrimaldiaurelioi).
+workedunder(adanielvonbargen, averhoevenpauli).
+workedunder(adannflorek, ametcalfestephen).
+workedunder(adavidarnett, amillergeorgei).
+workedunder(adavidmorrissey, acatonjonesmichael).
+workedunder(adavidsontag, asoderberghsteven).
+workedunder(adavidthewlis, acatonjonesmichael).
+workedunder(adeanstockwell, aaltmanroberti).
+workedunder(adebraengle, amillergeorgei).
+workedunder(adenisarndt, averhoevenpauli).
+workedunder(adenzelwashington, apakulaalanj).
+workedunder(adillonmoen, ametcalfestephen).
+workedunder(adimitarhadzhiyanev, atraykovatanas).
+workedunder(adinaconnolly, asoderberghsteven).
+workedunder(adinamerrill, aaltmanroberti).
+workedunder(adonatellafinocchiaro, abattiatofranco).
+workedunder(adontiffany, asoderberghsteven).
+workedunder(adorothymalone, averhoevenpauli).
+workedunder(aeddasabatini, agrimaldiaurelioi).
+workedunder(aeddiejemison, asoderberghsteven).
+workedunder(aedkross, asoderberghsteven).
+workedunder(aellenthomas, acatonjonesmichael).
+workedunder(aelliottgould, asoderberghsteven).
+workedunder(aemiliaradeva, atraykovatanas).
+workedunder(aemilmarkov, apunchevborislav).
+workedunder(aenzodimartino, agrimaldiaurelioi).
+workedunder(afabiolobello, agrimaldiaurelioi).
+workedunder(afloramontgomery, acatonjonesmichael).
+workedunder(afrancomirabella, agrimaldiaurelioi).
+workedunder(afrankcturner, ametcalfestephen).
+workedunder(afrankpatton, asoderberghsteven).
+workedunder(afredward, aaltmanroberti).
+workedunder(agabrieleferzetti, abattiatofranco).
+workedunder(aganchoganchev, amarinovichanton).
+workedunder(ageorgeclooney, asoderberghsteven).
+workedunder(ageorgedzundza, averhoevenpauli).
+workedunder(ageorgistamatov, amarinovichanton).
+workedunder(agiancarloscuderi, agrimaldiaurelioi).
+workedunder(agilbellows, ametcalfestephen).
+workedunder(aginachiarelli, ametcalfestephen).
+workedunder(agretascacchi, aaltmanroberti).
+workedunder(agusmercurio, amillergeorgei).
+workedunder(aheathcotewilliams, acatonjonesmichael).
+workedunder(ahristodinev, asurchadzhievstefani).
+workedunder(ahughdancy, acatonjonesmichael).
+workedunder(ahughkeaysbyrne, amillergeorgei).
+workedunder(ahumecronyn, apakulaalanj).
+workedunder(aianholm, ametcalfestephen).
+workedunder(aileanarigano, asciveresmarianna).
+workedunder(aindiravarma, acatonjonesmichael).
+workedunder(aivanbratanov, amarinovichanton).
+workedunder(aivandimov, amarinovichanton).
+workedunder(aivangrigorov, atraykovatanas).
+workedunder(aivankondov, asurchadzhievstefani).
+workedunder(aivantonev, amarinovichanton).
+workedunder(ajackmcgee, averhoevenpauli).
+workedunder(ajaimzwoolvett, ametcalfestephen).
+workedunder(ajamessikking, apakulaalanj).
+workedunder(ajanchappell, acatonjonesmichael).
+workedunder(ajannowicki, apunchevborislav).
+workedunder(ajeannetripplehorn, averhoevenpauli).
+workedunder(ajohnfinn, apakulaalanj).
+workedunder(ajohnheard, apakulaalanj).
+workedunder(ajohnlithgow, apakulaalanj).
+workedunder(ajorgerhernandez, asoderberghsteven).
+workedunder(ajuliaroberts, apakulaalanj).
+workedunder(ajuliaroberts, asoderberghsteven).
+workedunder(ajurneesmollett, ametcalfestephen).
+workedunder(ajustinmonjo, amillergeorgei).
+workedunder(akirilyanev, asurchadzhievstefani).
+workedunder(akostatsonev, apunchevborislav).
+workedunder(akostatsonev, atraykovatanas).
+workedunder(akunkabaeva, amarinovichanton).
+workedunder(alarrysontag, asoderberghsteven).
+workedunder(alaurabetti, agrimaldiaurelioi).
+workedunder(aleahayres, aaltmanroberti).
+workedunder(aleilanisarelle, averhoevenpauli).
+workedunder(alewissmith, amillergeorgei).
+workedunder(alloydalan, amillergeorgei).
+workedunder(alorigalinski, asoderberghsteven).
+workedunder(alucavitrano, abattiatofranco).
+workedunder(aluciacammalleri, asciveresmarianna).
+workedunder(aluciasardo, abattiatofranco).
+workedunder(aluciasardo, agrimaldiaurelioi).
+workedunder(aluciasardo, asciveresmarianna).
+workedunder(alylelovett, aaltmanroberti).
+workedunder(alyubomirbachvarov, apunchevborislav).
+workedunder(alyubomirbobchevski, asurchadzhievstefani).
+workedunder(alyubomirkanev, apunchevborislav).
+workedunder(amanliosgalambro, abattiatofranco).
+workedunder(amanueladolcemascolo, asciveresmarianna).
+workedunder(amarccaleb, amillergeorgei).
+workedunder(amarcocavicchioli, agrimaldiaurelioi).
+workedunder(amarcoleonardi, agrimaldiaurelioi).
+workedunder(amarcospicuglia, agrimaldiaurelioi).
+workedunder(amariashopova, amarinovichanton).
+workedunder(amarkgantt, asoderberghsteven).
+workedunder(amarksangster, acatonjonesmichael).
+workedunder(amaurizionicolosi, agrimaldiaurelioi).
+workedunder(amaurolenares, agrimaldiaurelioi).
+workedunder(amichaeldouglas, averhoevenpauli).
+workedunder(amichalbajor, apunchevborislav).
+workedunder(amiguelferrer, amillergeorgei).
+workedunder(amikhailmikhajlov, asurchadzhievstefani).
+workedunder(aminianden, asoderberghsteven).
+workedunder(aneilmaskell, acatonjonesmichael).
+workedunder(anelsonpeltz, asoderberghsteven).
+workedunder(anevenakokanova, apunchevborislav).
+workedunder(anevenakokanova, atraykovatanas).
+workedunder(anicholaswoodeson, apakulaalanj).
+workedunder(anicolegrimaudo, abattiatofranco).
+workedunder(anikoladadov, amarinovichanton).
+workedunder(anormanarmour, ametcalfestephen).
+workedunder(apaolaciampi, agrimaldiaurelioi).
+workedunder(apaullnolan, asoderberghsteven).
+workedunder(apenlopecruz, agrimaldiaurelioi).
+workedunder(apetardespotov, atraykovatanas).
+workedunder(apetergallagher, aaltmanroberti).
+workedunder(apetyasilyanova, atraykovatanas).
+workedunder(apieradegliesposti, agrimaldiaurelioi).
+workedunder(aradarassimov, abattiatofranco).
+workedunder(araffaeladavi, agrimaldiaurelioi).
+workedunder(arichardegrant, aaltmanroberti).
+workedunder(arobertculp, apakulaalanj).
+workedunder(arobyndouglass, amillergeorgei).
+workedunder(asalvatorelazzaro, agrimaldiaurelioi).
+workedunder(asamshepard, apakulaalanj).
+workedunder(asaromiano, agrimaldiaurelioi).
+workedunder(asavahashamov, asurchadzhievstefani).
+workedunder(ascottcaan, asoderberghsteven).
+workedunder(aserenaautieri, asciveresmarianna).
+workedunder(asharonstone, acatonjonesmichael).
+workedunder(asharonstone, ametcalfestephen).
+workedunder(asharonstone, amillergeorgei).
+workedunder(asharonstone, averhoevenpauli).
+workedunder(asheilapaterson, ametcalfestephen).
+workedunder(asonyadjulgerova, atraykovatanas).
+workedunder(asotirmaynolovski, apunchevborislav).
+workedunder(astancollymore, acatonjonesmichael).
+workedunder(astanleyanderson, apakulaalanj).
+workedunder(astanleytucci, apakulaalanj).
+workedunder(astefandanailov, atraykovatanas).
+workedunder(astefanodionisi, agrimaldiaurelioi).
+workedunder(astefanpejchev, amarinovichanton).
+workedunder(astefanpetrov, amarinovichanton).
+workedunder(astephentobolowsky, averhoevenpauli).
+workedunder(astevekuhn, amillergeorgei).
+workedunder(astoychomazgalov, apunchevborislav).
+workedunder(astoychomazgalov, asurchadzhievstefani).
+workedunder(astoychomazgalov, atraykovatanas).
+workedunder(asydneypollack, aaltmanroberti).
+workedunder(aterenceharvey, acatonjonesmichael).
+workedunder(atimberrington, acatonjonesmichael).
+workedunder(atimothypaulperez, asoderberghsteven).
+workedunder(atimrobbins, aaltmanroberti).
+workedunder(atizianalodato, abattiatofranco).
+workedunder(atonygoldwyn, apakulaalanj).
+workedunder(atzenokandov, asurchadzhievstefani).
+workedunder(atzvetolyubrakovski, amarinovichanton).
+workedunder(avannifois, asciveresmarianna).
+workedunder(aviktordanchenko, asurchadzhievstefani).
+workedunder(avincentdonofrio, aaltmanroberti).
+workedunder(avincenzocrivello, agrimaldiaurelioi).
+workedunder(avyarakovacheva, amarinovichanton).
+workedunder(awayneknight, averhoevenpauli).
+workedunder(awhoopigoldberg, aaltmanroberti).
+workedunder(awilliamatherton, apakulaalanj).

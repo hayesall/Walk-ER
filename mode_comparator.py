@@ -38,7 +38,7 @@ TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['imdb', 'female_gender', 4, 5]]
+DATASETS = [['imdb', 'workedunder', 4, 5]]
 
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],

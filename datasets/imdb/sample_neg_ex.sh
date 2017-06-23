@@ -2,6 +2,7 @@
 
 # All of the IMDB predicates are currently stored as facts, we need to separate positive/negative to train/test.
 
+if false; then
 for i in {1..5}; do
     cd test${i}
     
@@ -12,6 +13,7 @@ for i in {1..5}; do
     
     cd ..
 done
+fi
 
 if false; then
 for i in {1..5}; do
@@ -41,8 +43,36 @@ function splitWorkedUnder() {
 	    # Step 1: Remove any commented-out predicates from the facts, and sort to remove duplicates.
 	    grep -v '^//' "${DIR}/${j}${i}_facts.txt" | sort -u > temp && mv temp "${DIR}/${j}${i}_facts.txt"
 	    
-	    # Step 2: Pull the "workedunder" and "genre" predicates
+	    # Step 2: Pull the "workedunder" and "genre" predicates, create a list of people.
+	    grep 'genre(' "${DIR}/${j}${i}_facts.txt" | cut -d '(' -f 2 | cut -d ',' -f 1 | sort -u > ALL_people.txt
+	    grep 'workedunder(' "${DIR}/${j}${i}_facts.txt" | cut -d '(' -f 2 | cut -d ')' -f 1 | sed -e 's/, /\n/' | sort -u >> ALL_people.txt
+	    
+	    sort -u ALL_people.txt > temp && mv temp ALL_people.txt
 
+	    # Step 4: Pull workedunder (positive examples) from the facts.
+	    grep "^workedunder(" "${DIR}/${DIR}_facts.txt" > "${DIR}/${DIR}_pos.txt"
+
+	    # Step 5: Remove workedunder from the facts
+	    grep -v "^workedunder(" "${DIR}/${DIR}_facts.txt" > temp && mv temp "${DIR}/${DIR}_facts.txt"
+
+	    # Step 3: We have a big file of people. Turn the people into workedunder( ... ). predicates.
+	    #         We'll create 3 times the number of positives to be safe.
+	    
+	    NUMBER=$(($(wc -l < "${DIR}/${DIR}_pos.txt") * 3))
+	    #for k in {1..${NUMBER}}; do
+	    for k in $(seq 1 $NUMBER); do
+		echo $(sort -R ALL_people.txt | head -n 2) | sed -e 's/ /, /g' | sed -e 's/^/workedunder(/' | sed -e 's/$/)./g' >> negatives.txt
+	    done
+	    
+	    sort -u negatives.txt > temp && mv temp negatives.txt
+
+	    # Step 6: Turn the negatives.txt from Step 3 into negative examples, ensuring that there are no positves.
+	    diff --new-line-format="" --unchanged-line-format="" negatives.txt "${DIR}/${DIR}_pos.txt" > "${DIR}/${DIR}_neg.txt"
+	    
+	    # Do some cleanup:
+	    rm -f ALL_people.txt
+	    rm -f negatives.txt
+	    
 	done
     done
 }
@@ -72,7 +102,7 @@ function splitActorGender() {
 	    # Pull the actor predicates out of the facts so we can label negative examples with the males.
 	    grep "^actor" "${DIR}/${j}${i}_facts.txt" | cut -d '(' -f 2 | cut -d ')' -f 1 > ALL_actors.txt
 	    
-	    # Male actors are those which are present in ALL_actors but not present in ALL_female
+	    # Male actors are those which are present in ALL_actors but not in ALL_female
 	    diff --new-line-format="" --unchanged-line-format="" ALL_actors.txt ALL_female.txt > ALL_male.txt
 	    
 	    # Do some cleanup and fix all of the files.
@@ -92,3 +122,5 @@ function splitActorGender() {
 	done
     done
 }
+
+splitWorkedUnder
