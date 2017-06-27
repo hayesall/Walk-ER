@@ -38,12 +38,13 @@ TREES = 10
 RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
-DATASETS = [['imdb', 'workedunder', 4, 5]]
+DATASETS = [['uwcse', 'advisedby', 14, 5]]
 
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
             ['cora', 'sameauthor', 6, 5],
             ['imdb', 'female_gender', 4, 5],
+            ['uwcse', 'advisedby', 14, 5],
             ['citeseer', 'infield_ftitle', 14, 4]]
 '''
 
@@ -290,6 +291,8 @@ def construct_modes(dataset, flag, NUMBER=None):
         call_process('echo -e "setParam: maxTreeDepth=4.\nsetParam: nodeSize=2." > datasets/citeseer/citeseer_bk.txt')
     elif (dataset == 'imdb'):
         call_process('echo -e "setParam: maxTreeDepth=4.\nsetParam:nodeSize=3." > datasets/imdb/imdb_bk.txt')
+    elif (dataset == 'uwcse'):
+        call_process('echo -e "setParam: maxTreeDepth=3.\nsetParam:nodeSize=1." > datasets/uwcse/uwcse_bk.txt')
     else:
         call_process('rm -f datasets/' + dataset + '/' + dataset.lower() + '_bk.txt')
 
