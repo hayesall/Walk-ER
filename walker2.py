@@ -129,7 +129,7 @@ class BuildDictionaries:
         Important: [publish, Rating]
         Target: Rating
         RelatedEntities : {publish=[Student, Professor, paper], Teach=[Professor, Course]}
-        AttributeEntityMapping : {Rating=Course} <<-- not needed.
+        AttributeEntityMapping : {Rating=[Course], yearsinprogram=[Student, yearsinprogram]}
         '''
         self.entities = []
         self.relations = []
@@ -139,6 +139,7 @@ class BuildDictionaries:
         self.Graph = {}
         self.relations_dict = {}
         self.attribute_dict = {}
+        self.multi_value_attributes = {}
         
         for line in self.diagram.splitlines():
 
@@ -156,7 +157,7 @@ class BuildDictionaries:
                     elif current[1] == 'RelationNodeStyle':
                         self.relations.append(current[0])
                     else:
-                        print(current)
+                        print(curren)
                         raise ExceptionCase('Error [2]: During BuildDictionaries/parse, found something that was not an entity, relation, or attribute.')
                     
             # Second: all edges between nodes: {publish|paper=RelationEdge, Course|Rating=AttributeEdge}
@@ -228,12 +229,29 @@ class BuildDictionaries:
                 for relation in relations:
                     current = relation.split('=')
                     self.relations_dict[current[0]] = current[1].split(',')
+
+            elif line[:22] == 'AttributeEntityMapping':
+                # handle multivalue attributes
+                
+                multi_value_attributes = line[line.find('{')+1:line.find('}')].replace(' ','')
+                multi_value_attributes = [item.replace('[','').replace(']','') for item in multi_value_attributes.split(']')]
+                
+                for attr in multi_value_attributes:
+                    current = attr.split('=')
+                    if len(current) == 2:
+                        if ',' in current[1]:
+                            #print(current)
+                            self.multi_value_attributes[current[0].replace(',','')] = current[1].split(',')
+                
+            else:
+                raise ExceptionCase('Error: did not recognize an item in the diagram file: ' + str(line))
             
         if self.verbose:
             print('Entities:', self.entities)
             print('Graph:', self.Graph)
             print('Relations:', self.relations_dict)
             print('Attributes:', self.attribute_dict)
+            print('Multi-Value Attributes:', self.multi_value_attributes)
             print('Important:', self.importants)
             print('Target:', self.target)
 
@@ -274,6 +292,7 @@ class Networks:
         self.entities = dictionaries.entities
         self.relations = dictionaries.relations
         self.attributes = dictionaries.attributes
+        self.multi_value_attributes = dictionaries.multi_value_attributes
         self.importants = features
         self.target = target
         self.Graph = dictionaries.Graph
@@ -356,8 +375,10 @@ class Networks:
             if predicate in self.attribute_dict:
                 
                 # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
-                multi = ',#' + predicate.lower()
-                multi = ''
+                if predicate in self.multi_value_attributes:
+                    multi = ',#' + predicate.lower()
+                else:
+                    multi = ''
 
                 final_set.append(str(predicate +
                                      '(+' + self.attribute_dict[predicate] + multi +
@@ -445,8 +466,10 @@ class Networks:
                         out = []
 
                         # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
-                        multi = ',#' + predicate.lower()
-                        multi = ''
+                        if predicate in self.multi_value_attributes:
+                            multi = ',#' + predicate.lower()
+                        else:
+                            multi = ''
 
                         if self.attribute_dict[predicate] in instantiated_variables:
                             out.append("+%s" % self.attribute_dict[predicate])
@@ -495,8 +518,10 @@ class Networks:
             if predicate in self.attribute_dict:
                 
                 # Note: multivalued attributes need to be handled as #, while non-multivalued need nothing.
-                multi = ',#' + predicate.lower()
-                multi = ''
+                if predicate in self.multi_value_attributes:
+                    multi = ',#' + predicate.lower()
+                else:
+                    multi = ''
 
                 final_set.append(str(predicate +
                                      '(+' + self.attribute_dict[predicate] + multi +

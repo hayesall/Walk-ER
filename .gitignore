@@ -34,5 +34,9 @@ datasets/citeseer/citeseer_bk.txt
 datasets/imdb_backup/*
 datasets/imdb_female_gender/*
 
-# IGNORE UWCSE until I've finished fixing it.
-datasets/uwcse/*
+# Graphs folder is mostly a sanity check, I'll plot the actual errorbars with the plot_errorbars.py function.
+graphs/*
+
+# uwcse specifically generates some extra files that shouldn't be pushed.
+datasets/*/.svn/*
+datasets/*/*/.svn/*

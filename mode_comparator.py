@@ -39,11 +39,12 @@ RDNJARPATH = ' v1-0.jar '
 AUCJARPATH = ' -aucJarPath .'
 
 DATASETS = [['uwcse', 'advisedby', 14, 5]]
+#DATASETS = [['imdb', 'workedunder', 4, 5]]
 
 '''
 DATASETS = [['webkb', 'faculty', 4, 4],
             ['cora', 'sameauthor', 6, 5],
-            ['imdb', 'female_gender', 4, 5],
+            ['imdb', 'workedunder', 4, 5],
             ['uwcse', 'advisedby', 14, 5],
             ['citeseer', 'infield_ftitle', 14, 4]]
 '''
@@ -308,6 +309,9 @@ def construct_modes(dataset, flag, NUMBER=None):
             CALL = 'python walker2.py ' + flag + ' diagrams/' + dataset + \
                    '.mayukh | grep "mode:" >> datasets/' + dataset + '/' + dataset.lower() + '_bk.txt'
     call_process(CALL)
+    
+    if (dataset == 'uwcse'):
+        call_process('echo -e "okIfUnknown: projectmember/2." >> datasets/uwcse/uwcse_bk.txt')
 
 def train_model(dataset, params, target, cross_validation_fold):
     '''BoostSRL Training:

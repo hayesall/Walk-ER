@@ -1,0 +1,734 @@
+taughtby(course18, person373, autumn_0001).
+taughtby(course151, person290, autumn_0001).
+taughtby(course38, person204, autumn_0001).
+taughtby(course48, person107, autumn_0001).
+taughtby(course21, person99, autumn_0001).
+taughtby(course18, person326, winter_0001).
+taughtby(course151, person235, winter_0001).
+taughtby(course38, person104, winter_0001).
+taughtby(course20, person180, winter_0001).
+taughtby(course62, person101, winter_0001).
+taughtby(course129, person373, winter_0001).
+taughtby(course2, person180, winter_0001).
+taughtby(course18, person107, spring_0001).
+taughtby(course151, person267, spring_0001).
+taughtby(course80, person180, spring_0001).
+taughtby(course30, person290, spring_0001).
+taughtby(course8, person297, spring_0001).
+taughtby(course120, person235, spring_0001).
+taughtby(course74, person124, spring_0001).
+taughtby(course18, person213, autumn_0102).
+taughtby(course151, person179, autumn_0102).
+taughtby(course38, person104, autumn_0102).
+taughtby(course48, person375, autumn_0102).
+taughtby(course4, person107, autumn_0102).
+taughtby(course18, person107, winter_0102).
+taughtby(course151, person290, winter_0102).
+taughtby(course38, person124, winter_0102).
+taughtby(course20, person180, winter_0102).
+taughtby(course62, person101, winter_0102).
+taughtby(course129, person213, winter_0102).
+taughtby(course166, person235, winter_0102).
+taughtby(course2, person180, winter_0102).
+taughtby(course34, person179, winter_0102).
+taughtby(course18, person326, spring_0102).
+taughtby(course151, person234, spring_0102).
+taughtby(course80, person98, spring_0102).
+taughtby(course30, person290, spring_0102).
+taughtby(course75, person267, spring_0102).
+taughtby(course8, person297, spring_0102).
+taughtby(course116, person375, spring_0102).
+taughtby(course120, person235, spring_0102).
+taughtby(course74, person104, spring_0102).
+taughtby(course14, person124, spring_0102).
+taughtby(course162, person213, spring_0102).
+taughtby(course18, person107, autumn_0203).
+taughtby(course151, person267, autumn_0203).
+taughtby(course38, person104, autumn_0203).
+taughtby(course48, person375, autumn_0203).
+taughtby(course30, person290, autumn_0203).
+taughtby(course129, person213, autumn_0203).
+taughtby(course74, person124, autumn_0203).
+taughtby(course18, person290, winter_0203).
+taughtby(course151, person179, winter_0203).
+taughtby(course38, person104, winter_0203).
+taughtby(course75, person267, winter_0203).
+taughtby(course139, person235, winter_0203).
+taughtby(course167, person98, winter_0203).
+taughtby(course18, person375, spring_0203).
+taughtby(course151, person234, spring_0203).
+taughtby(course80, person98, spring_0203).
+taughtby(course30, person290, spring_0203).
+taughtby(course21, person22, spring_0203).
+taughtby(course120, person235, spring_0203).
+taughtby(course4, person107, spring_0203).
+taughtby(course151, person179, autumn_0304).
+taughtby(course38, person124, autumn_0304).
+taughtby(course48, person213, autumn_0304).
+taughtby(course74, person104, autumn_0304).
+taughtby(course18, person290, winter_0304).
+taughtby(course151, person82, winter_0304).
+taughtby(course38, person255, winter_0304).
+taughtby(course20, person180, winter_0304).
+taughtby(course75, person267, winter_0304).
+taughtby(course129, person213, winter_0304).
+taughtby(course23, person179, winter_0304).
+taughtby(course9, person235, winter_0304).
+taughtby(course18, person375, spring_0304).
+taughtby(course151, person234, spring_0304).
+taughtby(course80, person101, spring_0304).
+taughtby(course30, person290, spring_0304).
+taughtby(course120, person235, spring_0304).
+taughtby(course120, person82, spring_0304).
+courselevel(course5, level_300).
+courselevel(course18, level_300).
+courselevel(course21, level_400).
+courselevel(course151, level_400).
+courselevel(course38, level_400).
+courselevel(course45, level_400).
+courselevel(course20, level_400).
+courselevel(course48, level_400).
+courselevel(course62, level_400).
+courselevel(course80, level_400).
+courselevel(course30, level_400).
+courselevel(course174, level_400).
+courselevel(course75, level_400).
+courselevel(course8, level_400).
+courselevel(course129, level_500).
+courselevel(course116, level_500).
+courselevel(course120, level_500).
+courselevel(course166, level_500).
+courselevel(course74, level_500).
+courselevel(course2, level_500).
+courselevel(course4, level_500).
+courselevel(course34, level_500).
+courselevel(course14, level_500).
+courselevel(course167, level_500).
+courselevel(course139, level_500).
+courselevel(course162, level_500).
+courselevel(course61, level_500).
+courselevel(course23, level_500).
+courselevel(course9, level_500).
+courselevel(course87, level_500).
+courselevel(course88, level_500).
+hasposition(person124, faculty).
+hasposition(person375, faculty_emeritus).
+hasposition(person234, faculty).
+hasposition(person101, faculty).
+hasposition(person180, faculty).
+hasposition(person98, faculty).
+hasposition(person107, faculty).
+hasposition(person235, faculty).
+hasposition(person297, faculty_emeritus).
+hasposition(person82, faculty).
+hasposition(person179, faculty).
+hasposition(person213, faculty).
+hasposition(person22, faculty_emeritus).
+hasposition(person373, faculty).
+hasposition(person104, faculty).
+hasposition(person290, faculty).
+inphase(person19, pre_quals).
+inphase(person398, pre_quals).
+inphase(person368, post_generals).
+inphase(person130, post_generals).
+inphase(person299, pre_quals).
+inphase(person175, post_generals).
+inphase(person255, post_generals).
+inphase(person411, post_generals).
+inphase(person426, post_quals).
+inphase(person99, post_quals).
+inphase(person212, post_generals).
+inphase(person403, post_generals).
+inphase(person402, pre_quals).
+inphase(person391, post_quals).
+inphase(person253, post_generals).
+inphase(person280, pre_quals).
+inphase(person417, pre_quals).
+inphase(person92, post_generals).
+inphase(person419, post_generals).
+inphase(person357, post_quals).
+inphase(person67, post_generals).
+inphase(person222, pre_quals).
+inphase(person89, post_generals).
+inphase(person277, pre_quals).
+inphase(person15, post_quals).
+inphase(person80, post_generals).
+inphase(person376, post_quals).
+inphase(person62, pre_quals).
+inphase(person218, post_generals).
+inphase(person186, pre_quals).
+inphase(person187, pre_quals).
+inphase(person343, pre_quals).
+inphase(person154, post_quals).
+inphase(person204, post_generals).
+inphase(person126, post_quals).
+inphase(person129, post_generals).
+inphase(person374, post_generals).
+inphase(person155, pre_quals).
+inphase(person100, post_quals).
+inphase(person116, pre_quals).
+tempadvisedby(person19, person98).
+tempadvisedby(person398, person213).
+tempadvisedby(person299, person235).
+tempadvisedby(person175, person107).
+tempadvisedby(person402, person234).
+tempadvisedby(person417, person104).
+tempadvisedby(person277, person235).
+tempadvisedby(person186, person290).
+tempadvisedby(person187, person180).
+tempadvisedby(person343, person213).
+yearsinprogram(person19, year_1).
+yearsinprogram(person398, year_1).
+yearsinprogram(person368, year_4).
+yearsinprogram(person130, year_8).
+yearsinprogram(person299, year_3).
+yearsinprogram(person175, year_2).
+yearsinprogram(person255, year_5).
+yearsinprogram(person411, year_6).
+yearsinprogram(person426, year_5).
+yearsinprogram(person99, year_2).
+yearsinprogram(person212, year_7).
+yearsinprogram(person403, year_12).
+yearsinprogram(person402, year_2).
+yearsinprogram(person391, year_4).
+yearsinprogram(person253, year_5).
+yearsinprogram(person280, year_3).
+yearsinprogram(person417, year_1).
+yearsinprogram(person92, year_5).
+yearsinprogram(person419, year_7).
+yearsinprogram(person357, year_4).
+yearsinprogram(person67, year_6).
+yearsinprogram(person222, year_1).
+yearsinprogram(person89, year_5).
+yearsinprogram(person277, year_1).
+yearsinprogram(person15, year_3).
+yearsinprogram(person80, year_6).
+yearsinprogram(person376, year_4).
+yearsinprogram(person62, year_2).
+yearsinprogram(person218, year_12).
+yearsinprogram(person186, year_1).
+yearsinprogram(person187, year_1).
+yearsinprogram(person343, year_1).
+yearsinprogram(person154, year_4).
+yearsinprogram(person204, year_6).
+yearsinprogram(person126, year_5).
+yearsinprogram(person129, year_6).
+yearsinprogram(person374, year_12).
+yearsinprogram(person155, year_2).
+yearsinprogram(person100, year_5).
+yearsinprogram(person116, year_3).
+ta(course18, person398, winter_0304).
+ta(course18, person274, winter_0304).
+ta(course151, person4, winter_0304).
+ta(course151, person299, winter_0304).
+ta(course151, person71, winter_0304).
+ta(course38, person222, winter_0304).
+ta(course38, person207, winter_0304).
+ta(course20, person368, winter_0304).
+ta(course129, person67, winter_0304).
+ta(course23, person116, winter_0304).
+ta(course88, person130, winter_0304).
+ta(course18, person277, autumn_0304).
+ta(course18, person67, autumn_0304).
+ta(course151, person4, autumn_0304).
+ta(course151, person129, autumn_0304).
+ta(course38, person190, autumn_0304).
+ta(course38, person222, autumn_0304).
+ta(course38, person207, autumn_0304).
+ta(course45, person155, autumn_0304).
+ta(course45, person71, autumn_0304).
+ta(course48, person155, autumn_0304).
+ta(course18, person274, spring_0203).
+ta(course21, person198, spring_0203).
+ta(course151, person269, spring_0203).
+ta(course80, person358, spring_0203).
+ta(course61, person155, spring_0203).
+ta(course18, person116, winter_0203).
+ta(course151, person155, winter_0203).
+ta(course38, person62, winter_0203).
+ta(course18, person354, autumn_0203).
+ta(course18, person155, autumn_0203).
+ta(course151, person167, autumn_0203).
+ta(course151, person186, autumn_0203).
+ta(course38, person154, autumn_0203).
+ta(course45, person358, autumn_0203).
+ta(course74, person255, autumn_0203).
+ta(course18, person67, spring_0102).
+ta(course151, person299, spring_0102).
+ta(course30, person116, spring_0102).
+ta(course174, person123, spring_0102).
+ta(course74, person204, spring_0102).
+ta(course14, person15, spring_0102).
+ta(course18, person15, winter_0102).
+ta(course18, person280, winter_0102).
+ta(course151, person223, winter_0102).
+ta(course151, person299, winter_0102).
+ta(course38, person357, winter_0102).
+ta(course38, person255, winter_0102).
+ta(course38, person92, winter_0102).
+ta(course20, person84, winter_0102).
+ta(course62, person126, winter_0102).
+ta(course129, person340, winter_0102).
+ta(course166, person100, winter_0102).
+taughtby(course88 , person235, winter_0304).
+taughtby(course61, person107, spring_0203).
+taughtby(course174 , person267, spring_0102).
+professor(person22).
+professor(person124).
+professor(person375).
+professor(person179).
+professor(person297).
+professor(person326).
+professor(person267).
+professor(person234).
+professor(person101).
+professor(person180).
+professor(person98).
+professor(person107).
+professor(person235).
+professor(person82).
+professor(person213).
+professor(person373).
+professor(person104).
+professor(person290).
+student(person19).
+student(person398).
+student(person368).
+student(person130).
+student(person299).
+student(person175).
+student(person255).
+student(person411).
+student(person426).
+student(person99).
+student(person212).
+student(person403).
+student(person402).
+student(person391).
+student(person253).
+student(person280).
+student(person417).
+student(person92).
+student(person419).
+student(person357).
+student(person67).
+student(person222).
+student(person89).
+student(person277).
+student(person15).
+student(person80).
+student(person376).
+student(person62).
+student(person218).
+student(person186).
+student(person187).
+student(person343).
+student(person154).
+student(person204).
+student(person126).
+student(person129).
+student(person374).
+student(person155).
+student(person100).
+student(person116).
+student(person274).
+student(person4).
+student(person71).
+student(person207).
+student(person190).
+student(person198).
+student(person269).
+student(person358).
+student(person354).
+student(person167).
+student(person123).
+student(person223).
+student(person84).
+student(person340).
+sameperson(person22, person22).
+sameperson(person124, person124).
+sameperson(person375, person375).
+sameperson(person179, person179).
+sameperson(person297, person297).
+sameperson(person326, person326).
+sameperson(person267, person267).
+sameperson(person234, person234).
+sameperson(person101, person101).
+sameperson(person180, person180).
+sameperson(person98, person98).
+sameperson(person107, person107).
+sameperson(person235, person235).
+sameperson(person82, person82).
+sameperson(person213, person213).
+sameperson(person373, person373).
+sameperson(person104, person104).
+sameperson(person290, person290).
+sameperson(person19, person19).
+sameperson(person398, person398).
+sameperson(person368, person368).
+sameperson(person130, person130).
+sameperson(person299, person299).
+sameperson(person175, person175).
+sameperson(person255, person255).
+sameperson(person411, person411).
+sameperson(person426, person426).
+sameperson(person99, person99).
+sameperson(person212, person212).
+sameperson(person403, person403).
+sameperson(person402, person402).
+sameperson(person391, person391).
+sameperson(person253, person253).
+sameperson(person280, person280).
+sameperson(person417, person417).
+sameperson(person92, person92).
+sameperson(person419, person419).
+sameperson(person357, person357).
+sameperson(person67, person67).
+sameperson(person222, person222).
+sameperson(person89, person89).
+sameperson(person277, person277).
+sameperson(person15, person15).
+sameperson(person80, person80).
+sameperson(person376, person376).
+sameperson(person62, person62).
+sameperson(person218, person218).
+sameperson(person186, person186).
+sameperson(person187, person187).
+sameperson(person343, person343).
+sameperson(person154, person154).
+sameperson(person204, person204).
+sameperson(person126, person126).
+sameperson(person129, person129).
+sameperson(person374, person374).
+sameperson(person155, person155).
+sameperson(person100, person100).
+sameperson(person116, person116).
+sameperson(person274, person274).
+sameperson(person4, person4).
+sameperson(person71, person71).
+sameperson(person207, person207).
+sameperson(person190, person190).
+sameperson(person198, person198).
+sameperson(person269, person269).
+sameperson(person358, person358).
+sameperson(person354, person354).
+sameperson(person167, person167).
+sameperson(person123, person123).
+sameperson(person223, person223).
+sameperson(person84, person84).
+sameperson(person340, person340).
+samecourse(course5, course5).
+samecourse(course18, course18).
+samecourse(course21, course21).
+samecourse(course151, course151).
+samecourse(course38, course38).
+samecourse(course45, course45).
+samecourse(course20, course20).
+samecourse(course48, course48).
+samecourse(course62, course62).
+samecourse(course80, course80).
+samecourse(course30, course30).
+samecourse(course75, course75).
+samecourse(course8, course8).
+samecourse(course129, course129).
+samecourse(course116, course116).
+samecourse(course120, course120).
+samecourse(course166, course166).
+samecourse(course74, course74).
+samecourse(course2, course2).
+samecourse(course4, course4).
+samecourse(course34, course34).
+samecourse(course14, course14).
+samecourse(course167, course167).
+samecourse(course139, course139).
+samecourse(course162, course162).
+samecourse(course61, course61).
+samecourse(course23, course23).
+samecourse(course9, course9).
+samecourse(course87, course87).
+samecourse(course174, course174).
+samecourse(course88, course88).
+sameproject(project27, project27).
+sameproject(project16, project16).
+sameproject(project60, project60).
+sameproject(project125, project125).
+sameproject(project39, project39).
+sameproject(project32, project32).
+sameproject(project44, project44).
+sameproject(project14, project14).
+sameproject(project114, project114).
+sameproject(project80, project80).
+sameproject(project43, project43).
+sameproject(project110, project110).
+sameproject(project68, project68).
+sameproject(project75, project75).
+sameproject(project128, project128).
+sameproject(project112, project112).
+sameproject(project37, project37).
+sameproject(project93, project93).
+sameproject(project40, project40).
+sameproject(project148, project148).
+sameproject(project26, project26).
+sameproject(project122, project122).
+sameproject(project4, project4).
+sameproject(project30, project30).
+sameproject(project67, project67).
+sameproject(project55, project55).
+sameproject(project31, project31).
+sameproject(project99, project99).
+sameproject(project134, project134).
+sameproject(project109, project109).
+sameproject(project72, project72).
+sameproject(project8, project8).
+sameproject(project28, project28).
+sameproject(project144, project144).
+sameproject(project10, project10).
+sameproject(project138, project138).
+publication(title294 , person124).
+publication(title214 , person124).
+publication(title186 , person124).
+publication(title141 , person124).
+publication(title246 , person124).
+publication(title253 , person124).
+publication(title227 , person124).
+publication(title48 , person124).
+publication(title282 , person124).
+publication(title267 , person124).
+publication(title133 , person124).
+publication(title245 , person124).
+publication(title213 , person375).
+publication(title91 , person375).
+publication(title74 , person375).
+publication(title9 , person375).
+publication(title117 , person375).
+publication(title239 , person375).
+publication(title194 , person375).
+publication(title64 , person179).
+publication(title143 , person179).
+publication(title338 , person179).
+publication(title51 , person179).
+publication(title294 , person234).
+publication(title213 , person234).
+publication(title168 , person234).
+publication(title96 , person234).
+publication(title3 , person234).
+publication(title189 , person234).
+publication(title46 , person234).
+publication(title28 , person234).
+publication(title141 , person234).
+publication(title53 , person234).
+publication(title176 , person234).
+publication(title58 , person234).
+publication(title65 , person234).
+publication(title198 , person234).
+publication(title315 , person234).
+publication(title196 , person234).
+publication(title91 , person234).
+publication(title289 , person234).
+publication(title43 , person234).
+publication(title48 , person234).
+publication(title74 , person234).
+publication(title117 , person234).
+publication(title239 , person234).
+publication(title194 , person234).
+publication(title237 , person234).
+publication(title204 , person234).
+publication(title121 , person234).
+publication(title209 , person234).
+publication(title332 , person234).
+publication(title247 , person234).
+publication(title342 , person234).
+publication(title169 , person234).
+publication(title144 , person234).
+publication(title17 , person234).
+publication(title80 , person234).
+publication(title7 , person234).
+publication(title234 , person234).
+publication(title339 , person234).
+publication(title69 , person234).
+publication(title249 , person234).
+publication(title76 , person234).
+publication(title81 , person234).
+publication(title285 , person234).
+publication(title101 , person234).
+publication(title223 , person101).
+publication(title56 , person101).
+publication(title294 , person101).
+publication(title214 , person101).
+publication(title157 , person101).
+publication(title68 , person101).
+publication(title197 , person101).
+publication(title139 , person101).
+publication(title141 , person101).
+publication(title131 , person101).
+publication(title2 , person101).
+publication(title75 , person101).
+publication(title174 , person101).
+publication(title148 , person101).
+publication(title8 , person101).
+publication(title282 , person101).
+publication(title52 , person101).
+publication(title31 , person101).
+publication(title133 , person101).
+publication(title245 , person101).
+publication(title67 , person101).
+publication(title173 , person180).
+publication(title223 , person98).
+publication(title197 , person98).
+publication(title139 , person98).
+publication(title2 , person98).
+publication(title174 , person98).
+publication(title148 , person98).
+publication(title8 , person98).
+publication(title244 , person107).
+publication(title300 , person107).
+publication(title124 , person107).
+publication(title96 , person107).
+publication(title176 , person107).
+publication(title198 , person107).
+publication(title303 , person107).
+publication(title209 , person107).
+publication(title320 , person107).
+publication(title169 , person107).
+publication(title17 , person107).
+publication(title264 , person107).
+publication(title294 , person235).
+publication(title108 , person235).
+publication(title141 , person235).
+publication(title42 , person235).
+publication(title338 , person235).
+publication(title51 , person235).
+publication(title37 , person235).
+publication(title281 , person235).
+publication(title315 , person82).
+publication(title196 , person82).
+publication(title221 , person82).
+publication(title232 , person82).
+publication(title9 , person82).
+publication(title32 , person82).
+publication(title251 , person82).
+publication(title211 , person82).
+publication(title23 , person82).
+publication(title204 , person82).
+publication(title121 , person82).
+publication(title332 , person82).
+publication(title144 , person82).
+publication(title163 , person82).
+publication(title306 , person82).
+publication(title80 , person82).
+publication(title234 , person82).
+publication(title256 , person82).
+publication(title61 , person82).
+publication(title343 , person82).
+publication(title187 , person82).
+publication(title249 , person82).
+publication(title6 , person82).
+publication(title76 , person82).
+publication(title299 , person82).
+publication(title34 , person82).
+publication(title280 , person82).
+publication(title36 , person82).
+publication(title81 , person82).
+publication(title146 , person373).
+publication(title186 , person104).
+publication(title277 , person104).
+publication(title180 , person104).
+publication(title141 , person104).
+publication(title246 , person104).
+publication(title227 , person104).
+publication(title48 , person104).
+publication(title267 , person104).
+publication(title149 , person104).
+publication(title253 , person290).
+publication(title221 , person290).
+publication(title232 , person290).
+publication(title9 , person290).
+publication(title32 , person290).
+publication(title251 , person290).
+publication(title211 , person290).
+publication(title23 , person290).
+publication(title163 , person290).
+publication(title306 , person290).
+publication(title256 , person290).
+publication(title61 , person290).
+publication(title343 , person290).
+publication(title187 , person290).
+publication(title6 , person290).
+publication(title299 , person290).
+publication(title34 , person290).
+publication(title280 , person290).
+publication(title36 , person290).
+publication(title294 , person255).
+publication(title141 , person255).
+publication(title146 , person411).
+publication(title186 , person99).
+publication(title180 , person99).
+publication(title286 , person99).
+publication(title173 , person212).
+publication(title96 , person403).
+publication(title46 , person403).
+publication(title53 , person403).
+publication(title58 , person403).
+publication(title289 , person403).
+publication(title43 , person403).
+publication(title169 , person403).
+publication(title7 , person403).
+publication(title339 , person403).
+publication(title108 , person402).
+publication(title42 , person402).
+publication(title56 , person253).
+publication(title214 , person253).
+publication(title157 , person253).
+publication(title68 , person253).
+publication(title131 , person253).
+publication(title75 , person253).
+publication(title282 , person253).
+publication(title245 , person253).
+publication(title206 , person92).
+publication(title242 , person92).
+publication(title31 , person419).
+publication(title64 , person419).
+publication(title143 , person419).
+publication(title294 , person357).
+publication(title141 , person357).
+publication(title262 , person89).
+publication(title206 , person89).
+publication(title242 , person89).
+publication(title206 , person15).
+publication(title168 , person80).
+publication(title300 , person80).
+publication(title96 , person80).
+publication(title189 , person80).
+publication(title46 , person80).
+publication(title28 , person80).
+publication(title176 , person80).
+publication(title65 , person80).
+publication(title237 , person80).
+publication(title247 , person80).
+publication(title342 , person80).
+publication(title169 , person80).
+publication(title17 , person80).
+publication(title339 , person80).
+publication(title285 , person80).
+publication(title101 , person80).
+publication(title244 , person376).
+publication(title124 , person376).
+publication(title303 , person376).
+publication(title320 , person376).
+publication(title264 , person376).
+publication(title52 , person218).
+publication(title67 , person218).
+publication(title37 , person154).
+publication(title281 , person154).
+publication(title186 , person204).
+publication(title277 , person204).
+publication(title3 , person204).
+publication(title286 , person204).
+publication(title149 , person204).
+publication(title69 , person204).
+publication(title294 , person126).
+publication(title141 , person126).
+publication(title262 , person100).
+publication(title37 , person100).
+publication(title281 , person100).
+

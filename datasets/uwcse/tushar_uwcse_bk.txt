@@ -1,0 +1,42 @@
+setParam: nodeSize=1.
+setParam: treeDepth=3.
+
+mode: advisedby(+Person, +Person).
+
+mode: courselevel(+Course, #Level).
+mode: courselevel(+Course, +Level).
+
+mode: hasposition(+Person, #Position).
+
+mode: inphase(+Person, #Phase).
+
+mode: professor(+Person).
+
+mode: projectmember(-Project, +Person).
+mode: projectmember(+Project, -Person).
+
+mode: publication(-Title, +Person).
+mode: publication(+Title, -Person).
+
+mode: samecourse(+Course, +Course). 
+
+mode: sameperson(+Person, +Person).
+
+mode: sameproject(+Project, +Project). 
+
+mode: student(+Person).
+
+mode: ta(-Course, +Person, -Quarter).
+mode: ta(+Course, -Person, +Quarter).
+mode: ta(+Course, +Person, -Quarter).
+
+mode: taughtby(-Course, +Person, -Quarter).
+mode: taughtby(+Course, -Person, +Quarter).
+mode: taughtby(+Course, +Person, -Quarter).
+
+mode: tempadvisedby(-Person, +Person).
+mode: tempadvisedby(+Person, -Person).
+
+mode: yearsinprogram(+Person, #Integer).
+
+okIfUnknown: projectmember/2.
