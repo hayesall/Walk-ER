@@ -1,3 +1,22 @@
+'''
+This is the original implementation of the "Guided Mode Construction" Algorithm,
+described in "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams"
+
+We did not have a user interface at the time, so we used the online ERDplus tool to create ERDs, then parsed
+the json generated when downloading a file from their website. This was useful for rapidly testing the theory,
+and helped us find holes and special cases which might exist.
+
+But why did we not continue using ERDPlus?
+  - Inability to handle multi-arity relationships (limited to binary). My suspicion is that this is partially due
+    to ERDplus' automatic conversion to relational schemas and SQL--multi-arity relationships are notoriously
+    vague, and their implementation depends on the use cases.
+  - Not open source. Our theory is currently limited to ERDs with a small number of options, but it's difficult to
+    say exactly where future work might take this project (or the theory). Having an interface which can be extended
+    or be built into other software packages is extremely important for our future of this work.
+  - An online tool has upsides: portability and general accessibility being two of the key ones. With other people in
+    our lab working on offline tools, we want to have an offline option.
+'''
+
 from __future__ import print_function
 from collections import OrderedDict
 from pygame.locals import *
