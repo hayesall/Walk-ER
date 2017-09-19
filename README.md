@@ -1,14 +1,30 @@
 # Walk-ER
-Walk-ER for exploring entity/attribute/relationships in Entity-Relational Diagrams and constructing BoostSRL background modes. Parsed from ERDPlus JSON.
+
+Repository for Knowledge Capture (K-CAP) 2017 paper submission: "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams."
+
+## Getting Started
 
 > Modes are used to restrict/guide the search space and are a powerful tool in getting relational algorithms such as BoostSRL to work. If your algorithm does not learn anything useful, then the first debug point would be the modes (in the background.txt file).
 
-[GitHub Basic Modes Guide](https://github.com/boost-starai/BoostSRL/wiki/Basic-Modes-Guide)
+Walk-ER is a system for defining background knowledge for use in relational learning algorithms by exploring entity/attribute/relationships in Entity-Relational Diagrams. Refer to the [BoostSRL Basic Modes Guide](https://github.com/boost-starai/BoostSRL/wiki/Basic-Modes-Guide) for more information about modes.
 
-We define modes as being a powerful tool for getting BoostSRL to function properly, but it leaves an open question: how do we set them in the first place? One of our lab's focus is on users interacting with our algorithms (human-in-the-loop learning and learning with advice). So far we've tried to make modes approachable by writing thorough tutorials, but requiring a user to learn our method by reading lots of documentation does not necessarily imply "easy interaction."
+### Prerequisites
 
-If we cannot necessarily expect the user to know our method from the beginning, perhaps we can present the information in a way that they are more familiar with. **Entity Relational Diagrams** usually come up as a way to express the underlying structure of a database. We want to find an intersection between these diagrams and the BoostSRL modes.
+### Installation
 
-A basic ER-Diagram has three shapes: entities, attributes, and relations.
+## Citation
 
-[https://erdplus.com/#/](https://erdplus.com/#/)
+If you build on this code or the ideas of the paper, please use the following citation.
+
+```
+@inproceedings{kcap2017ermodeconstruction,
+  author = {Alexander Hayes and Mayukh Das and Phillip Odom and Sriraam Natarajan},
+  title  = {User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams},
+  booktitle = {KCAP},
+  year   = {2017}
+}
+```
+
+## Acknowledgements
+
+* Work was funded partially under a grant from Air Force Office of Scientific Research (AFOSR); Small Business Technology Transfer (STTR); AF13-AT11: "Enhancing the Scaling and Accuracy of Text Analytics Using Joint Inference" (AFOSR STTR Topic AF13-AT11)
