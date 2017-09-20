@@ -10,7 +10,12 @@ Walk-ER is a system for defining background knowledge for use in relational lear
 
 ### Prerequisites
 
+* Java 1.8
+* Python 2.7
+
 ### Installation
+
+`git clone https://github.com/batflyer/Walk-ER.git`
 
 ## Citation
 
