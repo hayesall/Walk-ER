@@ -119,8 +119,8 @@ class Setup:
 
 class BuildDictionaries:
 
-    def __init__(self, diagram):
-        self.verbose = setup.verbose
+    def __init__(self, diagram, verbose=False):
+        self.verbose = verbose
         self.diagram = diagram
         '''Takes the diagram file passed as an input and turns it into dictionaries that can be used over the next few sections:
         Nodes: {Student=EntityNodeStyle, Professor=EntityNodeStyle, Rating=AttributeNodeStyle, Teach=RelationNodeStyle}
@@ -254,40 +254,10 @@ class BuildDictionaries:
             print('Important:', self.importants)
             print('Target:', self.target)
 
-class CmdInteraction:
-    
-    def __init__(self):
-        pass
-        
-    def targetFeatureSelector(self):
-        pass
-
-class FileWriter:
-    
-    def __init__(self):
-        pass
-
-    def write_modes_to_file(self):
-        pass
-
-class ConstructModes:
-    
-    def __init__(self):
-        pass
-
-    def handleTargetVariables(self):
-        pass
-
-    def handleRelationVariables(self):
-        pass
-
-    def handleAttributeVariables(self):
-        pass
-
 class Networks:
     
-    def __init__(self, target, features):
-        self.verbose = setup.verbose
+    def __init__(self, target, features, dictionaries, verbose=False):
+        self.verbose = verbose
         self.entities = dictionaries.entities
         self.relations = dictionaries.relations
         self.attributes = dictionaries.attributes
@@ -398,10 +368,10 @@ class Networks:
                 final_set.append(str(predicate + '(' + ','.join(out) + ').'))
 
         self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
-        print('\n//background')
-        print('//target is', target)
-        for mode in self.all_modes:
-            print(mode)
+        #print('\n//background')
+        #print('//target is', target)
+        #for mode in self.all_modes:
+        #    print(mode)
 
         return path
             
@@ -541,10 +511,11 @@ class Networks:
                 final_set.append(str(predicate + '(' + ','.join(out) + ').'))
 
         self.all_modes = ['mode: ' + element for element in sorted(list(set(final_set)))]
-        print('\n//background')
-        print('//target is', target)
-        for mode in self.all_modes:
-            print(mode)
+        self.all_modes_boostsrl = [element for element in sorted(list(set(final_set)))]
+        #print('\n//background')
+        #print('//target is', target)
+        #for mode in self.all_modes:
+        #    print(mode)
 
 class UnitTests:
 
@@ -554,6 +525,17 @@ class UnitTests:
     def run_unit_tests(self):
         pass
 
+class walker:
+
+    """
+    "Main" class to run WalkER with the assumption that it was imported as a package.
+        - diagram_file -> a string
+        - method -> a string
+    """
+
+    def __init__(self, diagram_file_string, algo, shortest=False, verbose=False, n=10000):
+        pass
+
 if __name__ == '__main__':
 
     '''Parse the commandline input, import the file. Contents are stored in setup.diagram_file.'''
@@ -561,9 +543,7 @@ if __name__ == '__main__':
     diagram = setup.diagram_file
 
     '''Turn turn the file into dictionaries and lists.'''
-    dictionaries = BuildDictionaries(diagram)
-
-    #print(dictionaries.Graph)
+    dictionaries = BuildDictionaries(diagram, verbose=setup.verbose)
 
     if (setup.walk or setup.shortest):
         target = dictionaries.target
@@ -577,7 +557,7 @@ if __name__ == '__main__':
             features = dictionaries.importants[:setup.Nfeatures]
         print(features)
 
-        networks = Networks(target, features)
+        networks = Networks(target, features, dictionaries, verbose=setup.verbose)
         
         all_paths = networks.paths_from_target_to_features()
 
@@ -610,7 +590,7 @@ if __name__ == '__main__':
             print('"Exhaustive Mode": Walk the graph from the target to every feature.')
             features = all_features
 
-        networks = Networks(target, features)
+        networks = Networks(target, features, dictionaries, verbose=setup.verbose)
         all_paths = networks.paths_from_target_to_features()
         networks.walkFeatures(all_paths)
     
@@ -621,7 +601,7 @@ if __name__ == '__main__':
         features = []
         Graph = dictionaries.Graph
 
-        networks = Networks(target, features)
+        networks = Networks(target, features, dictionaries, verbose=setup.verbose)
 
         if (setup.Nfeatures == None):
             print('Warning: depth limit was not specified (use --number), defaulting to 10,000 [Exhaustive Search].')
@@ -635,3 +615,7 @@ if __name__ == '__main__':
     elif setup.nowalk:
         print('"No-Walk Mode": Instantiate variables without walking.')
         print('This is not currently implemented.')
+
+    print('//target is', networks.target)
+    for mode in networks.all_modes:
+        print(mode)
