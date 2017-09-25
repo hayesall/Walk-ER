@@ -11,11 +11,37 @@ Walk-ER is a system for defining background knowledge for use in relational lear
 ### Prerequisites
 
 * Java 1.8
-* Python 2.7
+* Python (2.7, 3.5)
 
 ### Installation
 
 `git clone https://github.com/batflyer/Walk-ER.git`
+
+### Basic Usage
+
+WalkER can either be invoked from a terminal or imported as a Python package. Examples of both follow:
+
+1. Interactive version:
+
+   `python WalkER.py -w diagrams/imdb.mayukh`
+
+   `python WalkER.py -rw --number 10 diagrams/imdb.mayukh`
+
+2. As an imported package:
+
+   ```python
+   import walker
+   from boostsrl import boostsrl
+
+   """Read a diagram file as a string."""
+   with open('diagrams/imdb.mayukh') as f:
+       diagram = f.read()
+
+   bk = walker.walk(diagram, algo='w', n=3)
+   target = bk.target
+
+   background = boostsrl.modes(bk, target, useStdLogicVariables=True, treeDepth=8)
+   ```
 
 ## Citation
 
