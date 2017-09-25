@@ -15,7 +15,9 @@ Walk-ER is a system for defining background knowledge for use in relational lear
 
 ### Installation
 
-`git clone https://github.com/batflyer/Walk-ER.git`
+Download the latest version from the GitHub repository (including five datasets):
+
+```git clone https://github.com/batflyer/Walk-ER.git```
 
 ### Basic Usage
 
@@ -23,9 +25,9 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
 
 1. Interactive version:
 
-   `python WalkER.py -w diagrams/imdb.mayukh`
+   ```$ python walker.py -w diagrams/imdb.mayukh```
 
-   `python WalkER.py -rw --number 10 diagrams/imdb.mayukh`
+   ```$ python walker.py -rw --number 10 diagrams/imdb.mayukh```
 
 2. As an imported package:
 
@@ -37,10 +39,15 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
    with open('diagrams/imdb.mayukh') as f:
        diagram = f.read()
 
+   """walk method accepts the same algorithm names as the interactive version."""
    bk = walker.walk(diagram, algo='w', n=3)
-   target = bk.target
+   target = [bk.target]
 
-   background = boostsrl.modes(bk, target, useStdLogicVariables=True, treeDepth=8)
+   """Use the boostsrl package to construct modes."""
+   background = boostsrl.modes(bk, target, useStdLogicVariables=True, maxTreeDepth=4, nodeSize=3)
+
+   ...
+
    ```
 
 ## Citation
