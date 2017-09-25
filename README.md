@@ -15,9 +15,11 @@ Walk-ER is a system for defining background knowledge for use in relational lear
 
 ### Installation
 
-Download the latest version from the GitHub repository (including five datasets):
+* Download the latest version from the GitHub repository (including five datasets):
 
-```git clone https://github.com/batflyer/Walk-ER.git```
+  ```bash
+  $ git clone https://github.com/batflyer/Walk-ER.git
+  ```
 
 ### Basic Usage
 
@@ -25,9 +27,47 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
 
 1. Interactive version:
 
-   ```$ python walker.py -w diagrams/imdb.mayukh```
+   * Options overview (output of `python walker.py -h`):
 
-   ```$ python walker.py -rw --number 10 diagrams/imdb.mayukh```
+   ```
+   usage: WalkER_rewrite.py [-h] [-v] [--number NUMBER] [-w | -s | -e | -r | -rw]
+                         diagram_file
+   
+   Walk-ER: a system for walking the paths in anentity-relational diagram.
+   Written by Alexander L. Hayes (Alexander.Hayes@utdallas.edu) and Mayukh Das.
+   University of Texas at Dallas. STARAI Lab (dir. Professor Natarajan)
+   
+   positional arguments:
+     diagram_file
+   
+   optional arguments:
+     -h, --help         show this help message and exit
+     -v, --verbose      Increase verbosity to help with debugging.
+     --number NUMBER    Select number of features to walk to (assumes that
+                        Important features are ordered from most important to
+                        least important). Defaults to number_attributes +
+                        number_relations if chosen number is greater than both.
+     -w, --walk         [Default] Walk graph from target to features.
+     -s, --shortest     Walk the graph from target to features. If there are
+                        multiple paths, take the shortest. If the shortest are
+                        equal lengths, walk both.
+     -e, --exhaustive   Walk graph from every feature to every feature.
+     -r, --random       Ignore features the user selected and walk (-w) from the
+                        target to random features.
+     -rw, --randomwalk  Walk a random path from the target until reaching a depth
+                        limit (specified with --number).
+   
+   Copyright 2017 Free Software Foundation, Inc. License GPLv3+: GNU GPL version
+   3 or later <http://gnu.org/licenses/gpl.html>. This is free software: you are
+   free to change and redistribute it. There is NO WARRANTY, to the extent
+   permitted by law.
+   ```
+
+   * Examples:
+   
+      * `$ python walker.py -w diagrams/imdb.mayukh`
+      
+      * `$ python walker.py -rw --number 10 diagrams/imdb.mayukh`
 
 2. As an imported package:
 
