@@ -85,7 +85,7 @@ class Setup:
             diagram = open(args.diagram_file).read()
         except:
             raise ExceptionCase('Error [1]: Could not read the file: "' + args.diagram_file + '"')
-
+        
         if (len(diagram.splitlines()) == 6):
             self.diagram_file = diagram
         else:
@@ -99,7 +99,7 @@ class Setup:
                 self.Nfeatures = args.number
             else:
                 raise(ExceptionCase('Error [1]: Cannot have negative features.'))
-
+            
         # Check the rest of the parameters, update if necessary.
         if not (args.walk or args.nowalk or args.exhaustive or args.random or args.shortest or args.randomwalk):
             # If this occurs, no flags were specified, so keep defaults (default: self.walk=True).
@@ -112,11 +112,10 @@ class Setup:
             self.exhaustive = args.exhaustive
             self.random = args.random
             self.randomwalk = args.randomwalk
-
+        
         if self.verbose:
             print('Imported Diagram File:\n')
             print(diagram)
-
 
 class BuildDictionaries:
 

@@ -1,6 +1,7 @@
 # Since Java development is being introduced to this ecosystem, gitignore is necessary.
 
 # No class or backup files.
+*.pyc
 *.class
 *~
 
