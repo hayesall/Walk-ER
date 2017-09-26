@@ -1,6 +1,6 @@
 from __future__ import print_function
-#import boostsrl as bsrl
-import WalkER
+#from boostsrl import boostsrl
+import walker
 
 """Read the diagram file as a string."""
 with open('diagrams/imdb.mayukh') as f:

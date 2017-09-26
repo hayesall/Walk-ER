@@ -37,8 +37,8 @@ class Setup:
         
         # Start by creating an argument parser to help with user input.
         parser = argparse.ArgumentParser(description="Walk-ER: a system for walking the paths in an entity-relational diagram."\
-                                         " Written by Alexander L. Hayes (hayesall@indiana.edu)"\
-                                         " and Mayukh Das (maydas@indiana.edu). Indiana University STARAI Lab.", 
+                                         " Written by Alexander L. Hayes (Alexander.Hayes@utdallas.edu))"\
+                                         " and Mayukh Das. University of Texas at Dallas. STARAI Lab (dir. Professor Natarajan).", 
                                          epilog="Copyright 2017 Free Software Foundation, Inc."\
                                          " License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>."\
                                          " This is free software: you are free to change and redistribute it."\
