@@ -106,3 +106,4 @@ If you build on this code or the ideas of the paper, please use the following ci
 ## Acknowledgements
 
 * Work was funded partially under a grant from Air Force Office of Scientific Research (AFOSR); Small Business Technology Transfer (STTR); AF13-AT11: "Enhancing the Scaling and Accuracy of Text Analytics Using Joint Inference" (AFOSR STTR Topic AF13-AT11)
+* Phillip Odom and Sriraam Natarajan acknowledge the support of the Army Research Office (ARO) grant number W911NF-13-1-0432 under the Young Investigator Program.
