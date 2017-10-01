@@ -1,6 +1,10 @@
+
+
 <p align="center">
-   <img src="media/WalkERLogo.png" />
+   <img src="media/WalkERLogo.png">
 </p>
+
+<br><br>
 
 Source code and TeX for "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams." K-CAP 2017 
 
