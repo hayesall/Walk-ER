@@ -2,12 +2,9 @@
    <img src="media/WalkERLogo.png" />
 </p>
 
+Source code and TeX for "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams." K-CAP 2017 
 
-| License |
-| --- |
-| [![][license img]][license] |
-
-Source code and TeX for "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams." K-CAP 2017
+[![][license img]][license]
 
 ## Getting Started
 
