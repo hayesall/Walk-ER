@@ -38,12 +38,7 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
    * Options overview (output of `python walker.py -h`):
 
    ```
-   usage: WalkER_rewrite.py [-h] [-v] [--number NUMBER] [-w | -s | -e | -r | -rw]
-                         diagram_file
-   
-   Walk-ER: a system for walking the paths in anentity-relational diagram.
-   Written by Alexander L. Hayes (Alexander.Hayes@utdallas.edu) and Mayukh Das.
-   University of Texas at Dallas. STARAI Lab (dir. Professor Natarajan)
+   usage: WalkER_rewrite.py [-h] [-v] [--number NUMBER] [-w | -s | -e | -r | -rw] diagram_file
    
    positional arguments:
      diagram_file
@@ -64,11 +59,6 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
                         target to random features.
      -rw, --randomwalk  Walk a random path from the target until reaching a depth
                         limit (specified with --number).
-   
-   Copyright 2017 Free Software Foundation, Inc. License GPLv3+: GNU GPL version
-   3 or later <http://gnu.org/licenses/gpl.html>. This is free software: you are
-   free to change and redistribute it. There is NO WARRANTY, to the extent
-   permitted by law.
    ```
 
    * Examples:
