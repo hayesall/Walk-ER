@@ -10,6 +10,19 @@ Source code and TeX for "User Friendly Automatic Construction of Background Know
 
 [![][license img]][license]
 
+## Citation
+
+If you build on this code or the ideas of the paper, please use the following citation.
+
+```
+@inproceedings{kcap2017ermodeconstruction,
+  author = {Alexander Hayes and Mayukh Das and Phillip Odom and Sriraam Natarajan},
+  title  = {User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams},
+  booktitle = {KCAP},
+  year   = {2017}
+}
+```
+
 ## Getting Started
 
 > Modes are used to restrict/guide the search space and are a powerful tool in getting relational algorithms such as BoostSRL to work. If your algorithm does not learn anything useful, then the first debug point would be the modes (in the background.txt file).
@@ -87,20 +100,7 @@ WalkER can either be invoked from a terminal or imported as a Python package. Ex
    ...
 
    ```
-
-## Citation
-
-If you build on this code or the ideas of the paper, please use the following citation.
-
-```
-@inproceedings{kcap2017ermodeconstruction,
-  author = {Alexander Hayes and Mayukh Das and Phillip Odom and Sriraam Natarajan},
-  title  = {User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams},
-  booktitle = {KCAP},
-  year   = {2017}
-}
-```
-
+   
 ## Acknowledgements
 
 * Mayukh Das and Sriraam Natarajan gratefully acknowledge the support of the CwC Program Contract W911NF-15-1-0461 with the US Defense Advanced Research Projects Agency (DARPA) and the Army Research Office (ARO).
