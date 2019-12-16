@@ -1,0 +1,132 @@
+\begin{thebibliography}{10}
+
+\bibitem{tilde}
+H.~Blockeel.
+\newblock Top-down induction of first order logical decision trees.
+\newblock {\em AI Commun.}, 12(1-2), 1999.
+
+\bibitem{bruno2012flexible}
+N.~Bruno, R.~Ramamurthy, and S.~Chaudhuri.
+\newblock Flexible query hints in a relational database, May~29 2012.
+\newblock US Patent 8,190,595.
+
+\bibitem{chen1976entity}
+P.~P.-S. Chen.
+\newblock The {E}ntity-{R}elationship {M}odel--{T}oward a {U}nified {V}iew of
+  {D}ata.
+\newblock {\em ACM Transactions on Database Systems (TODS)}, 1(1):9--36, 1976.
+
+\bibitem{diab2009search}
+A.~Diab, S.~A. Gatz, S.~Kapur, D.~Ku, C.~Kung, P.~Hoang, Q.~Lu, L.~Pogue, Y.~K.
+  Shen, N.~Shi, et~al.
+\newblock Search system using search subdomain and hints to subdomains in
+  search query statements and sponsored results on a subdomain-by-subdomain
+  basis, Mar.~3 2009.
+\newblock US Patent 7,499,914.
+
+\bibitem{garcia2009database}
+H.~Garcia-Molina, J.~D. Ullman, and J.~Widom.
+\newblock {\em Database Systems, Second Edition}.
+\newblock Pearson Education, Inc, 2009.
+
+\bibitem{prm}
+L.~Getoor, N.~Friedman, D.~Koller, and A.~Pfeffer.
+\newblock Learning probabilistic relational models.
+\newblock {\em Relational Data Mining, S. Dzeroski and N. Lavrac, Eds.}, 2001.
+
+\bibitem{srlBook}
+L.~Getoor and B.~Taskar.
+\newblock {\em Introduction to Statistical Relational Learning}.
+\newblock MIT Press, 2007.
+
+\bibitem{daper}
+D.~Heckerman, C.~Meek, and D.~Koller.
+\newblock Probabilistic models for relational data.
+\newblock Technical Report MSR-TR-2004-30, March 2004.
+
+\bibitem{PRA}
+N.~Lao and W.~W. Cohen.
+\newblock Relational retrieval using a combination of path-constrained random
+  walks.
+\newblock {\em Machine learning}, 81(1):53--67, 2010.
+
+\bibitem{lohman2000relational}
+G.~M. Lohman, E.~J. Shekita, D.~E. Simmen, and M.~S. Urata.
+\newblock Relational database query optimization to perform query evaluation
+  plan, pruning based on the partition properties, July~18 2000.
+\newblock US Patent 6,092,062.
+
+\bibitem{malec2016inductive}
+M.~Malec, T.~Khot, J.~Nagy, E.~Blasch, and S.~Natarajan.
+\newblock Inductive logic programming meets relational databases: An
+  application to statistical relational learning.
+\newblock In {\em ILP}, 2016.
+
+\bibitem{bottomupmln07}
+L.~Mihalkova and R.~Mooney.
+\newblock Bottom-up learning of {Markov logic} network structure.
+\newblock In {\em ICML}, pages 625--632, 2007.
+
+\bibitem{natarajan2015boosted}
+S.~Natarajan, K.~Kersting, T.~Khot, and J.~Shavlik.
+\newblock {\em Boosted Statistical Relational Learners: From Benchmarks to
+  Data-Driven Medicine}.
+\newblock Springer, 2015.
+
+\bibitem{boostingMLJ12}
+S.~Natarajan, T.~Khot, K.~Kersting, B.~Gutmann, and J.~Shavlik.
+\newblock Gradient-based boosting for statistical relational learning: The
+  {Relational Dependency Network} case.
+\newblock {\em MLJ}, 2012.
+
+\bibitem{natarajan10}
+S.~Natarajan, T.~Khot, K.~Kersting, B.~Guttmann, and J.~Shavlik.
+\newblock Boosting {R}elational {D}ependency networks.
+\newblock In {\em ILP}, 2010.
+
+\bibitem{niuvldb11}
+F.~Niu, C.~R{\'e}, A.~Doan, and J.~Shavlik.
+\newblock Tuffy: Scaling up statistical inference in markov logic networks
+  using an rdbms.
+\newblock {\em CoRR}, abs/1104.3216, 2011.
+
+\bibitem{odom2016ECML}
+P.~Odom and S.~Natarajan.
+\newblock Actively interacting with experts: A probabilistic logic approach.
+\newblock In {\em ECML}, 2016.
+
+\bibitem{poon07}
+H.~Poon and P.~Domingos.
+\newblock Joint inference in information extraction.
+\newblock In {\em AAAI}, pages 913--918, 2007.
+
+\bibitem{starAIbook}
+L.~D. Raedt, K.~Kersting, S.~Natarajan, and D.~Poole.
+\newblock {\em Statistical relational artificial intelligence: Logic,
+  probability, and computation}.
+\newblock Morgan \& Claypool Publishers, 2016.
+
+\bibitem{aleph}
+A.~Srinivasan.
+\newblock {\em {The Aleph Manual}}, 2004.
+
+\bibitem{walker2011integrating}
+T.~Walker, G.~Kunapuli, N.~Larsen, D.~Page, and J.~Shavlik.
+\newblock Integrating knowledge capture and supervised learning through a
+  human-computer interface.
+\newblock In {\em KCAP}, 2011.
+
+\bibitem{walker2010automating}
+T.~Walker, C.~O'Reilly, G.~Kunapuli, S.~Natarajan, R.~Maclin, D.~Page, and
+  J.~Shavlik.
+\newblock Automating the {ILP} {S}etup {T}ask: {C}onverting {U}ser {A}dvice
+  about {S}pecific {E}xamples into {G}eneral {B}ackground {K}nowledge.
+\newblock In {\em International Conference on Inductive Logic Programming},
+  pages 253--268. Springer, 2010.
+
+\bibitem{zeng2014quickfoil}
+Q.~Zeng, J.~M. Patel, and D.~Page.
+\newblock Quickfoil: scalable inductive logic programming.
+\newblock {\em Proceedings of the VLDB Endowment}, 2014.
+
+\end{thebibliography}
