@@ -4,7 +4,7 @@
 
 <br><br>
 
-Source code and TeX for "User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams." K-CAP 2017
+Source code and TeX for "*User Friendly Automatic Construction of Background Knowledge: Mode Construction from ER Diagrams*." K-CAP 2017
 
 [![](https://img.shields.io/badge/DOI-10.1145%2F3148011.3148027-blue)](https://doi.org/10.1145/3148011.3148027)
 
@@ -12,9 +12,11 @@ Source code and TeX for "User Friendly Automatic Construction of Background Know
 
 Explore further on [hayesall.com](https://hayesall.com/publications/construction-background-knowledge/).
 
-- [Read Online](https://starling.utdallas.edu/assets/pdfs/KCAP17Mode.pdf)
+- [📄 Read Online](https://starling.utdallas.edu/assets/pdfs/KCAP17Mode.pdf)
   - [ACM Digital Library](https://dl.acm.org/citation.cfm?doid=3148011.3148027)
-- [Download a PDF](https://github.com/starling-lab/Walk-ER/raw/master/TeX_src/UserFriendlyAutomatedConstructionOfBackgroundKnowledge.pdf)
+  - [Preprint - arXiv:1912.07650 [cs.AI]](https://arxiv.org/abs/1912.07650)
+  - [DeepAI Publication Page](https://deepai.org/publication/user-friendly-automatic-construction-of-background-knowledge-mode-construction-from-er-diagrams)
+- [📥 Download a PDF](https://github.com/starling-lab/Walk-ER/raw/master/TeX_src/UserFriendlyAutomatedConstructionOfBackgroundKnowledge.pdf)
 
 ### Updates
 
